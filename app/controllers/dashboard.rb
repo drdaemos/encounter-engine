@@ -8,12 +8,10 @@ class Dashboard < Application
     @game_entries = []
     @teams = []
     @games.each do |game|
-      GameEntry.all(:conditions =>
-          {:game_id => game.id, :status => "new"}).each do |entry|
+      GameEntry.of_game(@game).with_status("new").each do |entry|
         @game_entries << entry
       end
-      GameEntry.all(:conditions =>
-          {:game_id => game.id, :status => "accepted"}).each do |entry|
+      GameEntry.of_game(@game).with_status("accepted").each do |entry|
         @teams << Team.find(entry.team_id)
       end
     end
