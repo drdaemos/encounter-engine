@@ -8,7 +8,6 @@ class Teams < Application
   end
 
   def create
-    
     @team.captain = @current_user
     if @team.save
       redirect url(:dashboard)

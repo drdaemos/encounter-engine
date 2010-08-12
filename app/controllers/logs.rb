@@ -10,24 +10,24 @@ class Logs < Application
   end
 
   def show_live_channel
-    @logs = Log.all :conditions => { :game_id => @game.id }
+    @logs = Log.of_game(@game)
     render
   end
 
   def show_level_log
-    @logs = Log.all :conditions => { :game_id => @game.id, :team => @team.name, :level => @level.name }
+    @logs = Log.of_game(@game).of_team(@team).of_level(@level)
     render
   end
 
   def show_game_log
-    @logs = Log.all :conditions => { :game_id => @game.id, :team => @team.name}
+    @logs = Log.of_game(@game).of_team(@team)
     render
   end
 
   def show_full_log
-    @logs = Log.all :conditions => { :game_id => @game.id}
-    @levels = Level.all :conditions => { :game_id => @game.id }
-    @teams = Team.find_by_sql("select * from teams t inner join game_passings gp on t.id = gp.team_id where gp.game_id = #{@game.id}")
+    @logs = Log.of_game(@game)
+    @levels = @game.levels
+    @teams = Team.find_by_sql("select * from teams t inner join game_passings gp on t.id = gp.team_id where gp.game_id = #{@game.id}") # aaargh omg wtf o_0
     render
   end
 
