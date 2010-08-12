@@ -81,10 +81,6 @@ protected
   end
 
   def ensure_captain
-    if current_user.captain? && @game.created_by?(current_user)
-      return true
-    else
-      return false
-    end
+    current_user.captain? && @game.created_by?(current_user)
   end
 end
