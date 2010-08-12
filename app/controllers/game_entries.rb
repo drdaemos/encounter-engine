@@ -8,11 +8,9 @@ class GameEntries < Application
 
   def new
     if @game.can_request?
-      @game_entry = GameEntry.new
-      @game_entry.status = "new"
-      @game_entry.game = @game
-      @game_entry.team_id = @team.id
-      @game_entry.save
+      @game_entry = GameEntry.create! :status => "new",
+          :game => @game,
+          :team_id => @team.id
       @game.reserve_place_for_team!
     end
     redirect url(:dashboard)
