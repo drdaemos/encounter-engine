@@ -7,6 +7,10 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <ul class="hmenu">
+    <%= render :partial => 'layouts/auth_widget' %>
+  </ul>
+  
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
