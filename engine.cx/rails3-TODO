@@ -1,0 +1,9 @@
+devise
+rails_admin
+cancan
+copy features
+make features run
+adopt merb-rails3 gem
+copy app
+make features green
+merge back to mega-release
