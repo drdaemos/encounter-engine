@@ -1,9 +1,11 @@
 V devise
-rails_admin
-cancan
+V rails_admin
+V cancan
 copy features
 make features run
+what is faster: load schema once and truncate or load each time?
 adopt merb-rails3 gem
 copy app
 make features green
 merge back to mega-release
+set up production mode
