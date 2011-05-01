@@ -4,11 +4,6 @@ Given /^я на (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Given /^(?:|я )должен быть перенаправлен в (.*)$/ do |page_name|
-  current_path = URI.parse(current_url).path
-  current_path.should == path_to(page_name)
-end
-
 When /захожу по адресу (.*)$/ do |path|
   visit path
 end
@@ -62,4 +57,15 @@ end
 
 Then /^(?:|я )не должен (?:|у)видеть "(.*)"/ do |text|
   page.should have_no_content(text)
+end
+
+Then /^(?:|я )должен быть в (.*)$/ do |page_name|
+  current_path = URI.parse(current_url).path
+  current_path.should == path_to(page_name)
+end
+
+Then /^(?:|я )должен быть перенаправлен в (.*)$/ do |page_name|
+  steps %Q{
+    Then я должен быть в #{page_name}
+  }
 end

@@ -1,8 +1,10 @@
 V devise
 V rails_admin
 V cancan
-copy features
-make features run
+V copy a small amount of features && app
+make it green
+copy all features
+make all features run
 what is faster: load schema once and truncate or load each time?
 adopt merb-rails3 gem
 copy app

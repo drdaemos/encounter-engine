@@ -13,7 +13,7 @@ module NavigationHelpers
     when /главн.. страниц./
       '/'
 
-    when /личный кабинет/
+    when /личн.. кабинет.*/
       '/dashboard'
 
     # Add more mappings here.
