@@ -10,11 +10,11 @@ end
 When %r{пытаюсь зарегистрироваться как (.*)}i do |nickname|
   email = "#{nickname.downcase}@diesel.kg"
 
-  Given %{я захожу по адресу /signup}
-  When %{я ввожу "#{nickname}" в поле "Имя"}
+  Given %{я захожу на главную страницу}
+  And %{я нажимаю "Зарегистрироваться"}
   When %{ввожу "#{email}" в поле "Email"}
   When %{ввожу "#{@the_password}" в поле "Пароль"}
-  When %{ввожу "#{@the_password}" в поле "Подтверждение"}
+  When %{ввожу "#{@the_password}" в поле "Пароль еще раз"}
   When %{нажимаю "Зарегистрироваться"}
 end
 

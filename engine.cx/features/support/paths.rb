@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 module NavigationHelpers
   # Maps a name to a path. Used by the
   #
@@ -8,7 +10,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /the home\s?page/
+    when /главн.. страниц./
       '/'
 
     # Add more mappings here.

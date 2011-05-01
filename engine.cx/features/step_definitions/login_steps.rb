@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 Given %r{разлогиниваюсь$}i do
-  Given %{захожу по адресу /logout}
+  steps %Q{
+    Given я захожу на главную страницу
+    And захожу по адресу /users/sign_out
+  }
 end
 
-Given %r{не залогинен$}i do
+Given %r{я не залогинен$}i do
   Given %{я разлогиниваюсь}
 end
 
