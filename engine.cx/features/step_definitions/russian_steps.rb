@@ -4,6 +4,11 @@ Given /^я на (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^(?:|я )должен быть перенаправлен в (.*)$/ do |page_name|
+  current_path = URI.parse(current_url).path
+  current_path.should == path_to(page_name)
+end
+
 When /захожу по адресу (.*)$/ do |path|
   visit path
 end
@@ -32,11 +37,11 @@ Then /должен увидеть сообщение "(.*)"$/ do |text|
   Then %{должен увидеть "#{text}"}
 end
 
-Then /должен увидеть "(.*)"$/ do |text|
+Then /^(?:|я )должен увидеть "(.*)"$/ do |text|
   page.should have_content(text)
 end
 
-Then /должен увидеть \/(.*)\/$/ do |regex|
+Then /^должен увидеть \/(.*)\/$/ do |regex|
   page.should have_xpath('//*', :text => regexp)
 end
 
@@ -45,4 +50,16 @@ Then /должен увидеть следующее:/ do |strings_table|
   strings.each do |string|
     Then %{должен увидеть "#{string}"}
   end
+end
+
+Then /^(?:|я )должен увидеть ссылку на (.*)/ do |page_name|
+  page.should have_xpath("a[@href='#{path_to(page_name)}']")
+end
+
+Then /^(?:|я )не должен (?:|у)видеть ссылку на (.*)/ do |page_name|
+  page.should have_no_xpath("a[@href='#{path_to(page_name)}']")
+end
+
+Then /^(?:|я )не должен (?:|у)видеть "(.*)"/ do |text|
+  page.should have_no_content(text)
 end

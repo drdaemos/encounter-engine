@@ -13,6 +13,9 @@ module NavigationHelpers
     when /главн.. страниц./
       '/'
 
+    when /личный кабинет/
+      '/dashboard'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
