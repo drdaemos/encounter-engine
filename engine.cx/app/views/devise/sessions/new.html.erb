@@ -4,7 +4,7 @@
   <p><%= f.label :email %><br />
   <%= f.email_field :email %></p>
 
-  <p><%= f.label "Пароль" %><br />
+  <p><%= f.label :password, "Пароль" %><br />
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
