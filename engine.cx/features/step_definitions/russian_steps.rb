@@ -4,12 +4,20 @@ Given /^я на (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^я нахожусь на на (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
+Given /^я захожу на (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
 When /захожу по адресу (.*)$/ do |path|
   visit path
 end
 
 When /нажимаю "(.*)"$/ do |link_or_button|
-  click_on(link_or_button)
+  click_button(link_or_button)
 end
 
 When /иду по ссылке "(.*)"$/ do |link|
@@ -64,7 +72,7 @@ Then /^(?:|я )должен быть в (.*)$/ do |page_name|
   current_path.should == path_to(page_name)
 end
 
-Then /^(?:|я )должен быть перенаправлен в (.*)$/ do |page_name|
+Then /^(?:|я )должен быть перенаправлен (?:в|на) (.*)$/ do |page_name|
   steps %Q{
     Then я должен быть в #{page_name}
   }
