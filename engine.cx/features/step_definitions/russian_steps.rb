@@ -59,6 +59,10 @@ Then /^(?:|я )должен увидеть ссылку на (.*)/ do |page_name
   page.should have_xpath("a[@href='#{path_to(page_name)}']")
 end
 
+Then /^(?:|я )должен увидеть ссылку "(.*)"/ do |link_text|
+  page.should have_xpath("//a[text()='#{link_text}']")
+end
+
 Then /^(?:|я )не должен (?:|у)видеть ссылку на (.*)/ do |page_name|
   page.should have_no_xpath("a[@href='#{path_to(page_name)}']")
 end

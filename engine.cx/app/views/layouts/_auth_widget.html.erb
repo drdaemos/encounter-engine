@@ -1,19 +1,12 @@
 <% if user_signed_in? %>
   <li>
-  <%= link_to('Выйти', destroy_user_session_path) %>        
+    <%= link_to('Выйти', destroy_user_session_path) %>
+    <%= link_to('Edit registration', edit_user_registration_path) %>
+    <%= link_to('Личный кабинет', dashboard_path) %>
   </li>
 <% else %>
   <li>
-  <%= link_to('Войти', new_user_session_path)  %>  
-  </li>
-<% end %>
-
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Зарегистрироваться', new_user_registration_path)  %>
+    <%= link_to('Войти', new_user_session_path)  %>
+    <%= link_to('Зарегистрироваться', new_user_registration_path)  %>
   </li>
 <% end %>
