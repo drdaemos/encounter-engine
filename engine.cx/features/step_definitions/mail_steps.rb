@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 def deliveries_for(email)
   deliveries = []
   ActionMailer::Base.deliveries.each do |delivery|
