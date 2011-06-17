@@ -34,3 +34,4 @@ features/step_definitions
 db/development.sqlite
 bin/*
 engine.cx/bin/*
+/eproject.cfg
