@@ -1,13 +1,14 @@
 V devise
 V rails_admin
 V cancan
-V copy a small amount of features && app
+V copy auth/signup features
 make it green
-copy all features
-make all features run
-what is faster: load schema once and truncate or load each time?
-adopt merb-rails3 gem
-copy app
+copy business-logic resource and convert it
 make features green
+adopt merb-rails3 gem
+copy the rest of app code
+! Wrap up a list of what to be done
+make all features green
+what is faster: load schema once and truncate or load each time?
 merge back to mega-release
 set up production mode
