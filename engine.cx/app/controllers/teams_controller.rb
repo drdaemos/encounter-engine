@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
 
   def create
     if @team.save
-      redirect url(:dashboard)
+      redirect_to dashboard_url
     else
       render :new
     end
@@ -25,6 +25,6 @@ class TeamsController < ApplicationController
   end
 
   def ensure_not_member_of_any_team
-    raise Unauthorized, "Вы уже являетесь членом команды" if current_user.member_of_any_team?
+    raise "Вы уже являетесь членом команды" if current_user.member_of_any_team?
   end
 end

@@ -1,1 +1,31 @@
-Личный кабинет, йоба
+<p>
+   Вы <%= @current_user.nickname %>
+</p>
+
+<p>
+   <%= render 'my_team' %>
+</p>
+
+<p>
+   <%#= partial 'my_games' %>
+</p>
+
+<p>
+  <%#= partial 'shared/current_games' %>
+</p>
+
+<p>
+  <%#= partial 'dashboard/coming_games' %>
+</p>
+
+<p>
+  <%#= partial 'dashboard/finished_games' %>
+</p>
+
+<p>
+  <%#= partial 'games/game_entries', :game_entries => @game_entries  %>
+</p>
+
+<p>
+  <%#= partial 'games/teams', :teams => @teams  %>
+</p>

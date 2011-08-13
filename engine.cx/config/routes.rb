@@ -4,6 +4,7 @@ EngineCx::Application.routes.draw do
   devise_for :users
 
   match "/dashboard" => "dashboard#index", :as => :dashboard
+  match "/team_room" => "team_room#index", :as => :team_room
 
   root :to => "index#index"
 
