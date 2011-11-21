@@ -6,4 +6,4 @@ std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip
 
 default: <%= std_opts %> -r features/support -r features/step_definitions features
 wip: --tags @wip:3 --wip features
-rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+rerun: <%= rerun_opts %> -r features/support -r features/step_definitions --format rerun --out rerun.txt --strict --tags ~@wip
