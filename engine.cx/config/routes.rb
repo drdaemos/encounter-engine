@@ -1,10 +1,11 @@
 EngineCx::Application.routes.draw do
   resources :teams
+  resources :invitations
 
   devise_for :users
 
   match "/dashboard" => "dashboard#index", :as => :dashboard
-  match "/team_room" => "team_room#index", :as => :team_room
+  match "/team-room" => "team_room#index", :as => :team_room
 
   root :to => "index#index"
 

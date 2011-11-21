@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   include SharedFilters
 
+  rescue_from Unauthorized, :with => :unauthorized
+
+  def unauthorized(exception)
+    render :text => exception.message
+  end
+
   def logged_in?
     !! current_user
   end

@@ -1,0 +1,33 @@
+Команда <%= @team.name %> <br />
+<br />
+
+<fieldset>
+  <legend>
+    Состав
+  </legend>
+
+  <% @team.members.each do |member| %>
+    <p>
+      <%= member.nickname %> <%= "- капитан" if member.captain? %>
+    </p>
+  <% end %>
+
+  <br />
+  <hr class="short-line" />
+
+  <p>
+    <%= link_to "Пригласить участников", new_invitation_path if @current_user.captain? %>
+  </p>
+</fieldset>
+
+<br />
+
+<%#=render 'shared/current_games' %>
+
+<b />
+
+<%#=render 'dashboard/coming_games' %>
+
+<b />
+
+<%#= render 'dashboard/finished_games' %>

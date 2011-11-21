@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+class Unauthorized < RuntimeError; end
+
 class ApplicationController
   module SharedFilters
     protected
