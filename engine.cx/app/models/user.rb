@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # Temporary fix. Nickname should be asked on signup
   # TODO: Ask for nickname on signup
   def nickname
-    email.split('@').first
+    email.split('@').first.capitalize
   end
 
   def member_of_any_team?
