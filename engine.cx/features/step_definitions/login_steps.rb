@@ -25,7 +25,9 @@ end
 When %r{логинюсь как (.*)$} do |nickname|
   email = "#{nickname.downcase}@diesel.kg"
 
-  step %{я захожу по адресу /login}
+  step %{я разлогиниваюсь}
+  step %{я захожу на главную страницу}
+  step %{иду по ссылке "Войти"}
   step %{ввожу "#{email}" в поле "Email"}
   step %{ввожу "123456" в поле "Пароль"}
   step %{нажимаю "Войти"}
