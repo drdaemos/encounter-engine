@@ -7,8 +7,8 @@ module FixturesHelper
     random_nickname = "valid" + random_string
     random_email = random_nickname + "@diesel.kg"
 
-    User.create! :nickname => random_nickname, :email => random_email, :password => "1234",
-      :password_confirmation => "1234"
+    User.create! :nickname => random_nickname, :email => random_email, :password => "123456",
+      :password_confirmation => "123456"
   end
 
   def create_team(options={})
