@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @team.members.inspect
     if @team.save
       redirect_to dashboard_url
     else

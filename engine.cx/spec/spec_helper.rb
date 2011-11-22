@@ -8,10 +8,11 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-include FixturesHelper
-
 RSpec.configure do |config|
   config.before(:suite) { load_db_schema }
+  
+  config.include FixturesHelper
+  config.include ExceptionsHelper
   
   # == Mock Framework
   #

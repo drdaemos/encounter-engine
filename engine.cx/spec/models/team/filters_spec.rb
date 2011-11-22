@@ -20,9 +20,7 @@ describe Team do
   describe "when assigning an 'external' user as a captain" do
     before :each do
       @captain = create_user
-      @member = create_user
       @team = create_team
-      @team.members << [@member]
 
       @team.captain = @captain
       @team.save
@@ -34,6 +32,7 @@ describe Team do
 
     it "adds captain to members list" do
       @team.members.should include(@captain)
+      @captain.should be_member_of_any_team
     end
   end
 end
