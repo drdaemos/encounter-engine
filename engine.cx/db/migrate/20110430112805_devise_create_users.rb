@@ -6,6 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.rememberable
       t.trackable
       t.timestamps
+
+      t.string :nickname
     end
 
     add_index :users, :email,                :unique => true

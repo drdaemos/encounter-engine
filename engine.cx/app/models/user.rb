@@ -3,19 +3,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :nickname, :email, :password, :password_confirmation, :remember_me
 
   belongs_to :team
 
   # has_many :created_games, :class_name => "Game", :foreign_key => "author_id"
 
   validates_uniqueness_of :email, :message => "Пользователь с таким адресом уже зарегистрирован"
-
-  # Temporary fix. Nickname should be asked on signup
-  # TODO: Ask for nickname on signup
-  def nickname
-    email.split('@').first.capitalize
-  end
 
   def member_of_any_team?
     !! team
