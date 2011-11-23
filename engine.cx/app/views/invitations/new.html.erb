@@ -1,0 +1,47 @@
+<%= javascript_include_tag 'jquery.js', 'jquery.autocomplete.js' %>
+<%= stylesheet_link_tag  'jquery.autocomplete.css' %>
+
+<script>
+   $(document).ready(function() {
+
+        var data = new Array();
+        <% @all_users.each do |user| %>
+            <%if user!=@current_user%>
+                data.push({nick: '<%=user.nickname%>', email: '<%=user.email%>'});
+            <%end%>
+        <% end %>
+        $("#invitation_recepient_nickname").autocomplete(data, {
+            minChars: 1,
+            width: 310,
+            matchContains: "word",
+            autoFill: false,
+            formatItem: function(row, i, max) {
+                return i + "/" + max + ": \"" + row.nick + "\" [" + row.email + "]";
+            },
+            formatMatch: function(row) {
+                return row.nick + " " + row.email;
+            },
+            formatResult: function(row) {
+                return row.nick;
+            }
+        });
+    })
+
+</script>
+
+<% if @invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2>Проблема:</h2>
+      <ul>
+      <% @invitation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for(@invitation) do |f| %>
+    <%= f.label :recepient_nickname, "Пригласить нового участника" %><br />
+    <%= f.text_field :recepient_nickname %>
+    <%= f.submit "Пригласить" %>
+<% end %>
