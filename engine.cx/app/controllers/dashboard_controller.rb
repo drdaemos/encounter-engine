@@ -22,8 +22,7 @@ class DashboardController < ApplicationController
 protected
 
   def find_invitations_for_current_user
-    # @invitations = Invitation.for @current_user
-    @invitations = []
+    @invitations = Invitation.for current_user
   end
 
   def find_team

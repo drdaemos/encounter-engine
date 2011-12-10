@@ -28,12 +28,12 @@ class InvitationsController < ApplicationController
 
     reject_rest_of_invitations    
 
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def reject    
     @invitation.delete
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
 protected

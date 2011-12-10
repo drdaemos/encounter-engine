@@ -1,6 +1,11 @@
 EngineCx::Application.routes.draw do
   resources :teams
-  resources :invitations
+  resources :invitations do
+    member do
+      get 'accept'
+      get 'reject'
+    end
+  end
 
   devise_for :users
 
