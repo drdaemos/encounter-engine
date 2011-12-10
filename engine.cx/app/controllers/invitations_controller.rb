@@ -46,7 +46,6 @@ protected
   def reject_rest_of_invitations
     Invitation.for(@current_user).each do |invitation|
       invitation.delete
-      send_reject_notification(invitation)
     end
   end
 
