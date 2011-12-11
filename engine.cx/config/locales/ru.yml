@@ -240,6 +240,10 @@ ru:
       record_invalid: "Возникли ошибки: %{errors}"
 
   activerecord:
+    attributes:
+      user:
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
     errors:
       template:
         header:
