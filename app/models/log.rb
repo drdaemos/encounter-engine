@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Log < ActiveRecord::Base
+class Log < ApplicationRecord
   belongs_to :game
 
   scope :of_game, ->(game) { where(game_id: game) }

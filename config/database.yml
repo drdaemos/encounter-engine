@@ -1,15 +1,25 @@
----
-:development: &defaults
-  :adapter: sqlite3
-  :database: db/development.sqlite
-  :encoding: utf8
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
-:test:
-  :adapter: sqlite3
-  :database: ":memory:"
-  :encoding: utf8
+development:
+  <<: *default
+  database: db/development.sqlite3
 
-:production: <%= ENV['DATABASE_URL'] %>
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
 
-:rake:
-  <<: *defaults
+production:
+  <<: *default
+  database: db/production.sqlite3

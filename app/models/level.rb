@@ -1,7 +1,6 @@
 # coding: utf-8
-require Merb.root + '/lib/ee_strings'
 
-class Level < ActiveRecord::Base
+class Level < ApplicationRecord
   acts_as_list :scope => :game
 
   belongs_to :game
@@ -39,7 +38,7 @@ class Level < ActiveRecord::Base
 
   def find_question_by_answer(answer_value)
     self.questions.detect do |question|
-      question.answers.any? { |answer| answer.value.to_s.upcase_utf8_cyr == answer_value.to_s.upcase_utf8_cyr }
+      question.answers.any? { |answer| UnicodeUtils.upcase(answer.value.to_s) == UnicodeUtils.upcase(answer_value.to_s)}
     end
   end
 end

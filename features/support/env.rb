@@ -9,7 +9,7 @@ require "merb_cucumber/world/webrat"
 require "merb_cucumber/helpers/activerecord"
 
 # Recursively Load all steps defined within features/**/*_steps.rb
-Dir["#{Merb.root}" / "features" / "**" / "*_steps.rb"].each { |f| require f }
+Dir["#{Rails.root}" / "features" / "**" / "*_steps.rb"].each { |f| require f }
 
 # Uncomment if you want transactional fixtures
 # Merb::Test::World::Base.use_transactional_fixtures
@@ -18,4 +18,4 @@ Dir["#{Merb.root}" / "features" / "**" / "*_steps.rb"].each { |f| require f }
 # http://gist.github.com/37930
 def Spec.run? ; true; end
 
-Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')
+# Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')

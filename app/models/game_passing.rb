@@ -1,4 +1,4 @@
-class GamePassing < ActiveRecord::Base
+class GamePassing < ApplicationRecord
   serialize :answered_questions
 
   belongs_to :team

@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Game < ActiveRecord::Base
+class Game < ApplicationRecord
   belongs_to :author, :class_name => "User"
   has_many :levels, -> {  order('position') }
   has_many :logs, -> { order('time') }

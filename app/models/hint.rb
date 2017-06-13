@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Hint < ActiveRecord::Base
+class Hint < ApplicationRecord
   belongs_to :level
 
   def delay_in_minutes

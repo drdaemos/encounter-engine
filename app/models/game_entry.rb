@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class GameEntry < ActiveRecord::Base
+class GameEntry < ApplicationRecord
   belongs_to :game
   belongs_to :team
 

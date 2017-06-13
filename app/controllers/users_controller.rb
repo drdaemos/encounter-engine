@@ -1,0 +1,58 @@
+# coding: utf-8
+class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+    display @user
+  end
+
+  def index
+    render
+  end
+
+  def new
+    only_provides :html
+    @user = User.new(params[:user])
+    render
+  end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      authenticate_user @user
+      send_welcome_letter_to @user
+      redirect url(:dashboard)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @user = @_current_user
+    render
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect resource(:users)
+    else
+      render :edit
+    end
+  end
+
+protected
+
+  def authenticate_user(user)
+    session[:current_user_id] = user.id
+  end
+
+  def send_welcome_letter_to(user)
+    send_mail NotificationMailer, :welcome_letter,
+      { :to => user.email,
+        :from => "noreply@bien.kg",
+        :subject => "Регистрация на bienkg" },
+      { :email => user.email,
+        :password => user.password
+      }
+  end
+end

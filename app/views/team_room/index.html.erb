@@ -16,7 +16,7 @@
   <hr class="short-line" />
 
   <p>
-    <%= link_to "Пригласить участников", resource(:invitations, :new) if @current_user.captain? %>
+    <%= link_to "Пригласить участников", resource(:invitations, :new) if @_current_user.captain? %>
   </p>
 </fieldset>
 

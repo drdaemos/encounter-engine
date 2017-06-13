@@ -2,7 +2,7 @@
 class ActiveRecordHelper
   class << self
     def recreate_database!
-      migrations_path = Merb.root / "schema" / "migrations"
+      migrations_path = Rails.root / "schema" / "migrations"
 
       load_schema = lambda {
         ActiveRecord::Migrator.down(migrations_path, 0)

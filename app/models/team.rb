@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Team < ActiveRecord::Base
+class Team < ApplicationRecord
   has_many :game_entries, :class_name => "GameEntry"
   has_many :members, :class_name => "User"
   belongs_to :captain, :class_name => "User"

@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   belongs_to :team
 
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"

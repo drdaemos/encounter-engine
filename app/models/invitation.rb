@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Invitation < ActiveRecord::Base
+class Invitation < ApplicationRecord
   belongs_to :to_team, :class_name => "Team"
   belongs_to :for_user, :class_name => "User"
 

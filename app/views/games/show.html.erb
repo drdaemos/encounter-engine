@@ -42,7 +42,7 @@
 
 <br />
 
-<% if logged_in? and @current_user.author_of?(@game) %>
+<% if logged_in? and @_current_user.author_of?(@game) %>
 
   <fieldset>
     <legend>
@@ -89,7 +89,7 @@
 </script>
 
 <br />
-<%= partial 'teams', :teams => @teams if (!logged_in?) || (logged_in? && !@current_user.author_of?(@game)) %>
+<%= partial 'teams', :teams => @teams if (!logged_in?) || (logged_in? && !@_current_user.author_of?(@game)) %>
 
 <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
    <%= link_to 'Начать тестирование', url("games/start_test/#{@game.id}") %>
