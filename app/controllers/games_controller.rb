@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class GamesController < ApplicationController
-  before_action :ensure_authenticated, :exclude => [:index, :show]
+  before_action :authenticate_user!, :exclude => [:index, :show]
   before_action :build_game, :only => [:new, :create]
   before_action :find_game, :only => [:show, :edit, :update, :delete, :end_game]
   before_action :find_team, :only => [:show]
@@ -100,7 +100,7 @@ class GamesController < ApplicationController
 
   def build_game
     @game = Game.new(params[:game])
-    @game.author = @_current_user
+    @game.author = current_user
   end
 
   def find_game
@@ -112,8 +112,8 @@ class GamesController < ApplicationController
   end
 
   def find_team
-    if @_current_user
-      @team = @_current_user.team
+    if current_user
+      @team = current_user.team
     else
       @team = nil
     end

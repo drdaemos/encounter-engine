@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class TeamsController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
   before_action :build_team
 
@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def create
 
-    @team.captain = @_current_user
+    @team.captain = current_user
     if @team.save
       redirect url(:dashboard)
     else

@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EncounterEngine</title>
+    <title>Активные городские игры</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
+    <script type='text/javascript' src="https://unpkg.com/vue"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <br />
+    <div id="header-container">
+      <div id="header">        
+        <%= render 'includes/header' %>
+      </div>
+   </div>
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+    <hr />
+    <br />
+    
+    <div id="left-container">
+      <div class="left">        
+        <%= render 'includes/left_menu' %>
+      </div>
+    </div>
+
+    <div id="main-container">
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

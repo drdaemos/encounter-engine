@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   belongs_to :team
 
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"

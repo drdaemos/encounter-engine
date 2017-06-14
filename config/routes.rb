@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :users do
+  devise_for :users
+  devise_scope :user do 
+    get '/signup', to: 'devise/registrations#new', as: :signup
+    get '/login', to: 'devise/sessions#new', as: :login
+    get '/logout', to: 'devise/sessions#destroy', as: :logout
+  end
+
+  resources :users, :only => [:index, :show] do
     resources :games
   end
 
@@ -34,7 +41,7 @@ Rails.application.routes.draw do
   get '/logs/full/:game_id', to: 'logs#show_full_log', as: :show_full_log # полный лог по игре
   
   get '/game_entries/new/:game_id/:team_id', to: 'game_entries#new', as: :new # отправка заявки
-  get '/signup', to: 'users#new', as: :signup
+
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/team-room', to: 'team_room#index', as: :team_room
 

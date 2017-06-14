@@ -1,31 +1,31 @@
 <p>
-  Вы <%= @_current_user.nickname %>
+  Вы <%= current_user.nickname %>
 </p>
 
 <br />
 
-<%= partial 'my_team' %>
+<%= render 'my_team' %>
   
 <br />
 
-<%= partial 'my_games' %>
+<%= render 'my_games' %>
 
 <br />
 
-<%= partial 'shared/current_games' %>
+<%= render 'shared/current_games' %>
 
 <br />
 
-<%= partial 'dashboard/coming_games' %>
+<%= render 'dashboard/coming_games' %>
 
 <br />
 
-<%= partial 'dashboard/finished_games' %>
+<%= render 'dashboard/finished_games' %>
 
 <br />
 
-<%= partial 'games/game_entries', :game_entries => @game_entries  %>
+<%= render 'games/game_entries', :game_entries => @game_entries  %>
 
 <br />
 
-<%= partial 'games/teams', :teams => @teams  %>
+<%= render 'games/teams', :teams => @teams  %>

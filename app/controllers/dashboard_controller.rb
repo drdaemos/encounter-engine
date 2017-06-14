@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 class DashboardController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :authenticate_user!
   before_action :find_invitations_for_current_user
   before_action :find_team
 
   def index
-    @games =Game.by(@_current_user)
+    @games =Game.by(current_user)
     @game_entries = []
     @teams = []
     @games.each do |game|
@@ -22,10 +22,10 @@ class DashboardController < ApplicationController
 protected
 
   def find_invitations_for_current_user
-    @invitations = Invitation.for @_current_user
+    @invitations = Invitation.for current_user
   end
 
   def find_team
-    @team = @_current_user.team if @_current_user.team
+    @team = current_user.team if current_user.team
   end
 end

@@ -3,14 +3,14 @@
     Моя команда
   </legend>
   
-  <% unless @_current_user.member_of_any_team? %>
+  <% unless current_user.member_of_any_team? %>
 
     <p>
       Вы не состоите ни в одной из команд
     </p>
 
     <p>
-      <%= link_to "Создать команду", [:teams, :new] %>
+      <%= link_to "Создать команду", :new_team %>
     </p>
     
     <br />
@@ -25,11 +25,11 @@
   <% else %>
 
     <p>
-      <%= @_current_user.captain? ? "Вы - капитан команды" : "Вы состоите в команде" %> <strong><%= @_current_user.team.name %></strong>
+      <%= current_user.captain? ? "Вы - капитан команды" : "Вы состоите в команде" %> <strong><%= current_user.team.name %></strong>
     </p>
     
     <p>
-      <%= link_to "Перейти в комнату команды", team_room_url) %>
+      <%= link_to "Перейти в комнату команды", team_room_url %>
     </p>
 
   <% end %>

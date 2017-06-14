@@ -16,18 +16,18 @@
   <hr class="short-line" />
 
   <p>
-    <%= link_to "Пригласить участников", resource(:invitations, :new) if @_current_user.captain? %>
+    <%= link_to "Пригласить участников", :new_invitation if current_user.captain? %>
   </p>
 </fieldset>
 
 <br />
 
-<%= partial 'shared/current_games' %>
+<%= render 'shared/current_games' %>
 
 <b />
 
-<%= partial 'dashboard/coming_games' %>
+<%= render 'dashboard/coming_games' %>
 
 <b />
 
-<%= partial 'dashboard/finished_games' %>
+<%= render 'dashboard/finished_games' %>

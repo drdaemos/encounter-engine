@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= link_to "Личный кабинет", :dashboard, :class => "home-link" %>
+<% else %>
+  <%= link_to "Главная", :index_page, :class => "home-link" %>
+<% end %>
+<%= Time.now.strftime("%Y-%m-%d %H:%M")%>

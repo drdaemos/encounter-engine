@@ -6,7 +6,7 @@ class GamePassingsController < ApplicationController
   before_action :find_game_by_id, :only => [:exit_game]
   before_action :find_team, :exclude => [:show_results, :index]
   before_action :find_or_create_game_passing, :exclude => [:show_results, :index]
-  before_action :ensure_authenticated, :exclude => [:index, :show_results]
+  before_action :authenticate_user!, :exclude => [:index, :show_results]
   before_action :ensure_game_is_started
   before_action :ensure_team_captain, :only => [:exit_game]
   before_action :ensure_not_finished, :exclude => [:index, :show_results]

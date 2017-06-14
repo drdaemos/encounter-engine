@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class InvitationsController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :authenticate_user!
 
   before_action :build_invitation, :only => [:new, :create]
   before_action :ensure_team_captain, :only => [:new, :create]
@@ -70,11 +70,11 @@ protected
 
   def add_user_to_team_members
     team = @invitation.to_team
-    team.members << @_current_user
+    team.members << current_user
   end
 
   def reject_rest_of_invitations
-    Invitation.for(@_current_user).each do |invitation|
+    Invitation.for(current_user).each do |invitation|
       invitation.delete
       send_reject_notification(invitation)
     end
@@ -82,7 +82,7 @@ protected
 
   def build_invitation
     @invitation = Invitation.new(params[:invitation])
-    @invitation.to_team = @_current_user.team
+    @invitation.to_team = current_user.team
   end
 
   def find_invitation
@@ -90,7 +90,7 @@ protected
   end
 
   def ensure_recepient
-    unless @_current_user.id == @invitation.for_user.id
+    unless current_user.id == @invitation.for_user.id
       raise Unauthorized, "Вы должны быть получателем приглашения чтобы выполнить это действие"
     end
   end

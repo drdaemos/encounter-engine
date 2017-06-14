@@ -1,9 +1,9 @@
-<h2>Редактирование профиля игрока <%= @_current_user.nickname %></h2>
+<h2>Редактирование профиля игрока <%= current_user.nickname %></h2>
 <br>
 
 <%= error_messages_for @user, :header => "<h2>Ошибка</h2>" %>
 
-<%= form_for @user, :action => resource(@user) do %>
+<%= form_for @user, :action => @user do %>
   <p><%= text_field :nickname, :label => "Ваше имя" %></p>
   <p><%= text_field :date_of_birth, :label => "Дата рождения" %></p>
   <p><%= text_field :icq_number, :label => "Номер ICQ" %></p>
@@ -13,5 +13,5 @@
   <p><%= text_field :password, :label => "Новый пароль" %></p>
   <p><%= text_field :password_confirmation, :label => "Подтверждение пароля" %></p>
   <%= submit "Принять изменения" %>
-  <em><%= link_to "(отменить)", url(:users) %></em>
+  <em><%= link_to "(отменить)", :users %></em>
 <% end =%>

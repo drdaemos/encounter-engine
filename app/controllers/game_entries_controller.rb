@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class GameEntriesController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :authenticate_user!
   before_action :find_game, :only=>:new
   before_action :find_team, :only=>:new
   before_action :find_entry, :exclude =>:new

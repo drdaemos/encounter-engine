@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class LogsController < ApplicationController
-  before_action :ensure_authenticated
+  before_action :authenticate_user!
   before_action :find_game
   before_action :ensure_author, :only => [:show_live_channel, :show_level_log, :show_game_log]
   before_action :find_team, :only => [:show_level_log, :show_game_log]

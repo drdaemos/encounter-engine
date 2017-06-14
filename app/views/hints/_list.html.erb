@@ -3,10 +3,10 @@
 <% else %>
     <% hints.each do |hint| %>
         <p>
-          <em>Через</em> <strong><%= link_to hint.delay_in_minutes, resource(hint.level.game, hint.level, hint, :edit) unless @level.game.started? %></strong> <em>минут:</em>
+          <em>Через</em> <strong><%= link_to hint.delay_in_minutes, [hint.level.game, hint.level, hint, :edit] unless @level.game.started? %></strong> <em>минут:</em>
           <em>
-            <%= link_to "(редактировать)", resource(hint.level.game, hint.level, hint, :edit) unless @level.game.started? %>
-            <%= link_to "(удалить)", resource(hint.level.game, hint.level, hint, :delete) unless @level.game.started? %>
+            <%= link_to "(редактировать)", [hint.level.game, hint.level, hint, :edit] unless @level.game.started? %>
+            <%= link_to "(удалить)", [hint.level.game, hint.level, hint, :delete] unless @level.game.started? %>
           </em>
         </p>
         <p>

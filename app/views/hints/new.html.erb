@@ -8,7 +8,7 @@
 
 <%= form_for @hint, :action => resource(@game, @level, :hints) do %>
 
-  <%= partial 'form', :hint => @hint %>
+  <%= render 'form', :hint => @hint %>
 
   <%= submit "Добавить подсказку", :style => "width:170px" %>
   <em><%= link_to "(отменить)", resource(@hint.level.game, @hint.level) %></em>

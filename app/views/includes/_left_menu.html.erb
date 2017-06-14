@@ -1,0 +1,45 @@
+<fieldset>
+<% if user_signed_in? %>
+  <legend>
+    <%= link_to current_user.nickname, :dashboard %>
+    <% if current_user.member_of_any_team? %>
+      (<%= link_to current_user.team.name, :team_room %>)
+    <% end %>
+  </legend>
+
+  <p>
+    <%= link_to "Личный кабинет", :dashboard %>
+  </p>
+
+  <p>
+    <%= link_to "Профиль", :users %>
+  </p>
+
+  <p>
+    <% if current_user.member_of_any_team? %>
+      <%= link_to "Комната команды", :team_room %>
+    <% else %>
+      <%= link_to "Создать команду", :new_team %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= link_to "Все игры домена", :games %>
+  </p>
+
+  <p>
+    <%= link_to "Выйти", :logout %>
+  </p>
+<% else %>
+  <legend>
+    &nbsp;Вход&nbsp;
+  </legend>
+
+  <p>
+    <%= link_to "Войти", :login %>
+  </p>
+
+  <p>
+    <%= link_to "Зарегистрироваться", :signup %> <br />
+  </p>
+<% end %>
