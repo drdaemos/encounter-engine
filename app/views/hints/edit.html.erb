@@ -10,6 +10,6 @@
 
   <%= render 'form', :hint => @hint %>
 
-  <%= submit "Отредактировать", :style => "width:150px" %>
+  <%= submit_tag "Отредактировать", :style => "width:150px" %>
   <em><%= link_to "(отменить)", resource(@hint.level.game, @hint.level) %></em>
 <% end =%>

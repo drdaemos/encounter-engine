@@ -6,7 +6,12 @@
   <em>(игра "<%= link_to @game.name, @game %>")</em>
 </p>
 
-<%= error_messages_for @answer, :header => "<h2>Ошибка</h2>" %>
+<h2>Ошибка</h2>
+<% if @answer.errors.any? %>
+  <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+  <% end %>
+<% end %>
 <br />
 
 <p>
@@ -25,6 +30,6 @@
 
 <%= form_for @answer, :action => [@game, @level, @question, :answers] do %>
   <p><%= text_field :value, :label => "Ещё один вариант кода" %></p>
-  <%= submit "Добавить вариант кода" %>
+  <%= submit_tag "Добавить вариант кода" %>
   <em><%= link_to "(отменить)", [@game, @level] %></em>
 <% end =%>

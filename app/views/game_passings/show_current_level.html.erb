@@ -65,9 +65,9 @@
   </div>
 <% end %>
 
-<%= form :action => url(:post_answer), :method => :post do %>
+<%= form :action => :post_answer, :method => :post do %>
   <p><%= text_field :name => 'answer', :label => "Код" %></p>
-  <%= submit "Отправить!" %>
+  <%= submit_tag "Отправить!" %>
 <% end =%>
 
 <br/>
@@ -77,5 +77,5 @@
 <% end %>
 <% if @game.is_testing? %>
   <br/>
-  <%= link_to "Завершить тестирование", url("games/finish_test/#{@game.id}") %>
+  <%= link_to "Завершить тестирование", "games/finish_test/#{@game.id}" %>
 <% end %>

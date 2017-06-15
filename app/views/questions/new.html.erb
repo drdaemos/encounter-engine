@@ -12,6 +12,6 @@
 
 <%= form_for @question, :action => resource(@game, @level, :questions) do %>
   <p><%= text_field :correct_answer, :label => "Код" %></p>
-  <%= submit "Добавить код" %>
+  <%= submit_tag "Добавить код" %>
   <em><%= link_to "(отменить)", resource(@game, @level) %></em>
 <% end =%>

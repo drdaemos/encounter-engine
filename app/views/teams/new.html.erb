@@ -1,6 +1,7 @@
 <%= error_messages_for @team, :header => "<h2>Ошибка</h2>" %>
 
-<%= form_for @team, :action => url(:teams) do %>
-  <p><%= text_field :name, :label => "Название" %></p>
-  <%= submit "Создать команду" %>
+<%= form_for @team, :action => :teams do |f| %>
+  <%= f.label 'Название' %><br />
+  <p><%= f.text_field :name %></p>
+  <%= submit_tag "Создать команду" %>
 <% end =%>

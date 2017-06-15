@@ -41,5 +41,5 @@
 
 <% if @game.is_testing? %>
   <br/>
-  <%= link_to "Завершить тестирование", url("games/finish_test/#{@game.id}") %>
+  <%= link_to "Завершить тестирование", "games/finish_test/#{@game.id}" %>
 <% end %>

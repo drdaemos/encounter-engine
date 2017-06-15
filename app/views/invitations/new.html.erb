@@ -32,7 +32,7 @@
 
 <%= error_messages_for @invitation %>
 
-<%= form_for @invitation, :action => url(:invitations) do %>
+<%= form_for @invitation, :action => :invitations do %>
     <%= text_field :recepient_nickname, :label => "Пригласить нового участника" %>
-    <%= submit "Пригласить" %>
+    <%= submit_tag "Пригласить" %>
 <% end =%>

@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
 
     @team.captain = current_user
     if @team.save
-      redirect url(:dashboard)
+      redirect_to :dashboard
     else
       render :new
     end
@@ -20,11 +20,15 @@ class TeamsController < ApplicationController
 
 protected
 
+  def team_params
+    params.require(:team).permit(:name)
+  end
+
   def build_team
-    @team = Team.new(params[:team])
+    @team = Team.new(team_params)
   end
 
   def ensure_not_member_of_any_team
-    raise Unauthorized, "Вы уже являетесь членом команды" if current_user.member_of_any_team?
+    raise UnauthorizedError, "Вы уже являетесь членом команды" if current_user.member_of_any_team?
   end
 end

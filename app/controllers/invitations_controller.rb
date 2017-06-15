@@ -91,7 +91,7 @@ protected
 
   def ensure_recepient
     unless current_user.id == @invitation.for_user.id
-      raise Unauthorized, "Вы должны быть получателем приглашения чтобы выполнить это действие"
+      raise UnauthorizedError, "Вы должны быть получателем приглашения чтобы выполнить это действие"
     end
   end
 end
