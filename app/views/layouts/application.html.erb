@@ -3,11 +3,8 @@
   <head>
     <title>Активные городские игры</title>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
-    <script type='text/javascript' src="https://unpkg.com/vue"></script>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %> 
+    <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>

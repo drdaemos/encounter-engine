@@ -21,3 +21,8 @@
 /yarn-error.log
 
 .byebug_history
+# Added by webpack-rails
+/node_modules
+/public/webpack
+/public/packs
+/node_modules

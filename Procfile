@@ -1,1 +1,4 @@
-web: bundle exec merb -a thin -p $PORT -e $RACK_ENV
+# Run Rails & Webpack concurrently
+# Example file from webpacker gem
+rails: bundle exec rails server
+webpack: ./bin/webpack-dev-server
