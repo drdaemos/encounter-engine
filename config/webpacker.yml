@@ -2,8 +2,8 @@
 
 default: &default
   assets_path: app/assets
-  source_path: app/components
-  source_entry_path: application
+  source_path: app/javascript
+  source_entry_path: packs
   public_output_path: packs
 
   extensions:

@@ -8,27 +8,28 @@
   </head>
 
   <body>
-    <br />
-    <div id="header-container">
-      <div id="header">        
-        <%= render 'includes/header' %>
-      </div>
-   </div>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <hr />
-    <br />
-    
-    <div id="left-container">
-      <div class="left">        
-        <%= render 'includes/left_menu' %>
-      </div>
-    </div>
+    <div id="encounter-app">
 
-    <div id="main-container">
-      <div id="main">
-        <%= yield %>
+      <div class="header-container">
+        <div class="header">        
+          <%= render 'includes/header' %>
+        </div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
-    </div>
+      
+      <div class="left-container">
+        <div class="left">        
+          <%= render 'includes/left_menu' %>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div id="main">
+          <%= yield %>
+        </div>
+      </div>
+
+    </div>      
   </body>
 </html>
