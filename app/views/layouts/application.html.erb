@@ -9,27 +9,31 @@
 
   <body>
     <div id="encounter-app">
+      <div class="app-grid">
 
-      <div class="header-container">
-        <div class="header">        
+        <div class="header-container">
           <%= render 'includes/header' %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
         </div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-      
-      <div class="left-container">
-        <div class="left">        
-          <%= render 'includes/left_menu' %>
-        </div>
-      </div>
+        
+        <div class="center-container">
+          <div class="sidebar-container">
+            <%= render 'includes/left_menu' %>
+          </div>
 
-      <div class="main-container">
-        <div id="main">
-          <%= yield %>
+          <div class="main-container">
+            <article>
+              <%= yield %>
+            </article>
+          </div>
         </div>
-      </div>
 
+        <div class="footer-container">
+            <%= render 'includes/footer' %>
+        </div>
+
+      </div>
     </div>      
   </body>
 </html>

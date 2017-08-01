@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
   def create
 
     @team.captain = current_user
+    byebug
     if @team.save
       redirect_to :dashboard
     else
@@ -21,7 +22,7 @@ class TeamsController < ApplicationController
 protected
 
   def team_params
-    params.require(:team).permit(:name)
+    params.permit(:name)
   end
 
   def build_team
