@@ -27,8 +27,8 @@ class LevelsController < ApplicationController
   end
 
   def update
-    if @level.update_attributes(params[:level])
-      redirect resource(@level.game, @level)
+    if @level.update(level_params)
+      redirect_to [@level.game, @level]
     else
       render :edit
     end
@@ -36,17 +36,17 @@ class LevelsController < ApplicationController
 
   def delete
     @level.destroy
-    redirect resource(@game)
+    redirect_to @game
   end
 
   def move_up
     @level.move_higher
-    redirect resource(@game)
+    redirect_to @game
   end
 
   def move_down
     @level.move_lower
-    redirect resource(@game)
+    redirect_to @game
   end
 
 protected
@@ -62,7 +62,6 @@ protected
   def build_level
     @level = Level.new(level_params)    
     @level.game = @game
-    @level.questions.reload
   end
 
   def find_level

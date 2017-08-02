@@ -40,7 +40,10 @@ Rails.application.routes.draw do
   get '/logs/game/:game_id/:team_id', to: 'logs#show_game_log', as: :show_game_log # лог по игре
   get '/logs/full/:game_id', to: 'logs#show_full_log', as: :show_full_log # полный лог по игре
   
-  get '/game_entries/new/:game_id/:team_id', to: 'game_entries#new', as: :new # отправка заявки
+  get '/game_entries/new/:game_id/:team_id', to: 'game_entries#new', as: :new_game_entry # отправка заявки
+  get '/game_entries/recall/:id', to: 'game_entries#recall', as: :recall_game_entry # отзыв заявки
+  get '/game_entries/cancel/:id', to: 'game_entries#cancel', as: :cancel_game_entry # отмен заявки
+  get '/game_entries/reopen/:id', to: 'game_entries#reopen', as: :reopen_game_entry # отмен заявки
 
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/team-room', to: 'team_room#index', as: :team_room

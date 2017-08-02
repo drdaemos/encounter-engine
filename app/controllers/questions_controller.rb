@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
     if @question.save
       @answer = @question.answers.first
       if @answer.save
-        redirect resource(@level.game, @level)
+        redirect_to [@level.game, @level]
       else
         @question.destroy
         build_question
@@ -26,6 +26,10 @@ class QuestionsController < ApplicationController
 
 protected
 
+  def question_params
+    params[:question].permit(:correct_answer) unless params[:question].nil?
+  end
+
   def find_game
     @game = Game.find(params[:game_id])
   end
@@ -35,7 +39,7 @@ protected
   end
 
   def build_question
-    @question = Question.new(params[:question])
+    @question = Question.new(question_params)
     @question.level = @level
   end
 end

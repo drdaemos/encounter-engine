@@ -1903,6 +1903,10 @@ forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
+foundation-datepicker@^1.5.6:
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/foundation-datepicker/-/foundation-datepicker-1.5.6.tgz#6dc891f3f6422028219f74284d1684548a8ca4bf"
+
 foundation-sites@^6.4.1:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.4.1.tgz#49bbf7b59675f9690c04528f4141cd0147094532"
@@ -2500,11 +2504,7 @@ json-loader@^0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.4.tgz#8baa1365a632f58a3c46d20175fc6002c96e37de"
 
-json-schema-traverse@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.3.0.tgz#0016c0b1ca1efe46d44d37541bcdfc19dcfae0db"
-
-json-schema-traverse@^0.3.1:
+json-schema-traverse@^0.3.0, json-schema-traverse@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz#349a6d44c53a51de89b40805c5d5e59b417d3340"
 

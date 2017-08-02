@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
   def create
     if @invitation.save
       send_invitation_notification(@invitation)
-      redirect resource(:invitations, :new), :message => "Пользователю #{@invitation.recepient_nickname} выслано приглашение"
+      redirect_to [:new, :invitations], :message => "Пользователю #{@invitation.recepient_nickname} выслано приглашение"
     else
       @all_users = User.all
       render :new
@@ -33,13 +33,13 @@ class InvitationsController < ApplicationController
 
     reject_rest_of_invitations
 
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def reject
     @invitation.delete
     send_reject_notification(@invitation)
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
 protected
@@ -80,8 +80,12 @@ protected
     end
   end
 
+  def invitation_params
+    params[:invitation].permit(:recepient_nickname) unless params[:invitation].nil?
+  end
+
   def build_invitation
-    @invitation = Invitation.new(params[:invitation])
+    @invitation = Invitation.new(invitation_params)
     @invitation.to_team = current_user.team
   end
 

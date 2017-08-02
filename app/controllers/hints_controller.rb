@@ -25,7 +25,7 @@ class HintsController < ApplicationController
   end
 
   def update
-    if @hint.update_attributes(params[:hint])
+    if @hint.update(hint_params)
       redirect_to [@level.game, @level]
     else
       render :edit
@@ -39,8 +39,12 @@ class HintsController < ApplicationController
 
 protected
 
+  def hint_params
+    params[:hint].permit(:text, :delay_in_minutes) unless params[:hint].nil?
+  end
+
   def build_hint
-    @hint = Hint.new(params[:hint])
+    @hint = Hint.new(hint_params)
     @hint.level = @level
   end
 

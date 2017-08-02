@@ -12,7 +12,7 @@ class GameEntriesController < ApplicationController
       @game_entry = GameEntry.create! :status => 'new', :game => @game, :team => @team
       @game.reserve_place_for_team!
     end
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def reopen
@@ -22,14 +22,14 @@ class GameEntriesController < ApplicationController
       end
       @game.reserve_place_for_team!
     end
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
   
   def accept
     if @entry.status == "new"
        @entry.accept!
     end
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
   
   def reject
@@ -37,7 +37,7 @@ class GameEntriesController < ApplicationController
        @entry.reject!
     end
     @game.free_place_of_team!
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def recall
@@ -45,7 +45,7 @@ class GameEntriesController < ApplicationController
        @entry.recall!
     end
     @game.free_place_of_team!
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def cancel
@@ -53,7 +53,7 @@ class GameEntriesController < ApplicationController
       @entry.cancel!
     end
     @game.free_place_of_team!
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
 protected

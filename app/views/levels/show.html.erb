@@ -30,7 +30,7 @@
       <em>Код:</em>
       <div id="question-<%= @level.questions.first.id %>">
         <%= @level.correct_answer %>
-        <%= link_to "(редактировать)", [:answers, @game, @level, @level.questions.first] %>
+        <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
       </div>
     </p>
   <% else %>
@@ -40,7 +40,7 @@
     <% @level.questions.each do |question| %>
       <div id="question-<%=  question.id %>">
         <p><%= question.correct_answer %></p>
-        <%= link_to "(редактировать)", [:answers, @game, @level, question] %>
+        <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, question) %>
       </div>
     <% end %>
   <% end %>

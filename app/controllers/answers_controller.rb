@@ -33,6 +33,10 @@ class AnswersController < ApplicationController
 
 protected
 
+  def answer_params
+    params[:answer].permit(:value) unless params[:answer].nil?
+  end
+
   def find_game
     @game = Game.find(params[:game_id])
   end
@@ -54,7 +58,7 @@ protected
   end
 
   def build_answer
-    @answer = Answer.new(params[:answer])
+    @answer = Answer.new(answer_params)
     @answer.level = @level
     @answer.question = @question
   end

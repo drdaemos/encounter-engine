@@ -2,12 +2,12 @@
   <% case game_entry.status %>
   <% when "new" %>
     Заявка подана
-    <%= link_to "Отозвать", "/game_entries/recall/#{game_entry.id}" %>
-  <% when "accepted"%> Вы зарегистрированы
-    <%= link_to "Отказаться", "/game_entries/cancel/#{game_entry.id}" %>
+    <%= link_to "Отозвать", recall_game_entry_path(game_entry.id) %>
+  <% when "accepted" %> Вы зарегистрированы
+    <%= link_to "Отказаться", cancel_game_entry_path(game_entry.id) %>
   <% when "recalled", "rejected", "canceled", nil %>
     <% if game.requested_teams_number < game.max_team_number %>
-      <%= link_to "Подать заявку на регистрацию заново", "/game_entries/reopen/#{game_entry.id}" %>
+      <%= link_to "Подать заявку на регистрацию заново", reopen_game_entry_path(game_entry.id) %>
     <% else %>
       Вы не можете зарегистрироваться так как превышено количество участников
     <% end %>
@@ -18,6 +18,6 @@
   <% elsif game.registration_deadline and game.registration_deadline <= Time.now %>
     Вы не можете зарегистрироваться, так как опоздали на игру
   <% else %>
-    <%= link_to "Подать заявку на регистрацию", "/game_entries/new/#{game.id}/#{team.id}" %>
+    <%= link_to "Подать заявку на регистрацию", new_game_entry_path(game.id, team.id) %>
   <% end %>
 <% end %>

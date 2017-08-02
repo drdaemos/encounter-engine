@@ -6,8 +6,8 @@
   <em>(игра "<%= link_to @game.name, @game %>")</em>
 </p>
 
-<h2>Ошибка</h2>
 <% if @answer.errors.any? %>
+<h4>Ошибка</h4>
   <% @answer.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
   <% end %>
@@ -19,17 +19,20 @@
 </p>
 <table>
   <% @answers.each do |answer| %>
-  <tr id="answer-<%=  answer.id%>">
+  <tr id="answer-<%= answer.id %>">
     <td><%= answer.value %></td>
-    <td><%= link_to "(удалить)", [@game, @level, @question, answer, :delete] %></td>
+    <td><%= link_to "(удалить)", [@game, @level, @question, answer], :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= form_for @answer, :action => [@game, @level, @question, :answers] do %>
-  <p><%= text_field :value, :label => "Ещё один вариант кода" %></p>
+<%= form_for [@game, @level, @question, @answer], :action => game_level_question_answers_path(@game, @level, @question) do |f| %>
+  <div class="row">
+    <%= f.label :value, t(:value, scope: [:models, :answer]) %>
+    <%= f.text_field :value %>
+  </div>
   <%= submit_tag "Добавить вариант кода" %>
   <em><%= link_to "(отменить)", [@game, @level] %></em>
 <% end =%>

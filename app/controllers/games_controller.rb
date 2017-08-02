@@ -45,7 +45,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    if @game.update_attributes(params[:game])
+    if @game.update_attributes(game_params)
       redirect_to @game
     else
       render :edit

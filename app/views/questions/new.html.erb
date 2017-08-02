@@ -3,15 +3,18 @@
 </h2>
 
 <p>
-  <em>(игра "<%= link_to @game.name, resource(@game) %>")</em>
+  <em>(игра "<%= link_to @game.name, @game %>")</em>
 </p>
 
 <br />
 
 <%= error_messages_for @answer, :header => "<h2>Ошибка</h2>" %>
 
-<%= form_for @question, :action => resource(@game, @level, :questions) do %>
-  <p><%= text_field :correct_answer, :label => "Код" %></p>
-  <%= submit_tag "Добавить код" %>
-  <em><%= link_to "(отменить)", resource(@game, @level) %></em>
+<%= form_for [@game, @level, @question], :action => :game_level_questions do |f| %>
+  <div class="row">
+    <%= f.label :correct_answer, t(:correct_answer, scope: [:models, :question]) %>
+    <%= f.text_field :correct_answer %>
+  </div>
+  <%= f.submit "Добавить код" %>
+  <em><%= link_to "(отменить)", [@game, @level] %></em>
 <% end =%>
