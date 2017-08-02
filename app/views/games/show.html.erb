@@ -54,7 +54,7 @@
     </p>
 
     <p>
-      <%= link_to "Добавить новое задание", [@game, :levels, :new] if ! @game.started? %>
+      <%= link_to "Добавить новое задание", new_game_level_path(@game) if ! @game.started? %>
     </p>
   </fieldset>
   <br/>
@@ -65,11 +65,11 @@
     <%= render 'games/teams', :teams => @teams  %>
   <br />
   <p>
-    <%= link_to "Редактировать эту игру", [@game, :edit] if ! @game.started? %>
+    <%= link_to "Редактировать эту игру", edit_game_path(@game) if ! @game.started? %>
   </p>
 
   <p>
-    <%= link_to "Удалить эту игру", [@game, :delete] %> <br />
+    <%= link_to "Удалить эту игру", @game, method: :delete %> <br />
   </p>
 
 <% end %>

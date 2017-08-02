@@ -3,9 +3,9 @@ class GameEntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_game, :only=>:new
   before_action :find_team, :only=>:new
-  before_action :find_entry, :exclude =>:new
+  before_action :find_entry, :except =>:new
   before_action :ensure_author, :only => [:accept, :reject]
-  before_action :ensure_team_captain, :exclude => [:accept, :reject]
+  before_action :ensure_team_captain, :except => [:accept, :reject]
 
   def new
     if @game.can_request?

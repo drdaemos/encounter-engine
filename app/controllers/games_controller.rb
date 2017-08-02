@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class GamesController < ApplicationController
-  before_action :authenticate_user!, :exclude => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show]
   before_action :build_game, :only => [:new, :create]
   before_action :find_game, :only => [:show, :edit, :update, :delete, :end_game]
   before_action :find_team, :only => [:show]
@@ -24,8 +24,8 @@ class GamesController < ApplicationController
   end
 
   def create
-    if @game.save
-      redirect resource(@game)
+    if @game.save!
+      redirect_to @game
     else
       render :new
     end
@@ -46,7 +46,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update_attributes(params[:game])
-      redirect resource(@game)
+      redirect_to @game
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class GamesController < ApplicationController
 
   def delete
     @game.destroy
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def end_game
@@ -63,7 +63,7 @@ class GamesController < ApplicationController
     game_passings.each do |gp|
       gp.end!
     end
-    redirect url(:dashboard)
+    redirect_to :dashboard
   end
 
   def start_test
@@ -98,8 +98,12 @@ class GamesController < ApplicationController
 
   protected
 
+  def game_params   
+    params[:game].permit(:name, :description, :starts_at, :registration_deadline, :max_team_number, :is_draft) unless params[:game].nil?
+  end
+
   def build_game
-    @game = Game.new(params[:game])
+    @game = Game.new(game_params)
     @game.author = current_user
   end
 

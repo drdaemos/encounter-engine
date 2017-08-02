@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 class LevelsController < ApplicationController
-  before :find_game
-  before :ensure_author
-  before :ensure_game_was_not_started, :only => [:new, :create, :edit, :update, :delete]
-  before :build_level, :only => [:new, :create]
-  before :find_level, :exclude => [:new, :create]
+  before_action :find_game
+  before_action :ensure_author
+  before_action :ensure_game_was_not_started, :only => [:new, :create, :edit, :update, :delete]
+  before_action :build_level, :only => [:new, :create]
+  before_action :find_level, :except => [:new, :create]
 
   def new
     render

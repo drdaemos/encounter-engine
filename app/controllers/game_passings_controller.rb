@@ -2,17 +2,17 @@
 class GamePassingsController < ApplicationController
   include GamePassingsHelper
 
-  before_action :find_game, :exclude => [:exit_game]
+  before_action :find_game, :except => [:exit_game]
   before_action :find_game_by_id, :only => [:exit_game]
-  before_action :find_team, :exclude => [:show_results, :index]
-  before_action :find_or_create_game_passing, :exclude => [:show_results, :index]
-  before_action :authenticate_user!, :exclude => [:index, :show_results]
+  before_action :find_team, :except => [:show_results, :index]
+  before_action :find_or_create_game_passing, :except => [:show_results, :index]
+  before_action :authenticate_user!, :except => [:index, :show_results]
   before_action :ensure_game_is_started
   before_action :ensure_team_captain, :only => [:exit_game]
-  before_action :ensure_not_finished, :exclude => [:index, :show_results]
-  before_action :author_finished_at, :exclude => [:index, :show_results]
-  before_action :ensure_team_member, :exclude => [:index, :show_results]
-  before_action :ensure_not_author_of_the_game, :exclude => [:index, :show_results]
+  before_action :ensure_not_finished, :except => [:index, :show_results]
+  before_action :author_finished_at, :except => [:index, :show_results]
+  before_action :ensure_team_member, :except => [:index, :show_results]
+  before_action :ensure_not_author_of_the_game, :except => [:index, :show_results]
   before_action :ensure_author, :only => [:index]
 
   provides :json

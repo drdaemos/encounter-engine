@@ -2,16 +2,13 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
-  before_action :build_team
+  before_action :build_team, :only => [:new, :create]
 
   def new
     render
   end
 
   def create
-
-    @team.captain = current_user
-    byebug
     if @team.save
       redirect_to :dashboard
     else
@@ -22,11 +19,12 @@ class TeamsController < ApplicationController
 protected
 
   def team_params
-    params.permit(:name)
+    params[:team].permit(:name) unless params[:team].nil?
   end
 
   def build_team
     @team = Team.new(team_params)
+    @team.captain = current_user
   end
 
   def ensure_not_member_of_any_team
