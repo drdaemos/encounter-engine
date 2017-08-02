@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class InvitationMigration < ActiveRecord::Migration
+class InvitationMigration < ActiveRecord::Migration[5.0]
   def self.up
     create_table :invitations do |t|
       t.integer :to_team_id

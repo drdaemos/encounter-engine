@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class GameMigration < ActiveRecord::Migration
+class GameMigration < ActiveRecord::Migration[5.0]
   def self.up
     create_table :games do |t|
       t.string :name

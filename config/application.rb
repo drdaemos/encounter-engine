@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module EncounterEngine
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    # config.load_defaults 5.0
     config.assets.enabled = false
     config.generators do |g|
       g.assets false

@@ -14,16 +14,16 @@ class AnswersController < ApplicationController
 
   def create
     if @answer.save
-      redirect resource(@game, @level, @question, :answers)
+      redirect_to [@game, @level, @question, :answers]
     else
       render :index
     end
   end
 
   def delete
-    if @answers.count > 1
+    if @answers.length > 1
       @answer.destroy
-      redirect resource(@game, @level, @question, :answers)
+      redirect_to [@game, @level, @question, :answers]
     else
       build_answer
       @answer.errors.add(:question, "Должен быть хотя бы один вариант кода")

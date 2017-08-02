@@ -76,7 +76,7 @@ class GamesController < ApplicationController
     game.save!
     sleep(rand(1))
 
-    redirect resource(@game)
+    redirect_to @game
   end
 
   def finish_test
@@ -93,7 +93,7 @@ class GamesController < ApplicationController
     game_passing.delete_all
     logs.delete_all
 
-    redirect resource(@game)
+    redirect_to @game
   end
 
   protected

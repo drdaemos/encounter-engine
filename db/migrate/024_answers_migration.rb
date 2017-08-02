@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class AnswersMigration < ActiveRecord::Migration
+class AnswersMigration < ActiveRecord::Migration[5.0]
   def self.up
     create_table :answers do |t|
       t.integer :question_id

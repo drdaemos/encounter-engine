@@ -33,7 +33,7 @@ class Level < ApplicationRecord
   end
 
   def multi_question?
-    self.questions.count > 1
+    self.questions.many?
   end
 
   def find_question_by_answer(answer_value)

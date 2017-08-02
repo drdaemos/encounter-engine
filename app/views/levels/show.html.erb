@@ -3,7 +3,7 @@
 </h2>
 
 <p>
-  <em>(игра "<%= link_to @game.name, resource(@game) %>")</em>
+  <em>(игра "<%= link_to @game.name, @game %>")</em>
 </p>
 
 <br />
@@ -17,33 +17,37 @@
 </p>
 
 <p>
-  <%= link_to "Редактировать текст и название задания", resource(@game, @level, :edit) unless @level.game.started? %>
+  <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] unless @level.game.started? %>
 </p>
 
 <br />
 
-<% unless @level.multi_question? %>
-  <p>
-    <em>Код:</em>
-    <div id="question-<%= @level.questions.first.id %>">
-      <%= @level.correct_answer %>
-      <%= link_to "(редактировать)", resource(@game, @level, @level.questions.first, :answers) %>
-    </div>
-  </p>
-<% else %>
-  <p>
-    <em>Коды (<%= @level.questions.count %>):</em>
-  </p>
-  <% @level.questions.each do |question| %>
-    <div id="question-<%=  question.id %>">
-      <p><%= question.correct_answer %></p>
-      <%= link_to "(редактировать)", resource(@game, @level, question, :answers) %>
-    </div>
+<%= @level.questions.target.inspect %>
+
+<% if @level.questions.size > 0 %>
+  <% unless @level.multi_question? %>
+    <p>
+      <em>Код:</em>
+      <div id="question-<%= @level.questions.first.id %>">
+        <%= @level.correct_answer %>
+        <%= link_to "(редактировать)", [:answers, @game, @level, @level.questions.first] %>
+      </div>
+    </p>
+  <% else %>
+    <p>
+      <em>Коды (<%= @level.questions.size %>):</em>
+    </p>
+    <% @level.questions.each do |question| %>
+      <div id="question-<%=  question.id %>">
+        <p><%= question.correct_answer %></p>
+        <%= link_to "(редактировать)", [:answers, @game, @level, question] %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
 <p>
-  <%= link_to "Добавить ещё один код", resource(@game, @level, :questions, :new) %>
+  <%= link_to "Добавить ещё один код", [:new, @game, @level, :question] %>
 </p>
 
 <br />
@@ -58,18 +62,18 @@
   </p>
 
   <p>
-    <%= link_to "Добавить подсказку", resource(@game, @level, :hints, :new) %>
+    <%= link_to "Добавить подсказку", [:new, @game, @level, :hint] %>
   </p>
 </fieldset>
 
 <br />
 
 <p>
-  <%= link_to "Удалить этот уровень", resource(@game, @level, :delete) %> <br />
+  <%= link_to "Удалить этот уровень", [@game, @level], :method => :delete %> <br />
 </p>
 
 <br />
 
 <p>
-  <%= link_to "Вернуться к игре \"#{@level.game.name}\"", resource(@level.game) %>
+  <%= link_to "Вернуться к игре \"#{@level.game.name}\"", @level.game %>
 </p>

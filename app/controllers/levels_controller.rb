@@ -12,7 +12,7 @@ class LevelsController < ApplicationController
 
   def create
     if @level.save
-      redirect resource(@game, @level)
+      redirect_to [@game, @level]
     else      
       render :new
     end
@@ -50,14 +50,19 @@ class LevelsController < ApplicationController
   end
 
 protected
+
+  def level_params   
+    params[:level].permit(:name, :text, :correct_answer) unless params[:level].nil?
+  end
   
   def find_game
     @game = Game.find(params[:game_id])
   end
 
   def build_level
-    @level = Level.new(params[:level])    
+    @level = Level.new(level_params)    
     @level.game = @game
+    @level.questions.reload
   end
 
   def find_level

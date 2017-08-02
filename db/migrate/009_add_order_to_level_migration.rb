@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class AddOrderToLevelMigration < ActiveRecord::Migration
+class AddOrderToLevelMigration < ActiveRecord::Migration[5.0]
   def self.up
     add_column :levels, :order, :integer
   end

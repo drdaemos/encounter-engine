@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class EndGameMigration < ActiveRecord::Migration
+class EndGameMigration < ActiveRecord::Migration[5.0]
   def self.up
     add_column :game_passings, :status, :string
     add_column :games, :author_finished_at, :datetime

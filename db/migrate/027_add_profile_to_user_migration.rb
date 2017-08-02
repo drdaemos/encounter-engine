@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class AddProfileToUserMigration < ActiveRecord::Migration
+class AddProfileToUserMigration < ActiveRecord::Migration[5.0]
   def self.up
     add_column :users, :jabber_id, :string
     add_column :users, :icq_number, :string

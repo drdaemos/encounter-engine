@@ -14,7 +14,7 @@ class HintsController < ApplicationController
 
   def create
     if @hint.save
-      redirect resource(@game, @level)
+      redirect_to [@game, @level]
     else
       render :new
     end
@@ -26,7 +26,7 @@ class HintsController < ApplicationController
 
   def update
     if @hint.update_attributes(params[:hint])
-      redirect resource(@level.game, @level)
+      redirect_to [@level.game, @level]
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class HintsController < ApplicationController
 
   def delete
     @hint.destroy
-    redirect resource(@level.game, @level) 
+    redirect_to [@level.game, @level]
   end
 
 protected

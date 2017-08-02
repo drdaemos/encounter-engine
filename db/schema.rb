@@ -28,20 +28,20 @@ ActiveRecord::Schema.define(version: 20170613195033) do
     t.integer "game_id"
     t.integer "team_id"
     t.integer "current_level_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "finished_at"
     t.datetime "current_level_entered_at"
-    t.text "answered_questions", limit: 255
+    t.text "answered_questions"
     t.string "status"
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "description", limit: 255
+    t.string "name"
+    t.string "description"
     t.integer "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "starts_at"
     t.boolean "is_draft", default: false, null: false
     t.integer "max_team_number"
@@ -54,26 +54,26 @@ ActiveRecord::Schema.define(version: 20170613195033) do
 
   create_table "hints", force: :cascade do |t|
     t.integer "level_id"
-    t.string "text", limit: 255
+    t.string "text"
     t.integer "delay"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invitations", force: :cascade do |t|
     t.integer "to_team_id"
     t.integer "for_user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "levels", force: :cascade do |t|
     t.text "text"
     t.integer "game_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "position"
-    t.string "name", limit: 255
+    t.string "name"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -85,29 +85,29 @@ ActiveRecord::Schema.define(version: 20170613195033) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "questions", limit: 255
+    t.string "questions"
     t.integer "level_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
     t.integer "captain_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", limit: 255
-    t.string "nickname", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "team_id"
     t.string "jabber_id"
     t.string "icq_number"
     t.date "date_of_birth"
     t.string "phone_number"
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
