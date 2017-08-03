@@ -2,7 +2,7 @@
 class LevelsController < ApplicationController
   before_action :find_game
   before_action :ensure_author
-  before_action :ensure_game_was_not_started, :only => [:new, :create, :edit, :update, :delete]
+  before_action :ensure_game_was_not_started, :only => [:new, :create, :edit, :update, :destroy]
   before_action :build_level, :only => [:new, :create]
   before_action :find_level, :except => [:new, :create]
 
@@ -34,7 +34,7 @@ class LevelsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @level.destroy
     redirect_to @game
   end

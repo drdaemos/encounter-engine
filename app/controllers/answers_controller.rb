@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   before_action :find_level
   before_action :find_question
   before_action :find_answers
-  before_action :find_answer, :only => [:delete]
+  before_action :find_answer, :only => [:destroy]
   before_action :build_answer, :only => [:index, :create]
 
   def index
@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     if @answers.length > 1
       @answer.destroy
       redirect_to [@game, @level, @question, :answers]

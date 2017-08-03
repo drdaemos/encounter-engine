@@ -1,8 +1,11 @@
 # -*- encoding : utf-8 -*-
+
+require 'time'
+
 class GamesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
   before_action :build_game, :only => [:new, :create]
-  before_action :find_game, :only => [:show, :edit, :update, :delete, :end_game]
+  before_action :find_game, :only => [:show, :edit, :update, :destroy, :end_game]
   before_action :find_team, :only => [:show]
   before_action :ensure_author_if_game_is_draft, :only => [:show]
   before_action :ensure_author_if_no_start_time, :only =>[:show]
@@ -24,7 +27,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    if @game.save!
+    if @game.save
       redirect_to @game
     else
       render :new
@@ -52,7 +55,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @game.destroy
     redirect_to :dashboard
   end
@@ -99,7 +102,16 @@ class GamesController < ApplicationController
   protected
 
   def game_params   
-    params[:game].permit(:name, :description, :starts_at, :registration_deadline, :max_team_number, :is_draft) unless params[:game].nil?
+    if params[:game].nil?
+      return Hash.new
+    end
+    
+    data = params[:game].permit(:name, :description, :starts_at, :registration_deadline, :max_team_number, :is_draft)
+
+    data[:starts_at] = Time.strptime(data[:starts_at], "%d-%m-%Y %H:%M")
+    data[:registration_deadline] = Time.strptime(data[:registration_deadline], "%d-%m-%Y %H:%M")
+
+    data
   end
 
   def build_game

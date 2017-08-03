@@ -1,19 +1,34 @@
-<% require_js 'calendar', 'calendar-setup', 'calendar-ru-UTF' %>
-<% require_css 'calendar' %>
-
+<div>
 <%= error_messages_for @game, :header => "<h2>Ошибка</h2>" %>
+</div>
 
-<%= form_for @game, :action => @game do %>
-  <p><%= text_field :name, :label => "Название" %></p>
-  <p><%= text_area :description, :label => "Описание" %></p>
-  <p><%= text_field :starts_at, :label => "Начало игры" %> <input id="calendar-switch" type="button" value="..." /> </p>
-  <br/><p><%= text_field :registration_deadline, :label => "Крайний срок регистрации " %> <input id="calendar-switch2" type="button" value="..." /></p>
-  <br/><p><%= text_field :max_team_number, :label => "Максимальное количество команд" %></p>
-  <br/><p><br/><%= check_box :is_draft, :label => "Черновик?" %></p>
-  <br/>
-  <%= submit_tag "Сохранить" %>
+<%= form_for @game, :action => @game do |f| %>
+  <div class="field">
+    <%= f.label :name, t(:game_name) %>
+    <%= f.text_field :name %>
+  </div>
+    <div class="field">
+    <%= f.label :description, t(:game_description) %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starts_at, t(:game_starts_at) %>
+    <%= f.text_field :starts_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :registration_deadline, t(:game_registration_deadline) %>
+    <%= f.text_field :registration_deadline %>
+  </div>  
+  <div class="field">
+    <%= f.label :max_team_number, t(:game_max_team_number) %>
+    <%= f.text_field :max_team_number %>
+  </div>  
+  <div class="field">
+    <%= f.label :is_draft, t(:game_is_draft) %>
+    <%= f.check_box :is_draft %>
+  </div>
+  <%= f.submit "Сохранить" %>
   <em><%= link_to "(отменить)", @game %></em>
 <% end =%>
-
-<script type="text/javascript">
-</script>

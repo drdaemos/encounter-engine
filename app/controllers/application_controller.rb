@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   layout "application"
 
   helper_method :error_messages_for
+  helper_method :datetime
 
   def error_messages_for(*objects)
     options = objects.extract_options!
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
         tag(:h2, options[:header_message]) + tag(:p, options[:message]) + tag(:ul, list_items.join.html_safe)
       end
     end
+  end
+
+  def datetime(object)
+    ('<span data-datetime-string>' + object.to_s + '</span>').html_safe
   end
 
 protected

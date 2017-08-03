@@ -22,6 +22,11 @@ default: &default
     - .jpeg
     - .jpg
 
+  global_modules:
+    $: jquery
+    jQuery: jquery
+    window.jQuery: jquery
+
 development:
   <<: *default
 

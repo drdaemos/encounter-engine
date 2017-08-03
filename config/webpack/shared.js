@@ -41,6 +41,10 @@ module.exports = {
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true
+    }),
+    new webpack.ProvidePlugin(settings.global_modules),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
     })
   ],
 
