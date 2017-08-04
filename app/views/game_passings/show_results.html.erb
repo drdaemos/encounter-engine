@@ -37,9 +37,9 @@
 
 <br />
 
-<%= link_to "Лог ответов", "/logs/full/#{@game.id}" %>
+<%= link_to "Лог ответов", show_full_log_path(@game.id) %>
 
 <% if @game.is_testing? %>
   <br/>
-  <%= link_to "Завершить тестирование", "games/finish_test/#{@game.id}" %>
+  <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
 <% end %>

@@ -15,8 +15,6 @@ class GamePassingsController < ApplicationController
   before_action :ensure_not_author_of_the_game, :except => [:index, :show_results]
   before_action :ensure_author, :only => [:index]
 
-  provides :json
-
   def show_current_level
     render :layout => 'in_game'
   end

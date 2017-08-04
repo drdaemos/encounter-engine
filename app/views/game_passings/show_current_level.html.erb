@@ -65,17 +65,21 @@
   </div>
 <% end %>
 
-<%= form :action => :post_answer, :method => :post do %>
-  <p><%= text_field :name => 'answer', :label => "Код" %></p>
+<%= form_tag :post_answer, :method => :post do %>
+  <div class="row">
+    <%= label_tag :answer, t(:answer, :scope => [:in_game]) %>
+    <%= text_field_tag :answer %>
+  </div>
+  <p></p>
   <%= submit_tag "Отправить!" %>
-<% end =%>
+<% end %>
 
 <br/>
 
 <% if current_user.captain? %>
-    <%= link_to "Сойти с дистанции", "/game_passings/exit_game/#{@game_passing.game_id}" %>
+    <%= link_to "Сойти с дистанции", exit_game_path(@game_passing.game_id) %>
 <% end %>
 <% if @game.is_testing? %>
   <br/>
-  <%= link_to "Завершить тестирование", "games/finish_test/#{@game.id}" %>
+  <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
 <% end %>

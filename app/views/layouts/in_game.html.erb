@@ -7,21 +7,29 @@
     <%= stylesheet_pack_tag 'in_game' %>
   </head>
   <body>
-    <br />
-    <div id="header-container">
-      <div id="header">
-        <%= includes 'layout/header' %>
-      </div>
-   </div>
-    <!-- <%= h(message) %> -->
-    <hr />
-    <br />
+    <div id="encounter-game">
+      <div class="app-grid">
 
-    <div id="in_game-container">
-      <div id="in_game">
-        <%= yield %>
+        <div class="header-container">
+          <%= render 'includes/in_game/header' %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        
+        <div class="center-container">
+          <div class="main-container">
+            <article>
+              <%= yield %>
+            </article>
+          </div>
+        </div>
+
+        <div class="footer-container">
+            <%= render 'includes/in_game/footer' %>
+        </div>
+
       </div>
-    </div>
+    </div>     
 
   </body>
 </html>

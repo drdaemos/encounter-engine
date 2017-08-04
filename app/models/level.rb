@@ -38,7 +38,7 @@ class Level < ApplicationRecord
 
   def find_question_by_answer(answer_value)
     self.questions.detect do |question|
-      question.answers.any? { |answer| UnicodeUtils.upcase(answer.value.to_s) == UnicodeUtils.upcase(answer_value.to_s)}
+      question.answers.any? { |answer| answer.value.mb_chars.upcase.to_s == answer_value.mb_chars.upcase.to_s}
     end
   end
 end
