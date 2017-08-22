@@ -6,9 +6,9 @@
 
 <%= error_messages_for @hint, :header => "<h2>Ошибка</h2>" %>
 
-<%= form_for [@game, @level, @hint], :action => game_level_hints_path(@game, @level) do %>
+<%= form_for [@game, @level, @hint], :action => game_level_hints_path(@game, @level) do |f| %>
 
-  <%= render 'form', :hint => @hint %>
+  <%= render 'form', :hint => @hint, :f => f %>
 
   <%= submit_tag "Добавить подсказку", :style => "width:170px" %>
   <em><%= link_to "(отменить)", [@hint.level.game, @hint.level] %></em>

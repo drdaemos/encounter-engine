@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module EncounterEngine
   class Application < Rails::Application
+
+    config.action_cable.mount_path = '/websocket'
+    config.action_cable.disable_request_forgery_protection = true
     # Initialize configuration defaults for originally generated Rails version.
     # config.load_defaults 5.0
     config.assets.enabled = false

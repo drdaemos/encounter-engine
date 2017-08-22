@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get '/game_entries/reject/:id', to: 'game_entries#reject', as: :reject_game_entry # заявка отказана
 
   get '/dashboard', to: 'dashboard#index', as: :dashboard
+  get '/send_msg', to: 'dashboard#send_msg', as: :send_msg
   get '/team-room', to: 'team_room#index', as: :team_room
 
   root to: 'index#index', as: :index_page

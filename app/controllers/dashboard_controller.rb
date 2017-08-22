@@ -19,6 +19,12 @@ class DashboardController < ApplicationController
     render
   end
 
+  def send_msg
+    ActionCable.server.broadcast \
+      "web_notifications_#{current_user.id}", {'message': params[:message]}
+    head :ok, content_type: "text/html"
+  end
+
 protected
 
   def find_invitations_for_current_user

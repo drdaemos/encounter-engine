@@ -8,6 +8,9 @@ export default {
   data: function () {
     return {
     }
+  },
+  computed: {
+    msg: () => this.$store.getters.message
   }
 }
 </script>

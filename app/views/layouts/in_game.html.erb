@@ -3,33 +3,15 @@
   <head>
     <title>Активные городские игры</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
     <%= javascript_pack_tag 'in_game' %> 
     <%= stylesheet_pack_tag 'in_game' %>
   </head>
   <body>
-    <div id="encounter-game">
-      <div class="app-grid">
-
-        <div class="header-container">
-          <%= render 'includes/in_game/header' %>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </div>
-        
-        <div class="center-container">
-          <div class="main-container">
-            <article>
-              <%= yield %>
-            </article>
-          </div>
-        </div>
-
-        <div class="footer-container">
-            <%= render 'includes/in_game/footer' %>
-        </div>
-
-      </div>
-    </div>     
-
+    <encounter-game></encounter-game>
+    <script type="application\json" x-app-data>
+      <%= app_data %>      
+    </script>
   </body>
 </html>

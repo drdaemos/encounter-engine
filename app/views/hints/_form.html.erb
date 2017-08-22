@@ -1,7 +1,16 @@
-<p>
-  <%= text_field :text, :label => "Текст" %>
-</p>
+<div class="row">
+  <%= f.label :text, t(:text, :scope => [:models, :hint]) %>
+  <%= f.text_field :text %>
+</div>
+<div class="row">
+  <%= f.label :delay_in_minutes, t(:delay_in_minutes, :scope => [:models, :hint]) %>
+  <%= f.text_field :delay_in_minutes, :type => :number %>
+  <span>минут</span>
+</div>
 
-<p>
-  <%= text_field :delay_in_minutes, :label => "Через" %> минут
-</p>
+<style type="text/css">
+#hint_delay_in_minutes {
+    width: 100px;
+    display: inline-block;
+}
+</style>
