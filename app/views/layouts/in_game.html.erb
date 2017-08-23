@@ -5,13 +5,13 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= javascript_pack_tag 'in_game' %> 
+    <script type="application\json" x-app-data>
+      <%= app_data_helper %>      
+    </script>
     <%= stylesheet_pack_tag 'in_game' %>
+    <%= javascript_pack_tag 'in_game' %> 
   </head>
   <body>
     <encounter-game></encounter-game>
-    <script type="application\json" x-app-data>
-      <%= app_data %>      
-    </script>
   </body>
 </html>

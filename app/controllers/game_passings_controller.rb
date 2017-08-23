@@ -15,28 +15,18 @@ class GamePassingsController < ApplicationController
   before_action :ensure_not_author_of_the_game, :except => [:index, :show_results]
   before_action :ensure_author, :only => [:index]
 
-  helper_method :app_data
+  helper_method :app_data_helper
 
   def show_current_level
-    render :layout => 'in_game'
+    if @game_passing.finished?
+      render :show_results
+    else 
+      render :layout => 'in_game'
+    end
   end
 
-  def app_data
-    if @game_passing.current_level.id
-      @level = Level.find(@game_passing.current_level.id)
-      next_hint = @game_passing.upcoming_hints.first;
-
-      {
-        :user => { :team => @team.name, :is_captain => current_user.captain? },
-        :game => { :id => @game.id, :name => @game.name, :is_testing => @game.is_testing? },
-        :game_passing => { :time => Time.now, :answered => @game_passing.answered_questions.size },
-        :level => { :id => @level.id, :name => @level.name, :text => @level.text, :position => @level.position, :multi_question => @level.multi_question?, :question_count => @level.questions.count },
-        :hints => { 
-          :available => @game_passing.hints_to_show,
-          :next_hint => next_hint.nil? ? nil : next_hint.available_in(@game_passing.current_level_entered_at)
-        }
-      }.to_json.html_safe
-    end 
+  def app_data_helper
+    app_data.to_json.html_safe
   end
 
   def index
@@ -88,29 +78,6 @@ class GamePassingsController < ApplicationController
   end
 
 protected
-
-  def find_game
-    @game = Game.find params[:game_id]
-  end
-
-  def find_game_by_id
-    @game = Game.find(params[:id])
-  end
-
-  # TODO: must be a critical section, double creation is possible!
-  def find_or_create_game_passing
-    @game_passing = GamePassing.of(@team,@game)
-
-    if @game_passing.nil?
-      @game_passing = GamePassing.create! :team => @team,
-        :game => @game,
-        :current_level => @game.levels.first
-    end
-  end
-
-  def find_team
-    @team = current_user.team
-  end
 
   def ensure_game_is_started
     raise UnauthorizedError, "Нельзя играть в игру до её начала. И вообще, где вы достали эту ссылку? :-)" unless @game.started? unless @game.is_testing?

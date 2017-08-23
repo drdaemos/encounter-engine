@@ -1,9 +1,10 @@
 import 'stylesheets/in_game.scss'
 import 'jquery-ujs'
-import 'whatwg-fetch'
 import Vue from 'vue'
 import App from 'components/in_game.vue'
-import ActionCable from 'actioncable'
+import utils from 'scripts/utils'
+
+Vue.prototype.$cable = utils.createSocket()
 
 document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue(App)
@@ -15,17 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     //       registration.showNotification('Notification with ServiceWorker');
     //     });
     //   }
-    // });
-
-    // var cable = ActionCable.createConsumer('ws://localhost:5000/websocket')
-
-    // cable.subscriptions.create('TestChannel', {
-    //     received: function (data) {
-    //         console.log(data);
-
-    //         new Notification('New message', {
-    //             body: data.message
-    //         });
-    //     }
-    // });
+    // });awdaw
 })

@@ -25,8 +25,10 @@
 
 <script>
 import _ from 'underscore'
+import utils from 'scripts/utils'
 
 export default {
+  props: ['gameChannel'],
   data () {
     return {
     }
@@ -54,28 +56,18 @@ export default {
   methods: {
     onSubmit(event) {
         event.preventDefault();
-        var params = this.$form.serialize();
+        var params = this.$form.serializeArray()
         var url = ""
+        var data = {
+            action: 'post_answer',
+            payload: _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
+        }
 
-        fetch(url, {
-            method: 'POST',
-            body: params,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-CSRF-Token': this.getCSRFToken(),
-            },
-            credentials: 'same-origin'
-        })
-        .then(this.onFinish)
+        this.gameChannel.send(data);
     },
     onFinish: function() {
         console.log('yay')
     },
-    getCSRFToken() {
-        return _.find(document.getElementsByTagName('meta'), (meta) => {
-          return meta.name === 'csrf-token'
-        }).content
-    }
   }
 }
 </script>

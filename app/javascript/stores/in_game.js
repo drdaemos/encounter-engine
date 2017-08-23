@@ -3,35 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-console.log('vuex initialized')
+let stateContainer = document.querySelector('script[x-app-data]');
+let initialState = JSON.parse(stateContainer.innerHTML);
+
 export default new Vuex.Store({
-  state: {
-    user: {
-        team: null,
-        is_captain: null
-    },
-    game: {
-        id: null,
-        name: null,
-        is_testing: true
-    }, 
-    game_passing: {
-        time: null,
-        answered: null
-    }, 
-    level: { 
-        id: null,
-        name: null, 
-        text: null,
-        position: null,
-        multi_question: null,
-        question_count: null
-    },
-    hints: {
-        available: [],
-        next_hint: null
-    }
-  },
+  state: initialState,
   getters: {
     game: (state) => state.game, 
     user: (state) => state.user, 
@@ -40,7 +16,7 @@ export default new Vuex.Store({
     hints: (state) => state.hints, 
   },
   mutations: {
-    UPDATE_INITIAL_STATE: function (state, data) {
+    UPDATE_STATE: function (state, data) {
         state = Object.assign(state, data)
     }
   }
