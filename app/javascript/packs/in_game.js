@@ -3,8 +3,10 @@ import 'jquery-ujs'
 import Vue from 'vue'
 import App from 'components/in_game.vue'
 import utils from 'scripts/utils'
+import Toasted from 'vue-toasted';
 
 Vue.prototype.$cable = utils.createSocket()
+Vue.use(Toasted)
 
 document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue(App)

@@ -63,7 +63,11 @@ export default {
             payload: _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
         }
 
-        this.gameChannel.send(data);
+        if (this.gameChannel.send(data)) {
+            this.$form.get(0).reset();
+        } else {
+            console.error('could not send answer', data);
+        };
     },
     onFinish: function() {
         console.log('yay')

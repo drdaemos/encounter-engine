@@ -14,6 +14,7 @@ export default new Vuex.Store({
     passing: (state) => state.game_passing, 
     level: (state) => state.level, 
     hints: (state) => state.hints, 
+    results_url: (state) => state.game_passing ? state.game_passing.results_url : null
   },
   mutations: {
     UPDATE_STATE: function (state, data) {

@@ -26,7 +26,7 @@ class GamePassingsController < ApplicationController
   end
 
   def app_data_helper
-    app_data.to_json.html_safe
+    get_app_data(@team, @game).to_json.html_safe
   end
 
   def index
@@ -35,17 +35,13 @@ class GamePassingsController < ApplicationController
   end
 
   def get_current_level_tip
-    next_hint = @game_passing.upcoming_hints.first; # next_hint  ?
-
-    { :hint_num => @game_passing.hints_to_show.length,
-      :hint_text => @game_passing.hints_to_show.last.text,
-      :next_available_in => next_hint.nil? ? nil : next_hint.available_in(@game_passing.current_level_entered_at) }.to_json
+    get_current_level_tip_data(@game_passing).to_json
   end
 
   def post_answer
     unless @game_passing.finished?
      @answer = params[:answer].strip
-      save_log
+      save_answer_to_log(@answer, @team, @game)
       @answer_was_correct = @game_passing.check_answer!(@answer)
       unless @game_passing.finished?
         render :show_current_level, :layout => 'in_game'
@@ -54,17 +50,6 @@ class GamePassingsController < ApplicationController
       end
     else
       render :show_results
-    end
-  end
-
-  def save_log
-    if @game_passing.current_level.id
-      @level = Level.find(@game_passing.current_level.id)
-      Log.create! :game_id => @game.id,
-                  :level => @level.name,
-                  :team => @team.name,
-                  :time => Time.now,
-                  :answer => @answer
     end
   end
 
@@ -78,6 +63,29 @@ class GamePassingsController < ApplicationController
   end
 
 protected
+
+  def find_game
+    @game = Game.find params[:game_id]
+  end
+
+  def find_game_by_id
+    @game = Game.find(params[:id])
+  end
+
+  def find_team
+    @team = current_user.team
+  end
+
+  # TODO: must be a critical section, double creation is possible!
+  def find_or_create_game_passing
+    @game_passing = GamePassing.of(@team, @game)
+
+    if @game_passing.nil?
+      @game_passing = GamePassing.create! :team => @team,
+        :game => @game,
+        :current_level => @game.levels.first
+    end
+  end
 
   def ensure_game_is_started
     raise UnauthorizedError, "Нельзя играть в игру до её начала. И вообще, где вы достали эту ссылку? :-)" unless @game.started? unless @game.is_testing?

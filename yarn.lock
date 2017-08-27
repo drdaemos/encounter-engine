@@ -5013,6 +5013,10 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
+vue-toasted@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.14.tgz#039abb9af2b1164fa16c17175ff8d3432fba17f1"
+
 vue-worker@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vue-worker/-/vue-worker-1.2.1.tgz#deae14b98a9d89daabb20e7fc6190642849b6d93"
