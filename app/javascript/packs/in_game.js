@@ -1,9 +1,10 @@
 import 'stylesheets/in_game.scss'
 import 'jquery-ujs'
+import 'operative'
 import Vue from 'vue'
 import App from 'components/in_game.vue'
 import utils from 'scripts/utils'
-import Toasted from 'vue-toasted';
+import Toasted from 'vue-toasted'
 
 Vue.prototype.$cable = utils.createSocket()
 Vue.use(Toasted)

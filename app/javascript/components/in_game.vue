@@ -69,7 +69,7 @@ export default {
     },
     level () {
       return this.$store.getters.level
-    }
+    },
   },
   methods: {
     processMessages (messages) {

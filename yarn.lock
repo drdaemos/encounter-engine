@@ -3245,6 +3245,10 @@ once@^1.3.0, once@^1.3.3:
   dependencies:
     wrappy "1"
 
+operative@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/operative/-/operative-0.4.6.tgz#0e137bf5cc75e584515bdfb7c40ab5c5169e31a3"
+
 opn@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/opn/-/opn-4.0.2.tgz#7abc22e644dff63b0a96d5ab7f2790c0f01abc95"
@@ -4446,10 +4450,6 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simple-web-worker@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/simple-web-worker/-/simple-web-worker-1.2.0.tgz#2deffd0998976b824b141a27ce504d31d0d99108"
-
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -5016,12 +5016,6 @@ vue-template-es2015-compiler@^1.2.2:
 vue-toasted@^1.1.14:
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.14.tgz#039abb9af2b1164fa16c17175ff8d3432fba17f1"
-
-vue-worker@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/vue-worker/-/vue-worker-1.2.1.tgz#deae14b98a9d89daabb20e7fc6190642849b6d93"
-  dependencies:
-    simple-web-worker "1.2.0"
 
 vue@^2.3.4:
   version "2.3.4"

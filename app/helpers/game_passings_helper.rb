@@ -38,8 +38,8 @@ module GamePassingsHelper
       {
         :user => { :team => team.name, :team_id => team.id, :is_captain => current_user.captain? },
         :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing? },
-        :game_passing => { :finished => game_passing.finished?, :time => Time.now, :answered => game_passing.answered_questions.size },
-        :level => { :id => level.id, :name => level.name, :text => level.text, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count },
+        :game_passing => { :finished => game_passing.finished?, :time => Time.now.utc, :answered => game_passing.answered_questions.size },
+        :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count },
         :hints => { 
           :available => game_passing.hints_to_show,
           :next_hint => next_hint.nil? ? nil : next_hint.available_in(game_passing.current_level_entered_at)

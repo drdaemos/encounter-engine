@@ -2,6 +2,9 @@
   <div class="current-level">
     <h3 class="heading">{{ level.name }}</h3>
     <p class="text">{{ level.text }}</p>
+    <div class="time-container">
+        <p>Время на уровне: <span class="time">{{ timeOnLevel }}</span></p>
+    </div>
     <div class="hints-container">
         <h4>Подсказки:</h4>
         <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки {{ timeLeftForNextHint }}</div>
@@ -26,18 +29,31 @@
 <script>
 import _ from 'underscore'
 import utils from 'scripts/utils'
+import moment from 'moment'
 
 export default {
   props: ['gameChannel'],
   data () {
     return {
+        currentTime: Date.now()
     }
   },
   mounted () {
     this.$form = $(this.$el).find('form');
     this.$form.submit(this.onSubmit);
+
+    var timer = operative((callback) => {
+        setInterval(() => callback(Date.now()), 1000)
+    });
+
+    timer(this.updateTimer);
   },
   computed: {
+    timeOnLevel () {
+        var now = moment(this.currentTime);
+        var entered_at = moment(this.level.entered_at);
+        return moment(now.diff(entered_at)).format('HH:mm:ss');
+    },
     timeLeftForNextHint () {
         return null;
     },
@@ -54,6 +70,9 @@ export default {
     }
   },
   methods: {
+    updateTimer (m) {
+        this.currentTime = m;
+    },
     onSubmit(event) {
         event.preventDefault();
         var params = this.$form.serializeArray()
