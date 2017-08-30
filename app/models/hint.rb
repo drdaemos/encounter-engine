@@ -18,4 +18,8 @@ class Hint < ApplicationRecord
   def available_in(current_level_entered_at)
     (current_level_entered_at - Time.now).to_i + self.delay
   end
+
+  def availability_date(current_level_entered_at)
+    Time.at((current_level_entered_at).to_i + self.delay)
+  end
 end

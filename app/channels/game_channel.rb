@@ -14,6 +14,14 @@ class GameChannel < ApplicationCable::Channel
     # current_user.away
   end
 
+  def request_state()
+    team = Team.find(params[:team])
+    game = Game.find(params[:game])
+    game_state = get_app_data(team, game)
+
+    ActionCable.server.broadcast("game_#{params[:game]}_team_#{params[:team]}", game_state )
+  end
+
   def post_answer(data)
     team = Team.find(params[:team])
     game = Game.find(params[:game])

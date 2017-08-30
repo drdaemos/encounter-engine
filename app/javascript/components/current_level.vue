@@ -35,7 +35,7 @@ export default {
   props: ['gameChannel'],
   data () {
     return {
-        currentTime: Date.now()
+        currentTime: new Date(),
     }
   },
   mounted () {
@@ -43,19 +43,42 @@ export default {
     this.$form.submit(this.onSubmit);
 
     var timer = operative((callback) => {
-        setInterval(() => callback(Date.now()), 1000)
+        setInterval(() => callback(new Date()), 1000)
     });
 
     timer(this.updateTimer);
   },
   computed: {
     timeOnLevel () {
-        var now = moment(this.currentTime);
-        var entered_at = moment(this.level.entered_at);
-        return moment(now.diff(entered_at)).format('HH:mm:ss');
+        var now = moment.utc(this.currentTime.toISOString());
+        var entered_at = moment.utc(this.level.entered_at);
+        var diff_msec = now.diff(entered_at)
+
+        return moment.utc(diff_msec).format('HH:mm:ss')
     },
     timeLeftForNextHint () {
-        return null;
+        if (!this.next_hint) {
+            return null;
+        } 
+
+        var now = moment.utc(this.currentTime.toISOString());
+        var next_hint = moment.utc(this.next_hint);
+        var diff_msec = next_hint.diff(now)
+
+        return diff_msec > 0 
+            ? moment.utc(Math.abs(diff_msec)).format('HH:mm:ss')
+            : '-' + moment.utc(Math.abs(diff_msec)).format('HH:mm:ss')
+    },
+    timeLeftForNextHintDiff () {
+        if (!this.next_hint) {
+            return null;
+        } 
+
+        var now = moment.utc(this.currentTime.toISOString());
+        var next_hint = moment.utc(this.next_hint);
+        var diff_msec = next_hint.diff(now)
+
+        return diff_msec;
     },
     passing () {
         return this.$store.getters.passing
@@ -67,16 +90,26 @@ export default {
         return this.$store.getters.hints.available
             .filter((item) => item.level_id === this.level.id)
             .reverse()
+    },
+    next_hint () {
+        return this.$store.getters.hints.next_hint;
     }
   },
   methods: {
     updateTimer (m) {
         this.currentTime = m;
+        if (this.timeLeftForNextHintDiff < 0) {
+            this.requestState();
+        }
+    },
+    requestState() {
+        if (!this.gameChannel.send({ action: 'request_state' })) {
+            console.error('could not request state');
+        };
     },
     onSubmit(event) {
         event.preventDefault();
         var params = this.$form.serializeArray()
-        var url = ""
         var data = {
             action: 'post_answer',
             payload: _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
@@ -89,7 +122,6 @@ export default {
         };
     },
     onFinish: function() {
-        console.log('yay')
     },
   }
 }

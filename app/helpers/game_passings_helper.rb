@@ -42,7 +42,7 @@ module GamePassingsHelper
         :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count },
         :hints => { 
           :available => game_passing.hints_to_show,
-          :next_hint => next_hint.nil? ? nil : next_hint.available_in(game_passing.current_level_entered_at)
+          :next_hint => next_hint.nil? ? nil : next_hint.availability_date(game_passing.current_level_entered_at).utc
         }
       }
     elsif game_passing.finished?
