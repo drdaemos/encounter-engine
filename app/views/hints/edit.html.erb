@@ -1,8 +1,7 @@
-<p>
+<div class="hint-edit-page">
+<h4>
   Редактирование подсказки к заданию "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name,@game %>"
-</p>
-
-<br />
+</h4>
 
 <%= error_messages_for @hint, :header => "<h2>Ошибка</h2>" %>
 
@@ -10,6 +9,9 @@
 
   <%= render 'form', :hint => @hint, :f => f %>
 
-  <%= submit_tag "Отредактировать", :style => "width:150px" %>
-  <em><%= link_to "(отменить)", [@hint.level.game, @hint.level] %></em>
+  <div class="row form-actions">
+      <%= f.submit t(:update, scope: [:models, :hint]) %>
+      <%= link_to "(отменить)", [@hint.level.game, @hint.level] %>
+  </div>
 <% end =%>
+</div>

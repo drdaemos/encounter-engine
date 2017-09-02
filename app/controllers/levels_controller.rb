@@ -52,7 +52,7 @@ class LevelsController < ApplicationController
 protected
 
   def level_params   
-    params[:level].permit(:name, :text, :correct_answer) unless params[:level].nil?
+    params[:level].permit(:name, :text, :correct_answer, :time_limit) unless params[:level].nil?
   end
   
   def find_game

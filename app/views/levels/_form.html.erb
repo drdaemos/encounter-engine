@@ -1,0 +1,20 @@
+<div class="row">
+  <%= f.label :name, t(:name, scope: [:models, :level]) %>
+  <%= f.text_field :name %>
+</div>
+<div class="row">
+  <%= f.label :text, t(:text, scope: [:models, :level]) %>
+  <%= f.text_area :text, data: { :wysiwyg => true } %>
+</div>
+<div class="row">
+  <%= f.label :time_limit, t(:time_limit, scope: [:models, :level]) %>
+  <%= f.text_field :time_limit %>
+  минут
+</div>
+
+<style type="text/css">
+#level_time_limit {
+    width: 100px;
+    display: inline-block;
+}
+</style>

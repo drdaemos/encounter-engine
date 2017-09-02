@@ -8,12 +8,22 @@ ru:
       max_team_number: Максимальное количество команд
       is_draft: Черновик?
       submit: Создать игру
+      update: Сохранить
     level:
       name: Название
       text: Текст
       correct_answer: Код
+      time_limit: Автопереход через
       correct_answer_hint: после создания вы сможете добавить больше кодов в задание
       submit: Добавить задание
+      update: Сохранить
+    hint:
+      access_code: Код спойлера
+      text: Текст
+      delay_in_minutes: Время до подсказки
+      penalty_time: Штрафное время
+      submit: Добавить подсказку
+      update: Сохранить
   activerecord:
     # Сообщения об ошибке (валидации) ActiveRecord
     errors:

@@ -1,0 +1,18 @@
+.level-page {
+    .page-actions {
+        margin-top: 5 * $vertical-unit;
+    }
+
+    .hint-item {
+        @include card-container;
+
+        .hint-delay {
+            @include card-divider;
+        }
+
+        .hint-actions, .hint-text {
+            @include card-section;
+        }
+    }
+}
+

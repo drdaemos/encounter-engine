@@ -1,6 +1,7 @@
-<p>
-    Новое подсказка для задания "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name, @game %>"
-</p>
+<div class="hint-add-page">
+<h4>
+    Новая подсказка для задания "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name, @game %>"
+</h4>
 
 <br />
 
@@ -10,7 +11,10 @@
 
   <%= render 'form', :hint => @hint, :f => f %>
 
-  <%= submit_tag "Добавить подсказку", :style => "width:170px" %>
-  <em><%= link_to "(отменить)", [@hint.level.game, @hint.level] %></em>
+  <div class="row form-actions">
+    <%= f.submit t(:submit, scope: [:models, :hint]) %>
+    <%= link_to "(отменить)", [@hint.level.game, @hint.level] %>
+  </div>
 <% end =%>
+</div>
 

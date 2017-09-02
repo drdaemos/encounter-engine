@@ -1,6 +1,9 @@
 @import '~foundation-sites/assets/foundation.scss';
 @import url('//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css');
 
+@import 'variables.scss';
+@import 'level.scss';
+
 #encounter-app {
     @include xy-grid-container;
 }
@@ -22,4 +25,30 @@
 .main-container {
   @include xy-cell(auto, $gutter-position: left);
   @include xy-cell-block($vertical: true);
+}
+
+.fr-box {
+    @include bordered();
+    margin: 0 0 1rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.form-actions {
+    @include flex;
+    @include flex-align(left, center);
+
+    * + * {
+        margin-left: 2 * $vertical-unit;
+    }
+
+    button, input[type=submit] {
+        margin: 0;
+    }
+}
+
+button, input[type=submit] {
+    @include button();
 }

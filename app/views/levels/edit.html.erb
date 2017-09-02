@@ -10,9 +10,10 @@
 
 <%= error_messages_for @level, :header => "<h2>Ошибка</h2>" %>
 
-<%= form_for [@level.game, @level], :action => [@level.game, @level] do %>
-  <p><%= text_field :name, :label => "Название" %></p>
-  <p><%= text_area :text, :label => "Текст задания" %></p>
-  <%= submit_tag "Сохранить" %>
-  <em><%= link_to "(отменить)", [@level.game, @level] %></em>
+<%= form_for [@level.game, @level], :action => [@level.game, @level] do |f| %>
+  <%= render 'form', :hint => @hint, :f => f %>
+  <div class="row form-actions">
+    <%= f.submit t(:update, scope: [:models, :level]) %>
+    <%= link_to "(отменить)", [@level.game, @level] %>
+  </div>
 <% end =%>

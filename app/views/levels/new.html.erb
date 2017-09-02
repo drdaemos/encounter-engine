@@ -4,26 +4,14 @@
 <%= error_messages_for @level, :header => "<h2>Ошибка</h2>" %>
 
 <%= form_for [@level.game, @level] do |f| %>
-  <div class="row">
-    <%= f.label :name, t(:name, scope: [:models, :level]) %>
-    <%= f.text_field :name %>
-  </div>
-
-
-  <div class="row">
-    <%= f.label :text, t(:text, scope: [:models, :level]) %>
-    <%= f.text_field :text %>
-  </div>
-
+  <%= render 'form', :hint => @hint, :f => f %>
   <div class="row">
     <%= f.label :correct_answer, t(:correct_answer, scope: [:models, :level]) %>
     <%= f.text_field :correct_answer %>
     <em><%= t(:correct_answer_hint, scope: [:models, :level]) %></em>
   </div>
-
   <div class="row">
       <%= f.submit  t(:submit, scope: [:models, :level]) %>
       <em><%= link_to "(отменить)", @level.game %></em>
   </div>
-
 <% end =%>

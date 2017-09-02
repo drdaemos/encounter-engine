@@ -1,8 +1,7 @@
 import 'stylesheets/application.scss'
 import 'jquery-ujs'
-// import Vue from 'vue'
-// import App from 'components/application.vue'
 import NewGameView from 'components/new_game'
+import FroalaTextarea from 'components/froala_textarea'
 import moment from 'moment'
 
 document.addEventListener('DOMContentLoaded', () => {

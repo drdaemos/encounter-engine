@@ -1,15 +1,29 @@
 <div class="row">
   <%= f.label :text, t(:text, :scope => [:models, :hint]) %>
-  <%= f.text_field :text %>
+  <%= f.text_area :text, data: { :wysiwyg => true }  %>
+</div>
+<div class="row">
+  <%= f.label :access_code, t(:access_code, :scope => [:models, :hint]) %>
+  <%= f.text_field :access_code %>
 </div>
 <div class="row">
   <%= f.label :delay_in_minutes, t(:delay_in_minutes, :scope => [:models, :hint]) %>
   <%= f.text_field :delay_in_minutes, :type => :number %>
   <span>минут</span>
 </div>
+<div class="row">
+  <%= f.label :penalty_time, t(:penalty_time, :scope => [:models, :hint]) %>
+  <%= f.text_field :penalty_time, :type => :number %>
+  <span>минут</span>
+</div>
+
 
 <style type="text/css">
 #hint_delay_in_minutes {
+    width: 100px;
+    display: inline-block;
+}
+#hint_penalty_time {
     width: 100px;
     display: inline-block;
 }

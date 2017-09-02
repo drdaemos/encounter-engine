@@ -1951,6 +1951,10 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+font-awesome@>=4.4.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+
 for-in@^0.1.3:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-0.1.8.tgz#d8773908e31256109952b1fdb9b3fa867d2775e1"
@@ -2005,6 +2009,13 @@ fraction.js@4.0.0:
 fresh@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
+
+froala-editor@^2.5.1:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/froala-editor/-/froala-editor-2.6.5.tgz#5bbc62ad1d66a7c7558221ceba672c5100a8afd2"
+  dependencies:
+    font-awesome ">=4.4.0"
+    jquery ">=1.11.0"
 
 fs-extra@^0.30.0:
   version "0.30.0"
@@ -2557,7 +2568,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-jquery@>=1.8.0, jquery@>=3.0.0, jquery@^3.2.1:
+jquery@>=1.11.0, jquery@>=1.8.0, jquery@>=3.0.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4967,6 +4978,13 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-froala-wysiwyg@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/vue-froala-wysiwyg/-/vue-froala-wysiwyg-2.0.0.tgz#e52ab91797e4c804d8a91b9cb61fda44ef15bb95"
+  dependencies:
+    froala-editor "^2.5.1"
+    vue "^2.2.4"
+
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -5017,7 +5035,7 @@ vue-toasted@^1.1.14:
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.14.tgz#039abb9af2b1164fa16c17175ff8d3432fba17f1"
 
-vue@^2.3.4:
+vue@^2.2.4, vue@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.4.tgz#5ec3b87a191da8090bbef56b7cfabd4158038171"
 

@@ -1,77 +1,63 @@
-<h2>
-  Задание "<strong><%= @level.name %></strong>"
-</h2>
+<div class="level-page">
+  <h2 class="level-name">Задание "<strong><%= @level.name %></strong>"</h1>
+  <p class="level-game"><em>(игра "<%= link_to @game.name, @game %>")</em></p>
 
-<p>
-  <em>(игра "<%= link_to @game.name, @game %>")</em>
-</p>
+  <h3 class="page-section">Текст задания:</h3>
+  <div class="level-text"><%= @level.text.html_safe %></div>
 
-<br />
+  <div class="edit-link">
+    <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] unless @level.game.started? %>
+  </div>
 
-<p>
-  <em>Текст задания:</em>
-</p>
+  <hr>
 
-<p>
-  <%= @level.text %>
-</p>
-
-<p>
-  <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] unless @level.game.started? %>
-</p>
-
-<br />
-
-<% if @level.questions.size > 0 %>
-  <% unless @level.multi_question? %>
-    <p>
-      <em>Код:</em>
-      <div id="question-<%= @level.questions.first.id %>">
-        <%= @level.correct_answer %>
-        <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
-      </div>
-    </p>
-  <% else %>
-    <p>
-      <em>Коды (<%= @level.questions.size %>):</em>
-    </p>
-    <% @level.questions.each do |question| %>
-      <div id="question-<%=  question.id %>">
-        <p><%= question.correct_answer %></p>
-        <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, question) %>
-      </div>
+  <div class="level-codes">
+    <% if @level.questions.size > 0 %>
+      <% unless @level.multi_question? %>
+        <div class="level-code" id="question-<%= @level.questions.first.id %>">
+          <span>Код:</span>
+          <span class="code-answer">
+            <%= @level.correct_answer %>
+          </span>
+          <span class="edit-link">
+          <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
+          </span>
+        </p>
+      <% else %>
+        <h4>Коды (<%= @level.questions.size %>):</h4>
+        <% @level.questions.each do |question| %>
+          <div class="level-code" id="question-<%= question.id %>">
+            <span class="code-answer"><%= question.correct_answer %></span>
+            <span class="edit-link">
+            <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, question) %>
+            </span>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+    <div class="add-link">
+      <%= link_to "Добавить ещё один код", [:new, @game, @level, :question] %>
+    </div>
+  </div>
 
-<p>
-  <%= link_to "Добавить ещё один код", [:new, @game, @level, :question] %>
-</p>
+  <hr>
 
-<br />
-
-<fieldset>
-  <legend>
-    Подсказки:
-  </legend>
-
-  <p>
+  <div class="level-hints">
+    <h3 class="page-section">Подсказки и спойлеры:</h3>
+    
     <%= render 'hints/list', :hints => @level.hints %>
-  </p>
 
-  <p>
-    <%= link_to "Добавить подсказку", [:new, @game, @level, :hint] %>
-  </p>
-</fieldset>
+    <div class="add-link">
+      <%= link_to "Добавить подсказку", [:new, @game, @level, :hint] %>
+    </div>
+  </div>
 
-<br />
-
-<p>
-  <%= link_to "Удалить этот уровень", [@game, @level], :method => :delete %> <br />
-</p>
-
-<br />
-
-<p>
-  <%= link_to "Вернуться к игре \"#{@level.game.name}\"", @level.game %>
-</p>
+  <div class="page-actions">
+    <span class="page-action">
+      <%= link_to "Удалить этот уровень", [@game, @level], :method => :delete %> <br />
+    </span>
+    <span class="page-action">
+      <%= link_to "Вернуться к игре \"#{@level.game.name}\"", @level.game %>
+    </span>
+  </div>
+</div>

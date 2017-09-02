@@ -1,17 +1,20 @@
-<% if hints.empty? %>
-    <em>Подсказок нет</em>
-<% else %>
-    <% hints.each do |hint| %>
-        <p>
-          <em>Через</em> <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %></strong> <em>минут:</em>
-          <em>
-            <%= link_to "(редактировать)", [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %>
-            <%= link_to "(удалить)", [hint.level.game, hint.level, hint], :method => :delete unless @level.game.started? %>
-          </em>
-        </p>
-        <p>
-          <%= hint.text %>
-        </p>
-        <br />
-    <% end %>
-<% end %>
+<div class="hints-list">
+  <% if hints.empty? %>
+      <em>Подсказок нет</em>
+  <% else %>
+      <% hints.each do |hint| %>
+          <div class="hint-item">
+            <div class="hint-delay">
+              <span class="delay">Через <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %></strong> минут:</span>
+            </div>
+            <div class="hint-text">
+              <%= hint.text.html_safe %>
+            </div>
+            <div class="hint-actions">
+              <%= link_to "(редактировать)", [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %>
+              <%= link_to "(удалить)", [hint.level.game, hint.level, hint], :method => :delete unless @level.game.started? %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
