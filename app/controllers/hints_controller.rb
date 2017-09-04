@@ -40,7 +40,7 @@ class HintsController < ApplicationController
 protected
 
   def hint_params
-    params[:hint].permit(:text, :delay_in_minutes, :access_code, :penalty_time) unless params[:hint].nil?
+    params[:hint].permit(:text, :delay_in_minutes, :access_code, :penalty_time_in_minutes) unless params[:hint].nil?
   end
 
   def build_hint

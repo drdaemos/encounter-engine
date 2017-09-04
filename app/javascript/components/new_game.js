@@ -8,38 +8,33 @@ export default class NewGameView {
     console.log('NewGameView constructed');
   }
 
-  findStartsAt() {
-    return $('#game_starts_at');
-  }
-
-  findRegistrationDeadline() {
-    return $('#game_registration_deadline');
+  findDatePickers() {
+    return {
+      'starts_at': $('#game_starts_at'),
+      'finished_at': $('#game_finished_at'),
+      'registration_deadline': $('#game_registration_deadline'),
+    }
   }
 
   render() {
+    var pickers = this.findDatePickers();
+    for (var index in pickers) {
+      this.initDatePicker(pickers[index]);
+    }
+  }
+
+  initDatePicker(element) {
+    if (element.length === 0) {
+      return;
+    }
+
     var now = this.getNowDate();
+    var parsedValue = moment(element.val());
+    var formattedValue = parsedValue.isValid() ? parsedValue.format(this.getMomentOutputFormat()) : null;
 
-    var parsedStartsAt = moment(this.findStartsAt().val());
+    element.val(formattedValue);
 
-    this.findStartsAt().val(
-        parsedStartsAt.format(this.getMomentOutputFormat())
-    );
-
-    this.findStartsAt().fdatepicker({
-        format: this.getDatePickerFormat(),
-        pickTime: true,
-        onRender: function (date) {
-            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-        }
-    });
-
-    var parsedRegistrationDeadline = moment(this.findRegistrationDeadline().val());
-
-    this.findRegistrationDeadline().val(
-        parsedRegistrationDeadline.format(this.getMomentOutputFormat())
-    );
-
-    this.findRegistrationDeadline().fdatepicker({
+    element.fdatepicker({
         format: this.getDatePickerFormat(),
         pickTime: true,
         onRender: function (date) {
@@ -62,7 +57,5 @@ export default class NewGameView {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if ($('#game_starts_at').length && $('#game_registration_deadline').length) {
-        new NewGameView();
-    }
+    new NewGameView();
 })

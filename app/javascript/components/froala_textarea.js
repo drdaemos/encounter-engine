@@ -14,6 +14,11 @@ export default class FroalaTextarea {
 
   options() {
     return {
+      toolbarSticky: false,      
+      toolbarButtons: ['fontFamily', '|', 'fontSize', '|', 'paragraphFormat', '|', 'bold', 'italic', 'underline', 'undo', 'redo', 'codeView'],
+      fontFamilySelection: true,
+      fontSizeSelection: true,
+      paragraphFormatSelection: true
     }
   }
 

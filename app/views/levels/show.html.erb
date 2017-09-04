@@ -1,8 +1,8 @@
 <div class="level-page">
-  <h2 class="level-name">Задание "<strong><%= @level.name %></strong>"</h1>
+  <h3 class="level-name">Задание "<strong><%= @level.name %></strong>"</h3>
   <p class="level-game"><em>(игра "<%= link_to @game.name, @game %>")</em></p>
 
-  <h3 class="page-section">Текст задания:</h3>
+  <h4 class="page-section">Текст задания:</h4>
   <div class="level-text"><%= @level.text.html_safe %></div>
 
   <div class="edit-link">
@@ -24,7 +24,7 @@
           </span>
         </p>
       <% else %>
-        <h4>Коды (<%= @level.questions.size %>):</h4>
+        <h5>Коды (<%= @level.questions.size %>):</h5>
         <% @level.questions.each do |question| %>
           <div class="level-code" id="question-<%= question.id %>">
             <span class="code-answer"><%= question.correct_answer %></span>
@@ -43,7 +43,7 @@
   <hr>
 
   <div class="level-hints">
-    <h3 class="page-section">Подсказки и спойлеры:</h3>
+    <h4 class="page-section">Подсказки и спойлеры:</h4>
     
     <%= render 'hints/list', :hints => @level.hints %>
 

@@ -1,20 +1,41 @@
-<div class="hints-list">
-  <% if hints.empty? %>
-      <em>Подсказок нет</em>
-  <% else %>
-      <% hints.each do |hint| %>
-          <div class="hint-item">
-            <div class="hint-delay">
-              <span class="delay">Через <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %></strong> минут:</span>
-            </div>
-            <div class="hint-text">
-              <%= hint.text.html_safe %>
-            </div>
-            <div class="hint-actions">
-              <%= link_to "(редактировать)", [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %>
-              <%= link_to "(удалить)", [hint.level.game, hint.level, hint], :method => :delete unless @level.game.started? %>
-            </div>
-          </div>
-      <% end %>
-  <% end %>
-</div>
+<% if hints.empty? %>
+  <p>Подсказок нет</p>
+<% else %>
+  <table class="hints-list">
+    <thead>
+    <tr>
+      <th>Время до подсказки<br>или код спойлера</th>
+      <th>Текст</th>
+      <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% hints.each do |hint| %>
+        <tr class="hint-item">
+          <% if hint.delay and hint.delay > 0 %>
+          <td class="hint-delay">
+            <p class="delay">Через <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %></strong> минут</p>
+            <% if hint.penalty_time and hint.penalty_time > 0 %>
+              <p class="penalty">(штраф: <%= hint.penalty_time_in_minutes %> минут)</p>
+            <% end %>
+          </td>
+          <% elsif hint.access_code %>
+          <td class="hint-access_code">
+            <p class="code"><%= hint.access_code %></p>
+            <% if hint.penalty_time and hint.penalty_time > 0 %>
+              <p class="penalty">(штраф: <%= hint.penalty_time_in_minutes %> минут)</p>
+            <% end %>
+          </td>
+          <% end %>
+          <td class="hint-text">
+            <%= hint.text.html_safe %>
+          </td>
+          <td class="hint-actions">
+            <%= link_to "(редактировать)", [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %>
+            <%= link_to "(удалить)", [hint.level.game, hint.level, hint], :method => :delete unless @level.game.started? %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -2,6 +2,14 @@
 class Hint < ApplicationRecord
   belongs_to :level
 
+  def penalty_time_in_minutes
+    self.penalty_time.nil? ? nil : self.penalty_time / 60
+  end
+
+  def penalty_time_in_minutes=(value)
+    self.penalty_time = value.to_i * 60
+  end  
+
   def delay_in_minutes
     self.delay.nil? ? nil : self.delay / 60
   end

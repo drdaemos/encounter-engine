@@ -1,34 +1,13 @@
-<div>
-<%= error_messages_for @game, :header => "<h2>Ошибка</h2>" %>
+<div class="errors">
+<%= error_messages_for @game, :header => "<h2>Ошибки</h2>" %>
 </div>
 
 <%= form_for @game, :action => @game do |f| %>
-  <div class="field">
-    <%= f.label :name, t(:game_name) %>
-    <%= f.text_field :name %>
-  </div>
-    <div class="field">
-    <%= f.label :description, t(:game_description) %>
-    <%= f.text_field :description %>
-  </div>
 
-  <div class="field">
-    <%= f.label :starts_at, t(:game_starts_at) %>
-    <%= f.text_field :starts_at %>
-  </div>
+  <%= render 'form', :game => @game, :f => f %>
 
-  <div class="field">
-    <%= f.label :registration_deadline, t(:game_registration_deadline) %>
-    <%= f.text_field :registration_deadline %>
-  </div>  
-  <div class="field">
-    <%= f.label :max_team_number, t(:game_max_team_number) %>
-    <%= f.text_field :max_team_number %>
-  </div>  
-  <div class="field">
-    <%= f.label :is_draft, t(:game_is_draft) %>
-    <%= f.check_box :is_draft %>
+  <div class="row form-actions">
+      <%= f.submit t(:update, scope: [:models, :game]) %>
+      <%= link_to "(отменить)", @game %>
   </div>
-  <%= f.submit "Сохранить" %>
-  <em><%= link_to "(отменить)", @game %></em>
 <% end =%>

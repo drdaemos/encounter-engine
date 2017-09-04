@@ -12,8 +12,8 @@
   <span>минут</span>
 </div>
 <div class="row">
-  <%= f.label :penalty_time, t(:penalty_time, :scope => [:models, :hint]) %>
-  <%= f.text_field :penalty_time, :type => :number %>
+  <%= f.label :penalty_time_in_minutes, t(:penalty_time, :scope => [:models, :hint]) %>
+  <%= f.text_field :penalty_time_in_minutes, :type => :number %>
   <span>минут</span>
 </div>
 
@@ -23,7 +23,7 @@
     width: 100px;
     display: inline-block;
 }
-#hint_penalty_time {
+#hint_penalty_time_in_minutes {
     width: 100px;
     display: inline-block;
 }

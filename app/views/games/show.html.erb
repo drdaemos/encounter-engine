@@ -1,88 +1,85 @@
-<h2>
-  Игра "<strong><%= @game.name %></strong>"
-</h2>
+<div class="game-page">
+  <h3 class="game-name">
+    <span>Игра "<strong><%= @game.name %></strong>"</span>
+    <% if @game.draft? %>
+      <div class="is-draft-message">Черновик</div>
+    <% end %>
+  </h3>
 
-<% if @game.draft? %>
-  <div class="is-draft-message">Черновик</div>
-<% end %>
+  <p class="game-author">
+    <em>Автор</em> - <strong><%= @game.author.nickname %></strong>
+  </p>
 
+  <p class="game-starts_at">
+    <% unless @game.starts_at.nil? %>
+      <em>Начало игры</em>: <%= datetime @game.starts_at %></span>
+    <% else %>
+      Дата начала игры ещё не назначена
+    <% end %>
+  </p>
+  <p class="game-registration_deadline">
+    <% unless @game.registration_deadline.nil? %>
+      <em>Крайний срок регистрации</em>: <%= datetime @game.registration_deadline %>
+    <% else %>
+      Крайний срок регистрации ещё не назначен
+    <% end %>
+  </p>
 
-<p>
-  <em>Автор</em> - <strong><%= @game.author.nickname %></strong>
-</p>
+  <div class="game-description">
+    <h4>Описание:</h4>
+    <div class="game-description">
+      <%= @game.description.html_safe %>
+    </div>
+    <div class="game-max_team_number">
+      <em>Максимальное количество команд:</em>
+      <span><%= @game.max_team_number %></span>
+    </div>
+  </div>
 
-<p>
-  <% unless @game.starts_at.nil? %>
-    <em>Начало игры</em>: <%= datetime @game.starts_at %></span>
-  <% else %>
-    Дата начала игры ещё не назначена
-  <% end %>
-</p>
-<p>
-  <% unless @game.registration_deadline.nil? %>
-    <em>Крайний срок регистрации</em>: <%= datetime @game.registration_deadline %>
-  <% else %>
-    Крайний срок регистрации ещё не назначен
-  <% end %>
-</p>
+  <hr>
 
-<p>
-  <em>Описание:</em>
-</p>
+  <% if user_signed_in? and current_user.author_of?(@game) %>
 
-<p>
-  <%= @game.description %>
-</p>
-<p>
-  <em>Максимальное количество команд:</em>
-</p>
-<p>
-  <%= @game.max_team_number %>
-</p>
+    <fieldset>
+      <legend>
+        Задания:
+      </legend>
 
-<br />
+      <p>
+        <%= render 'levels/list', :levels => @game.levels  %>
+      </p>
 
-<% if user_signed_in? and current_user.author_of?(@game) %>
-
-  <fieldset>
-    <legend>
-      Задания:
-    </legend>
-
-    <p>
-      <%= render 'levels/list', :levels => @game.levels  %>
-    </p>
-
-    <p>
-      <%= link_to "Добавить новое задание", new_game_level_path(@game) if ! @game.started? %>
-    </p>
-  </fieldset>
-  <br/>
-      <%= render 'games/game_entries', :game_entries => @game_entries  %>
-
+      <p>
+        <%= link_to "Добавить новое задание", new_game_level_path(@game) if ! @game.started? %>
+      </p>
+    </fieldset>
     <br/>
+        <%= render 'games/game_entries', :game_entries => @game_entries  %>
 
-    <%= render 'games/teams', :teams => @teams  %>
+      <br/>
+
+      <%= render 'games/teams', :teams => @teams  %>
+    <br />
+    <p>
+      <%= link_to "Редактировать эту игру", edit_game_path(@game) if ! @game.started? %>
+    </p>
+
+    <p>
+      <%= link_to "Удалить эту игру", @game, :method => :delete %> <br />
+    </p>
+
+  <% end %>
+
   <br />
-  <p>
-    <%= link_to "Редактировать эту игру", edit_game_path(@game) if ! @game.started? %>
-  </p>
+  <%= render 'teams', :teams => @teams if (!user_signed_in?) || (user_signed_in? && !current_user.author_of?(@game)) %>
 
-  <p>
-    <%= link_to "Удалить эту игру", @game, :method => :delete %> <br />
-  </p>
+  <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
+     <%= link_to 'Начать тестирование', start_test_game_path(@game.id) %>
+  <% end %>
 
-<% end %>
-
-<br />
-<%= render 'teams', :teams => @teams if (!user_signed_in?) || (user_signed_in? && !current_user.author_of?(@game)) %>
-
-<% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
-   <%= link_to 'Начать тестирование', start_test_game_path(@game.id) %>
-<% end %>
-
-<% if @game.is_testing? %>
-   <%= link_to "Старт", show_current_level_path(@game.id) %>
-   <br />
-   <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
-<% end %>
+  <% if @game.is_testing? %>
+     <%= link_to "Старт", show_current_level_path(@game.id) %>
+     <br />
+     <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
+  <% end %>
+</div>

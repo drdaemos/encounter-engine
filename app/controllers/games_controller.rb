@@ -23,6 +23,7 @@ class GamesController < ApplicationController
   end
 
   def new
+    preset_default_values(@game)
     render
   end
 
@@ -71,9 +72,10 @@ class GamesController < ApplicationController
 
   def start_test
     game = self.find_game
-    game.is_draft = 'f'
-    game.is_testing = 't'
-    game.test_date = game.starts_at
+    game.preserved_data[:starts_at] = game.starts_at
+    game.preserved_data[:registration_deadline] = game.registration_deadline
+    game.is_draft = false
+    game.is_testing = true
     game.starts_at = Time.now + 0.1.second
     game.registration_deadline = nil
     game.save!
@@ -84,10 +86,10 @@ class GamesController < ApplicationController
 
   def finish_test
     game = self.find_game
-    game.is_draft = 't'
-    game.is_testing = 'f'
-    game.starts_at = game.test_date
-    game.test_date = Time.now
+    game.is_draft = true
+    game.is_testing = false
+    game.starts_at = game.preserved_data[:starts_at] > Time.now ? game.preserved_data[:starts_at] : Time.now + 1.day
+    game.registration_deadline = game.preserved_data[:registration_deadline] > Time.now ? game.preserved_data[:registration_deadline] : game.starts_at - 1.hour
     game.save!
 
     game_passing = GamePassing.of_game(game)
@@ -106,12 +108,30 @@ class GamesController < ApplicationController
       return Hash.new
     end
     
-    data = params[:game].permit(:name, :description, :starts_at, :registration_deadline, :max_team_number, :is_draft)
 
-    data[:starts_at] = Time.strptime(data[:starts_at], "%d-%m-%Y %H:%M")
-    data[:registration_deadline] = Time.strptime(data[:registration_deadline], "%d-%m-%Y %H:%M")
+    data = params[:game].permit(:name, :description, :notes, :accessories, :starts_at, :finished_at, :registration_deadline, :max_team_number, :is_draft)
+
+    data[:starts_at] = !data[:starts_at].blank? ? DateTime.strptime(data[:starts_at], '%d-%m-%Y %H:%M') : nil
+    data[:registration_deadline] = !data[:registration_deadline].blank? ? DateTime.strptime(data[:registration_deadline], '%d-%m-%Y %H:%M') : nil
+    data[:finished_at] = !data[:finished_at].blank? ? DateTime.strptime(data[:finished_at], '%d-%m-%Y %H:%M') : nil
 
     data
+  end
+
+  def preset_default_values(game)
+    game.max_team_number = 10
+    game.notes = """
+<p>Территория: Ульяновск + 10км
+    """
+    game.accessories = """
+<ul>
+<li>Телефон с выходом в интернет
+<li>Фонарь
+<li>Автомобиль
+<li>Командное соглашение
+<li>Взнос на игру
+</ul>
+    """
   end
 
   def build_game

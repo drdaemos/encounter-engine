@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Game < ApplicationRecord
+  serialize :preserved_data, Hash
+
   belongs_to :author, :class_name => "User"
   has_many :levels, -> { order('position') }
   has_many :logs, -> { order('time') }

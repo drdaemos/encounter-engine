@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902140635) do
+ActiveRecord::Schema.define(version: 20170903171830) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -49,7 +49,10 @@ ActiveRecord::Schema.define(version: 20170902140635) do
     t.datetime "registration_deadline"
     t.datetime "author_finished_at"
     t.boolean  "is_testing",             default: false, null: false
-    t.datetime "test_date"
+    t.text     "preserved_data"
+    t.text     "notes"
+    t.text     "accessories"
+    t.datetime "finished_at"
   end
 
   create_table "hints", force: :cascade do |t|

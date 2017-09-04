@@ -3,7 +3,10 @@ ru:
     game:
       name: Название игры
       description: Описание игры
+      notes: Примечания
+      accessories: Принадлежности
       starts_at: Начало игры
+      finished_at: Конец игры
       registration_deadline: Крайний срок регистрации
       max_team_number: Максимальное количество команд
       is_draft: Черновик?
