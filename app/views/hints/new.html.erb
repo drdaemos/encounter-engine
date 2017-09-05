@@ -12,7 +12,7 @@
   <%= render 'form', :hint => @hint, :f => f %>
 
   <div class="row form-actions">
-    <%= f.submit t(:submit, scope: [:models, :hint]) %>
+    <%= f.submit t(:submit, scope: [:activerecord, :attributes, :hint]) %>
     <%= link_to "(отменить)", [@hint.level.game, @hint.level] %>
   </div>
 <% end =%>

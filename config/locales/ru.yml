@@ -1,48 +1,40 @@
 ru:
-  models:
-    game:
-      name: Название игры
-      description: Описание игры
-      notes: Примечания
-      accessories: Принадлежности
-      starts_at: Начало игры
-      finished_at: Конец игры
-      registration_deadline: Крайний срок регистрации
-      max_team_number: Максимальное количество команд
-      is_draft: Черновик?
-      submit: Создать игру
-      update: Сохранить
-    level:
-      name: Название
-      text: Текст
-      correct_answer: Код
-      time_limit: Автопереход через
-      correct_answer_hint: после создания вы сможете добавить больше кодов в задание
-      submit: Добавить задание
-      update: Сохранить
-    hint:
-      access_code: Код спойлера
-      text: Текст
-      delay_in_minutes: Время до подсказки
-      penalty_time: Штрафное время
-      submit: Добавить подсказку
-      update: Сохранить
   activerecord:
-    # Сообщения об ошибке (валидации) ActiveRecord
+    attributes:
+      game:
+        name: Название игры
+        description: Описание игры
+        notes: Примечания
+        accessories: Принадлежности
+        starts_at: Начало игры
+        finished_at: Конец игры
+        registration_deadline: Крайний срок регистрации
+        max_team_number: Максимальное количество команд
+        is_draft: Черновик?
+        submit: Создать игру
+        update: Сохранить
+      level:
+        name: Название
+        text: Текст
+        correct_answer: Код
+        time_limit: Автопереход через
+        correct_answer_hint: после создания вы сможете добавить больше кодов в задание
+        submit: Добавить задание
+        update: Сохранить
+      hint:
+        access_code: Код спойлера
+        text: Текст
+        delay_in_minutes: Время до подсказки
+        penalty_time: Штрафное время
+        submit: Добавить подсказку
+        update: Сохранить
+    models:
+      game: Игра
+      hint: Подсказка
+      level: Задание
+
     errors:
-      # Для всех сообщений доступны макросы %{model}, {{attribute}}, {{value}}.
-      # Для некоторых доступен макрос %{count} -- в этом случае можно задать несколько вариантов
-      # сообщения (плюрализация)
-      #
-      # Также можно использовать сообщения, начинающиеся с "^" -- в этом случае
-      # в списке ошибок валидации перед конкретным сообщением не будет выводиться имя атрибута.
-      #
-      #
-      # The values :model, :attribute and :value are always available for interpolation
-      # The value :count is available when applicable. Can be used for pluralization.
-      #
-      # You can use ^-prefixed messages as well to get rid of human attribute name appearing 
-      # before your message in validation messages.
+      message: "В форме присутствуют ошибки"
       messages:
         inclusion: "имеет непредусмотренное значение"
         exclusion: "имеет зарезервированное значение"
@@ -79,45 +71,3 @@ ru:
 
       full_messages:
         format: "%{attribute} %{message}"
-
-        # Можно добавить собственные сообщения об ошибке тут или задавать их в контексте атрибута.
-        #
-        #
-        # Append your own errors here or at the model/attributes scope.
-        #
-        #
-        # Например,
-        #   models:
-        #     user:
-        #       # Задает сообщение об ошибке (пустое значение) для атрибутов модели User
-        #       # Можно использовать макросы %{model}, {{attribute}}.
-        #       # Также можно использовать сообщения, начинающиеся с "^" -- в этом случае
-        #       # в списке ошибок валидации перед конкретным сообщением не будет выводиться имя атрибута.
-        #       blank: "собственное сообщение об ошибке (пустой атрибут) для модели %{model} и атрибута {{attribute}}"
-        #       attributes:
-        #         # Также можно задавать собственные сообщения об ошибке для конкретных атрибутов модели.
-        #         # Ниже определим собственное сообщение об ошибке для атрибута name модели User.
-        #         name:
-        #           blank: "Атрибут %{attribute} особенный -- у него свое сообщение об ошибке при пустом атрибуте"
-      models:
-
-    # Перевод названий моделей. Используется в Model.human_name().
-    #
-    #models:
-      # Например,
-      #   user: "Пользователь"
-      # переведет модель User как "Пользователь".
-      #
-      #
-      # Overrides default messages
-      
-    # Перевод названий атрибутов моделей. Используется в Model.human_attribute_name(attribute).
-    #attributes:
-      # Например,
-      #   user:
-      #     name: "Имя"
-      # переведет атрибут name модели User как "Имя".
-      #
-      #
-      # Overrides model and default messages.
-        

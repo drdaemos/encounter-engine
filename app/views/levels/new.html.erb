@@ -6,12 +6,12 @@
 <%= form_for [@level.game, @level] do |f| %>
   <%= render 'form', :hint => @hint, :f => f %>
   <div class="row">
-    <%= f.label :correct_answer, t(:correct_answer, scope: [:models, :level]) %>
+    <%= f.label :correct_answer, t(:correct_answer, scope: [:activerecord, :attributes, :level]) %>
     <%= f.text_field :correct_answer %>
-    <em><%= t(:correct_answer_hint, scope: [:models, :level]) %></em>
+    <em><%= t(:correct_answer_hint, scope: [:activerecord, :attributes, :level]) %></em>
   </div>
   <div class="row">
-      <%= f.submit  t(:submit, scope: [:models, :level]) %>
+      <%= f.submit  t(:submit, scope: [:activerecord, :attributes, :level]) %>
       <em><%= link_to "(отменить)", @level.game %></em>
   </div>
 <% end =%>

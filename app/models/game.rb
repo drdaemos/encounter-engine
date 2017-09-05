@@ -9,16 +9,16 @@ class Game < ApplicationRecord
   has_many :game_passings, :class_name => "GamePassing"
 
   validates_presence_of :name,
-    :message => "Вы не ввели название"
+    :message => I18n.t(:"activerecord.errors.messages.blank")
 
   validates_uniqueness_of :name,
-    :message => "Игра с таким названием уже существует"
+    :message => I18n.t(:"activerecord.errors.messages.taken")
 
   validates_presence_of :description,
-    :message => "Вы не ввели описание"
+    :message => I18n.t(:"activerecord.errors.messages.blank")
 
   validates_numericality_of :max_team_number, :greater_than => 0, :less_than => 10000,
-    :message => "Диапазон количества команд от 1 до 10000"
+    :message => "диапазон количества команд от 1 до 10000"
 
   validates_presence_of :author
 

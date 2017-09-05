@@ -12,7 +12,7 @@
 
 <%= form_for [@game, @level, @question], :action => :game_level_questions do |f| %>
   <div class="row">
-    <%= f.label :correct_answer, t(:correct_answer, scope: [:models, :question]) %>
+    <%= f.label :correct_answer, t(:correct_answer, scope: [:activerecord, :attributes, :question]) %>
     <%= f.text_field :correct_answer %>
   </div>
   <%= f.submit "Добавить код" %>

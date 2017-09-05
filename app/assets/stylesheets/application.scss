@@ -11,6 +11,7 @@
 .app-grid {
     @include xy-grid(vertical);
     @include xy-grid-frame($vertical: true);
+    overflow: initial;
 }
 
 .center-container {
@@ -25,6 +26,7 @@
 .main-container {
   @include xy-cell(auto, $gutter-position: left);
   @include xy-cell-block($vertical: true);
+  overflow: initial;
 }
 
 .fr-box {
@@ -34,6 +36,10 @@
     p {
         margin: 0;
     }
+}
+
+.form-error-messages {
+    @include callout-base;
 }
 
 .form-actions {

@@ -6,7 +6,7 @@
   <%= render 'form', :game => @game, :f => f %>
 
   <div class="row form-actions">
-      <%= f.submit t(:submit, scope: [:models, :game]) %>
+      <%= f.submit t(:submit, scope: [:activerecord, :attributes, :game]) %>
       <%= link_to "(отменить)", dashboard_path %>
   </div>
 <% end =%>

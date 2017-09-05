@@ -1,13 +1,13 @@
 <div class="row">
-  <%= f.label :name, t(:name, scope: [:models, :level]) %>
+  <%= f.label :name, t(:name, scope: [:activerecord, :attributes, :level]) %>
   <%= f.text_field :name %>
 </div>
 <div class="row">
-  <%= f.label :text, t(:text, scope: [:models, :level]) %>
+  <%= f.label :text, t(:text, scope: [:activerecord, :attributes, :level]) %>
   <%= f.text_area :text, data: { :wysiwyg => true } %>
 </div>
 <div class="row">
-  <%= f.label :time_limit, t(:time_limit, scope: [:models, :level]) %>
+  <%= f.label :time_limit, t(:time_limit, scope: [:activerecord, :attributes, :level]) %>
   <%= f.text_field :time_limit %>
   минут
 </div>

@@ -1,44 +1,44 @@
 <div class="field">
-  <%= f.label :name, t(:name, scope: [:models, :game]) %>
+  <%= f.label :name, t(:name, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_field :name %>
 </div>
 
 <div class="field">
-  <%= f.label :description, t(:description, scope: [:models, :game]) %>
+  <%= f.label :description, t(:description, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_area :description, data: { :wysiwyg => true } %>
 </div>
 
 <div class="field">
-  <%= f.label :notes, t(:notes, scope: [:models, :game]) %>
+  <%= f.label :notes, t(:notes, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_area :notes, data: { :wysiwyg => true } %>
 </div>
 
 <div class="field">
-  <%= f.label :accessories, t(:accessories, scope: [:models, :game]) %>
+  <%= f.label :accessories, t(:accessories, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_area :accessories, data: { :wysiwyg => true } %>
 </div>
 
 <div class="field">
-  <%= f.label :starts_at, t(:starts_at, scope: [:models, :game]) %>
+  <%= f.label :starts_at, t(:starts_at, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_field :starts_at %>
 </div>
 
 <div class="field">
-  <%= f.label :finished_at, t(:finished_at, scope: [:models, :game]) %>
+  <%= f.label :finished_at, t(:finished_at, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_field :finished_at %>
 </div>
 
 <div class="field">
-  <%= f.label :registration_deadline, t(:registration_deadline, scope: [:models, :game]) %>
+  <%= f.label :registration_deadline, t(:registration_deadline, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_field :registration_deadline %>
 </div>  
 
 <div class="field">
-  <%= f.label :max_team_number, t(:max_team_number, scope: [:models, :game]) %>
+  <%= f.label :max_team_number, t(:max_team_number, scope: [:activerecord, :attributes, :game]) %>
   <%= f.text_field :max_team_number %>
 </div>  
 
 <div class="field">
-  <%= f.label :is_draft, t(:is_draft, scope: [:models, :game]) %>
+  <%= f.label :is_draft, t(:is_draft, scope: [:activerecord, :attributes, :game]) %>
   <%= f.check_box :is_draft %>
 </div>

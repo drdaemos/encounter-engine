@@ -30,7 +30,7 @@
 
 <%= form_for [@game, @level, @question, @answer], :action => game_level_question_answers_path(@game, @level, @question) do |f| %>
   <div class="row">
-    <%= f.label :value, t(:value, scope: [:models, :answer]) %>
+    <%= f.label :value, t(:value, scope: [:activerecord, :attributes, :answer]) %>
     <%= f.text_field :value %>
   </div>
   <%= submit_tag "Добавить вариант кода" %>

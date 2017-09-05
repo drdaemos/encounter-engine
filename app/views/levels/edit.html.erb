@@ -13,7 +13,7 @@
 <%= form_for [@level.game, @level], :action => [@level.game, @level] do |f| %>
   <%= render 'form', :hint => @hint, :f => f %>
   <div class="row form-actions">
-    <%= f.submit t(:update, scope: [:models, :level]) %>
+    <%= f.submit t(:update, scope: [:activerecord, :attributes, :level]) %>
     <%= link_to "(отменить)", [@level.game, @level] %>
   </div>
 <% end =%>
