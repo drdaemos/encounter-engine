@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # 
 gem 'acts_as_list'
 gem 'devise' # Authorization
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,3 +50,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'foreman'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
