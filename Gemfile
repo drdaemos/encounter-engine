@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # 
 gem 'acts_as_list'
+gem 'bcrypt', platforms: :ruby
 gem 'devise' # Authorization
 gem 'webpacker', '~> 3.0'
 

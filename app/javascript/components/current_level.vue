@@ -4,6 +4,7 @@
     <p class="text">{{ level.text }}</p>
     <div class="time-container">
         <p>Время на уровне: <span class="time">{{ timeOnLevel }}</span></p>
+        <p>Автопереход через: <span class="time">{{ timeLeftBeforeFail }}</span></p>
     </div>
     <div class="hints-container">
         <h4>Подсказки:</h4>
@@ -49,7 +50,7 @@ export default {
     timer(this.updateTimer);
   },
   computed: {
-    timeOnLevel () {
+    timeOnLevel () {        
         var now = moment.utc(this.currentTime.toISOString());
         var entered_at = moment.utc(this.level.entered_at);
         var diff_msec = now.diff(entered_at)
@@ -61,13 +62,9 @@ export default {
             return null;
         } 
 
-        var now = moment.utc(this.currentTime.toISOString());
-        var next_hint = moment.utc(this.next_hint);
-        var diff_msec = next_hint.diff(now)
-
-        return diff_msec > 0 
-            ? moment.utc(Math.abs(diff_msec)).format('HH:mm:ss')
-            : '-' + moment.utc(Math.abs(diff_msec)).format('HH:mm:ss')
+        return this.timeLeftForNextHintDiff > 0 
+            ? moment.utc(Math.abs(this.timeLeftForNextHintDiff)).format('HH:mm:ss')
+            : '-' + moment.utc(Math.abs(this.timeLeftForNextHintDiff)).format('HH:mm:ss')
     },
     timeLeftForNextHintDiff () {
         if (!this.next_hint) {
@@ -77,6 +74,18 @@ export default {
         var now = moment.utc(this.currentTime.toISOString());
         var next_hint = moment.utc(this.next_hint);
         var diff_msec = next_hint.diff(now)
+
+        return diff_msec;
+    },
+    timeLeftBeforeFail() {
+        return this.timeLeftBeforeFailDiff > 0 
+            ? moment.utc(Math.abs(this.timeLeftBeforeFailDiff)).format('HH:mm:ss')
+            : '-' + moment.utc(Math.abs(this.timeLeftBeforeFailDiff)).format('HH:mm:ss')
+    },
+    timeLeftBeforeFailDiff() {
+        var now = moment.utc(this.currentTime.toISOString());
+        var failTime = moment.utc(this.level.entered_at).add(this.level.time_limit, 'seconds');
+        var diff_msec = failTime.diff(now);
 
         return diff_msec;
     },
@@ -98,7 +107,7 @@ export default {
   methods: {
     updateTimer (m) {
         this.currentTime = m;
-        if (this.timeLeftForNextHintDiff < 0) {
+        if (this.timeLeftForNextHintDiff < 0 || this.timeLeftBeforeFailDiff < 0) {
             this.requestState();
         }
     },

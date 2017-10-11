@@ -106,15 +106,9 @@ class GamesController < ApplicationController
   def game_params   
     if params[:game].nil?
       return Hash.new
-    end
-    
+    end    
 
     data = params[:game].permit(:name, :description, :notes, :accessories, :starts_at, :finished_at, :registration_deadline, :max_team_number, :is_draft)
-
-    data[:starts_at] = !data[:starts_at].blank? ? DateTime.strptime(data[:starts_at], '%d-%m-%Y %H:%M') : nil
-    data[:registration_deadline] = !data[:registration_deadline].blank? ? DateTime.strptime(data[:registration_deadline], '%d-%m-%Y %H:%M') : nil
-    data[:finished_at] = !data[:finished_at].blank? ? DateTime.strptime(data[:finished_at], '%d-%m-%Y %H:%M') : nil
-
     data
   end
 

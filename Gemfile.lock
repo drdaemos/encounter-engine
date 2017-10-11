@@ -199,6 +199,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  bcrypt
   byebug
   capybara (~> 2.13.0)
   cucumber (= 0.10.6)

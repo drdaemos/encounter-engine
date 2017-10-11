@@ -39,7 +39,7 @@ module GamePassingsHelper
         :user => { :team => team.name, :team_id => team.id, :is_captain => current_user.captain? },
         :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing? },
         :game_passing => { :finished => game_passing.finished?, :time => Time.now.utc, :answered => game_passing.answered_questions.size },
-        :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count },
+        :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count, :time_limit => level.time_limit * 60 },
         :hints => { 
           :available => game_passing.hints_to_show,
           :next_hint => next_hint.nil? ? nil : next_hint.availability_date(game_passing.current_level_entered_at).utc
@@ -51,5 +51,12 @@ module GamePassingsHelper
       }
     end
       
+  end
+
+  def fail_level_if_limit_is_passed(game_passing)
+    diff = Time.now - game_passing.current_level_entered_at
+    if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit * 60
+      game_passing.fail_level!
+    end
   end
 end

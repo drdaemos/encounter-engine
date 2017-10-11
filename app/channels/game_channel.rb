@@ -15,6 +15,7 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def request_state()
+    perform_checks
     team = Team.find(params[:team])
     game = Game.find(params[:game])
     game_state = get_app_data(team, game)
@@ -23,6 +24,7 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def post_answer(data)
+    perform_checks
     team = Team.find(params[:team])
     game = Game.find(params[:game])
     game_passing = GamePassing.of(team, game)
@@ -45,5 +47,12 @@ class GameChannel < ApplicationCable::Channel
 
     ActionCable.server.broadcast("game_#{params[:game]}_team_#{params[:team]}", game_state.merge(message) )
   end
+
+  def perform_checks
+    team = Team.find(params[:team])
+    game = Game.find(params[:game])
+    game_passing = GamePassing.of(team, game)
+    fail_level_if_limit_is_passed(game_passing)
+  end 
 
 end

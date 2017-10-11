@@ -10,6 +10,7 @@ class GamePassingsController < ApplicationController
   before_action :ensure_game_is_started
   before_action :ensure_team_captain, :only => [:exit_game]
   before_action :ensure_not_finished, :except => [:index, :show_results]
+  before_action :ensure_current_level_is_active, :except => [:show_results, :index]
   before_action :author_finished_at, :except => [:index, :show_results]
   before_action :ensure_team_member, :except => [:index, :show_results]
   before_action :ensure_not_author_of_the_game, :except => [:index, :show_results]
@@ -87,6 +88,7 @@ protected
     end
   end
 
+
   def ensure_game_is_started
     raise UnauthorizedError, "Нельзя играть в игру до её начала. И вообще, где вы достали эту ссылку? :-)" unless @game.started? unless @game.is_testing?
   end
@@ -106,5 +108,9 @@ protected
   def ensure_not_finished
     self.author_finished_at
     self.ensure_captain_exited
+  end
+
+  def ensure_current_level_is_active
+    fail_level_if_limit_is_passed(@game_passing)
   end
 end

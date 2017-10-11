@@ -8,6 +8,10 @@ export default class NewGameView {
     console.log('NewGameView constructed');
   }
 
+  findForm() {
+    return $('form.edit_game');
+  }
+
   findDatePickers() {
     return {
       'starts_at': $('#game_starts_at'),
@@ -21,6 +25,8 @@ export default class NewGameView {
     for (var index in pickers) {
       this.initDatePicker(pickers[index]);
     }
+
+    this.findForm().submit(this.onSubmit.bind(this));
   }
 
   initDatePicker(element) {
@@ -41,6 +47,14 @@ export default class NewGameView {
             return date.valueOf() < now.valueOf() ? 'disabled' : '';
         }
     });
+  }
+
+  onSubmit(event) {
+    var pickers = this.findDatePickers();
+    for (var index in pickers) {
+      var value = moment(pickers[index].val(), this.getMomentOutputFormat());
+      pickers[index].val(value.utc().format());
+    }
   }
 
   getDatePickerFormat() {

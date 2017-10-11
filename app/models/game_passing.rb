@@ -51,6 +51,19 @@ class GamePassing < ApplicationRecord
     save!
   end
 
+  def fail_level!
+    if last_level?
+      set_finish_time
+    else
+      update_current_level_entered_at
+    end
+
+    reset_answered_questions
+
+    self.current_level = self.current_level.next
+    save!
+  end
+
   def finished?
     !! finished_at
   end

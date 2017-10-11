@@ -5,7 +5,7 @@ import _ from 'underscore'
 class Utils {
     createSocket() {
         if (!this.$cable) {
-            this.$cable = ActionCable.createConsumer('ws://localhost:5000/websocket')
+            this.$cable = ActionCable.createConsumer('ws://localhost:3000/websocket')
         }
 
         return this.$cable
