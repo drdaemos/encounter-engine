@@ -20,7 +20,7 @@ class Hint < ApplicationRecord
 
   def ready_to_show?(current_level_entered_at)
     seconds_passed = Time.now - current_level_entered_at
-    seconds_passed >= self.delay
+    seconds_passed >= self.delay and self.access_code.nil?
   end
 
   def available_in(current_level_entered_at)
@@ -29,5 +29,9 @@ class Hint < ApplicationRecord
 
   def availability_date(current_level_entered_at)
     Time.at((current_level_entered_at).to_i + self.delay)
+  end
+
+  def is_opened_by?(code)
+      self.access_code.mb_chars.upcase.to_s == code.mb_chars.upcase.to_s
   end
 end

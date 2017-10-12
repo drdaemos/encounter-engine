@@ -76,6 +76,7 @@ class GamesController < ApplicationController
     game.preserved_data[:registration_deadline] = game.registration_deadline
     game.is_draft = false
     game.is_testing = true
+    game.author_finished_at = nil
     game.starts_at = Time.now + 0.1.second
     game.registration_deadline = nil
     game.save!
@@ -88,6 +89,7 @@ class GamesController < ApplicationController
     game = self.find_game
     game.is_draft = true
     game.is_testing = false
+    game.author_finished_at = nil
     game.starts_at = game.preserved_data[:starts_at] > Time.now ? game.preserved_data[:starts_at] : Time.now + 1.day
     game.registration_deadline = game.preserved_data[:registration_deadline] > Time.now ? game.preserved_data[:registration_deadline] : game.starts_at - 1.hour
     game.save!

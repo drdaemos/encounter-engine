@@ -41,4 +41,10 @@ class Level < ApplicationRecord
       question.answers.any? { |answer| answer.value.mb_chars.upcase.to_s == answer_value.mb_chars.upcase.to_s}
     end
   end
+
+  def find_hint_by_code(code)
+    self.hints.detect do |hint|
+      hint.is_opened_by?(code)
+    end
+  end
 end

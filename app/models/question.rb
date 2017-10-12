@@ -12,7 +12,7 @@ class Question < ApplicationRecord
       self.answers.first.value
   end
 
-  def matches_any_answer(answer_value)
+  def matches_any_answer?(answer_value)
     self.answers.any? {|answer| answer.value.mb_chars.upcase.to_s == answer_value.mb_chars.upcase.to_s}
   end
 end

@@ -1,7 +1,7 @@
 <template>
   <div class="current-level">
     <h3 class="heading">{{ level.name }}</h3>
-    <p class="text">{{ level.text }}</p>
+    <div class="text" v-html="level.text"></div>
     <div class="time-container">
         <p>Время на уровне: <span class="time">{{ timeOnLevel }}</span></p>
         <p>Автопереход через: <span class="time">{{ timeLeftBeforeFail }}</span></p>
@@ -10,7 +10,7 @@
         <h4>Подсказки:</h4>
         <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки {{ timeLeftForNextHint }}</div>
         <div class="hints" v-for="hint in hints">
-            <div class="hint" :data-id="hint.id">{{ hint.text }}</div>
+            <div class="hint" :data-id="hint.id" v-html="hint.text"></div>
         </div>
         <div class="next-hint" v-if="!timeLeftForNextHint">Подсказок больше не будет</div>
     </div>

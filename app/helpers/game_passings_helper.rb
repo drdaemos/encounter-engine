@@ -16,7 +16,7 @@ module GamePassingsHelper
       :next_available_in => next_hint.nil? ? nil : next_hint.available_in(game_passing.current_level_entered_at) }
   end
 
-  def save_answer_to_log (answer, team, game)
+  def save_answer_to_log (answer, team, game, type="answer")
     game_passing = GamePassing.of(team, game)    
     if game_passing.current_level.id
         level = Level.find(game_passing.current_level.id)
@@ -24,7 +24,8 @@ module GamePassingsHelper
                     :level => level.name,
                     :team => team.name,
                     :time => Time.now,
-                    :answer => answer
+                    :answer => answer,
+                    :answer_type => type
     end
   end
 

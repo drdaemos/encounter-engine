@@ -1,5 +1,6 @@
 class GamePassing < ApplicationRecord
   serialize :answered_questions
+  serialize :opened_spoilers
 
   belongs_to :team
   belongs_to :game
@@ -15,9 +16,22 @@ class GamePassing < ApplicationRecord
   before_create :update_current_level_entered_at
 
   before_save { self.answered_questions ||= [] }
+  before_save { self.opened_spoilers ||= [] }
 
   def self.of(team, game)
     self.of_team(team).of_game(game).first
+  end
+
+  def check_spoiler!(code)
+    code.strip!
+
+    if correct_spoiler_code?(code)
+      spoiler = current_level.find_hint_by_code(code)
+      open_spoiler!(spoiler)
+      true
+    else
+      false
+    end
   end
 
   def check_answer!(answer)
@@ -36,6 +50,11 @@ class GamePassing < ApplicationRecord
   def pass_question!(question)
 		answered_questions << question
 		save!
+  end
+
+  def open_spoiler!(hint)
+    opened_spoilers << hint
+    save!
   end
 
   def pass_level!
@@ -69,21 +88,29 @@ class GamePassing < ApplicationRecord
   end
 
   def hints_to_show
-    current_level.hints.select { |hint| hint.ready_to_show?(current_level_entered_at) }
+    current_level.hints.select { |hint| hint.ready_to_show?(current_level_entered_at) or opened_spoilers.any? {|h| h.access_code == hint.access_code } }
   end
 
   def upcoming_hints
-    current_level.hints.select { |hint| !hint.ready_to_show?(current_level_entered_at) }
+    current_level.hints.select { |hint| !hint.ready_to_show?(current_level_entered_at) and hint.access_code.nil? }
   end
 
   def correct_answer?(answer)
-    unanswered_questions.any? { |question| question.matches_any_answer(answer) }
+    unanswered_questions.any? { |question| question.matches_any_answer?(answer) }
+  end
+
+  def correct_spoiler_code?(code)
+    closed_spoilers.any? { |hint| hint.is_opened_by?(code) }
   end
 
   def time_at_level
     difference = Time.now - self.current_level_entered_at
     hours, minutes, seconds = seconds_fraction_to_time(difference)
     "%02d:%02d:%02d" % [hours, minutes, seconds]
+  end
+
+  def closed_spoilers
+    current_level.hints - opened_spoilers
   end
 
   def unanswered_questions
@@ -127,6 +154,10 @@ protected
 
   def reset_answered_questions
     self.answered_questions.clear
+  end
+
+  def reset_spoilers
+    self.opened_spoilers.clear
   end
 
   # TODO: keep SRP, extract this to a separate helper
