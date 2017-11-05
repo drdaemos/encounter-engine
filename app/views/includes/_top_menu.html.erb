@@ -1,0 +1,24 @@
+<nav class="top-menu">    
+  <div class="nav-item">
+    <%= link_to "Анонсы", :index_page %>
+  </div>
+
+  <div class="nav-item">
+    <%= link_to "Все игры домена", :games %>
+  </div>
+
+  <% if user_signed_in? %>
+
+    <div class="nav-item">
+      <% if current_user.member_of_any_team? %>
+        <%= link_to "Комната команды", :team_room %>
+      <% else %>
+        <%= link_to "Создать команду", :new_team %>
+     <% end %>
+    </div>
+
+    <div class="nav-item">
+      <%= link_to "Профиль", :users %>
+    </div>
+  <% end %>
+</nav>

@@ -1,8 +1,15 @@
 <header>
-    <% if user_signed_in? %>
-      <%= link_to "Личный кабинет", :dashboard, :class => "home-link" %>
-    <% else %>
-      <%= link_to "Главная", :index_page, :class => "home-link" %>
-    <% end %>
-    <%= Time.now.strftime("%Y-%m-%d %H:%M")%>
+	<div class="logo-block">
+      	<%= link_to :index_page, :class => "home-link" do %>
+			<%= image_tag("/images/autoquest_ru.png", :alt => "Автоквест") %>
+		<% end %>
+	</div>
+	<div class="nav-block">
+		<%= render 'includes/login_menu' %>
+		<%= render 'includes/top_menu' %>
+	    <div class="notifications">
+	        <p class="notice"><%= notice %></p>
+	        <p class="alert"><%= alert %></p>
+	    </div>
+	</div>
 </header>

@@ -1,0 +1,27 @@
+header {
+    @include xy-grid(horizontal);
+    @include xy-cell-base(auto);
+    @include flex-align(null, center);
+    height: 100px;
+
+    .logo-block {
+  		@include xy-cell(2 of 12, $gutter-position: right);
+    }
+
+  	.nav-block {
+  		@include xy-cell(auto, $gutter-position: left);
+  	}
+
+  	.top-menu {
+	    @include xy-grid(horizontal);
+	    @include xy-cell-base(auto);
+  		.nav-item {
+
+  		}
+  	}
+
+  	.login-menu {
+	    @include xy-grid(horizontal);
+	    @include xy-cell-base(auto);
+  	}
+}

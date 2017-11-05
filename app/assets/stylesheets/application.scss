@@ -3,9 +3,10 @@
 
 @import 'variables.scss';
 @import 'level.scss';
+@import 'header.scss';
+
 
 #encounter-app {
-    @include xy-grid-container;
 }
 
 .app-grid {
@@ -14,17 +15,29 @@
     overflow: initial;
 }
 
+.header-section {
+    box-shadow: 0 1px 5px 2px rgba(0,0,0,.1);
+}
+
+.header-container {
+    @include xy-grid-container;
+}
+
 .center-container {
+    @include xy-grid-container;
+}
+
+.center-columns {
     @include xy-grid(horizontal);
     @include xy-cell-base(auto);
 }
 
 .sidebar-container {
-  @include xy-cell(2 of 6, $gutter-position: right);
+  @include xy-cell(3 of 12, $gutter-position: left);
 }
 
 .main-container {
-  @include xy-cell(auto, $gutter-position: left);
+  @include xy-cell(auto, $gutter-position: right);
   @include xy-cell-block($vertical: true);
   overflow: initial;
 }

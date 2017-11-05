@@ -1,0 +1,21 @@
+<div class="login-menu">
+  <% if user_signed_in? %>    
+    <div class="user">   
+	    <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>  
+	    <% if current_user.member_of_any_team? %>               
+	    	<span class="user-team">(<%= link_to current_user.team.name, :team_room %>)</span>
+	    <% end %>                
+    </div>  
+    <div class="logout">
+      <%= link_to "Выйти", :logout %>
+    </div> 
+  <% else %>
+    <div class="login">
+      <%= link_to "Войти", :login %>
+    </div>
+
+    <div class="signup">
+      <%= link_to "Зарегистрироваться", :signup %>
+    </div>
+  <% end %>   
+</div>                                
