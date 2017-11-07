@@ -1,1 +1,14 @@
-$vertical-unit: 8px;
+// foundation overrides
+$light-gray: #8a8a8a;
+$medium-gray: #cacaca;
+$dark-gray: #e6e6e6;
+$black: #fefefe;
+$white: #0a0a0a;
+
+$foundation-palette: (
+  primary: #E6EBE0,
+  secondary: #C6DABF,
+  success: #1A936F,
+  warning: #F4F1BB,
+  alert: #ED6A5A,
+);
