@@ -1,12 +1,42 @@
 @import '~foundation-sites/assets/foundation.scss';
 @import url('//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css');
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab:300,400|Russo+One&subset=cyrillic');
 
 @import 'variables.scss';
 @import 'level.scss';
 @import 'header.scss';
 
+// font-family: 'Russo One', sans-serif;
+// font-family: 'Lato', sans-serif;
+// font-family: 'Roboto Slab', serif;
 
 #encounter-app {
+}
+
+#encounter-app:after {    
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 0 15px 10px rgba(0,0,0,1) inset;
+}
+
+#encounter-app:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('/images/bg.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+  filter: blur(5px) grayscale(20%);
 }
 
 .app-grid {
@@ -19,12 +49,21 @@
     box-shadow: 0 1px 5px 2px rgba(0,0,0,.1);
 }
 
-.header-container {
+.header-container,
+.center-container,
+.footer-container {
     @include xy-grid-container;
 }
 
-.center-container {
-    @include xy-grid-container;
+.center-section {    
+    margin-top: 2rem;
+}
+
+.footer-section {
+    border-top: 1px solid rgba(0,0,0,.1);
+    margin-top: 2rem;
+    padding: 1rem;
+    opacity: .75;
 }
 
 .center-columns {

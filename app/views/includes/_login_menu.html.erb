@@ -6,15 +6,15 @@
 	    	<span class="user-team">(<%= link_to current_user.team.name, :team_room %>)</span>
 	    <% end %>                
     </div>  
-    <div class="logout">
+    <div class="nav-item logout">
       <%= link_to "Выйти", :logout %>
     </div> 
   <% else %>
-    <div class="login">
+    <div class="nav-item login">
       <%= link_to "Войти", :login %>
     </div>
 
-    <div class="signup">
+    <div class="nav-item signup">
       <%= link_to "Зарегистрироваться", :signup %>
     </div>
   <% end %>   

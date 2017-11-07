@@ -5,7 +5,7 @@ header {
     height: 100px;
 
     .logo-block {
-  		@include xy-cell(2 of 12, $gutter-position: right);
+  		@include xy-cell(3 of 12, $gutter-position: right);
     }
 
   	.nav-block {
@@ -15,13 +15,24 @@ header {
   	.top-menu {
 	    @include xy-grid(horizontal);
 	    @include xy-cell-base(auto);
-  		.nav-item {
 
+  		.nav-item {
+        padding: 1rem;
+        font-size: 1.25rem;
   		}
   	}
+
+    .notifications {
+      display: none;
+    }
 
   	.login-menu {
 	    @include xy-grid(horizontal);
 	    @include xy-cell-base(auto);
+      @include flex-align(right, null);
+
+      .nav-item {
+        font-size: 1.1rem;
+      }
   	}
 }
