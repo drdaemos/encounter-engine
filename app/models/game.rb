@@ -45,6 +45,10 @@ class Game < ApplicationRecord
     self.starts_at.nil? ? false : Time.now > self.starts_at
   end
 
+  def finished?
+    self.finished_at.nil? ? false : (Time.now > self.finished_at) || self.author_finished_at
+  end
+
   def created_by?(user)
     user.author_of?(self)
   end
@@ -63,6 +67,10 @@ class Game < ApplicationRecord
 
   def self.notstarted
     Game.all.select { |game| !game.draft? && !game.started? }
+  end  
+
+  def self.available_previews
+    Game.all.select { |game| !game.draft? && !game.finished? }
   end
 
   def free_place_of_team!

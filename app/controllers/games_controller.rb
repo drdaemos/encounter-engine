@@ -119,15 +119,6 @@ class GamesController < ApplicationController
     game.notes = """
 <p>Территория: Ульяновск + 10км
     """
-    game.accessories = """
-<ul>
-<li>Телефон с выходом в интернет
-<li>Фонарь
-<li>Автомобиль
-<li>Командное соглашение
-<li>Взнос на игру
-</ul>
-    """
   end
 
   def build_game

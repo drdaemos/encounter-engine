@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class IndexController < ApplicationController
   def index
-    @games = Game.non_drafts
+    @games = Game.available_previews
     render
   end
 end

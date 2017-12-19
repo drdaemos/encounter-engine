@@ -1,0 +1,28 @@
+.game-previews {
+    & > .heading {
+        margin-bottom: 2rem;
+    }
+    
+    .separator {
+        margin-top: 2rem;
+        border: 1px solid rgba(70, 70, 70, .4);
+        margin-bottom: 2rem;
+    }
+
+    .game-preview-contents {
+        @include xy-grid(horizontal);
+        @include xy-cell-base(auto);
+
+        .main-part {
+            @include xy-cell(auto, $gutter-position: right);
+        }
+
+        .secondary-part {
+            @include xy-cell(4 of 12, $gutter-position: left);
+        }
+
+        .game-poster {
+            margin-bottom: 1rem;
+        }
+    }
+}
