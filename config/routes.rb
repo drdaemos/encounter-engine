@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   post '/play/:game_id/exit_game', to: 'game_passings#exit_game', as: :exit_game
 
 #  match('/stats/:game_id', :method => :get).to(:controller => :game_passings, :action => :index).name(:game_stats)
+  get '/ratings', to: 'ratings#index', as: :ratings
   get '/stats/:action/:game_id', to: 'game_passings#index', as: :game_stats
   get '/logs/livechannel/:game_id', to: 'logs#show_live_channel', as: :show_live_channel # прямой эфир
   get '/logs/level/:game_id/:team_id', to: 'logs#show_level_log', as: :show_level_log # лог по уровню

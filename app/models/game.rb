@@ -7,6 +7,7 @@ class Game < ApplicationRecord
   has_many :logs, -> { order('time') }
   has_many :game_entries, :class_name => "GameEntry"
   has_many :game_passings, :class_name => "GamePassing"
+  mount_uploader :poster, GamePosterUploader
 
   validates_presence_of :name,
     :message => I18n.t(:"activerecord.errors.messages.blank")

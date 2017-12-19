@@ -3,6 +3,7 @@ ru:
     attributes:
       game:
         name: Название игры
+        poster: Постер
         description: Описание игры
         notes: Примечания
         accessories: Принадлежности

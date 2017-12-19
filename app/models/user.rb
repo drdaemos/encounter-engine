@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :team
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"
+  mount_uploader :avatar, AvatarUploader
 
   validates_presence_of :email, :message => "Не введён e-mail"
 

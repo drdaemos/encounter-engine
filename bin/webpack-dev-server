@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby.exe
+#!/usr/bin/env ruby
 $stdout.sync = true
 
 require "shellwords"

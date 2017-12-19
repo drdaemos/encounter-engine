@@ -9,7 +9,7 @@ export default class NewGameView {
   }
 
   findForm() {
-    return $('form.edit_game');
+    return $('form[data-model="game"]');
   }
 
   findDatePickers() {
@@ -70,6 +70,6 @@ export default class NewGameView {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    new NewGameView();
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//     new NewGameView();
+// })

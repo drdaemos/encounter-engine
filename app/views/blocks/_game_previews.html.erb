@@ -1,0 +1,12 @@
+<div class="game-previews">
+<% games.each do |game| %>
+  <div class="game-preview" data-title="<%= game.name %>">
+    <a href="<%= url_for(game) %>">
+        <h3 class="heading"><%= game.name %></h3>
+    </a>
+    <div class="game-description">
+    </div>
+  </div>
+  <div class="separator"></div>
+<% end %>
+</div>

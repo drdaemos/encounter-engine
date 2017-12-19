@@ -6,6 +6,12 @@
     <% end %>
   </h3>
 
+  <div class="game-poster">
+    <% if @game.poster? %>
+      <%= image_tag @game.poster.url %>
+    <% end %>
+  </div>
+
   <p class="game-author">
     <em>Автор</em> - <strong><%= @game.author.nickname %></strong>
   </p>

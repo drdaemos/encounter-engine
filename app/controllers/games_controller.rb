@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   before_action :find_game, :only => [:show, :edit, :update, :destroy, :end_game]
   before_action :find_team, :only => [:show]
   before_action :ensure_author_if_game_is_draft, :only => [:show]
-  before_action :ensure_author_if_no_start_time, :only =>[:show]
+  before_action :ensure_author_if_no_start_time, :only => [:show]
   before_action :ensure_author, :only => [:edit, :update]
   before_action :ensure_game_was_not_started, :only => [:edit, :update]
 
@@ -109,8 +109,8 @@ class GamesController < ApplicationController
     if params[:game].nil?
       return Hash.new
     end    
-
-    data = params[:game].permit(:name, :description, :notes, :accessories, :starts_at, :finished_at, :registration_deadline, :max_team_number, :is_draft)
+    
+    data = params[:game].permit(:name, :description, :notes, :accessories, :starts_at, :finished_at, :registration_deadline, :max_team_number, :is_draft, :poster, :poster_cache)
     data
   end
 
@@ -133,6 +133,7 @@ class GamesController < ApplicationController
   def build_game
     @game = Game.new(game_params)
     @game.author = current_user
+    @game
   end
 
   def find_game

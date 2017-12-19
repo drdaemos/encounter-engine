@@ -55,6 +55,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.2.1)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
     cucumber (0.10.6)
@@ -101,6 +105,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
@@ -173,7 +178,6 @@ GEM
       tzinfo (>= 1.0.0)
     warden (1.2.7)
       rack (>= 1.0)
-    wdm (0.1.1)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -202,6 +206,7 @@ DEPENDENCIES
   bcrypt
   byebug
   capybara (~> 2.13.0)
+  carrierwave (~> 1.0)
   cucumber (= 0.10.6)
   cucumber-rails (= 0.3.2)
   devise
@@ -209,6 +214,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   launchy
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   nokogiri
   puma (~> 3.7)
   rails (~> 5.0.0)
@@ -216,7 +222,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   tzinfo-data
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   webpacker (~> 3.0)
   webrat

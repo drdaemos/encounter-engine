@@ -2,7 +2,7 @@
 <%= error_messages_for @game, :header => "<h2>Ошибки</h2>" %>
 </div>
 
-<%= form_for @game, :action => :games do |f| %>
+<%= form_for @game, :action => :games, :data => { "model": "game" }, :html => {:multipart => true} do |f| %>
   <%= render 'form', :game => @game, :f => f %>
 
   <div class="row form-actions">
