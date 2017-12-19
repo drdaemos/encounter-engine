@@ -5,7 +5,7 @@ header {
     height: 100px;
 
     .logo-block {
-  		@include xy-cell(3 of 12, $gutter-position: right);
+  		@include xy-cell(4 of 24, $gutter-position: right);
     }
 
   	.nav-block {
@@ -18,7 +18,7 @@ header {
 
   		.nav-item {
         padding: 1rem;
-        font-size: 1.25rem;
+        font-size: 1rem;
   		}
   	}
 

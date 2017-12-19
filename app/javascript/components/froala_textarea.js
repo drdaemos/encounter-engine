@@ -14,6 +14,7 @@ export default class FroalaTextarea {
 
   options() {
     return {
+      theme: "custom",
       toolbarSticky: false,      
       toolbarButtons: ['fontFamily', '|', 'fontSize', '|', 'paragraphFormat', '|', 'bold', 'italic', 'underline', 'undo', 'redo', 'codeView'],
       fontFamilySelection: true,

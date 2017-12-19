@@ -1,4 +1,5 @@
 // foundation overrides
+$light-gray-alternative: #4a4a4a;
 $light-gray: #8a8a8a;
 $medium-gray: #cacaca;
 $dark-gray: #e6e6e6;
@@ -6,9 +7,16 @@ $black: #fefefe;
 $white: #0a0a0a;
 
 $foundation-palette: (
-  primary: #E6EBE0,
+  primary: #ebe9e0,
   secondary: #C6DABF,
   success: #1A936F,
   warning: #F4F1BB,
   alert: #ED6A5A,
 );
+
+$active-hover: #ffd500;
+$anchor-color-hover: $active-hover;
+$button-background-hover: $active-hover;
+$input-background: $light-gray-alternative;
+$input-background-focus: $light-gray-alternative;
+$input-background-disabled: $light-gray;
