@@ -3,12 +3,13 @@
   <head>
     <title>Активные городские игры</title>
     <%= csrf_meta_tags %>
-    <%= javascript_pack_tag 'application' %> 
-    <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'admin' %>
+    <%= javascript_pack_tag 'admin' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
   </head>
 
   <body>
-    <div id="encounter-app">
+    <div id="encounter-app" class="admin-section">
       <div class="app-grid">
 
         <div class="header-section">
@@ -26,7 +27,7 @@
                 </article>
               </div>
               <div class="sidebar-container">
-                <%= render 'includes/sidebar' %>
+                <%= render 'includes/sidebar_admin' %>
               </div>
             </div>
           </div>

@@ -1,14 +1,14 @@
 <header>
-	<div class="logo-block">
-      	<%= link_to :index_page, :class => "home-link" do %>
-			<%= image_tag("/images/autoquest_ru.png", :alt => "Автоквест") %>
-		<% end %>
-	</div>
-	<div class="nav-block">
-		<%= render 'includes/top_menu' %>
-	    <div class="notifications">
-	        <p class="notice"><%= notice %></p>
-	        <p class="alert"><%= alert %></p>
-	    </div>
-	</div>
+  <div class="logo-block">
+    <%= link_to :index_page, :class => "home-link" do %>
+      <%= image_tag("/images/autoquest_ru.png", :alt => "Автоквест") %>
+    <% end %>
+  </div>
+  <div class="nav-block">
+    <%= render 'includes/top_menu' %>
+    <div class="notifications">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+  </div>
 </header>

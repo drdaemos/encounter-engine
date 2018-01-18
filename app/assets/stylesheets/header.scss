@@ -1,38 +1,48 @@
 header {
+  @include xy-grid(horizontal);
+  @include xy-cell-base(auto);
+  @include flex-align(null, center);
+  height: 100px;
+
+  .logo-block {
+    @include xy-cell(4 of 24, $gutter-position: right);
+  }
+
+  .nav-block {
+    @include xy-cell(auto, $gutter-position: left);
+  }
+
+  .top-menu {
     @include xy-grid(horizontal);
     @include xy-cell-base(auto);
-    @include flex-align(null, center);
-    height: 100px;
 
-    .logo-block {
-  		@include xy-cell(4 of 24, $gutter-position: right);
+    & > .nav-item {
+      padding: 1rem;
+      font-size: 1rem;
     }
+  }
 
-  	.nav-block {
-  		@include xy-cell(auto, $gutter-position: left);
-  	}
+  .notifications {
+    display: none;
+  }
 
-  	.top-menu {
-	    @include xy-grid(horizontal);
-	    @include xy-cell-base(auto);
+  .login-menu {
+    @include xy-grid(horizontal);
+    @include xy-cell-base(auto);
+    @include flex-align(right, null);
 
-  		.nav-item {
-        padding: 1rem;
-        font-size: 1rem;
-  		}
-  	}
+    & > .user {
+      font-size: 1rem;
+      padding: 1rem;
 
-    .notifications {
-      display: none;
-    }
-
-  	.login-menu {
-	    @include xy-grid(horizontal);
-	    @include xy-cell-base(auto);
-      @include flex-align(right, null);
-
-      .nav-item {
-        font-size: 1.1rem;
+      .dropdown-toggle {
+        padding-left: 1rem;
+        padding-bottom: 1rem;
       }
-  	}
+    }
+
+    & > .nav-item {
+      font-size: 1.1rem;
+    }
+  }
 }

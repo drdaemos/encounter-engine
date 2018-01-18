@@ -1,14 +1,17 @@
 <div class="login-menu">
-  <% if user_signed_in? %>    
-    <div class="user">   
-	    <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>  
-	    <% if current_user.member_of_any_team? %>               
-	    	<span class="user-team">(<%= link_to current_user.team.name, :team_room %>)</span>
-	    <% end %>                
-    </div>  
-    <div class="nav-item logout">
-      <%= link_to "Выйти", :logout %>
-    </div> 
+  <% if user_signed_in? %>
+      <div class="user">
+        <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>
+        <% if current_user.member_of_any_team? %>
+          <span class="user-team">(<%= link_to current_user.team.name, :team_room %>)</span>
+        <% end %>
+        <a class="dropdown-toggle" data-toggle="user-menu-dropdown"><i class="fas fa-chevron-circle-down"></i></a>
+        <ul id="user-menu-dropdown" class="menu dropdown-pane" data-dropdown data-auto-focus="true">
+          <li class="profile"><%= link_to "Профиль", :users %></li>
+          <li class="logout"><%= link_to "Выйти", :logout %></li>
+        </ul>
+      </div>
+    </div>
   <% else %>
     <div class="nav-item login">
       <%= link_to "Войти", :login %>
@@ -17,5 +20,5 @@
     <div class="nav-item signup">
       <%= link_to "Зарегистрироваться", :signup %>
     </div>
-  <% end %>   
+  <% end %>
 </div>                                

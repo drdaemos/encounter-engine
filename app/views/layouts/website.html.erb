@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Активные городские игры</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_pack_tag 'website' %>
+    <%= javascript_pack_tag 'website' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+  </head>
+
+  <body>
+    <div id="encounter-app" class="website-section">
+      <div class="app-grid">
+
+        <div class="header-section">
+          <div class="header-container">
+            <%= render 'includes/header' %>
+          </div>
+        </div>
+        
+        <div class="center-section">
+          <div class="center-container">
+            <div class="center-columns">
+              <div class="main-container">
+                <article>
+                  <%= yield %>
+                </article>
+              </div>
+              <div class="sidebar-container">
+                <%= render 'includes/sidebar' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <div class="footer-container">
+            <%= render 'includes/footer' %>
+          </div>
+        </div>
+
+      </div>
+    </div>      
+  </body>
+</html>

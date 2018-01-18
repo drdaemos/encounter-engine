@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class HintsController < ApplicationController  
+class HintsController < AdminController  
   before_action :find_level
   before_action :find_game
   before_action :build_hint, :only => [:new, :create]

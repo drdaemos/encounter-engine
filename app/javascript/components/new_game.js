@@ -70,6 +70,6 @@ export default class NewGameView {
   }
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     new NewGameView();
-// })
+document.addEventListener('DOMContentLoaded', () => {
+    new NewGameView();
+})

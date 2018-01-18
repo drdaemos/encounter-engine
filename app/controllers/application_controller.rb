@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   include ActionView::Helpers::TagHelper
   include ActionView::Context
   protect_from_forgery with: :exception, prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
-  layout "application"
+  layout :page_layout
 
   helper_method :error_messages_for
   helper_method :datetime
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
 protected
+
+  def page_layout
+    "website"
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email])
