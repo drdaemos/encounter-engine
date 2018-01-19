@@ -1,0 +1,61 @@
+<div class="game-preview" data-title="<%= game.name %>">
+  <h3 class="game-heading">
+    <% if user_signed_in? and current_user.author_of?(game) and !game.started? %>
+      <a href="<%= edit_game_path(game) %>">
+        <%= game.name %>
+        <i class="far fa-edit"></i>
+      </a>
+    <% elsif current_page?(game) %>
+      <span><%= game.name %></span>
+    <% else %>
+      <a href="<%= url_for(game) %>"><%= game.name %></a>
+    <% end %>
+    <% if game.started? %>
+      <span class="sticker">в процессе</span>
+      <%= link_to "Войти", show_current_level_path(game.id), :class => 'game-right-link' %>
+    <% elsif user_signed_in? and current_user.author_of?(game) %>
+      <%= link_to "Удалить", game, :class => 'game-right-link', :method => :delete %>
+    <% end %>
+  </h3>
+  <div class="game-preview-contents">
+    <div class="main-part">
+      <div class="game-description">
+        <%= raw game.description %>
+      </div>
+      <div class="game-notes">
+        <%= raw game.notes %>
+      </div>
+      <div class="game-accessories">
+        <%= raw game.accessories %>
+      </div>
+    </div>
+    <div class="secondary-part">
+      <% if game.poster? %>
+        <div class="game-poster">
+          <%= image_tag game.poster.url %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="game-metadata">
+    <div class="game-author">
+      <em>Авторы</em>:
+      <%= game.author.nickname %>
+    </div>
+
+    <div class="game-starts_at">
+      <% unless game.starts_at.nil? %>
+        <em>Начало игры</em>: <%= datetime game.starts_at %></span>
+      <% else %>
+        Дата начала игры не назначена
+      <% end %>
+    </div>
+
+    <div class="game-registration_deadline">
+      <% unless game.registration_deadline.nil? %>
+        <em>Заявки до</em>: <%= datetime game.registration_deadline %>
+      <% else %>
+      <% end %>
+    </div>
+  </div>
+</div>

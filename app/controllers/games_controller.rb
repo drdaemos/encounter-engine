@@ -3,7 +3,7 @@
 require 'time'
 
 class GamesController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :results]
   before_action :build_game, :only => [:new, :create]
   before_action :find_game, :only => [:show, :edit, :update, :destroy, :end_game]
   before_action :find_team, :only => [:show]
@@ -17,9 +17,14 @@ class GamesController < ApplicationController
       user = User.find(params[:user_id])
       @games = user.created_games
     else
-      @games = Game.non_drafts
+      @games = Game.available_for(current_user)
     end
     render
+  end
+
+  def results
+    @games = Game.finished
+    render "index"
   end
 
   def new
@@ -90,8 +95,11 @@ class GamesController < ApplicationController
     game.is_draft = true
     game.is_testing = false
     game.author_finished_at = nil
-    game.starts_at = game.preserved_data[:starts_at] > Time.now ? game.preserved_data[:starts_at] : Time.now + 1.day
-    game.registration_deadline = game.preserved_data[:registration_deadline] > Time.now ? game.preserved_data[:registration_deadline] : game.starts_at - 1.hour
+
+    preserved_starts_at = (!game.preserved_data.empty? and game.preserved_data.key?(:starts_at) and !game.preserved_data[:starts_at].nil?) ? game.preserved_data[:starts_at] : Time.at(0)
+    preserved_registration = (!game.preserved_data.empty? and game.preserved_data.key?(:registration_deadline) and !game.preserved_data[:registration_deadline].nil?) ? game.preserved_data[:registration_deadline] : Time.at(0)
+    game.starts_at = preserved_starts_at > Time.now ? game.preserved_data[:starts_at] : Time.now + 1.day
+    game.registration_deadline = preserved_registration > Time.now ? game.preserved_data[:registration_deadline] : game.starts_at - 1.hour
     game.save!
 
     game_passing = GamePassing.of_game(game)
@@ -104,6 +112,14 @@ class GamesController < ApplicationController
   end
 
   protected
+
+  def page_layout
+    if action_name === 'edit' || action_name === 'update'
+      return "admin"
+    end
+
+    super
+  end
 
   def game_params   
     if params[:game].nil?

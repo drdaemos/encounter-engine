@@ -1,6 +1,51 @@
+@import 'game_previews.scss';
+@import 'photos.scss';
+
+.special-block + .special-block {
+  margin-top: 3rem;
+}
+
 .special-block {
-  background: fade-out($light-gray-alternative,.9);
+  margin-top: 1rem;
   padding: 1.5rem;
   border-radius: $global-radius;
   box-shadow: $global-shadow;
+  position: relative;
+  border: 1px solid fade-out($accent-color, .8);
+
+  & > .heading {
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: fade-out($accent-color, .2);
+    background: $body-background;
+    padding: 0 1rem;
+    font-variant: small-caps;
+    margin: 0;
+  }
+}
+
+.image-special-block {
+  @extend .special-block;
+  background-image: url("placeholder.png");
+  -webkit-background-size: cover;
+  background-size: cover;
+
+  & > .heading {
+    background: transparent;
+    top: initial;
+    bottom: 0;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    background: linear-gradient(transparent, $body-background);
+  }
 }

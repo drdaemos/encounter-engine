@@ -1,51 +1,7 @@
 <div class="game-previews">
 <h2 class="heading">Текущие игры</h2>
 <% games.each do |game| %>
-  <div class="game-preview" data-title="<%= game.name %>">
-    <h5 class="game-heading"><a href="<%= url_for(game) %>"><%= game.name %></a></h5>
-    <div class="game-preview-contents">
-        <div class="main-part">
-            <% if game.poster? %>
-            <div class="game-poster">
-                <%= image_tag game.poster.url %>
-            </div>
-            <% end %>
-            <div class="game-description">
-                <%= raw game.description %>
-            </div>
-        </div>
-        <div class="secondary-part">
-            <div class="game-metadata">
-              <p class="game-author">
-                <em>Автор</em> - <strong><%= game.author.nickname %></strong>
-              </p>
-
-              <p class="game-starts_at">
-                <% unless game.starts_at.nil? %>
-                  <em>Начало игры</em>: <%= datetime game.starts_at %></span>
-                <% else %>
-                  Дата начала игры ещё не назначена
-                <% end %>
-              </p>
-
-              <p class="game-registration_deadline">
-                <% unless game.registration_deadline.nil? %>
-                  <em>Крайний срок регистрации</em>: <%= datetime game.registration_deadline %>
-                <% else %>
-                  Крайний срок регистрации ещё не назначен
-                <% end %>
-              </p>
-
-            </div>
-            <div class="game-notes">
-                <%= raw game.notes %>
-            </div>
-            <div class="game-accessories">
-                <%= raw game.accessories %>
-            </div>
-        </div>
-    </div>
-  </div>
-  <div class="separator"></div>
+    <%= render 'games/preview', :game => game %>
+    <div class="separator"></div>
 <% end %>
 </div>

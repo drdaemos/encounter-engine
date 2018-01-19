@@ -1,5 +1,6 @@
 $border-custom-color: #222222;
 $light-gray-alternative: #4a4a4a;
+$accent-color: #ffd500;
 
 // foundation
 $light-gray: #8a8a8a;
@@ -19,11 +20,12 @@ $foundation-palette: (
 $body-font-family: 'Rubik', sans-serif;
 $header-font-family: 'Merriweather', serif;
 $header-font-weight: 500;
+$light-font-weight: 300;
 
 $global-radius: 4px;
 $global-shadow: 0 1px 5px 2px rgba(0, 0, 0, .1);
 
-$active-hover: #ffd500;
+$active-hover: $accent-color;
 $anchor-color-hover: $active-hover;
 $anchor-underline-color: $light-gray-alternative;
 $button-background-hover: $active-hover;
@@ -33,6 +35,7 @@ $input-background-disabled: $light-gray;
 
 $dropdown-border: 1px solid $border-custom-color;
 
+$header-height: 6rem;
 $header-lineheight: 1.5rem;
 $header-margin-bottom: 1rem;
 
@@ -55,23 +58,7 @@ $header-styles: (
   ),
 );
 
-//$header-styles: (
-//        'small': (
-//                'h1': ('font-size': 24, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h3': ('font-size': 19, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h5': ('font-size': 17, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-//        ),
-//        'medium': (
-//                'h1': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h2': ('font-size': 26, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h3': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h4': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h5': ('font-size': 1, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
-//                'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
-//        ),
-//);
+$nav-item-padding: 1rem;
+$nav-item-font-size: 1rem;
 
 $grid-margin-gutters: 4rem;

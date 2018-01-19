@@ -1,10 +1,6 @@
-<nav class="top-menu">    
+<nav class="top-menu">
   <div class="nav-item">
-    <%= link_to "Анонсы", :index_page %>
-  </div>
-
-  <div class="nav-item">
-    <%= link_to "Результаты игр", :games %>
+    <%= link_to "Результаты игр", :game_results %>
   </div>
 
   <div class="nav-item">
@@ -14,9 +10,7 @@
   <% if user_signed_in? %>
 
     <div class="nav-item">
-      <% if current_user.member_of_any_team? %>
-        <%= link_to "Комната команды", :team_room %>
-      <% else %>
+      <% if not current_user.member_of_any_team? %>
         <%= link_to "Создать команду", :new_team %>
      <% end %>
     </div>

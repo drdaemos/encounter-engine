@@ -29,12 +29,30 @@ class Game < ApplicationRecord
   validate :deadline_is_in_future
   validate :deadline_is_before_game_start
 
+  default_scope { order(created_at: :desc) }
   scope :by, ->(author) { where(author_id: author) }
   scope :non_drafts, -> { where(is_draft: false) }
+  scope :ready, -> { where(author_finished_at: nil) }
   scope :finished, -> { where.not(author_finished_at: nil) }
 
   def self.started
     Game.all.select(&:started?)
+  end
+
+  def self.not_started
+    Game.all.select { |game| !game.started? }
+  end
+
+  def self.available_for(user)
+    Game.ready.select {|game| !game.finished? and ((!game.draft? and !game.starts_at.nil?) or (!user.nil? and user.author_of?(game))) }
+  end
+
+  def self.active(user)
+    Game.started - Game.finished
+  end
+
+  def self.results_available_for(user)
+    Game.finished
   end
 
   def draft?
@@ -63,14 +81,6 @@ class Game < ApplicationRecord
 
     count_of_finished_before = GamePassing.of_game(self).finished_before(game_passing.finished_at).count
     count_of_finished_before + 1
-  end
-
-  def self.notstarted
-    Game.all.select { |game| !game.draft? && !game.started? }
-  end  
-
-  def self.available_previews
-    Game.all.select { |game| !game.draft? && !game.finished? }
   end
 
   def free_place_of_team!

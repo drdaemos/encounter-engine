@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/send_msg', to: 'dashboard#send_msg', as: :send_msg
   get '/team-room', to: 'team_room#index', as: :team_room
+  get '/game-results', to: 'games#results', as: :game_results
 
   root to: 'index#index', as: :index_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

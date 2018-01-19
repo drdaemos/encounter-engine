@@ -2,7 +2,7 @@ header {
   @include xy-grid(horizontal);
   @include xy-cell-base(auto);
   @include flex-align(null, center);
-  height: 100px;
+  height: $header-height;
 
   .logo-block {
     @include xy-cell(6 of 24, $gutter-position: right);
@@ -17,8 +17,9 @@ header {
     @include xy-cell-base(auto);
 
     & > .nav-item {
-      padding: 1rem;
-      font-size: 1rem;
+      padding: $nav-item-padding;
+      font-size: $nav-item-font-size;
+      font-weight: $light-font-weight;
     }
   }
 
@@ -32,17 +33,18 @@ header {
     @include flex-align(right, null);
 
     & > .user {
-      font-size: 1rem;
-      padding: 1rem;
+      font-size: $nav-item-font-size;
+      padding: $nav-item-padding;
 
       .dropdown-toggle {
-        padding-left: 1rem;
-        padding-bottom: 1rem;
+        padding-left: $nav-item-padding;
+        padding-bottom: $nav-item-padding;
       }
     }
 
     & > .nav-item {
-      font-size: 1.1rem;
+      padding: $nav-item-padding;
+      font-weight: $light-font-weight;
     }
   }
 }

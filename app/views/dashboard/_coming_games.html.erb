@@ -1,8 +1,8 @@
 <fieldset id="coming">
   <legend>
-    Предстоящие игры (<%= Game.notstarted.count  %>)
+    Предстоящие игры (<%= Game.not_started.count  %>)
   </legend>
-  <% Game.notstarted.each do | game | %>
+  <% Game.not_started.each do | game | %>
     Предстоит игра <b><%= link_to game.name, game %></b> |
     <% if game.created_by?(current_user) %>
       <b>Вы автор игры</b>
