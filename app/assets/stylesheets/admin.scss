@@ -1,12 +1,7 @@
 @import 'variables.scss';
-
-@import '~foundation-sites/assets/foundation.scss';
-@import url('//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css');
-@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab:300,400|Russo+One&subset=cyrillic');
+@import 'common.scss';
 
 @import 'level.scss';
 @import 'header.scss';
 @import 'custom-theme.css';
 @import 'blocks.scss';
-
-@import 'common.scss';

@@ -5,7 +5,7 @@ header {
   height: 100px;
 
   .logo-block {
-    @include xy-cell(4 of 24, $gutter-position: right);
+    @include xy-cell(6 of 24, $gutter-position: right);
   }
 
   .nav-block {

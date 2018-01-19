@@ -1,3 +1,7 @@
+@import '~foundation-sites/assets/foundation.scss';
+@import url('//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Rubik:300,400,400i,500&subset=cyrillic');
+
 #encounter-app {
 }
 
@@ -9,24 +13,6 @@
     left: 0;
     bottom: 0;
     pointer-events: none;
-}
-
-#encounter-app:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-
-  display: block;
-  background-image: url('/images/bg.jpg');
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-
-  filter: blur(5px) grayscale(20%);
-  display: none;
 }
 
 .app-grid {
@@ -65,7 +51,7 @@
 }
 
 .sidebar-container {
-  @include xy-cell(3 of 12, $gutter-position: left);
+  @include xy-cell(6 of 20, $gutter-position: left);
 }
 
 .main-container {
@@ -98,6 +84,20 @@
     button, input[type=submit] {
         margin: 0;
     }
+}
+
+a {
+  border-bottom: 1px solid $anchor-underline-color;
+}
+
+a.no-underline,
+.menu a {
+  border-color: transparent;
+}
+
+.menu a:focus,
+.menu a:active {
+  outline: none;
 }
 
 form {

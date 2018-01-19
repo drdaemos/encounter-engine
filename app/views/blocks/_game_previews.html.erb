@@ -2,9 +2,7 @@
 <h2 class="heading">Текущие игры</h2>
 <% games.each do |game| %>
   <div class="game-preview" data-title="<%= game.name %>">
-    <a href="<%= url_for(game) %>" class="game-heading">
-        <h5 class="heading"><%= game.name %></h5>
-    </a>
+    <h5 class="game-heading"><a href="<%= url_for(game) %>"><%= game.name %></a></h5>
     <div class="game-preview-contents">
         <div class="main-part">
             <% if game.poster? %>

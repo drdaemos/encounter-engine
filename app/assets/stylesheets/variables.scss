@@ -5,23 +5,33 @@ $light-gray-alternative: #4a4a4a;
 $light-gray: #8a8a8a;
 $medium-gray: #cacaca;
 $dark-gray: #e6e6e6;
-$black: #fefefe;
-$white: #0a0a0a;
+$black: #ccc;
+$white: #111;
 
 $foundation-palette: (
-  primary: #ebe9e0,
+  primary: #efefd0,
   secondary: #C6DABF,
   success: #1A936F,
   warning: #F4F1BB,
   alert: #ED6A5A,
 );
 
+$body-font-family: 'Rubik', sans-serif;
+$header-font-family: 'Merriweather', serif;
+$header-font-weight: 500;
+
+$global-radius: 4px;
+$global-shadow: 0 1px 5px 2px rgba(0, 0, 0, .1);
+
 $active-hover: #ffd500;
 $anchor-color-hover: $active-hover;
+$anchor-underline-color: $light-gray-alternative;
 $button-background-hover: $active-hover;
 $input-background: $light-gray-alternative;
 $input-background-focus: $light-gray-alternative;
 $input-background-disabled: $light-gray;
+
+$dropdown-border: 1px solid $border-custom-color;
 
 $header-lineheight: 1.5rem;
 $header-margin-bottom: 1rem;
@@ -44,3 +54,24 @@ $header-styles: (
     'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
   ),
 );
+
+//$header-styles: (
+//        'small': (
+//                'h1': ('font-size': 24, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h3': ('font-size': 19, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h5': ('font-size': 17, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+//        ),
+//        'medium': (
+//                'h1': ('font-size': 32, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h2': ('font-size': 26, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h3': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h4': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h5': ('font-size': 1, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//                'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+//        ),
+//);
+
+$grid-margin-gutters: 4rem;
