@@ -1,7 +1,6 @@
-Новое задание для игры <%= @level.game.name %><br />
-<br />
-
-<%= error_messages_for @level, :header => "<h2>Ошибка</h2>" %>
+<div class="errors">
+  <%= error_messages_for @level, :header => "<h2>Ошибки</h2>" %>
+</div>
 
 <%= form_for [@level.game, @level] do |f| %>
   <%= render 'form', :hint => @hint, :f => f %>
@@ -10,8 +9,8 @@
     <%= f.text_field :correct_answer %>
     <em><%= t(:correct_answer_hint, scope: [:activerecord, :attributes, :level]) %></em>
   </div>
-  <div class="row">
+  <div class="row form-actions">
       <%= f.submit  t(:submit, scope: [:activerecord, :attributes, :level]) %>
       <em><%= link_to "(отменить)", @level.game %></em>
   </div>
-<% end =%>
+<% end %>

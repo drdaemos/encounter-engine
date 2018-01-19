@@ -1,14 +1,11 @@
-<h2>
-  Задание "<strong><%= @level.name %></strong>"
-</h2>
+<h3 class="heading">
+  <span>Задание "<strong><%= @level.name %></strong>"</span>
+  <small>(игра "<%= link_to @game.name, @game %>")</small>
+</h3>
 
-<p>
-  <em>(игра "<%= link_to @level.game.name, @level.game %>")</em>
-</p>
-
-<br />
-
+<div class="errors">
 <%= error_messages_for @level, :header => "<h2>Ошибка</h2>" %>
+</div>
 
 <%= form_for [@level.game, @level], :action => [@level.game, @level] do |f| %>
   <%= render 'form', :hint => @hint, :f => f %>
@@ -16,4 +13,4 @@
     <%= f.submit t(:update, scope: [:activerecord, :attributes, :level]) %>
     <%= link_to "(отменить)", [@level.game, @level] %>
   </div>
-<% end =%>
+<% end %>

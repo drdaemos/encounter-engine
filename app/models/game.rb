@@ -71,13 +71,19 @@ class Game < ApplicationRecord
     user.author_of?(self)
   end
 
+  def can_be_played_by?(user)
+    team = user.team
+    game_passing = user.team ? GamePassing.of(team, self) : nil
+    return !self.finished? && !game_passing.nil? && !game_passing.finished?
+  end
+
   def finished_teams
     GamePassing.of_game(self).finished.map(&:team)
   end
 
   def place_of(team)
     game_passing = GamePassing.of(team, self)
-    return nil unless game_passing and game_passing.finished?
+    return nil unless game_passing&.finished?
 
     count_of_finished_before = GamePassing.of_game(self).finished_before(game_passing.finished_at).count
     count_of_finished_before + 1

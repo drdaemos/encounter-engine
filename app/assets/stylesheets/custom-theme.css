@@ -33,7 +33,7 @@
   height: 32px;
   width: 32px;
   background: #ffffff;
-  color: #e6e6e6;
+  color: #4a4a4a;
   -webkit-transition: background 0.2s ease 0s, color 0.2s ease 0s, transform 0.2s ease 0s;
   -moz-transition: background 0.2s ease 0s, color 0.2s ease 0s, transform 0.2s ease 0s;
   -ms-transition: background 0.2s ease 0s, color 0.2s ease 0s, transform 0.2s ease 0s;
@@ -48,7 +48,7 @@
   -moz-transition: transform 0.2s ease 0s;
   -ms-transition: transform 0.2s ease 0s;
   -o-transition: transform 0.2s ease 0s;
-  fill: #e6e6e6;
+  fill: #4a4a4a;
 }
 .custom-theme.fr-box a.fr-floating-btn i {
   font-size: 14px;
@@ -474,7 +474,7 @@
   padding-left: 8px;
 }
 .custom-theme .fr-qi-helper a.fr-btn.fr-floating-btn {
-  color: #e6e6e6;
+  color: #4a4a4a;
 }
 .custom-theme.fr-modal .fr-modal-wrapper .fr-modal-body .fr-special-characters-modal .fr-special-character {
   border: 1px solid #cccccc;
@@ -672,6 +672,7 @@
 }
 .custom-theme.fr-toolbar .fr-command.fr-btn,
 .custom-theme.fr-popup .fr-command.fr-btn {
+  text-align: center;
   color: #e6e6e6;
   -moz-outline: 0;
   outline: 0;
@@ -719,6 +720,7 @@
 }
 .custom-theme.fr-toolbar .fr-command.fr-btn.fr-dropdown.fr-selection,
 .custom-theme.fr-popup .fr-command.fr-btn.fr-dropdown.fr-selection {
+  text-align: left;
   width: auto;
 }
 .custom-theme.fr-toolbar .fr-command.fr-btn.fr-dropdown i,

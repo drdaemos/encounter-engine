@@ -1,6 +1,9 @@
 <div class="level-page">
-  <h3 class="level-name">Задание "<strong><%= @level.name %></strong>"</h3>
-  <p class="level-game"><em>(игра "<%= link_to @game.name, @game %>")</em></p>
+  <h3 class="heading">
+    <span>Задание "<strong><%= @level.name %></strong>"</span>
+    <small>(игра "<%= link_to @game.name, @game %>")</small>
+    <%= link_to "Удалить", [@game, @level], :class => 'right-link', :method => :delete %>
+  </h3>
 
   <h4 class="page-section">Текст задания:</h4>
   <div class="level-text"><%= @level.text.html_safe %></div>
@@ -22,7 +25,7 @@
           <span class="edit-link">
           <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
           </span>
-        </p>
+        </div>
       <% else %>
         <h5>Коды (<%= @level.questions.size %>):</h5>
         <% @level.questions.each do |question| %>
@@ -53,9 +56,6 @@
   </div>
 
   <div class="page-actions">
-    <span class="page-action">
-      <%= link_to "Удалить этот уровень", [@game, @level], :method => :delete %> <br />
-    </span>
     <span class="page-action">
       <%= link_to "Вернуться к игре \"#{@level.game.name}\"", @level.game %>
     </span>

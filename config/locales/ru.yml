@@ -29,6 +29,10 @@ ru:
         penalty_time: Штрафное время
         submit: Добавить подсказку
         update: Сохранить
+      question:
+        correct_answer: Код
+        submit: Добавить код
+        update: Сохранить
     models:
       game: Игра
       hint: Подсказка

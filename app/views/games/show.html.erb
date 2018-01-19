@@ -1,5 +1,5 @@
 <div class="game-page">
-  <%= render 'games/preview', :game => @game %>
+  <%= render 'games/preview', :game => @game, :edit_context => true %>
 
   <% if not @game_entries.empty? %>
   <div class="game-entries">
@@ -17,11 +17,11 @@
   <% if user_signed_in? and current_user.author_of?(@game) %>
     <div class="game-controls">
       <div class="game-levels-list">
-        <h4 class="heading">Список уровней</h4>
+        <h4 class="heading">
+          <span>Список уровней</span>
+          <%= link_to "Добавить задание", new_game_level_path(@game), :class => "heading-link" if !@game.started? %>
+        </h4>
         <%= render 'levels/list', :levels => @game.levels %>
-        <div class="actions">
-        <%= link_to "Добавить новое задание", new_game_level_path(@game) if !@game.started? %>
-        </div>
       </div>
       <div class="game-testing">
         <h4 class="heading">Тестирование игры</h4>
