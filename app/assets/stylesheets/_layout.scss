@@ -123,3 +123,7 @@ form {
 button, input[type=submit] {
   @include button();
 }
+
+.pagination a, .pagination button {
+  background-color: $light-gray-alternative;
+}

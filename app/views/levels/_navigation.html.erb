@@ -1,0 +1,16 @@
+<div class="levels-navigation">
+  <ul class="pagination" role="navigation" aria-label="Pagination">
+    <% levels.each do |level| %>
+      <% if level.id === current.id %>
+        <li class="level-item current">
+          <%= level.position %>
+        </li>
+      <% else %>
+        <li class="level-item">
+          <% url_params = action_name === 'edit' ? [:edit, level.game, level] : [level.game, level] %>
+          <%= link_to level.position, url_params %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -1,4 +1,6 @@
 <div class="level-page">
+  <%= render 'navigation', :levels => @game.levels, :current => @level %>
+
   <h3 class="heading">
     <span>Задание "<strong><%= @level.name %></strong>"</span>
     <small>(игра "<%= link_to @game.name, @game %>")</small>
