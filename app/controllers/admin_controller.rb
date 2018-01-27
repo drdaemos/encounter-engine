@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AdminController < ApplicationController
-  before_action :ensure_access
+  before_action :ensure_admin
 
   def index
     render
@@ -9,15 +9,5 @@ class AdminController < ApplicationController
 protected
   def page_layout
     "admin"
-  end
-
-  def ensure_access
-    ensure_admin_permissions
-  end
-
-  def ensure_admin_permissions
-    unless true
-      raise UnauthorizedError, "Вам необходимо быть администратором для совершения этого действия"
-    end
   end
 end

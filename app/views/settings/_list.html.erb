@@ -1,0 +1,15 @@
+<div class="settings-list">
+<%= form_tag :update_settings, :method => :post do %>
+  <% settings.each do |setting| %>
+    <div class="setting key-<%= setting.key %>">
+      <label for="setting-<%= setting.key %>"><%= setting.label %></label>
+      <% if setting.field_type === 'text' %>
+      <input id="setting-<%= setting.key %>" type="text" name="<%= setting.key %>" value="<%= setting.value %>">
+      <% end %>
+    </div>
+  <% end %>
+    <div class="buttons">
+      <%= submit_tag "Сохранить" %>
+    </div>
+<% end %>
+</div>

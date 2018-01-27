@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218203339) do
+ActiveRecord::Schema.define(version: 20180127155501) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -100,6 +100,13 @@ ActiveRecord::Schema.define(version: 20171218203339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string "key"
+    t.text   "value"
+    t.string "field_type", default: "text"
+    t.string "label"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.integer  "captain_id"
@@ -127,6 +134,7 @@ ActiveRecord::Schema.define(version: 20171218203339) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "avatar"
+    t.integer  "access_level"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  bitmask :access_level, :as => [:player, :organizer, :admin]
   belongs_to :team
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"
   mount_uploader :avatar, AvatarUploader
@@ -30,5 +32,15 @@ class User < ApplicationRecord
 
   def author_of?(game)
     game.author.id == self.id
+  end
+
+  def can_edit?(game)
+    self.author_of?(game) || self.access_level?(:admin)
+  end
+
+  def get_access_level_label
+    if self.access_level?(:admin) then return 'Администратор' end
+    if self.access_level?(:organizer) then return 'Организатор' end
+    if self.access_level?(:player) then return 'Игрок' end
   end
 end

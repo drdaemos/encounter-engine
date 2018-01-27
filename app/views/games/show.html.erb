@@ -14,7 +14,7 @@
   </div>
   <% end %>
 
-  <% if user_signed_in? and current_user.author_of?(@game) %>
+  <% if user_signed_in? and current_user.can_edit?(@game) %>
     <div class="game-controls">
       <div class="game-levels-list">
         <h4 class="heading">

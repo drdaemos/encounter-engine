@@ -1,6 +1,6 @@
 <div class="game-preview" data-title="<%= game.name %>">
   <h3 class="heading">
-    <% if edit_context and user_signed_in? and current_user.author_of?(game) and !game.started? %>
+    <% if edit_context and user_signed_in? and current_user.can_edit?(game) and !game.started? %>
       <a href="<%= edit_game_path(game) %>">
         <%= game.name %>
         <i class="far fa-edit"></i>
@@ -13,7 +13,7 @@
     <% if user_signed_in? and game.can_be_played_by?(current_user)  %>
       <span class="sticker">в процессе</span>
       <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
-    <% elsif edit_context and user_signed_in? and current_user.author_of?(game) %>
+    <% elsif edit_context and user_signed_in? and current_user.can_edit?(game) %>
       <%= link_to "Удалить", game, :class => 'right-link', :method => :delete %>
     <% end %>
   </h3>

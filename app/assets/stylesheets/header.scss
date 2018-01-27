@@ -40,6 +40,11 @@ header {
         padding-left: $nav-item-padding;
         padding-bottom: $nav-item-padding;
       }
+
+      .access_level {
+        padding: 0 1rem 0.5rem 1rem;
+        font-size: .8rem;
+      }
     }
 
     & > .nav-item {

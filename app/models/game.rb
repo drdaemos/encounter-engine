@@ -44,7 +44,7 @@ class Game < ApplicationRecord
   end
 
   def self.available_for(user)
-    Game.ready.select {|game| !game.finished? and ((!game.draft? and !game.starts_at.nil?) or (!user.nil? and user.author_of?(game))) }
+    Game.ready.select {|game| !game.finished? and ((!game.draft? and !game.starts_at.nil?) or (!user.nil? and user.can_edit?(game))) }
   end
 
   def self.active(user)

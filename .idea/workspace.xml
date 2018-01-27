@@ -2,23 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom-theme.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom-theme.css" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/variables.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/variables.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/ratings_controller.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/settings_controller.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/setting.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/settings/_list.html.erb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/settings/index.html.erb" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/398f6448-e658-4de1-813a-c0abbd6f1c7e.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/398f6448-e658-4de1-813a-c0abbd6f1c7e.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/drdaemos.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/drdaemos.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/encounter-engine.iml" afterPath="$PROJECT_DIR$/.idea/encounter-engine.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/header.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/header.scss" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
       <change beforePath="$PROJECT_DIR$/app/models/game.rb" afterPath="$PROJECT_DIR$/app/models/game.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change beforePath="$PROJECT_DIR$/app/views/games/_list.html.erb" afterPath="$PROJECT_DIR$/app/views/games/_list.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/games/_preview.html.erb" afterPath="$PROJECT_DIR$/app/views/games/_preview.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/games/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/games/edit.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/games/show.html.erb" afterPath="$PROJECT_DIR$/app/views/games/show.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/includes/_login_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/includes/_login_menu.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/admin.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/in_game.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/in_game.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/website.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/website.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/levels/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/levels/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/levels/new.html.erb" afterPath="$PROJECT_DIR$/app/views/levels/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/levels/show.html.erb" afterPath="$PROJECT_DIR$/app/views/levels/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/questions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/questions/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/teams/new.html.erb" afterPath="$PROJECT_DIR$/app/views/teams/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
+      <change beforePath="$PROJECT_DIR$/app/views/shared/_countdown.html.erb" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -65,49 +79,29 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/levels/new.html.erb">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/games/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/levels/edit.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/games/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="5" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_layout.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/_layout.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/levels/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="55" column="8" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_teams.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/games/_teams.html.erb">
+      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/games/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -119,48 +113,48 @@
       <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+            <state relative-caret-position="274">
+              <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_preview.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/games/_preview.html.erb">
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            <state relative-caret-position="273">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/games/edit.html.erb">
+      <file leaf-file-name="_current_games.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_current_games.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="9" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="9" />
+            <state relative-caret-position="-45">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_previews.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss">
+      <file leaf-file-name="_current_games_status.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_current_games_status.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/questions/new.html.erb">
+      <file leaf-file-name="_game_entry_controls.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_game_entry_controls.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -170,18 +164,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>завершить тес</find>
-      <find>ensure_auth</find>
-      <find>non</find>
-      <find>available_previews</find>
-      <find>finished?</find>
-      <find>game.finished</find>
-      <find>notstarted</find>
-      <find>Game.started - Game.finished</find>
-      <find>not_started</find>
-      <find>game.active</find>
       <find>strar</find>
-      <find>author_of?</find>
       <find>current</find>
       <find>available_for</find>
       <find>user_signed_in</find>
@@ -200,7 +183,21 @@
       <find>quic</find>
       <find>e6e6e6</find>
       <find>game-right-link</find>
+      <find>r</find>
+      <find>roles?</find>
+      <find>User.f</find>
+      <find>Game.</find>
+      <find>find_by</find>
+      <find>&lt;%= form</find>
+      <find>\&lt;\%\= label_tag \:answer\, t\(\:answer\, \:scope \=\&gt; \[\:in_game\]\) \%\&gt;\n    \&lt;\%\= text_field_tag \:answer \%\&gt;</find>
+      <find>author_of?</find>
+      <find>.author_of?</find>
+      <find>countdown</find>
+      <find>render 's</find>
     </findStrings>
+    <replaceStrings>
+      <replace>.can_edit?</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -208,24 +205,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/in_game.html.erb" />
-        <option value="$PROJECT_DIR$/app/javascript/packs/admin.js" />
-        <option value="$PROJECT_DIR$/app/javascript/packs/website.js" />
-        <option value="$PROJECT_DIR$/app/views/includes/_header.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/admin.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/header.scss" />
-        <option value="$PROJECT_DIR$/app/views/dashboard/_coming_games.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/_current_games.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/index_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/includes/_login_menu.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/games/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/blocks/_accessories.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/blocks/_photos.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/photos.scss" />
         <option value="$PROJECT_DIR$/app/views/includes/_top_menu.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/blocks/_helpful.html.erb" />
         <option value="$PROJECT_DIR$/app/views/includes/_sidebar.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/blocks.scss" />
@@ -240,8 +221,6 @@
         <option value="$PROJECT_DIR$/app/models/game.rb" />
         <option value="$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb" />
         <option value="$PROJECT_DIR$/app/views/games/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/website.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/variables.scss" />
         <option value="$PROJECT_DIR$/app/views/games/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/levels/new.html.erb" />
@@ -254,6 +233,29 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" />
         <option value="$PROJECT_DIR$/app/views/games/_preview.html.erb" />
         <option value="$PROJECT_DIR$/app/views/levels/show.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/db/migrate/20180127135017_add_access_level_to_users.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/header.scss" />
+        <option value="$PROJECT_DIR$/app/views/includes/_login_menu.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/setting.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180127153419_add_setting_model.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/in_game.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/website.html.erb" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/settings/index.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180127154840_add_type_to_settings.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180127155107_change_type_to_field_type.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/settings_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/settings/_list.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/ratings_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/log/development.log" />
       </list>
     </option>
   </component>
@@ -286,8 +288,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
@@ -402,6 +402,13 @@
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -417,6 +424,27 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="questions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ratings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
@@ -456,67 +484,13 @@
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="prototype" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="typography" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="foundation-sites" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="xy-grid" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
@@ -587,16 +561,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="la&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/_layout.scss&#10;ru&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/locales/ru.yml&#10;ru.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/locales/ru.yml&#10;level/sho&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/show.html.erb&#10;custom&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/custom-theme.css&#10;form-actio&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_form.html.erb&#10;vari&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/variables.scss&#10;_glob&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;cust&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/custom-theme.css&#10;website.js&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/packs/website.js&#10;user.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/user.rb&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;team.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/team.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/layouts/in_game.html.erb&#10;game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;game_co&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;index&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/index_controller.rb&#10;game_pr&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/game_previews.scss&#10;bl&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/blocks.scss&#10;top&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_top_menu.html.erb&#10;appl&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;acce&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_accessories.html.erb&#10;games_c&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;header&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_header.html.erb&#10;photos&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/photos.scss&#10;common&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/common.scss&#10;_global&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;фззд&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;scheman&#9;null&#9;null&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;games/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;admin.js&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/packs/admin.js&#10;gam&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;bloc&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/blocks.scss&#10;_gl&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;ace&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_accessories.html.erb&#10;blocks&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/blocks.scss&#10;games/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games&#10;games&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;games_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;games_con&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;var&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/variables.scss&#10;menu&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_login_menu.html.erb&#10;heade&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_header.html.erb&#10;game_previ&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb" />
+    <property name="SearchEverywhereHistoryKey" value="shared/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/shared&#10;user.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/user.rb&#10;games/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settings&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/settings_controller.rb&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;add_typ&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127154840_add_type_to_settings.rb&#10;see&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;schema.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;schema&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;add_se&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127153419_add_setting_model.rb&#10;add_set&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127153419_add_setting_model.rb&#10;dash&#9;null&#9;null&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;seed&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;seed.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;games_contr&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;sideba&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;la&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/_layout.scss&#10;ru&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/locales/ru.yml&#10;ru.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/locales/ru.yml&#10;level/sho&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/show.html.erb&#10;custom&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/custom-theme.css&#10;form-actio&#9;null&#9;null&#10;_form&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_form.html.erb&#10;vari&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/variables.scss&#10;_glob&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;cust&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/custom-theme.css&#10;website.js&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/packs/website.js&#10;team.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/team.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/layouts/in_game.html.erb&#10;game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;game_co&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;index&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/index_controller.rb&#10;game_pr&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/game_previews.scss&#10;bl&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/blocks.scss&#10;top&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_top_menu.html.erb&#10;appl&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;acce&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_accessories.html.erb&#10;games_c&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;header&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_header.html.erb&#10;photos&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/photos.scss&#10;common&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/common.scss&#10;_global&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;фззд&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/ratings" />
+      <recent name="$PROJECT_DIR$/app/controllers" />
+      <recent name="$PROJECT_DIR$/app/views/settings" />
+      <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/app/views/blocks" />
     </key>
   </component>
@@ -731,31 +711,31 @@
       <workItem from="1511764599365" duration="4968000" />
       <workItem from="1516298858201" duration="148000" />
       <workItem from="1516299030567" duration="93000" />
-      <workItem from="1516299160337" duration="24233000" />
+      <workItem from="1516299160337" duration="24542000" />
+      <workItem from="1517053258459" duration="6402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29442000" />
+    <option name="totallyTimeSpent" value="36153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23319027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2360515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972324" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -774,23 +754,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/games_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/in_game.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/boot.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/invitation.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -798,7 +762,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/cable.yml">
+    <entry file="file://$PROJECT_DIR$/app/models/hint.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -806,65 +770,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/channels/application_cable/channel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/channels/application_cable/connection.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/channels/game_channel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/packs/in_game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/scripts/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="70" lean-forward="false" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/admin.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/website.scss">
+    <entry file="file://$PROJECT_DIR$/app/models/setting.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/level.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/001_user_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/008_level_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -872,7 +794,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/in_game.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/013_add_finished_at_to_game_passing_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -880,31 +802,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/blocks.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/_common_pages.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/levels_controller.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/015_add_current_level_entered_at_to_game_passings_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -912,23 +810,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/pages/_games_show.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/team.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/016_question_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -936,115 +818,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game_passing.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/020_log_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/019_change_answered_questions_type_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/021_game_entry_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/006_add_starts_at_column_to_game_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/004_game_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180127135017_add_access_level_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180127153419_add_setting_model.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-926">
-          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        <state relative-caret-position="215">
+          <caret line="103" column="18" lean-forward="false" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="75" column="63" lean-forward="false" selection-start-line="75" selection-start-column="63" selection-end-line="75" selection-end-column="63" />
-          <folding>
-            <element signature="e#620#665#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="45" lean-forward="true" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/common.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/includes/_login_menu.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/packs/website.js">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/in_game.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/mailer.text.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/website.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="66" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        <state relative-caret-position="57">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="66" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        <state relative-caret-position="57">
+          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/foundation-sites/scss/_global.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/website.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        <state relative-caret-position="57">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/foundation-sites/scss/components/_button.scss">
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="402">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/levels/_list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1054,69 +932,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/games/_list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="44" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180127154840_add_type_to_settings.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="76">
+          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teams/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom-theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/foundation-sites/scss/prototype/_bordered.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questions/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/_teams.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/024_answers_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1124,66 +954,209 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/_layout.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/025_end_game_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/027_add_profile_to_user_migration.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/_preview.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170902140635_auto_switch_level_and_hint_options.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170613195033_add_devise_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170903165833_add_non_draft_data_to_game.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="3" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.settings">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ratings/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/settings/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="73" column="35" lean-forward="false" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/games_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ratings_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/settings_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/game_passings/show_current_level.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="61" column="69" lean-forward="false" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/settings/_list.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180127155107_change_type_to_field_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/games/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+        <state relative-caret-position="274">
+          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/levels/edit.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_current_games.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_current_games_status.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="5" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/levels/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_game_entry_controls.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/levels/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/log/development.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="55" column="8" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_countdown.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding />
         </state>
       </provider>

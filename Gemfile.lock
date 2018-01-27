@@ -46,6 +46,8 @@ GEM
     bcrypt (3.1.11)
     bcrypt (3.1.11-x64-mingw32)
     bindex (0.5.0)
+    bitmask_attributes (1.0.0)
+      activerecord (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.13.0)
@@ -204,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list
   bcrypt
+  bitmask_attributes
   byebug
   capybara (~> 2.13.0)
   carrierwave (~> 1.0)

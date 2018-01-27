@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'acts_as_list'
 gem 'bcrypt', platforms: :ruby
 gem 'devise' # Authorization
+gem 'bitmask_attributes'
 gem 'webpacker', '~> 3.0'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'

@@ -48,8 +48,14 @@ protected
     end
   end
 
+  def ensure_admin
+    unless user_signed_in? && current_user.access_level?(:admin)
+      raise UnauthorizedError, "Вы должны быть администратором, чтобы видеть эту страницу"
+    end
+  end
+
   def ensure_author
-    unless user_signed_in? and current_user.author_of?(@game)
+    unless user_signed_in? && current_user.can_edit?(@game)
       raise UnauthorizedError, "Вы должны быть автором игры, чтобы видеть эту страницу"
     end
   end
