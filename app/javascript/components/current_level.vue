@@ -20,8 +20,7 @@
     </div>
     <form class="answer-form" method="POST">
         <div class="row">
-            <label for="input-answer">Код: </label>
-            <input name="answer" id="input-answer">
+            <input type="text" name="answer" id="input-answer" placeholder="Введите код">
         </div>
     </form>
   </div>

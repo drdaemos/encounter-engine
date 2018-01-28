@@ -1,13 +1,9 @@
-<fieldset>
-  <legend>
-    Участвуют команды:
-  </legend>
+<div class="game-teams">
+  <h4 class="heading">Приняты к участию</h4>
 
-  <p>
+  <div class="teams-list">
     <% teams.each do |team| %>
-      <p>
-        <strong><%= team.name %></strong>
-      </p>
+      <span class="team"><%= link_to team.name, [team] %></span>
     <% end %>
-  </p>
-</fieldset>
+  </div>
+</div>

@@ -1,18 +1,14 @@
 <div class="game-page">
   <%= render 'games/preview', :game => @game, :edit_context => true %>
 
-  <% if not @game_entries.empty? %>
-  <div class="game-entries">
-    <h4 class="heading">Подали заявку</h4>
-    <%= render 'games/game_entries', :game_entries => @game_entries  %>
+  <div class="game-players">
+    <% if not @game_entries.empty? and user_signed_in? and current_user.can_edit?(@game)  %>
+      <%= render 'games/game_entries', :game_entries => @game_entries %>
+    <% end %>
+    <% if not @teams.empty? %>
+      <%= render 'games/teams', :teams => @teams  %>
+    <% end %>
   </div>
-  <% end %>
-  <% if not @teams.empty? %>
-  <div class="game-teams">
-    <h4 class="heading">Участники</h4>
-    <%= render 'games/teams', :teams => @teams  %>
-  </div>
-  <% end %>
 
   <% if user_signed_in? and current_user.can_edit?(@game) %>
     <div class="game-controls">

@@ -1,9 +1,11 @@
-<fieldset id="coming">
-  <legend>
-    Предстоящие игры (<%= Game.not_started.count  %>)
-  </legend>
-  <% Game.not_started.each do | game | %>
-    Предстоит игра <b><%= link_to game.name, game %></b> |
+<div class="upcoming-games">
+  <h5 class="heading">
+    Предстоящие игры (<%= Game.not_started.count %>)
+  </h5>
+  <div class="games-list">
+  <% Game.available_for(current_user).each do |game| %>
+    <div class="game-item">
+    <b><%= link_to game.name, game %></b> |
     <% if game.created_by?(current_user) %>
       <b>Вы автор игры</b>
     <% else %>
@@ -11,8 +13,11 @@
         <% @game_entry = GameEntry.of(@team,game)%>
         <%= render 'shared/game_entry_controls', :game_entry => @game_entry,  :game => game, :team => @team %>
       <% end %>
-      <%= link_to "Войти!", game %>
+      <% if user_signed_in? and game.can_be_played_by?(current_user)  %>
+        <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
+      <% end %>
     <% end %>
-    <br/>
+    </div>
   <% end %>
-</fieldset>
+  </div>
+</div>

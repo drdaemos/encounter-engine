@@ -6,13 +6,11 @@
         <span class="game-name">Игра "<strong>{{ game.name }}</strong>"</span>
         <span>Задание #{{ level.position }}</span>      
       </div>
-      
-      <div class="center-container">
-        <div class="main-container">
-          <article>
-            <current-level :game-channel="gameChannel"></current-level>
-          </article>
-        </div>
+
+      <div class="main-container">
+        <article>
+          <current-level :game-channel="gameChannel"></current-level>
+        </article>
       </div>
 
     </div>
@@ -73,7 +71,6 @@ export default {
   },
   methods: {
     processMessages (messages) {
-      console.log(messages);
     },
     processFlashes (flashes) {
       if (flashes) {

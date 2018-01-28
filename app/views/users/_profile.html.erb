@@ -1,0 +1,26 @@
+<h2 class="heading">
+  <b><%= user.nickname %></b>
+  <small>
+    <% if user.captain? %>
+      (капитан команды <%= link_to user.team.name, :team_room %>)
+    <% end %>
+  </small>
+</h2>
+<h4>Группа доступа: <span class="label"><%= user.get_access_level_label %></span></h4>
+<br>
+
+<table>
+  <tr><td width="150"><b>E-mail:</b></td>
+    <td><%= user.email %></td></tr>
+  <tr><td><b>Дата рождения:</b></td>
+    <td><%= user.date_of_birth %></td></tr>
+  <tr><td><b>Номер ICQ:</b></td>
+    <td><%= user.icq_number %></td></tr>
+  <tr><td><b>Jabber ID:</b></td>
+    <td><%= user.jabber_id %></td></tr>
+  <% if user.captain? %>
+    <tr><td><b>Контактный телефон:</b></td>
+      <td><%= user.phone_number %></td></tr>
+  <% end %>
+</table>
+<br>

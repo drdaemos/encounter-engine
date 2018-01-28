@@ -61,6 +61,6 @@ protected
   end
 
   def ensure_game_was_not_started
-    raise UnauthorizedError, "Нельзя редактировать игру после её начала" if @game.started? and !@game.is_draft?
+    # raise UnauthorizedError, "Нельзя редактировать игру после её начала" if @game.started? and !@game.is_draft?
   end
 end

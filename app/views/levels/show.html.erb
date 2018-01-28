@@ -11,7 +11,7 @@
   <div class="level-text"><%= @level.text.html_safe %></div>
 
   <div class="edit-link">
-    <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] unless @level.game.started? %>
+    <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] %>
   </div>
 
   <hr>

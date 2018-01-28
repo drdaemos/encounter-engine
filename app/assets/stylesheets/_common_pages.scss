@@ -1,1 +1,11 @@
-@import "pages/games_show";
+@mixin page-section {
+  margin-top: 2rem;
+
+  & > * {
+    margin-top: 2rem;
+  }
+}
+
+.game-controls, .game-players, .team-controls {
+  @include page-section;
+}

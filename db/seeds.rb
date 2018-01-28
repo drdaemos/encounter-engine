@@ -43,6 +43,15 @@ team = Team.new ({
 
 team.save!
 
+admin_team = Team.new ({
+    :name => "Администрация",
+    :captain => admin,
+    :created_at => "2017-10-11 18:00:00.000000",
+    :updated_at => "2017-10-11 18:00:00.000000",
+})
+
+admin_team.save!
+
 game = Game.new ({
     :name => "Тестовая игра",
     :description => "<p>Анонс тестовой игры</p>",

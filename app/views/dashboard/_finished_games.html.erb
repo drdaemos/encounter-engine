@@ -1,10 +1,10 @@
-<fieldset>
-  <legend>
+<div class="upcoming-games">
+  <h5 class="heading">
     Завершенные игры
-  </legend>
+  </h5>
   <% Game.finished.each do |game | %>
     Завершена игра <b><%= link_to game.name, game %></b> |
       <%= link_to "Посмотреть результаты", :controller => :game_passings, :action => :show_results, :game_id => game.id %>
     <br/>
   <% end %>
-</fieldset>
+</div>

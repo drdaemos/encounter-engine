@@ -1,25 +1,9 @@
+
+@import 'variables';
+$grid-margin-gutters: 2rem;
+
 @import '~foundation-sites/assets/foundation.scss';
 @import url('//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Rubik:300,400,400i,500&subset=cyrillic');
 
-#encounter-app {
-    @include xy-grid-container;
-}
-
-.app-grid {
-    @include xy-grid(vertical);
-    @include xy-grid-frame($vertical: true);
-}
-
-.center-container {
-    @include xy-grid(horizontal);
-    @include xy-cell-base(auto);
-}
-
-.sidebar-container {
-  @include xy-cell(2 of 6, $gutter-position: right);
-}
-
-.main-container {
-  @include xy-cell(auto, $gutter-position: left);
-  @include xy-cell-block($vertical: true);
-}
+@import 'in_game/layout';

@@ -1,19 +1,21 @@
-<fieldset>
-  <legend>
-    Заявки на регистрацию:
-  </legend>
+<div class="game-entries">
+  <h4 class="heading">Подали заявку</h4>
 
-  <p>
-<% game_entries.each do |entry| %>
-<%
-  @team = Team.find(entry.team_id)
-  @game = Game.find(entry.game_id)
-%>
-  <p>
-    <strong><%= @team.name %> <%= @game.name %></strong>
-    <em><%= link_to "(принять)", accept_game_entry_path(entry.id) %></em>
-    <em><%= link_to "(отказать)", reject_game_entry_path(entry.id) %></em>
-  </p>
-<% end %>
-</p>
-</fieldset>
+  <div class="entry-list">
+    <% game_entries.each do |entry| %>
+      <%
+        @team = Team.find(entry.team_id)
+        @game = Game.find(entry.game_id)
+      %>
+      <div class="game-entry">
+        <i class="fas fa-car"></i>
+        <span class="team"><%= link_to team.name, [@team] %></span>
+        <span class="separator">|</span>
+        <span class="controls">
+          <%= link_to "принять", accept_game_entry_path(entry.id) %>
+          <%= link_to "отказать", reject_game_entry_path(entry.id) %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>

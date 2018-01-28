@@ -29,7 +29,7 @@ class GameEntriesController < ApplicationController
     if @entry.status == "new"
        @entry.accept!
     end
-    redirect_to :dashboard
+    # redirect_to :dashboard
   end
   
   def reject
@@ -37,7 +37,7 @@ class GameEntriesController < ApplicationController
        @entry.reject!
     end
     @game.free_place_of_team!
-    redirect_to :dashboard
+    # redirect_to :dashboard
   end
 
   def recall

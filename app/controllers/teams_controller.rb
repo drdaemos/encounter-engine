@@ -3,8 +3,18 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
   before_action :build_team, :only => [:new, :create]
+  before_action :find_team, :only => [:show]
 
   def new
+    render
+  end
+
+  def index
+    @teams = Team.all
+    render
+  end
+
+  def show
     render
   end
 
@@ -25,6 +35,10 @@ protected
   def build_team
     @team = Team.new(team_params)
     @team.captain = current_user
+  end
+
+  def find_team
+    @team = Team.find(params[:id])
   end
 
   def ensure_not_member_of_any_team
