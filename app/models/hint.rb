@@ -20,7 +20,7 @@ class Hint < ApplicationRecord
 
   def ready_to_show?(current_level_entered_at)
     seconds_passed = Time.now - current_level_entered_at
-    seconds_passed >= self.delay and self.access_code.nil?
+    seconds_passed >= self.delay and !self.is_spoiler?
   end
 
   def available_in(current_level_entered_at)
@@ -33,5 +33,9 @@ class Hint < ApplicationRecord
 
   def is_opened_by?(code)
       self.access_code.mb_chars.upcase.to_s == code.mb_chars.upcase.to_s
+  end
+
+  def is_spoiler? ()
+    !self.access_code.blank?
   end
 end

@@ -14,7 +14,7 @@
         <tr class="hint-item">
           <% if hint.delay and hint.delay > 0 %>
           <td class="hint-delay">
-            <p class="delay">Через <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %></strong> минут</p>
+            <p class="delay">Через <strong><%= link_to hint.delay_in_minutes, [:edit, hint.level.game, hint.level, hint] %></strong> минут</p>
             <% if hint.penalty_time and hint.penalty_time > 0 %>
               <p class="penalty">(штраф: <%= hint.penalty_time_in_minutes %> минут)</p>
             <% end %>
@@ -31,8 +31,12 @@
             <%= hint.text.html_safe %>
           </td>
           <td class="hint-actions">
-            <%= link_to "(редактировать)", [:edit, hint.level.game, hint.level, hint] unless @level.game.started? %>
-            <%= link_to "(удалить)", [hint.level.game, hint.level, hint], :method => :delete unless @level.game.started? %>
+            <%= link_to [:edit, hint.level.game, hint.level, hint] do %>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to [hint.level.game, hint.level, hint], :method => :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
           </td>
         </tr>
     <% end %>

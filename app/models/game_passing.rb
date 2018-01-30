@@ -92,7 +92,7 @@ class GamePassing < ApplicationRecord
   end
 
   def upcoming_hints
-    current_level.hints.select { |hint| !hint.ready_to_show?(current_level_entered_at) and hint.access_code.nil? }
+    current_level.hints.select { |hint| !hint.ready_to_show?(current_level_entered_at) and !hint.is_spoiler? }
   end
 
   def correct_answer?(answer)
