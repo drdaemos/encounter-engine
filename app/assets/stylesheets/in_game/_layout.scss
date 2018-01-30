@@ -8,7 +8,7 @@
 }
 
 .header-container {
-  @include xy-gutters($gutter-position: left right top);
+  @include xy-gutters($gutter-position: left right top bottom);
   @include xy-cell-block($vertical: true);
 
   position: relative;

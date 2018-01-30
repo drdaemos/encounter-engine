@@ -1,29 +1,13 @@
 <template>
-    <div class="current-level">
-        <h3 class="heading">{{ level.name }}</h3>
-        <div class="text" v-html="level.text"></div>
-        <div class="time-container">
-            <p>Время на уровне: <span class="time">{{ timeOnLevel }}</span></p>
-            <p v-if="hasTimeLimit">Автопереход через: <span class="time">{{ timeLeftBeforeFail }}</span></p>
+    <div class="level-header">
+        <div class="heading">
+            <span class="game-name">Игра "<strong>{{ game.name }}</strong>"</span>
+            <span>Задание #{{ level.position }}</span>
         </div>
-        <div class="hints-container">
-            <h4>Подсказки:</h4>
-            <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки {{ timeLeftForNextHint }}</div>
-            <div class="hints" v-for="hint in hints">
-                <div class="hint" :data-id="hint.id" v-html="hint.text"></div>
-            </div>
-            <div class="next-hint" v-if="!timeLeftForNextHint">Подсказок больше не будет</div>
+        <div class="level-limits">
+            <div class="time-left" v-if="hasTimeLimit">Осталось <span class="value">{{ timeLeftBeforeFail }}</span></div>
+            <div class="answers">Коды: <span class="value">{{ passing.answered }}/{{ level.question_count }}</span></div>
         </div>
-        <h4>Коды:</h4>
-        <div class="valid-answers">
-            <div class="caption">Правильных кодов введено: {{ passing.answered }} из {{ level.question_count }}</div>
-        </div>
-        <form id="level-answer-form" class="answer-form" method="POST" action="" @submit.prevent="onSubmit">
-            <div class="row">
-                <input type="hidden" name="stub" value="0">
-                <input type="text" name="answer" id="input-answer" placeholder="Введите код">
-            </div>
-        </form>
     </div>
 </template>
 
@@ -34,7 +18,6 @@
 
   export default {
     mounted() {
-      this.form = document.querySelector('#level-answer-form');
     },
     computed: {
       currentTime() {
@@ -49,7 +32,7 @@
       },
       timeLeftForNextHint() {
         if (!this.next_hint) {
-          return null;
+          return null
         }
 
         return this.timeLeftForNextHintDiff > 0
@@ -65,10 +48,10 @@
         var next_hint = moment.utc(this.next_hint);
         var diff_msec = next_hint.diff(now)
 
-        return diff_msec;
+        return diff_msec
       },
       hasTimeLimit() {
-        return this.level.time_limit
+        return Boolean(this.level.time_limit)
       },
       timeLeftBeforeFail() {
         return this.timeLeftBeforeFailDiff > 0
@@ -88,6 +71,9 @@
       level() {
         return this.$store.getters.level
       },
+      game() {
+        return this.$store.getters.game
+      },
       hints() {
         return this.$store.getters.hints.available
           .filter((item) => item.level_id === this.level.id)
@@ -97,15 +83,5 @@
         return this.$store.getters.hints.next_hint;
       }
     },
-    methods: {
-      onSubmit(event) {
-        var params = $(this.form).serializeArray()
-        var payload = _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
-
-        this.$store.dispatch('postAnswer', payload)
-          .then(() => this.form.reset())
-          .catch(() => console.error('could not send answer', payload))
-      },
-    }
   }
 </script>
