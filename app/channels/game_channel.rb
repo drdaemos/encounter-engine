@@ -34,12 +34,12 @@ class GameChannel < ApplicationCable::Channel
     unless game_passing.nil? or game_passing.finished?
       answer = data["payload"]["answer"].strip
       save_answer_to_log(answer, team, game)
-      answer_was_correct = game_passing.check_answer!(answer)
       spoiler_was_correct = game_passing.check_spoiler!(answer)
+      answer_was_correct = game_passing.check_answer!(answer)
       message[:messages] << { :answer_result => answer_was_correct, :spoiler_result => spoiler_was_correct }
-      type = answer_was_correct ? 'Код' : 'Код спойлера'
+      type = spoiler_was_correct ? 'Код спойлера' : 'Код'
 
-      if (answer_was_correct or spoiler_was_correct)
+      if answer_was_correct or spoiler_was_correct
         message[:flashes] << { :text => type + ' ' + answer + ' принят' }
       else
         message[:flashes] << { :text => type + ' ' + answer + ' не принят' }

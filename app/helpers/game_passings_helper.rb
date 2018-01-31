@@ -36,7 +36,6 @@ module GamePassingsHelper
       level = Level.find(game_passing.current_level.id)
       next_hint = game_passing.upcoming_hints.first;
 
-      puts level.hints.inspect
       {
         :user => { :team => team.name, :team_id => team.id, :is_captain => current_user.captain? },
         :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing? },
