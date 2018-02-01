@@ -38,7 +38,7 @@ module GamePassingsHelper
 
       {
         :user => { :team => team.name, :team_id => team.id, :is_captain => current_user.captain? },
-        :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing? },
+        :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing?, :started => game.started? },
         :game_passing => { :finished => game_passing.finished?, :time => Time.now.utc, :answered => game_passing.answered_questions.size },
         :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.questions.count, :time_limit => (level.time_limit.to_i * 60) },
         :hints => { 
@@ -48,13 +48,29 @@ module GamePassingsHelper
       }
     elsif game_passing.finished?
       {
-        :game_passing => { :finished => game_passing.finished?},
+        :game_passing => { :finished => game_passing.finished? },
+      }
+    else
+      {
+        :user => { :team => team.name, :team_id => team.id, :is_captain => current_user.captain? },
+        :game => { :id => game.id, :name => game.name, :description => game.description, :is_testing => game.is_testing?, :starts_at => game.starts_at.utc, :started => game.started? },
+        :game_passing => { :finished => game_passing.finished? },
       }
     end
-      
+  end
+
+  def start_game_passing (game_passing)
+    if !game_passing.finished? && game_passing.current_level.nil? && !game_passing.game.levels.empty?
+      game_passing.current_level = game_passing.game.levels.first
+      game_passing.save!
+    end
   end
 
   def fail_level_if_limit_is_passed(game_passing)
+    if game_passing.nil? || game_passing.current_level.nil?
+      return
+    end
+
     diff = Time.now - game_passing.current_level_entered_at
     if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit * 60
       game_passing.fail_level!

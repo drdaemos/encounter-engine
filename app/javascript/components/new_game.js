@@ -35,6 +35,7 @@ export default class NewGameView {
     }
 
     var now = this.getNowDate();
+    now.setDate(now.getDate() - 1);
     var parsedValue = moment(element.val());
     var formattedValue = parsedValue.isValid() ? parsedValue.format(this.getMomentOutputFormat()) : null;
 
@@ -44,7 +45,7 @@ export default class NewGameView {
         format: this.getDatePickerFormat(),
         pickTime: true,
         onRender: function (date) {
-            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            return date < now ? 'disabled' : '';
         }
     });
   }

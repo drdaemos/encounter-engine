@@ -7,7 +7,7 @@ class GamePassingsController < ApplicationController
   before_action :find_team, :except => [:show_results, :index]
   before_action :find_or_create_game_passing, :except => [:show_results, :index]
   before_action :authenticate_user!, :except => [:index, :show_results]
-  before_action :ensure_game_is_started
+  before_action :ensure_game_is_started, :except => [:show_current_level]
   before_action :ensure_team_captain, :only => [:exit_game]
   before_action :ensure_not_finished, :except => [:index, :show_results]
   before_action :ensure_current_level_is_active, :except => [:show_results, :index]
@@ -22,7 +22,7 @@ class GamePassingsController < ApplicationController
     if @game_passing.finished?
       render :show_results
     else 
-      render :layout => 'in_game'
+      render html: '', :layout => 'in_game'
     end
   end
 
@@ -83,8 +83,11 @@ protected
 
     if @game_passing.nil?
       @game_passing = GamePassing.create! :team => @team,
-        :game => @game,
-        :current_level => @game.levels.first
+        :game => @game
+
+      if @game.started?
+        @game_passing.current_level = @game.levels.first
+      end
     end
   end
 

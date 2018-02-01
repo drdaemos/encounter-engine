@@ -13,7 +13,7 @@ class GamePassing < ApplicationRecord
   scope :finished, -> { where.not(finished_at: nil).order('finished_at ASC') }
   scope :finished_before, ->(time) { where('finished_at < ?', time) }
 
-  before_create :update_current_level_entered_at
+  before_update :update_current_level_data, if: :current_level_id_changed?
 
   before_save { self.answered_questions ||= [] }
   before_save { self.opened_spoilers ||= [] }
@@ -60,11 +60,7 @@ class GamePassing < ApplicationRecord
   def pass_level!
     if last_level?
       set_finish_time
-    else
-      update_current_level_entered_at
     end
-
-    reset_answered_questions
 
     self.current_level = self.current_level.next
     save!
@@ -73,11 +69,7 @@ class GamePassing < ApplicationRecord
   def fail_level!
     if last_level?
       set_finish_time
-    else
-      update_current_level_entered_at
     end
-
-    reset_answered_questions
 
     self.current_level = self.current_level.next
     save!
@@ -144,7 +136,9 @@ protected
     self.current_level.next.nil?
   end
 
-  def update_current_level_entered_at
+  def update_current_level_data
+    reset_answered_questions
+    reset_spoilers
     self.current_level_entered_at = Time.now
   end
 

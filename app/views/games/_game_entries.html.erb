@@ -9,7 +9,7 @@
       %>
       <div class="game-entry">
         <i class="fas fa-car"></i>
-        <span class="team"><%= link_to team.name, [@team] %></span>
+        <span class="team"><%= link_to @team.name, [@team] %></span>
         <span class="separator">|</span>
         <span class="controls">
           <%= link_to "принять", accept_game_entry_path(entry.id) %>

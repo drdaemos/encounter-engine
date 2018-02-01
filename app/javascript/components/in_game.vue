@@ -1,17 +1,16 @@
 <template>
     <div class="encounter-game">
         <div class="app-grid">
-
-            <div class="header-container">
-                <level-header></level-header>
+            <div class="header-container" v-if="game_started">
+                <level-header/>
             </div>
 
-            <div class="main-container">
-                <article>
-                    <current-level :game-channel="gameChannel"></current-level>
-                </article>
+            <div class="main-container" v-if="game_started">
+                <current-level/>
             </div>
-
+            <div class="main-container" v-else>
+                <game-preview></game-preview>
+            </div>
         </div>
     </div>
 </template>
@@ -19,6 +18,7 @@
 <script>
   import CurrentLevel from './current_level.vue'
   import LevelHeader from './level_header'
+  import GamePreview from './game_preview'
   import store from 'stores/in_game.js'
   import _ from 'underscore'
 
@@ -47,8 +47,8 @@
       }
     },
     computed: {
-      results_url () {
-        return this.$store.getters.resultsUrl
+      game_started () {
+        return this.game.started
       },
       game_finished () {
         return this.$store.getters.passing.finished
@@ -58,9 +58,6 @@
       },
       game () {
         return this.$store.getters.game
-      },
-      level () {
-        return this.$store.getters.level
       },
     },
     methods: {
@@ -82,7 +79,8 @@
     },
     components: {
       CurrentLevel,
-      LevelHeader
+      LevelHeader,
+      GamePreview
     }
   }
 </script>

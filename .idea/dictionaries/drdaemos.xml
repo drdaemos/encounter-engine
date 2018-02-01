@@ -7,6 +7,7 @@
       <w>carrierwave</w>
       <w>jbuilder</w>
       <w>lineheight</w>
+      <w>passings</w>
       <w>registerable</w>
       <w>rememberable</w>
       <w>trackable</w>

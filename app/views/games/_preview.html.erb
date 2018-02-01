@@ -10,11 +10,20 @@
     <% else %>
       <a href="<%= url_for(game) %>"><%= game.name %></a>
     <% end %>
-    <% if user_signed_in? and game.can_be_played_by?(current_user)  %>
-      <span class="sticker">в процессе</span>
+    <% if user_signed_in? and game.can_be_played_by?(current_user) %>
+      <% if game.started? %>
+        <span class="sticker">в процессе</span>
+      <% end %>
       <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
     <% elsif edit_context and user_signed_in? and current_user.can_edit?(game) %>
-      <%= link_to "Удалить", game, :class => 'right-link', :method => :delete %>
+      <% if game.started? and !game.author_finished? %>
+        <%= link_to "Завершить", end_game_game_path(game.id), :class => 'right-link' %>
+      <% else %>
+        <% if game.author_finished? %>
+          <span class="sticker finished">завершена</span>
+        <% end %>
+        <%= link_to "Удалить", game, :class => 'right-link', :method => :delete %>
+      <% end %>
     <% end %>
   </h3>
   <div class="game-preview-contents">

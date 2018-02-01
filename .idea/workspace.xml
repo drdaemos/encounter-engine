@@ -1,152 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="Fix issue with hints">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/concepts/game_passing/operation.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/old_spec/controllers/dashboard/index_spec.rb" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/old_spec/controllers/dashboard_controller_spec.rb" />
+    <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/javascript/components/game_preview.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/drdaemos.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/drdaemos.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encounter-engine.iml" afterPath="$PROJECT_DIR$/.idea/encounter-engine.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss" />
       <change beforePath="$PROJECT_DIR$/app/channels/game_channel.rb" afterPath="$PROJECT_DIR$/app/channels/game_channel.rb" />
       <change beforePath="$PROJECT_DIR$/app/controllers/game_passings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/game_passings_controller.rb" />
       <change beforePath="$PROJECT_DIR$/app/helpers/game_passings_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/game_passings_helper.rb" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/components/application.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/components/in_game.vue" afterPath="$PROJECT_DIR$/app/javascript/components/in_game.vue" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/components/new_game.js" afterPath="$PROJECT_DIR$/app/javascript/components/new_game.js" />
+      <change beforePath="$PROJECT_DIR$/app/models/game.rb" afterPath="$PROJECT_DIR$/app/models/game.rb" />
+      <change beforePath="$PROJECT_DIR$/app/models/game_passing.rb" afterPath="$PROJECT_DIR$/app/models/game_passing.rb" />
+      <change beforePath="$PROJECT_DIR$/app/models/team.rb" afterPath="$PROJECT_DIR$/app/models/team.rb" />
+      <change beforePath="$PROJECT_DIR$/app/views/games/_game_entries.html.erb" afterPath="$PROJECT_DIR$/app/views/games/_game_entries.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/games/_preview.html.erb" afterPath="$PROJECT_DIR$/app/views/games/_preview.html.erb" />
-      <change beforePath="$PROJECT_DIR$/features/answers/managing-answers.feature" afterPath="$PROJECT_DIR$/old_spec/features/answers/managing-answers.feature" />
-      <change beforePath="$PROJECT_DIR$/features/answers/passing-multi-var-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/answers/passing-multi-var-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/answers/steps/answers_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/answers/steps/answers_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/authentication/login.feature" afterPath="$PROJECT_DIR$/old_spec/features/authentication/login.feature" />
-      <change beforePath="$PROJECT_DIR$/features/authentication/logout.feature" afterPath="$PROJECT_DIR$/old_spec/features/authentication/logout.feature" />
-      <change beforePath="$PROJECT_DIR$/features/authentication/steps/login_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/authentication/steps/login_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/dashboard/dashboard.feature" afterPath="$PROJECT_DIR$/old_spec/features/dashboard/dashboard.feature" />
-      <change beforePath="$PROJECT_DIR$/features/dashboard/steps/dashboard_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/dashboard/steps/dashboard_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/accessing-first-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/accessing-first-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/finishing-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/finishing-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/game-stats.feature" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/game-stats.feature" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/stepping-next-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/stepping-next-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/steps/game-passing_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/steps/game-passing_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/game-passing/throw_in_the_towel.feature" afterPath="$PROJECT_DIR$/old_spec/features/game-passing/throw_in_the_towel.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/completion-game-by-author.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/completion-game-by-author.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/confirmed-teams-preview.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/confirmed-teams-preview.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/create-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/create-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/delete-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/delete-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/edit-game-profile.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/edit-game-profile.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/empty-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/empty-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/enter-game-before-start.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/enter-game-before-start.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/game-draft.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/game-draft.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/game-profile.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/game-profile.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/game_full_log.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/game_full_log.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/games-list.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/games-list.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/hide-draft-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/hide-draft-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/hide-left-column-when-in-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/hide-left-column-when-in-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/max-team-number.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/max-team-number.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/one-language-code-russian.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/one-language-code-russian.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/one-language-code.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/one-language-code.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/play-game-button.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/play-game-button.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/registration-deadline.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/registration-deadline.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/registration-to-game.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/registration-to-game.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/signup-password.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/signup-password.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/steps/games_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/games/steps/games_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/games/team-entry-status.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/team-entry-status.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/team-status.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/team-status.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/test-game-1.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/test-game-1.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/test-game-2.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/test-game-2.feature" />
-      <change beforePath="$PROJECT_DIR$/features/games/user-profile-view-and-edit.feature" afterPath="$PROJECT_DIR$/old_spec/features/games/user-profile-view-and-edit.feature" />
-      <change beforePath="$PROJECT_DIR$/features/hints/create-hint.feature" afterPath="$PROJECT_DIR$/old_spec/features/hints/create-hint.feature" />
-      <change beforePath="$PROJECT_DIR$/features/hints/delete-hint.feature" afterPath="$PROJECT_DIR$/old_spec/features/hints/delete-hint.feature" />
-      <change beforePath="$PROJECT_DIR$/features/hints/edit-hint.feature" afterPath="$PROJECT_DIR$/old_spec/features/hints/edit-hint.feature" />
-      <change beforePath="$PROJECT_DIR$/features/hints/show-delayed-hints.feature" afterPath="$PROJECT_DIR$/old_spec/features/hints/show-delayed-hints.feature" />
-      <change beforePath="$PROJECT_DIR$/features/hints/steps/hints_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/hints/steps/hints_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/index-page/index-page.feature" afterPath="$PROJECT_DIR$/old_spec/features/index-page/index-page.feature" />
-      <change beforePath="$PROJECT_DIR$/features/index-page/steps/index-page_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/index-page/steps/index-page_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/invitations/accept-invitations.feature" afterPath="$PROJECT_DIR$/old_spec/features/invitations/accept-invitations.feature" />
-      <change beforePath="$PROJECT_DIR$/features/invitations/receive-invitations.feature" afterPath="$PROJECT_DIR$/old_spec/features/invitations/receive-invitations.feature" />
-      <change beforePath="$PROJECT_DIR$/features/invitations/reject-invitations.feature" afterPath="$PROJECT_DIR$/old_spec/features/invitations/reject-invitations.feature" />
-      <change beforePath="$PROJECT_DIR$/features/invitations/send-invitations.feature" afterPath="$PROJECT_DIR$/old_spec/features/invitations/send-invitations.feature" />
-      <change beforePath="$PROJECT_DIR$/features/invitations/steps/invitations_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/invitations/steps/invitations_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/levels/create-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/levels/create-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/levels/delete-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/levels/delete-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/levels/edit-level.feature" afterPath="$PROJECT_DIR$/old_spec/features/levels/edit-level.feature" />
-      <change beforePath="$PROJECT_DIR$/features/levels/level-profile.feature" afterPath="$PROJECT_DIR$/old_spec/features/levels/level-profile.feature" />
-      <change beforePath="$PROJECT_DIR$/features/levels/levels-list.feature" afterPath="$PROJECT_DIR$/old_spec/features/levels/levels-list.feature" />
-      <change beforePath="$PROJECT_DIR$/features/levels/steps/levels_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/levels/steps/levels_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/logs/live-channel.feature" afterPath="$PROJECT_DIR$/old_spec/features/logs/live-channel.feature" />
-      <change beforePath="$PROJECT_DIR$/features/logs/log.feature" afterPath="$PROJECT_DIR$/old_spec/features/logs/log.feature" />
-      <change beforePath="$PROJECT_DIR$/features/logs/steps/logs_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/logs/steps/logs_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/multi-questional-levels/managing-additional-codes.feature" afterPath="$PROJECT_DIR$/old_spec/features/multi-questional-levels/managing-additional-codes.feature" />
-      <change beforePath="$PROJECT_DIR$/features/multi-questional-levels/playing-with-additional-codes.feature" afterPath="$PROJECT_DIR$/old_spec/features/multi-questional-levels/playing-with-additional-codes.feature" />
-      <change beforePath="$PROJECT_DIR$/features/signup/signup.feature" afterPath="$PROJECT_DIR$/old_spec/features/signup/signup.feature" />
-      <change beforePath="$PROJECT_DIR$/features/signup/steps/signup_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/signup/steps/signup_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/steps/before_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/steps/before_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/steps/mail_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/steps/mail_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/steps/result_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/steps/result_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/steps/time_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/steps/time_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/steps/webrat_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/steps/webrat_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/support/env.rb" afterPath="$PROJECT_DIR$/old_spec/features/support/env.rb" />
-      <change beforePath="$PROJECT_DIR$/features/team-room/steps/team-room_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/team-room/steps/team-room_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/team-room/team-room.feature" afterPath="$PROJECT_DIR$/old_spec/features/team-room/team-room.feature" />
-      <change beforePath="$PROJECT_DIR$/features/teams/create-team.feature" afterPath="$PROJECT_DIR$/old_spec/features/teams/create-team.feature" />
-      <change beforePath="$PROJECT_DIR$/features/teams/steps/team_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/teams/steps/team_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/tickets/ticket-83(5).feature" afterPath="$PROJECT_DIR$/old_spec/features/tickets/ticket-83(5).feature" />
-      <change beforePath="$PROJECT_DIR$/features/tickets/ticket-92.feature" afterPath="$PROJECT_DIR$/old_spec/features/tickets/ticket-92.feature" />
-      <change beforePath="$PROJECT_DIR$/features/time/steps/time-in-header_steps.rb" afterPath="$PROJECT_DIR$/old_spec/features/time/steps/time-in-header_steps.rb" />
-      <change beforePath="$PROJECT_DIR$/features/time/time-in-header.feature" afterPath="$PROJECT_DIR$/old_spec/features/time/time-in-header.feature" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/dashboard/index_spec.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/game_passings/post_answer_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/game_passings/post_answer_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/game_passings/show_current_level_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/game_passings/show_current_level_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/games/create_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/games/create_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/games/edit_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/games/edit_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/games/new_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/games/new_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/games/update_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/games/update_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/invitations/accept_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/invitations/accept_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/invitations/create_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/invitations/create_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/invitations/new_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/invitations/new_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/invitations/reject_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/invitations/reject_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/levels/create_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/levels/create_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/levels/move_down_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/levels/move_down_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/levels/move_up_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/levels/move_up_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/levels/new_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/levels/new_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/levels/update_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/levels/update_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/team_room/index_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/team_room/index_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/teams/new_spec.rb" afterPath="$PROJECT_DIR$/old_spec/controllers/teams/new_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/mailers/notification_mailer/welcome_letter_spec.rb" afterPath="$PROJECT_DIR$/old_spec/mailers/notification_mailer/welcome_letter_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game/created_by_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game/created_by_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game/finished_teams_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game/finished_teams_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game/place_of_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game/place_of_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game/started_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game/started_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game/validation_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game/validation_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/all_questions_answered_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/all_questions_answered_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/answered_questions_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/answered_questions_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/check_answer_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/check_answer_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/correct_answer_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/correct_answer_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/current_level_entered_at_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/current_level_entered_at_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/finished_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/finished_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/hints_to_show_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/hints_to_show_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/game_passing/unanswered_questions_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/game_passing/unanswered_questions_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/hint/delay_in_minutes_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/hint/delay_in_minutes_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/hint/ready_to_show_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/hint/ready_to_show_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/invitation/validation_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/invitation/validation_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/level/correct_answer_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/level/correct_answer_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/level/multi_question_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/level/multi_question_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/level/next_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/level/next_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/question/strip_spaces_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/question/strip_spaces_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/team/current_level_in_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/team/current_level_in_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/team/filters_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/team/filters_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/team/finished_game_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/team/finished_game_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/user/author_of_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/user/author_of_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/user/captain_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/user/captain_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/models/user/member_of_any_team_spec.rb" afterPath="$PROJECT_DIR$/old_spec/models/user/member_of_any_team_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/exceptions/unauthenticated_spec.rb" afterPath="$PROJECT_DIR$/old_spec/requests/exceptions/unauthenticated_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/users/create_spec.rb" afterPath="$PROJECT_DIR$/old_spec/requests/users/create_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/users/new_spec.rb" afterPath="$PROJECT_DIR$/old_spec/requests/users/new_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/users/show_spec.rb" afterPath="$PROJECT_DIR$/old_spec/requests/users/show_spec.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/spec.opts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helpers/exceptions_helper.rb" afterPath="$PROJECT_DIR$/old_spec/spec_helpers/exceptions_helper.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helpers/fixtures_helper.rb" afterPath="$PROJECT_DIR$/old_spec/spec_helpers/fixtures_helper.rb" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helpers/mailer_helper.rb" afterPath="$PROJECT_DIR$/old_spec/spec_helpers/mailer_helper.rb" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -161,7 +34,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/encounter_engine@spec__encounter_engine.coverage" NAME="spec: encounter-engine Coverage Results" MODIFIED="1517407011728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="encounter-engine" />
+    <SUITE FILE_PATH="coverage/encounter_engine@spec__encounter_engine.coverage" NAME="spec: encounter-engine Coverage Results" MODIFIED="1517423804315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="encounter-engine" />
     <SUITE FILE_PATH="coverage/encounter_engine@Development__encounter_engine.coverage" NAME="Development: encounter-engine Coverage Results" MODIFIED="1517334624652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="encounter-engine" />
   </component>
   <component name="DatabaseView">
@@ -198,71 +71,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
+      <file leaf-file-name="game_channel.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/channels/game_channel.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="480">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="operation.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/concepts/game_passing/operation.rb">
+      <file leaf-file-name="in_game.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/javascript/components/in_game.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="380">
+              <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="persistence.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.0.5/lib/active_record/persistence.rb">
+      <file leaf-file-name="in_game.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/in_game.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_passing.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/game_passing.rb">
+      <file leaf-file-name="game_passings_helper.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/game_passings_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2580">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/operation/model.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="persist.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/operation/persist.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game_passings_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/game_passings_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+            <state relative-caret-position="417">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -277,11 +120,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-operation-0.0.13/lib/trailblazer/operation/result.rb">
+      <file leaf-file-name="show_current_level.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/game_passings/show_current_level.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="133">
+              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_passings_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/game_passings_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="69" lean-forward="false" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="levels" pinned="false" current-in-tab="false">
+        <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.levels">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/game_passings/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-584">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -298,36 +180,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>User.f</find>
-      <find>Game.</find>
-      <find>find_by</find>
-      <find>&lt;%= form</find>
-      <find>\&lt;\%\= label_tag \:answer\, t\(\:answer\, \:scope \=\&gt; \[\:in_game\]\) \%\&gt;\n    \&lt;\%\= text_field_tag \:answer \%\&gt;</find>
-      <find>author_of?</find>
-      <find>.author_of?</find>
-      <find>countdown</find>
-      <find>render 's</find>
-      <find>is_visible_accessories_block</find>
-      <find>back</find>
-      <find>Заявки на регистрацию:</find>
-      <find>message = &lt;%= message.inspect %&gt;</find>
-      <find>$body-font-family</find>
-      <find>body-font-family</find>
-      <find>grid-margin-gutters</find>
-      <find>post</find>
-      <find>toast</find>
-      <find>log</find>
-      <find>.access_code</find>
-      <find>can_be_played_by?</find>
-      <find>GamePassing.crea</find>
-      <find>find_or_create_game_passing</find>
-      <find>монито</find>
       <find>acts</find>
       <find>GamePassing</find>
       <find>\# \-\*\- encoding \: utf\-8 \-\*\-\nrequire File\.join\(File\.dirname\(__FILE__\)\, \'\.\.\'\, \'\.\.\'\, \'spec_helper\.rb\'\)</find>
       <find>require 'rails_helper'</find>
       <find>require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper.rb')</find>
       <find>GamePassing.create</find>
+      <find>can_be_played_by?</find>
+      <find>game_entries</find>
+      <find>with_status</find>
+      <find>game_ent</find>
+      <find>active</find>
+      <find>available_for</find>
+      <find>can_be_</find>
+      <find>§</find>
+      <find>can_be</find>
+      <find>@game_passings</find>
+      <find>current_level_ente</find>
+      <find>get_current_level_tip_data</find>
+      <find>game_passing</find>
+      <find>game_passing.game</find>
+      <find>.starts_at.ut</find>
+      <find>update_current_level_entered_at</find>
+      <find>resultsUrl</find>
+      <find>games</find>
+      <find>author_finished</find>
+      <find>question.que</find>
+      <find>fail_level_if_limit_is_passed</find>
+      <find>get_app_data</find>
+      <find>start_game_passing</find>
+      <find>perform_Chec</find>
     </findStrings>
     <replaceStrings>
       <replace>.can_edit?</replace>
@@ -346,11 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/log/development.log" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/includes/_login_menu.html.erb" />
         <option value="$PROJECT_DIR$/app/views/levels/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" />
         <option value="$PROJECT_DIR$/app/views/levels/edit.html.erb" />
@@ -358,7 +235,6 @@
         <option value="$PROJECT_DIR$/app/views/games/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/game_entries_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/games/_teams.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/games/_game_entries.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/teams_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/teams/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/team_room/index.html.erb" />
@@ -370,7 +246,6 @@
         <option value="$PROJECT_DIR$/app/views/users/_profile.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/in_game.html.erb" />
         <option value="$PROJECT_DIR$/app/javascript/scripts/utils.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/in_game.scss" />
@@ -380,23 +255,30 @@
         <option value="$PROJECT_DIR$/app/javascript/stores/in_game.js" />
         <option value="$PROJECT_DIR$/app/javascript/components/level_header.vue" />
         <option value="$PROJECT_DIR$/app/javascript/components/current_level.vue" />
-        <option value="$PROJECT_DIR$/app/javascript/components/in_game.vue" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/in_game/_layout.scss" />
         <option value="$PROJECT_DIR$/app/views/hints/_list.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/admin.scss" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/models/hint.rb" />
-        <option value="$PROJECT_DIR$/app/views/games/_preview.html.erb" />
-        <option value="$PROJECT_DIR$/app/helpers/game_passings_helper.rb" />
-        <option value="$PROJECT_DIR$/app/channels/game_channel.rb" />
-        <option value="$PROJECT_DIR$/app/models/game_passing.rb" />
         <option value="$PROJECT_DIR$/app/concepts/game_passing/operations.rb" />
         <option value="$PROJECT_DIR$/spec/models/question/strip_spaces_spec.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/dashboard/index_spec.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/dashboard_controller_spec.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/game_passings_controller.rb" />
         <option value="$PROJECT_DIR$/app/concepts/game_passing/operation.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/javascript/components/new_game.js" />
+        <option value="$PROJECT_DIR$/app/views/games/_game_entries.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/game.rb" />
+        <option value="$PROJECT_DIR$/app/models/team.rb" />
+        <option value="$PROJECT_DIR$/app/javascript/components/game_preview.vue" />
+        <option value="$PROJECT_DIR$/app/models/game_passing.rb" />
+        <option value="$PROJECT_DIR$/app/views/games/_preview.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/game_passings_controller.rb" />
+        <option value="$PROJECT_DIR$/app/javascript/components/in_game.vue" />
+        <option value="$PROJECT_DIR$/app/helpers/game_passings_helper.rb" />
+        <option value="$PROJECT_DIR$/app/channels/game_channel.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
   </component>
@@ -492,14 +374,26 @@
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="concepts" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="concepts" type="462c0819:PsiDirectoryNode" />
-              <item name="game_passing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
@@ -511,7 +405,80 @@
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="blocks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="game_passings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="games" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="in_game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
@@ -571,32 +538,6 @@
               <item name="trailblazer" type="462c0819:PsiDirectoryNode" />
               <item name="operation" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="trailblazer-operation (v0.0.13, rbenv: 2.3.0) [gem]" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="trailblazer-operation (v0.0.13, rbenv: 2.3.0) [gem]" type="70bed36:NamedLibraryElementNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="trailblazer-operation (v0.0.13, rbenv: 2.3.0) [gem]" type="70bed36:NamedLibraryElementNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="trailblazer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="trailblazer-operation (v0.0.13, rbenv: 2.3.0) [gem]" type="70bed36:NamedLibraryElementNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="trailblazer" type="462c0819:PsiDirectoryNode" />
-              <item name="operation" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -609,7 +550,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/in_game.scss&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;current_level&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;global&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;seeds.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;gamepassing&#9;null&#9;null&#10;login&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_login_menu.html.erb&#10;users&#9;null&#9;null&#10;games/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games&#10;routes.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;games&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;teamscon&#9;null&#9;null&#10;gameentri&#9;null&#9;null&#10;common.scss&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/common.scss&#10;global.scs&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;foundation/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites&#10;side&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;sidebar&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;schem&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;team&#9;null&#9;null&#10;shared/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/shared&#10;user.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/user.rb&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settings&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/settings_controller.rb&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;add_typ&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127154840_add_type_to_settings.rb&#10;see&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;schema.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;schema&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;add_se&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127153419_add_setting_model.rb&#10;add_set&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/migrate/20180127153419_add_setting_model.rb" />
+    <property name="SearchEverywhereHistoryKey" value="seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;show_cur&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/game_passings/show_current_level.html.erb&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;seeds.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/game_preview.vue&#10;game_pass&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;in_game.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_passing.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;gameen&#9;null&#9;null&#10;_game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_game_entries.html.erb&#10;new_ga&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/new_game.js&#10;gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;current_level&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;global&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;seeds.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;gamepassing&#9;null&#9;null&#10;login&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_login_menu.html.erb&#10;users&#9;null&#9;null&#10;games/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games&#10;routes.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;games&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;teamscon&#9;null&#9;null&#10;gameentri&#9;null&#9;null&#10;common.scss&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/common.scss&#10;global.scs&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss&#10;foundation/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites&#10;side&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;sidebar&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;schem&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;team&#9;null&#9;null" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.selected.package.jscs" value="" />
@@ -768,7 +709,7 @@
       <workItem from="1517053258459" duration="12942000" />
       <workItem from="1517160906113" duration="3226000" />
       <workItem from="1517254289248" duration="6576000" />
-      <workItem from="1517331310103" duration="8019000" />
+      <workItem from="1517331310103" duration="16867000" />
     </task>
     <task id="LOCAL-00001" summary="admin levels navigation menu">
       <created>1517077593529</created>
@@ -791,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517336691173</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add proper rails rspec, move old specs to different folder">
+      <created>1517421093356</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1517421093356</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -801,28 +749,31 @@
     <history-entry file="spec__encounter-engine - 2018.01.31 at 17h 56m 59s.xml">
       <configuration name="spec: encounter-engine" configurationId="RakeRunConfigurationType" />
     </history-entry>
+    <history-entry file="spec__encounter-engine - 2018.01.31 at 22h 36m 47s.xml">
+      <configuration name="spec: encounter-engine" configurationId="RakeRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60514000" />
+    <option name="totallyTimeSpent" value="69362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24606581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24606581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39950678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -841,7 +792,8 @@
     <MESSAGE value="admin levels navigation menu" />
     <MESSAGE value="Properly rewrite frontend layout on vuex" />
     <MESSAGE value="Fix issue with hints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix issue with hints" />
+    <MESSAGE value="add proper rails rspec, move old specs to different folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="add proper rails rspec, move old specs to different folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,348 +851,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/url_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="189" column="10" lean-forward="false" selection-start-line="189" selection-start-column="10" selection-end-line="189" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hints/_list.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/admin.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/boot.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.hints">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/development.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="-700">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="480" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="114" lean-forward="false" selection-start-line="17" selection-start-column="94" selection-end-line="17" selection-end-column="114" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/hint.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/_preview.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/game_passings/show_current_level.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/game_passings/show_results.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/game_passings/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/index_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/channels/game_channel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/acts_as_list-0.9.7/lib/acts_as_list/active_record/acts/active_record.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/acts_as_list-0.9.7/lib/acts_as_list.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/bcrypt-3.1.11/lib/bcrypt.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/game_passings_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/application_record.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/models/game_passing/check_answer_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/spec_helpers/exceptions_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec.opts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/spec_helpers/mailer_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/spec_helpers/fixtures_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game_entry.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/models/invitation/validation_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/models/question/strip_spaces_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/features/answers/managing-answers.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-524">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/controllers/dashboard_controller_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/controllers/dashboard/index_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/models/setting_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/rails_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3207">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/games_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/old_spec/controllers/game_passings/post_answer_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.0.5/lib/active_record/persistence.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/operation/persist.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-operation-0.0.13/lib/trailblazer/operation/result.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -1249,41 +859,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.game_passings">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game_passing.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2580">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/dsl.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-182">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/operation/model.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/game_passings_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1300,6 +879,376 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application Log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/trailblazer-2.0.7/lib/trailblazer/operation/model.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.0.5/lib/active_record/persistence.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="108" column="4" lean-forward="false" selection-start-line="108" selection-start-column="4" selection-end-line="108" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/new_game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#65#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/game_entries_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.game_entries">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/_game_entries.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/game_entry.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/game.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/team.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="47" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activerecord-5.0.5/lib/active_record/callbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="257" column="9" lean-forward="false" selection-start-line="257" selection-start-column="9" selection-end-line="257" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/level.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/level_header.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-943">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/current_level.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/application.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/froala_textarea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/rubymine.jar!/resources/html5-schema/html5/structural.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/game_preview.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/games_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/_list.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="114" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/game_passing.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/_preview.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.hints">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.games">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/level.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/game_previews.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/answer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="91" column="21" lean-forward="false" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/question.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.answers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.questions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/in_game.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/game_passings/show_current_level.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/in_game.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.game_passings">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/game_passings_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/channels/game_channel.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/game_passings/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-584">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/game_passings_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="69" lean-forward="false" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/260026ac/398f6448-e658-4de1-813a-c0abbd6f1c7e/main.levels">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>

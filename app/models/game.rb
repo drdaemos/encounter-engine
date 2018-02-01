@@ -5,8 +5,8 @@ class Game < ApplicationRecord
   belongs_to :author, :class_name => "User"
   has_many :levels, -> { order('position') }
   has_many :logs, -> { order('time') }
-  has_many :game_entries, :class_name => "GameEntry"
-  has_many :game_passings, :class_name => "GamePassing"
+  has_many :game_entries
+  has_many :game_passings, :inverse_of => :game
   mount_uploader :poster, GamePosterUploader
 
   validates_presence_of :name,
@@ -44,7 +44,7 @@ class Game < ApplicationRecord
   end
 
   def self.available_for(user)
-    Game.ready.select {|game| !game.finished? and ((!game.draft? and !game.starts_at.nil?) or (!user.nil? and user.can_edit?(game))) }
+    Game.all.select {|game| game.is_available_for(user) }
   end
 
   def self.active(user)
@@ -71,7 +71,16 @@ class Game < ApplicationRecord
     user.author_of?(self)
   end
 
+  def is_available_for(user)
+    !self.finished? && ((!self.draft? && !self.starts_at.nil?) || (!user.nil? && user.can_edit?(self)))
+  end
+
   def can_be_played_by?(user)
+    team = user.team
+    !team.nil? && !GameEntry.with_status('accepted').of(team, self).nil?
+  end
+
+  def is_played_by?(user)
     team = user.team
     game_passing = user.team ? GamePassing.of(team, self) : nil
     return !self.finished? && !game_passing.nil? && !game_passing.finished?

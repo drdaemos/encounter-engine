@@ -55,6 +55,7 @@ class GameChannel < ApplicationCable::Channel
     team = Team.find(params[:team])
     game = Game.find(params[:game])
     game_passing = GamePassing.of(team, game)
+    start_game_passing(game_passing)
     fail_level_if_limit_is_passed(game_passing)
   end 
 
