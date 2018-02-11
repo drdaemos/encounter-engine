@@ -60,7 +60,7 @@ module GamePassingsHelper
   end
 
   def start_game_passing (game_passing)
-    if !game_passing.finished? && game_passing.current_level.nil? && !game_passing.game.levels.empty?
+    if game_passing.game.started? && !game_passing.finished? && game_passing.current_level.nil? && !game_passing.game.levels.empty?
       game_passing.current_level = game_passing.game.levels.first
       game_passing.save!
     end

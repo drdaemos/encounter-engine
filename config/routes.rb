@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   get '/team-room', to: 'team_room#index', as: :team_room
   get '/game-results', to: 'games#results', as: :game_results
   get '/settings', to: 'settings#index', as: :settings
-  get '/settings/update', to: 'settings#update', as: :update_settings
+  post '/settings/update', to: 'settings#update', as: :update_settings
 
   root to: 'index#index', as: :index_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

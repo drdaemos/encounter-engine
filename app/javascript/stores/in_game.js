@@ -5,29 +5,30 @@ import _ from 'underscore'
 Vue.use(Vuex)
 
 let stateContainer = document.querySelector('script[x-app-data]')
-let initialState = JSON.parse(stateContainer.innerHTML)
+let initialData = JSON.parse(stateContainer.innerHTML)
 
 export default new Vuex.Store({
-  state: Object.assign(initialState, {
+  state: {
+    data: initialData,
     channel: null,
     timer: new Date(),
-  }),
+  },
   getters: {
     currentTime: (state) => state.timer,
     channel: (state) => state.channel,
-    game: (state) => state.game,
-    user: (state) => state.user,
-    passing: (state) => state.game_passing,
-    level: (state) => state.level,
-    hints: (state) => state.hints,
-    results_url: (state) => state.game_passing ? state.game_passing.results_url : null
+    game: (state) => state.data.game,
+    user: (state) => state.data.user,
+    passing: (state) => state.data.game_passing,
+    level: (state) => state.data.level,
+    hints: (state) => state.data.hints,
+    results_url: (state) => state.data.game_passing ? state.data.game_passing.results_url : null
   },
   mutations: {
     setChannel: function (state, channel) {
       state.channel = channel
     },
     updateState: function (state, data) {
-      state = Object.assign(state, data)
+      Vue.set(state, 'data', data)
     },
     timerTick: function (state, value) {
       state.timer = value

@@ -5,6 +5,7 @@ class GamePassing < ApplicationRecord
   belongs_to :team
   belongs_to :game
   belongs_to :current_level, :class_name => "Level"
+  has_many :level_results, :inverse_of => :game_passing
 
   scope :of_game, ->(game) { where(game_id: game) }
   scope :of_team, ->(team) { where(team_id: team) }
@@ -58,21 +59,11 @@ class GamePassing < ApplicationRecord
   end
 
   def pass_level!
-    if last_level?
-      set_finish_time
-    end
-
-    self.current_level = self.current_level.next
-    save!
+    switch_to_next_level!
   end
 
   def fail_level!
-    if last_level?
-      set_finish_time
-    end
-
-    self.current_level = self.current_level.next
-    save!
+    switch_to_next_level!
   end
 
   def finished?
@@ -124,13 +115,37 @@ class GamePassing < ApplicationRecord
   end
 
   def end!
-    if !self.exited?
+    unless self.exited?
       self.status = "ended"
       self.save!
     end
   end
 
 protected
+
+  def save_level_result
+    entity = LevelResult.new({
+        :level => self.current_level,
+        :answered_questions => self.answered_questions,
+        :entered_at => self.current_level_entered_at,
+        :adjustment => 0,
+        :game_passing => self
+    })
+
+    entity.save!
+    self.level_results << entity
+  end
+
+  def switch_to_next_level!
+    save_level_result
+
+    if last_level?
+      set_finish_time
+    end
+
+    self.current_level = self.current_level.next
+    self.save!
+  end
 
   def last_level?
     self.current_level.next.nil?

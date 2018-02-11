@@ -4,12 +4,11 @@
             <div class="header-container" v-if="game_started">
                 <level-header/>
             </div>
-
             <div class="main-container" v-if="game_started">
                 <current-level/>
             </div>
             <div class="main-container" v-else>
-                <game-preview></game-preview>
+                <game-preview/>
             </div>
         </div>
     </div>
@@ -19,7 +18,7 @@
   import CurrentLevel from './current_level.vue'
   import LevelHeader from './level_header'
   import GamePreview from './game_preview'
-  import store from 'stores/in_game.js'
+  import store from '../stores/in_game.js'
   import _ from 'underscore'
 
   export default {

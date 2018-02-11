@@ -4,7 +4,7 @@
     <div class="setting key-<%= setting.key %>">
       <label for="setting-<%= setting.key %>"><%= setting.label %></label>
       <% if setting.field_type === 'text' %>
-      <input id="setting-<%= setting.key %>" type="text" name="<%= setting.key %>" value="<%= setting.value %>">
+      <input id="setting-<%= setting.key %>" type="text" name="settings[<%= setting.key %>]" value="<%= setting.value %>">
       <% end %>
     </div>
   <% end %>
