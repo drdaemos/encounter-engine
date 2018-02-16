@@ -23,5 +23,11 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="autoquest@localhost" uuid="c74ae0e7-8d8f-4186-972b-048aed68803f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/autoquest</jdbc-url>
+    </data-source>
   </component>
 </project>

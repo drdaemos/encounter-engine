@@ -10,10 +10,10 @@
     <% else %>
       <a href="<%= url_for(game) %>"><%= game.name %></a>
     <% end %>
+    <% if game.started? and !game.finished? %>
+      <span class="sticker">в процессе</span>
+    <% end %>
     <% if user_signed_in? and game.can_be_played_by?(current_user) %>
-      <% if game.started? %>
-        <span class="sticker">в процессе</span>
-      <% end %>
       <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
     <% elsif edit_context and user_signed_in? and current_user.can_edit?(game) %>
       <% if game.started? and !game.author_finished? %>
