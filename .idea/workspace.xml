@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="Add storing of level time and answered questions results, fix entered_at timestamp, fix global settings update">
+    <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
-      <change beforePath="$PROJECT_DIR$/app/mailers/notification_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/notification_mailer.rb" />
-      <change beforePath="$PROJECT_DIR$/config/puma.rb" afterPath="$PROJECT_DIR$/config/puma.rb" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/header.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/header.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -48,11 +45,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
               <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_layout.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/_layout.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/header.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -118,16 +135,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notification_mailer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/notification_mailer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="invitations_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,10 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>available_for</find>
-      <find>can_be_</find>
-      <find>§</find>
-      <find>can_be</find>
       <find>@game_passings</find>
       <find>current_level_ente</find>
       <find>get_current_level_tip_data</find>
@@ -179,6 +182,10 @@
       <find>contreolle</find>
       <find>admin</find>
       <find>NotificationMailer</find>
+      <find>flex-grid-row-align</find>
+      <find>flex-al</find>
+      <find>flex-align</find>
+      <find>@include flex-align</find>
     </findStrings>
     <replaceStrings>
       <replace>.can_edit?</replace>
@@ -206,8 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/javascript/components/current_level.vue" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/in_game/_layout.scss" />
         <option value="$PROJECT_DIR$/app/views/hints/_list.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/admin.scss" />
         <option value="$PROJECT_DIR$/config/application.rb" />
@@ -257,6 +262,8 @@
         <option value="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
         <option value="$PROJECT_DIR$/config/puma.rb" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/_layout.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/header.scss" />
       </list>
     </option>
   </component>
@@ -372,7 +379,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="noti&#9;null&#9;null&#10;sideba&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;gameadmin&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/cells/sidebar/game_admin_links&#10;gemfil&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gam&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_admin_menu.html.erb&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;controller&#9;null&#9;null&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;current_level.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;game_passing_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;gameentrie&#9;null&#9;null&#10;level_resul&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/level_result.rb&#10;sc&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;ing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;scheman&#9;null&#9;null&#10;setting&#9;null&#9;null&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settingsc&#9;null&#9;null&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;show_cur&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/game_passings/show_current_level.html.erb&#10;seeds.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/game_preview.vue&#10;game_pass&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;in_game.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_passing.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;gameen&#9;null&#9;null&#10;_game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_game_entries.html.erb&#10;new_ga&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/new_game.js&#10;gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;current_level&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue" />
+    <property name="SearchEverywhereHistoryKey" value="layout.&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/assets/stylesheets/_layout.scss&#10;noti&#9;null&#9;null&#10;sideba&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;gameadmin&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/cells/sidebar/game_admin_links&#10;gemfil&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gam&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_admin_menu.html.erb&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;controller&#9;null&#9;null&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;current_level.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;game_passing_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;gameentrie&#9;null&#9;null&#10;level_resul&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/level_result.rb&#10;sc&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;ing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;scheman&#9;null&#9;null&#10;setting&#9;null&#9;null&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settingsc&#9;null&#9;null&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;show_cur&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/game_passings/show_current_level.html.erb&#10;seeds.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/game_preview.vue&#10;game_pass&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;in_game.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_passing.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;gameen&#9;null&#9;null&#10;_game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_game_entries.html.erb&#10;new_ga&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/new_game.js&#10;gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.selected.package.jscs" value="" />
@@ -583,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518347366206</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix procfile, disable mailer">
+      <created>1518813514087</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1518813514087</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -598,7 +612,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87973000" />
+    <option name="totallyTimeSpent" value="88147000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -651,7 +665,8 @@
     <MESSAGE value="add proper rails rspec, move old specs to different folder" />
     <MESSAGE value="Add ability to enter the game before start, admin can stop the started game now" />
     <MESSAGE value="Add storing of level time and answered questions results, fix entered_at timestamp, fix global settings update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add storing of level time and answered questions results, fix entered_at timestamp, fix global settings update" />
+    <MESSAGE value="fix procfile, disable mailer" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix procfile, disable mailer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,14 +724,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/blocks/_accessories.html.erb" />
-    <entry file="file://$PROJECT_DIR$/app/views/games/_list.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/tag_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -921,6 +928,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -928,6 +936,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,6 +1058,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -76,7 +76,7 @@
 
 .form-actions {
   @include flex;
-  @include flex-align(left, center);
+  @include flex-align(left, middle);
   margin-top: 1rem;
 
   * + * {
