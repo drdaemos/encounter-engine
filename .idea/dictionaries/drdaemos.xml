@@ -2,12 +2,14 @@
   <dictionary name="drdaemos">
     <words>
       <w>authenticatable</w>
+      <w>autoquest</w>
       <w>bcrypt</w>
       <w>bitmask</w>
       <w>carrierwave</w>
       <w>jbuilder</w>
       <w>lineheight</w>
       <w>passings</w>
+      <w>postcss</w>
       <w>registerable</w>
       <w>rememberable</w>
       <w>trackable</w>
