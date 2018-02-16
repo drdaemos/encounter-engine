@@ -13,5 +13,8 @@
       <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
+    <data-source name="autoquest@localhost" uuid="c74ae0e7-8d8f-4186-972b-048aed68803f">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
   </component>
 </project>
