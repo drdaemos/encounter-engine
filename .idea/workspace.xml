@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1454e6aa-1310-43ed-802e-221e50ed6d02" name="Default" comment="Add storing of level time and answered questions results, fix entered_at timestamp, fix global settings update">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Procfile.dev" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encounter-engine.iml" afterPath="$PROJECT_DIR$/.idea/encounter-engine.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/notification_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/notification_mailer.rb" />
+      <change beforePath="$PROJECT_DIR$/config/puma.rb" afterPath="$PROJECT_DIR$/config/puma.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -33,33 +34,62 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="autoquest@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Rails encounter-engine: test" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="2" column="73" lean-forward="false" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
+              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile.dev" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Procfile.dev">
+      <file leaf-file-name="secrets.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/secrets.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/application.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="puma.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/puma.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -68,8 +98,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-heroku-instance" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/create-heroku-instance">
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -78,11 +118,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rakefile">
+      <file leaf-file-name="notification_mailer.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/mailers/notification_mailer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invitations_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -99,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>active</find>
       <find>available_for</find>
       <find>can_be_</find>
       <find>§</find>
@@ -129,6 +178,7 @@
       <find>controller</find>
       <find>contreolle</find>
       <find>admin</find>
+      <find>NotificationMailer</find>
     </findStrings>
     <replaceStrings>
       <replace>.can_edit?</replace>
@@ -156,10 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/in_game.scss" />
-        <option value="$PROJECT_DIR$/app/views/levels/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/javascript/components/level_limits.vue" />
-        <option value="$PROJECT_DIR$/app/javascript/components/level_header.vue" />
         <option value="$PROJECT_DIR$/app/javascript/components/current_level.vue" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/in_game/_layout.scss" />
         <option value="$PROJECT_DIR$/app/views/hints/_list.html.erb" />
@@ -206,6 +252,10 @@
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/app/views/includes/_sidebar.html.erb" />
+        <option value="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/mailers/notification_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
+        <option value="$PROJECT_DIR$/config/puma.rb" />
         <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
@@ -231,7 +281,6 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
-    <handled-path value="$PROJECT_DIR$/public/packs/_/_/node_modules" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
@@ -293,148 +342,24 @@
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name=".bundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="cells" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="cells" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="cells" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="cells" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
-              <item name="accessories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="blocks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="games" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="migrate" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
               <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-              <item name="rdoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-              <item name="rdoc" type="462c0819:PsiDirectoryNode" />
-              <item name="generators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="old_spec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="encounter-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="encounter-engine" type="462c0819:PsiDirectoryNode" />
-              <item name="spec" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -447,7 +372,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="sideba&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;gameadmin&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/cells/sidebar/game_admin_links&#10;gemfil&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gam&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_admin_menu.html.erb&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;controller&#9;null&#9;null&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;current_level.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;game_passing_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;gameentrie&#9;null&#9;null&#10;level_resul&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/level_result.rb&#10;sc&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;ing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;scheman&#9;null&#9;null&#10;setting&#9;null&#9;null&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settingsc&#9;null&#9;null&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;show_cur&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/game_passings/show_current_level.html.erb&#10;seeds.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/game_preview.vue&#10;game_pass&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;in_game.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_passing.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;gameen&#9;null&#9;null&#10;_game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_game_entries.html.erb&#10;new_ga&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/new_game.js&#10;gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;current_level&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;global&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/node_modules/foundation-sites/scss/_global.scss" />
+    <property name="SearchEverywhereHistoryKey" value="noti&#9;null&#9;null&#10;sideba&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/_sidebar.html.erb&#10;gameadmin&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/cells/sidebar/game_admin_links&#10;gemfil&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gemfile&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gam&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_admin_menu.html.erb&#10;routes&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;controller&#9;null&#9;null&#10;game.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game.rb&#10;current_level.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;game_passing_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;gameentrie&#9;null&#9;null&#10;level_resul&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/level_result.rb&#10;sc&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;ing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;schema.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/schema.rb&#10;scheman&#9;null&#9;null&#10;setting&#9;null&#9;null&#10;routes.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/config/routes.rb&#10;settingsc&#9;null&#9;null&#10;seeds&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;in_game/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/includes/in_game&#10;in_game&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_pas&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;show_cur&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/game_passings/show_current_level.html.erb&#10;seeds.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/db/seeds.rb&#10;game_pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/blocks/_game_previews.html.erb&#10;gamesco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/games_controller.rb&#10;pre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/game_preview.vue&#10;game_pass&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;in_game.vue&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/in_game.vue&#10;game_passing.rb&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models/game_passing.rb&#10;game_passing&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;gameen&#9;null&#9;null&#10;_game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/_game_entries.html.erb&#10;new_ga&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/new_game.js&#10;gemfi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/Gemfile&#10;gamepassingco&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/controllers/game_passings_controller.rb&#10;das&#9;null&#9;null&#10;models/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/models&#10;game/show&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/games/show.html.erb&#10;game_&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/game_passings_helper.rb&#10;game_cha&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/channels/game_channel.rb&#10;level/edi&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels/edit.html.erb&#10;application_help&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/helpers/application_helper.rb&#10;current_leve&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;ensure_game&#9;null&#9;null&#10;levels/&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/views/levels&#10;curre&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue&#10;current_level&#9;FILE&#9;file:///Users/drdaemos/repos/encounter-engine/app/javascript/components/current_level.vue" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.selected.package.jscs" value="" />
@@ -461,19 +386,19 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/cells/sidebar" />
-      <recent name="$PROJECT_DIR$/app/cells/admin_game" />
-      <recent name="$PROJECT_DIR$/app/cells/sidebar/accessories" />
-      <recent name="$PROJECT_DIR$/app/cells" />
-      <recent name="$PROJECT_DIR$/app/views/user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/cells/admin_game/sidebar/" />
       <recent name="$PROJECT_DIR$/app/cells/admin/game" />
       <recent name="$PROJECT_DIR$/app/views/blocks" />
       <recent name="$PROJECT_DIR$/app/javascript/components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/cells/sidebar" />
+      <recent name="$PROJECT_DIR$/app/cells/admin_game" />
+      <recent name="$PROJECT_DIR$/app/cells/sidebar/accessories" />
+      <recent name="$PROJECT_DIR$/app/cells" />
+      <recent name="$PROJECT_DIR$/app/views/user" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -673,22 +598,23 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86886000" />
+    <option name="totallyTimeSpent" value="87973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39950678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -705,7 +631,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -784,83 +709,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/blocks/_game_previews.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/blocks/_helpful.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/blocks/_photos.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cells-4.1.7/lib/cell.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/website.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/form_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-523">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/form_options_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/text_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/rendering_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers/capture_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.0.5/lib/action_view/helpers.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/blocks/_accessories.html.erb" />
     <entry file="file://$PROJECT_DIR$/app/views/games/_list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
@@ -911,14 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/routing/route_set.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -930,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -992,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml.sample">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1059,18 +885,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cells-4.1.7/lib/cell/view_model.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/cells/sidebar/game_admin_links.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,6 +897,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,13 +905,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/includes/_sidebar.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        <state relative-caret-position="38">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1100,7 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,6 +928,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cells-4.1.7/lib/cell/view_model.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1120,10 +947,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/application_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="43" lean-forward="false" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionmailer-5.0.5/lib/action_mailer/mail_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-622">
+          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionmailer-5.0.5/lib/action_mailer/base.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6406">
+          <caret line="444" column="31" lean-forward="false" selection-start-line="444" selection-start-column="31" selection-end-line="444" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/notification_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/puma.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/autoquest_en-e16432f22c00e9029b7fc16cce359a058e3f81a4ab64cb9f5bc98e04a8c15d2b.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/secrets.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/placeholder-7e73ac25f8d1a8767f58c5ec760c40d8bde85b7a943ed1d60bd653b10c02db2c.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" column="73" lean-forward="false" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
       </provider>

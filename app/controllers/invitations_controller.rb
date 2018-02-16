@@ -45,27 +45,27 @@ class InvitationsController < ApplicationController
 protected
 
   def send_invitation_notification(invitation)
-    send_mail NotificationMailer, :invitation_notification,
-      { :to => invitation.for_user.email,
-        :from => "noreply@bien.kg",
-        :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}" },
-      { :team => invitation.to_team }
+    # send_mail NotificationMailer, :invitation_notification,
+    #   { :to => invitation.for_user.email,
+    #     :from => "noreply@bien.kg",
+    #     :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}" },
+    #   { :team => invitation.to_team }
   end
 
   def send_reject_notification(invitation)
-    send_mail NotificationMailer, :reject_notification,
-      { :to => invitation.to_team.captain.email,
-        :from => "noreply@bien.kg",
-        :subject => "Пользователь #{invitation.for_user.nickname} отказался от приглашения" },
-      { :user => invitation.for_user }
+    # send_mail NotificationMailer, :reject_notification,
+    #   { :to => invitation.to_team.captain.email,
+    #     :from => "noreply@bien.kg",
+    #     :subject => "Пользователь #{invitation.for_user.nickname} отказался от приглашения" },
+    #   { :user => invitation.for_user }
   end
 
   def send_accept_notification(invitation)
-    send_mail NotificationMailer, :accept_notification,
-      { :to => invitation.to_team.captain.email,
-        :from => "noreply@bien.kg",
-        :subject => "Пользователь #{invitation.for_user.nickname} принял Ваше приглашение" },
-      { :user => invitation.for_user }
+    # send_mail NotificationMailer, :accept_notification,
+    #   { :to => invitation.to_team.captain.email,
+    #     :from => "noreply@bien.kg",
+    #     :subject => "Пользователь #{invitation.for_user.nickname} принял Ваше приглашение" },
+    #   { :user => invitation.for_user }
   end
 
   def add_user_to_team_members
