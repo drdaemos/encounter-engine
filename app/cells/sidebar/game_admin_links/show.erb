@@ -1,6 +1,11 @@
 <div class="game_admin_menu-block special-block">
   <h3 class="heading">Управление игрой</h3>
-  <%= model.id.inspect %>
   <ul>
+    <li><%= link_to "Просмотр игры", game_path(model) %></li>
+    <li><%= link_to "Настройки игры и анонс", edit_game_path(model) %></li>
+    <li><%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %></li>
+    <% if model.started? %>
+      <li><%= link_to "Мониторинг команд", game_stats_path(:index, model) %></li>
+    <% end %>
   </ul>
 </div>

@@ -44,9 +44,8 @@
   .game-metadata {
     @include xy-grid(horizontal);
     @include xy-cell-base(auto);
-    border: 1px solid fade-out($light-gray-alternative, .7);
-    border-radius: $global-radius;
-    padding: 1.5rem;
+    border-top: 1px solid fade-out($light-gray-alternative, .7);
+    padding-top: 1.5rem;
 
     em {
       font-weight: $light-font-weight;

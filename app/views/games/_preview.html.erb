@@ -1,11 +1,6 @@
 <div class="game-preview" data-title="<%= game.name %>">
   <h3 class="heading">
-    <% if edit_context and user_signed_in? and current_user.can_edit?(game) and !game.started? %>
-      <a href="<%= edit_game_path(game) %>">
-        <%= game.name %>
-        <i class="far fa-edit"></i>
-      </a>
-    <% elsif current_page?(game) %>
+    <% if current_page?(game) %>
       <span><%= game.name %></span>
     <% else %>
       <a href="<%= url_for(game) %>"><%= game.name %></a>

@@ -113,14 +113,6 @@ class GamesController < ApplicationController
 
   protected
 
-  def page_layout
-    if action_name === 'edit' || action_name === 'update'
-      return "admin"
-    end
-
-    super
-  end
-
   def game_params   
     if params[:game].nil?
       return Hash.new
