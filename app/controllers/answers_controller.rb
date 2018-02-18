@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class AnswersController < AdminController
+class AnswersController < ApplicationController
   before_action :find_game
   before_action :ensure_author
   before_action :find_level

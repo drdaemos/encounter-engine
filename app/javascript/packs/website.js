@@ -1,7 +1,8 @@
 import 'foundation-sites'
 import 'stylesheets/website.scss'
 import 'jquery-ujs'
-import FroalaTextarea from 'components/froala_textarea'
+import NewGameView from '../components/new_game'
+import FroalaTextarea from '../components/froala_textarea'
 import moment from 'moment'
 
 document.addEventListener('DOMContentLoaded', () => {

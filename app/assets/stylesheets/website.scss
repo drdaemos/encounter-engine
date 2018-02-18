@@ -1,2 +1,15 @@
 @import 'variables.scss';
 @import 'common.scss';
+
+.hints-list {
+  .hint-actions {
+    text-align: center;
+    a {
+      border-bottom: none;
+    }
+
+    & > * + * {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -5,9 +5,4 @@ class AdminController < ApplicationController
   def index
     render
   end
-
-protected
-  def page_layout
-    "admin"
-  end
 end

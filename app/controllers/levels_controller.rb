@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class LevelsController < AdminController
+class LevelsController < ApplicationController
   before_action :find_game
   before_action :ensure_author
   before_action :ensure_game_was_not_started, :only => [:new, :create, :edit, :update, :destroy]
