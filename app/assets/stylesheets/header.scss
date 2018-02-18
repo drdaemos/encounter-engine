@@ -1,7 +1,7 @@
 header {
   @include xy-grid(horizontal);
   @include xy-cell-base(auto);
-  @include flex-align(null, center);
+  @include flex-align(null, middle);
   height: $header-height;
 
   .logo-block {

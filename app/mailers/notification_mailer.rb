@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class NotificationMailer < Merb::MailController
+class NotificationMailer < ApplicationMailer
 
   def welcome_letter
     @email = params[:email]

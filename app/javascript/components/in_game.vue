@@ -1,17 +1,17 @@
 <template>
-    <div class="encounter-game">
-        <div class="app-grid">
-            <div class="header-container" v-if="game_started">
-                <level-header/>
-            </div>
-            <div class="main-container" v-if="game_started">
-                <current-level/>
-            </div>
-            <div class="main-container" v-else>
-                <game-preview/>
-            </div>
+<div class="encounter-game">
+    <div class="app-grid">
+        <div class="header-container" v-if="game_started">
+            <level-header/>
+        </div>
+        <div class="main-container" v-if="game_started">
+            <current-level/>
+        </div>
+        <div class="main-container" v-else>
+            <game-preview/>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -20,8 +20,9 @@
   import GamePreview from './game_preview'
   import store from '../stores/in_game.js'
   import _ from 'underscore'
+  import Vue from 'vue'
 
-  export default {
+  let App = {
     el: 'encounter-game',
     store,
     data () {
@@ -82,4 +83,10 @@
       GamePreview
     }
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const app = new Vue(App)
+  })
+
+  export default App
 </script>

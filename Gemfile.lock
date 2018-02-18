@@ -138,7 +138,7 @@ GEM
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
-    rack-proxy (0.6.2)
+    rack-proxy (0.6.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -222,7 +222,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.0.2)
+    webpacker (3.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -268,7 +268,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   web-console (>= 3.3.0)
-  webpacker (~> 3.0)
+  webpacker (~> 3.2.2)
   webrat
 
 BUNDLED WITH
