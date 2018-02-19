@@ -1,6 +1,6 @@
 <template>
 <div class="encounter-game">
-    <div class="app-grid">
+    <div class="app-grid" v-if="loaded">
         <div class="header-container" v-if="game_started">
             <level-header/>
         </div>
@@ -47,6 +47,9 @@
       }
     },
     computed: {
+      loaded () {
+        return typeof this.game !== 'undefined'
+      },
       game_started () {
         return this.game.started
       },

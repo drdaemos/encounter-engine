@@ -64,7 +64,7 @@ export default new Vuex.Store({
     },
     requestState (context) {
       if (!context.state.channel || !context.state.channel.send({action: 'request_state'})) {
-        console.error('could not request state')
+        throw new Error('Server connection failed')
       }
     },
     postAnswer (context, payload) {

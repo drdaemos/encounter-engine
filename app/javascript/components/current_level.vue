@@ -1,5 +1,5 @@
 <template>
-    <div class="current-level">
+    <div class="current-level" v-if="loaded">
         <h3 class="heading">{{ level.name }}</h3>
         <div class="text" v-html="level.text"></div>
         <div class="time-container">
@@ -95,7 +95,10 @@
       },
       next_hint() {
         return this.$store.getters.hints.next_hint;
-      }
+      },
+      loaded() {
+        return typeof this.level !== 'undefined'
+      },
     },
     methods: {
       onSubmit(event) {

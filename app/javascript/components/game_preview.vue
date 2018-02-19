@@ -1,5 +1,5 @@
 <template>
-    <div class="game-preview">
+    <div class="game-preview" v-if="loaded">
         <h3 class="heading">{{ game.name }}</h3>
         <div class="description" v-html="game.description"></div>
     </div>
@@ -21,6 +21,9 @@
       game() {
         return this.$store.getters.game
       },
+      loaded() {
+        return typeof this.game !== 'undefined'
+      }
     }
   }
 </script>

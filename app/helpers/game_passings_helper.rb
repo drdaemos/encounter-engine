@@ -67,7 +67,7 @@ module GamePassingsHelper
   end
 
   def fail_level_if_limit_is_passed(game_passing)
-    if game_passing.nil? || game_passing.current_level.nil?
+    if game_passing.nil? || game_passing.current_level.nil? || game_passing.current_level_entered_at.nil?
       return
     end
 

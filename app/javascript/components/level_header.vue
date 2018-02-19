@@ -1,5 +1,5 @@
 <template>
-    <div class="level-header">
+    <div class="level-header" v-if="loaded">
         <div class="heading">
             <span class="game-name">Игра "<strong>{{ game.name }}</strong>"</span>
             <span>Задание #{{ level.position }}</span>
@@ -73,6 +73,9 @@
       },
       game() {
         return this.$store.getters.game
+      },
+      loaded() {
+        return typeof this.game !== 'undefined' && typeof this.level !== 'undefined'
       },
       hints() {
         return this.$store.getters.hints.available
