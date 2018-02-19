@@ -32,11 +32,12 @@
       }
     },
     mounted: function () {
-      this.$store.dispatch('createTimer')
       this.$store.dispatch('createChannel', {
         cable: this.$cable,
         onReceived: this.onReceived.bind(this)
       })
+
+      this.$store.dispatch('createTimer')
     },
     watch: {
       game_finished: function (newValue, oldValue) {

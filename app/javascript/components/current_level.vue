@@ -20,7 +20,6 @@
         </div>
         <form id="level-answer-form" class="answer-form" method="POST" action="" @submit.prevent="onSubmit">
             <div class="row">
-                <input type="hidden" name="stub" value="0">
                 <input type="text" name="answer" id="input-answer" placeholder="Введите код">
             </div>
         </form>
@@ -33,17 +32,14 @@
   import moment from 'moment'
 
   export default {
-    mounted() {
-      this.form = document.querySelector('#level-answer-form');
-    },
     computed: {
       currentTime() {
         return this.$store.getters.currentTime
       },
       timeOnLevel() {
-        var now = moment.utc(this.currentTime.toISOString());
-        var entered_at = moment.utc(this.level.entered_at);
-        var diff_msec = now.diff(entered_at)
+        const now = moment.utc(this.currentTime.toISOString())
+        const entered_at = moment.utc(this.level.entered_at)
+        const diff_msec = now.diff(entered_at)
 
         return moment.utc(diff_msec).format('HH:mm:ss')
       },
@@ -61,11 +57,10 @@
           return null;
         }
 
-        var now = moment.utc(this.currentTime.toISOString());
-        var next_hint = moment.utc(this.next_hint);
-        var diff_msec = next_hint.diff(now)
+        const now = moment.utc(this.currentTime.toISOString())
+        const next_hint = moment.utc(this.next_hint)
 
-        return diff_msec;
+        return next_hint.diff(now);
       },
       hasTimeLimit() {
         return this.level.time_limit
@@ -76,11 +71,10 @@
           : '-' + moment.utc(Math.abs(this.timeLeftBeforeFailDiff)).format('HH:mm:ss')
       },
       timeLeftBeforeFailDiff() {
-        var now = moment.utc(this.currentTime.toISOString());
-        var failTime = moment.utc(this.level.entered_at).add(this.level.time_limit, 'seconds');
-        var diff_msec = failTime.diff(now);
+        const now = moment.utc(this.currentTime.toISOString())
+        const failTime = moment.utc(this.level.entered_at).add(this.level.time_limit, 'seconds')
 
-        return diff_msec;
+        return failTime.diff(now);
       },
       passing() {
         return this.$store.getters.passing
@@ -102,13 +96,16 @@
     },
     methods: {
       onSubmit(event) {
-        var params = $(this.form).serializeArray()
-        var payload = _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
+        let form = event.currentTarget
+        let params = $(form).serializeArray()
+        let payload = _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))
 
         this.$store.dispatch('postAnswer', payload)
-          .then(() => this.form.reset())
-          .catch(() => console.error('could not send answer', payload))
-      },
+          .then(
+            () => form.reset(),
+            () => console.error('could not send answer', payload)
+          )
+      }
     }
   }
 </script>

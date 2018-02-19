@@ -21,7 +21,10 @@ export default new Vuex.Store({
     passing: (state) => state.data.game_passing,
     level: (state) => state.data.level,
     hints: (state) => state.data.hints,
-    results_url: (state) => state.data.game_passing ? state.data.game_passing.results_url : null
+    results_url: (state) => state.data.game_passing ? state.data.game_passing.results_url : null,
+    shouldReload: (state) => {
+      return true
+    }
   },
   mutations: {
     setChannel: function (state, channel) {
@@ -51,6 +54,10 @@ export default new Vuex.Store({
         team: context.getters.user.team_id,
         game: context.getters.game.id
       }, {
+        connected: () => {
+          context.commit('setChannel', gameChannel)
+          context.dispatch('requestState')
+        },
         received: (data) => {
           var state = _.omit(data, ['messages', 'flashes'])
           context.commit('updateState', state)
@@ -59,12 +66,12 @@ export default new Vuex.Store({
           }
         }
       })
-
-      context.commit('setChannel', gameChannel)
     },
     requestState (context) {
-      if (!context.state.channel || !context.state.channel.send({action: 'request_state'})) {
-        throw new Error('Server connection failed')
+      if (context.getters.shouldReload) {
+        if (!context.state.channel || !context.state.channel.send({action: 'request_state'})) {
+          throw new Error('Server connection failed')
+        }
       }
     },
     postAnswer (context, payload) {
