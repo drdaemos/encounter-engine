@@ -22,7 +22,7 @@
   import _ from 'underscore'
   import Vue from 'vue'
 
-  let App = {
+  export default {
     el: 'encounter-game',
     store,
     data () {
@@ -83,10 +83,4 @@
       GamePreview
     }
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const app = new Vue(App)
-  })
-
-  export default App
 </script>
