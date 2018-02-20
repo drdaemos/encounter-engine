@@ -53,6 +53,7 @@
 .main-container {
   @include xy-cell(auto, $gutter-position: right);
   @include xy-cell-block($vertical: true);
+  max-width: 100%;
   overflow: initial;
 }
 
@@ -111,6 +112,15 @@ a.no-underline,
   .right-link {
     float: right;
     font-size: 0.8em;
+  }
+
+  .sticker {
+    border-radius: $global-radius;
+    font-size: 1rem;
+    background-color: fade-out($accent-color, .2);
+    color: $body-background;
+    padding: .5rem;
+    margin-left: 1rem;
   }
 }
 

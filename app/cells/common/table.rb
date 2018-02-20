@@ -7,5 +7,9 @@ module Common
     def rows
       @options[:rows] || []
     end
+
+    def css_class
+      @options[:class] || ""
+    end
   end
 end

@@ -27,9 +27,11 @@
                   <%= yield %>
                 </article>
               </div>
+              <% if render_sidebar? %>
               <div class="sidebar-container">
                 <%= render 'includes/sidebar' %>
               </div>
+              <% end %>
             </div>
           </div>
         </div>

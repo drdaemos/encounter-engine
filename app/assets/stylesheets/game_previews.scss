@@ -10,15 +10,6 @@
 
 .game-preview {
   .heading {
-    .sticker {
-      border-radius: $global-radius;
-      font-size: 1rem;
-      background-color: fade-out($accent-color, .2);
-      color: $body-background;
-      padding: .5rem;
-      margin-left: 1rem;
-    }
-
     .sticker.finished {
       background-color: $medium-gray;
     }

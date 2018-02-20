@@ -28,6 +28,12 @@ class GameStatsController < ApplicationController
     redirect_back :fallback_location => game_stats_path(@game)
   end
 
+  protected
+
+  def render_sidebar?
+    false
+  end
+
   private
 
   def find_game

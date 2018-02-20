@@ -103,10 +103,12 @@ class GamesController < ApplicationController
     game.save!
 
     game_passing = GamePassing.of_game(game)
+    results = LevelResult.of_game_passing(game_passing)
     logs = Log.of_game(game)
 
-    game_passing.delete_all
+    results.delete_all
     logs.delete_all
+    game_passing.delete_all
 
     redirect_to @game
   end

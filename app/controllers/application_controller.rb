@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :error_messages_for
   helper_method :datetime
+  helper_method :render_sidebar?
 
   def error_messages_for(*objects)
     options = objects.extract_options!
@@ -29,6 +30,10 @@ protected
 
   def page_layout
     "website"
+  end
+
+  def render_sidebar?
+    true
   end
 
   def configure_permitted_parameters

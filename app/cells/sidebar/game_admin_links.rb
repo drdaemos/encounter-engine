@@ -8,7 +8,8 @@ module Sidebar
     def get_allowed_targets
       {
           :index => ['index'],
-          :games => ['show', 'edit']
+          :games => ['show', 'edit'],
+          :levels => ['show', 'edit']
       }
     end
   end

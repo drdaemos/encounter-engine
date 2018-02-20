@@ -22,8 +22,8 @@ module GameStatsPage
       }
 
       level_columns = model.levels.reduce(Hash.new) do |result, level|
-        result["level#{level.position}"] = {
-            :label => level.name,
+        result["level-#{level.position}"] = {
+            :label => "#{level.position}. #{level.name}",
             :getter => ->(game_passing) do
               result = LevelResult.of(game_passing, level)
               result.level_time unless result.nil?

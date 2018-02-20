@@ -1,12 +1,14 @@
 <h3 class="heading">
   Статистика по игре <%= link_to model.name, model %>
-  <% if model.started? and !model.finished? %>
+  <% if model.started? && !model.finished? %>
     <span class="sticker">в процессе</span>
   <% end %>
   <% if user_can_edit? %>
-    <% if model.started? and !model.author_finished? %>
+    <% if model.started? && !model.author_finished? && model.is_testing? %>
+      <%= link_to "Завершить тестирование", finish_test_game_path(model.id), :class => 'right-link' %>
+    <% elsif !model.is_testing? %>
       <%= link_to "Завершить", end_game_game_path(model.id), :class => 'right-link' %>
-    <% else %>
+    <% elsif model.finished? %>
       <%= link_to "Опубликовать", publish_stats_path(model), :class => 'right-link', :method => :post %>
     <% end %>
   <% end %>
