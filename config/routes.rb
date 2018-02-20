@@ -39,9 +39,13 @@ Rails.application.routes.draw do
   post '/play/:game_id', to: 'game_passings#post_answer', as: :post_answer
   post '/play/:game_id/exit_game', to: 'game_passings#exit_game', as: :exit_game
 
-#  match('/stats/:game_id', :method => :get).to(:controller => :game_passings, :action => :index).name(:game_stats)
+  get '/stats', to: 'game_stats#index', as: :stats
+  get '/stats/:game_id/show', to: 'game_stats#show', as: :game_stats
+  get '/stats/:game_id/finish', to: 'game_stats#finish', as: :game_finish
+  post '/stats/:game_id/publish', to: 'game_stats#publish', as: :publish_stats
+  post '/stats/:game_id/takedown', to: 'game_stats#takedown', as: :takedown_stats
+
   get '/ratings', to: 'ratings#index', as: :ratings
-  get '/stats/:action/:game_id', to: 'game_passings#index', as: :game_stats
   get '/logs/livechannel/:game_id', to: 'logs#show_live_channel', as: :show_live_channel # прямой эфир
   get '/logs/level/:game_id/:team_id', to: 'logs#show_level_log', as: :show_level_log # лог по уровню
   get '/logs/game/:game_id/:team_id', to: 'logs#show_game_log', as: :show_game_log # лог по игре
@@ -57,7 +61,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/send_msg', to: 'dashboard#send_msg', as: :send_msg
   get '/team-room', to: 'team_room#index', as: :team_room
-  get '/game-results', to: 'games#results', as: :game_results
   get '/settings', to: 'settings#index', as: :settings
   post '/settings/update', to: 'settings#update', as: :update_settings
 

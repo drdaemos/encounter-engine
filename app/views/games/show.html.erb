@@ -5,8 +5,8 @@
     <% if not @game_entries.empty? and user_signed_in? and current_user.can_edit?(@game)  %>
       <%= render 'games/game_entries', :game_entries => @game_entries %>
     <% end %>
-    <% if not @teams.empty? %>
-      <%= render 'games/teams', :teams => @teams  %>
+    <% unless @teams.empty? %>
+      <%= render 'games/teams', :teams => @teams %>
     <% end %>
   </div>
 
@@ -15,10 +15,11 @@
       <div class="game-levels-list">
         <h4 class="heading">
           <span>Список уровней</span>
-          <%= link_to "Добавить задание", new_game_level_path(@game), :class => "heading-link" if !@game.started? %>
+          <%= link_to "Добавить задание", new_game_level_path(@game), :class => "heading-link" unless @game.started? %>
         </h4>
         <%= render 'levels/list', :levels => @game.levels %>
       </div>
+      <% if @game.draft? || @game.is_testing? %>
       <div class="game-testing">
         <h4 class="heading">Тестирование игры</h4>
         <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
@@ -31,6 +32,7 @@
           <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
         <% end %>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>

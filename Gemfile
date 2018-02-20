@@ -28,6 +28,7 @@ gem 'bitmask_attributes'
 gem 'webpacker', '~> 3.2.2'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem 'time_diff'
 
 gem "cells"
 gem "cells-rails"

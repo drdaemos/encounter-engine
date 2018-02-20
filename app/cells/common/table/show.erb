@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <% columns.each do |key, column| %>
+      <td class="column-<%= key %>"><%= column[:label] %></td>
+    <% end %>
+  </thead>
+  <tbody>
+  <% rows.each do |row| %>
+    <% columns.each do |key, column| %>
+      <td class="column-<%= key %>"><%= column[:getter].call(row) %></td>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

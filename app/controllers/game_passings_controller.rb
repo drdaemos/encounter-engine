@@ -4,23 +4,22 @@ class GamePassingsController < ApplicationController
 
   before_action :find_game, :except => [:exit_game]
   before_action :find_game_by_id, :only => [:exit_game]
-  before_action :find_team, :except => [:show_results, :index]
-  before_action :find_or_create_game_passing, :except => [:show_results, :index]
-  before_action :authenticate_user!, :except => [:index, :show_results]
+  before_action :find_team
+  before_action :find_or_create_game_passing
+  before_action :authenticate_user!
   before_action :ensure_game_is_started, :except => [:show_current_level]
   before_action :ensure_team_captain, :only => [:exit_game]
-  before_action :ensure_not_finished, :except => [:index, :show_results]
-  before_action :ensure_current_level_is_active, :except => [:show_results, :index]
-  before_action :author_finished_at, :except => [:index, :show_results]
-  before_action :ensure_team_member, :except => [:index, :show_results]
-  before_action :ensure_not_author_of_the_game, :except => [:index, :show_results]
-  before_action :ensure_author, :only => [:index]
+  before_action :ensure_not_finished
+  before_action :ensure_current_level_is_active
+  before_action :author_finished_at
+  before_action :ensure_team_member
+  before_action :ensure_not_author_of_the_game
 
   helper_method :app_data_helper
 
   def show_current_level
     if @game_passing.finished?
-      render :show_results
+      redirect_to game_stats_url(@game)
     else 
       render html: '', :layout => 'in_game'
     end
@@ -30,37 +29,29 @@ class GamePassingsController < ApplicationController
     get_app_data(@team, @game).to_json.html_safe
   end
 
-  def index
-    @game_passings = GamePassing.of_game(@game)
-    render
-  end
-
   def get_current_level_tip
     get_current_level_tip_data(@game_passing).to_json
   end
 
   def post_answer
-    unless @game_passing.finished?
-     @answer = params[:answer].strip
+    if @game_passing.finished?
+      redirect_to game_stats_url(@game)
+    else
+      @answer = params[:answer].strip
       save_answer_to_log(@answer, @team, @game)
       @answer_was_correct = @game_passing.check_answer!(@answer)
-      unless @game_passing.finished?
-        render :show_current_level, :layout => 'in_game'
-      else
-        render :show_results
-      end
-    else
-      render :show_results
-    end
-  end
 
-  def show_results
-    render
+      if @game_passing.finished?
+        redirect_to game_stats_url(@game)
+      else
+        render :show_current_level, :layout => 'in_game'
+      end
+    end
   end
 
   def exit_game
     @game_passing.exit!
-    render :show_results
+    redirect_to game_stats_url(@game_passing.game)
   end
 
 protected
@@ -90,7 +81,6 @@ protected
       end
     end
   end
-
 
   def ensure_game_is_started
     raise UnauthorizedError, "Нельзя играть в игру до её начала. И вообще, где вы достали эту ссылку? :-)" unless @game.started? unless @game.is_testing?
