@@ -8,3 +8,16 @@
     }
 }
 
+.levels-navigation {
+  .pagination {
+    display: inline-block;
+
+    li {
+    }
+  }
+
+  .heading-link {
+    margin-left: $global-margin;
+    vertical-align: middle;
+  }
+}

@@ -2,8 +2,55 @@
   [class^="column-level"] {
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 100px;
+    min-width: 100px;
     overflow: hidden;
+  }
+}
+
+.game-level-listing {
+  margin-top: ($global-margin * 2);
+
+  .game-level + .game-level {
+    margin-top: ($global-margin * 3);
+  }
+
+  .level-hints {
+    .hint-item:first-of-type {
+      margin-top: .5rem;
+    }
+
+    .hint-item {
+      border-left: .5rem solid $border-custom-color;
+      padding-left: .5rem;
+    }
+
+    .code {
+      margin-left: .5rem;
+      display: inline-block;
+      border-radius: $global-radius;
+      padding: 0rem .5rem;
+      border-bottom: 1px solid $light-gray;
+    }
+
+    .penalty, .delay {
+      color: $light-gray;
+    }
+  }
+
+  .level-code {
+    margin-left: .5rem;
+    display: inline-block;
+    background: $border-custom-color;
+    border-radius: $global-radius;
+    padding: .5rem 1rem;
+
+    .answer {
+      border-bottom: 1px dashed $light-gray;
+    }
+
+    .answer + .answer {
+      margin-left: 1rem;
+    }
   }
 }

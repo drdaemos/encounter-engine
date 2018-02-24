@@ -6,10 +6,6 @@
 </template>
 
 <script>
-  import _ from 'underscore'
-  import utils from 'scripts/utils'
-  import moment from 'moment'
-
   export default {
     computed: {
       currentTime() {

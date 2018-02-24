@@ -1,0 +1,54 @@
+<div class="game-level-listing">
+  <h3 class="heading">
+    Сценарий игры
+  </h3>
+  <% model.levels.each do |level| %>
+    <div class="game-level">
+      <h4 class="level-heading">
+        <span class="level-position">Уровень <%= level.position %>.</span>
+        <%= level.name %>
+      </h4>
+      <div class="level-text">
+        <em>Задание: </em>
+        <%= level.text %>
+      </div>
+      <% if level.hints.size > 0 %>
+      <div class="level-hints">
+        <em>Подсказки и спойлеры: </em>
+        <% level.hints.each do |hint| %>
+          <div class="hint-item">
+            <% if hint.delay and hint.delay > 0 %>
+              <span class="hint-delay">
+                <span class="delay">Через <b><%= hint.delay_in_minutes%></b> минут</span>
+                <% if hint.penalty_time and hint.penalty_time > 0 %>
+                  <span class="penalty">(штраф: <b><%= hint.penalty_time_in_minutes %></b> минут)</span>
+                <% end %>
+              </span>
+            <% elsif hint.access_code %>
+              <span class="hint-access_code">
+                Код спойлера: <span class="code user-input"><%= hint.access_code %></span>
+                <% if hint.penalty_time and hint.penalty_time > 0 %>
+                  <span class="penalty">(штраф: <b><%= hint.penalty_time_in_minutes %></b> минут)</span>
+                <% end %>
+              </span>
+            <% end %>
+            <div class="hint-text">
+              <%= hint.text.html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+      <div class="level-codes">
+        <em>Коды: </em>
+        <% level.questions.each do |question| %>
+          <div class="level-code">
+            <% question.answers.each do |answer| %>
+              <span class="answer user-input"><%= answer.value %></span>
+            <% end %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

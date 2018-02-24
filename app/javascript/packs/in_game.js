@@ -4,7 +4,7 @@ import 'operative'
 import Vue from 'vue'
 import utils from '../scripts/utils'
 import Toasted from 'vue-toasted'
-import App from '../components/in_game'
+import App from '../components/in_game/app'
 
 Vue.prototype.$cable = utils.createSocket()
 Vue.use(Toasted)

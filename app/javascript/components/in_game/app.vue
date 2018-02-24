@@ -18,9 +18,7 @@
   import CurrentLevel from './current_level.vue'
   import LevelHeader from './level_header'
   import GamePreview from './game_preview'
-  import store from '../stores/in_game.js'
-  import _ from 'underscore'
-  import Vue from 'vue'
+  import store from './stores/in_game'
 
   export default {
     el: 'encounter-game',

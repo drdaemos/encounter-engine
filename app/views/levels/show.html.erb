@@ -1,5 +1,5 @@
 <div class="level-page">
-  <%= render 'navigation', :levels => @game.levels, :current => @level %>
+  <%= render 'navigation', :levels => @game.levels, :current => @level, :game => @game %>
 
   <h3 class="heading">
     <span>Задание "<strong><%= @level.name %></strong>"</span>

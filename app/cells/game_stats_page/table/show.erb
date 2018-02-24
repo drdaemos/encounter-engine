@@ -1,3 +1,7 @@
 <div class="game-passings-table-wrapper">
-  <%= cell(Common::Table, nil, :rows => table_rows, :columns => table_columns, :class => "game-passings-table") %>
+  <% if table_rows.size > 0 %>
+    <%= cell(Common::Table, nil, :rows => table_rows, :columns => table_columns, :class => "game-passings-table") %>
+  <% else %>
+    <p class="no-data">Пока никто не вступил в игру</p>
+  <% end %>
 </div>

@@ -11,3 +11,8 @@
 .game-controls, .game-players, .team-controls {
   @include page-section;
 }
+
+.user-input {
+  font-family: $monospace-font-family;
+  font-weight: 600;
+}

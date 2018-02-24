@@ -1,11 +1,19 @@
 <div class="game_admin_menu-block special-block">
   <h3 class="heading">Управление игрой</h3>
-  <ul>
-    <li><%= link_to "Просмотр игры", game_path(model) %></li>
-    <li><%= link_to "Настройки игры и анонс", edit_game_path(model) %></li>
-    <li><%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %></li>
+  <ul class="vertical menu">
+    <li <%= current_page?(game_path(model)) ? 'class="is-active"' : '' %>>
+      <%= link_to "Просмотр игры", game_path(model) %>
+    </li>
+    <li <%= current_page?(edit_game_path(model)) ? 'class="is-active"' : '' %>>
+      <%= link_to "Настройки игры и анонс", edit_game_path(model) %>
+    </li>
+    <li <%= current_page?(edit_game_level_path(model, model.levels.first)) ? 'class="is-active"' : '' %>>
+      <%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %>
+    </li>
     <% if model.started? %>
-      <li><%= link_to "Мониторинг команд", game_stats_path(model) %></li>
+      <li <%= current_page?(game_stats_path(model)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Мониторинг команд", game_stats_path(model) %>
+      </li>
     <% end %>
   </ul>
 </div>

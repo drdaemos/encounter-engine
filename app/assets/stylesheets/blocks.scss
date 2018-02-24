@@ -19,11 +19,19 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: fade-out($accent-color, .2);
+    color: $light-accent-color;
     background: $body-background;
     padding: 0 1rem;
     font-variant: small-caps;
     margin: 0;
+  }
+}
+
+.game_admin_menu-block {
+  .menu .is-active > a {
+    color: $light-accent-color;
+    background: inherit;
+    font-weight: 600;
   }
 }
 
