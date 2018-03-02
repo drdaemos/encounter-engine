@@ -1,3 +1,8 @@
-<div class="stats-page">
-
+<div class="stats-index-page">
+  <h2 class="heading">Результаты прошедших игр</h2>
+  <div class="games-listing">
+  <% @games.each do |game| %>
+    <%= cell(GameStatsPage::GameItem, game) %>
+  <% end %>
+  </div>
 </div>

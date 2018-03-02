@@ -14,26 +14,27 @@ class GameChannel < ApplicationCable::Channel
     # current_user.away
   end
 
-  def request_state()
-    perform_checks
+  def request_state
     team = Team.find(params[:team])
     game = Game.find(params[:game])
-    game_state = get_app_data(team, game)
+    game_passing = GamePassing.of(team, game)
+    perform_checks(game_passing)
+    game_state = get_app_data(game_passing)
 
     ActionCable.server.broadcast("game_#{params[:game]}_team_#{params[:team]}", game_state )
   end
 
   def post_answer(data)
-    perform_checks
     team = Team.find(params[:team])
     game = Game.find(params[:game])
     game_passing = GamePassing.of(team, game)
+    perform_checks(game_passing)
 
     message = { :messages => [], :flashes => [] }  
 
     unless game_passing.nil? or game_passing.finished?
       answer = data["payload"]["answer"].strip
-      save_answer_to_log(answer, team, game)
+      save_answer_to_log(answer, game_passing)
       spoiler_was_correct = game_passing.check_spoiler!(answer)
       answer_was_correct = game_passing.check_answer!(answer)
       message[:messages] << { :answer_result => answer_was_correct, :spoiler_result => spoiler_was_correct }
@@ -46,17 +47,10 @@ class GameChannel < ApplicationCable::Channel
       end
     end
 
-    game_state = get_app_data(team, game)
+    perform_post_checks(game_passing)
+    game_state = get_app_data(game_passing)
 
     ActionCable.server.broadcast("game_#{params[:game]}_team_#{params[:team]}", game_state.merge(message) )
   end
-
-  def perform_checks
-    team = Team.find(params[:team])
-    game = Game.find(params[:game])
-    game_passing = GamePassing.of(team, game)
-    start_game_passing(game_passing)
-    fail_level_if_limit_is_passed(game_passing)
-  end 
 
 end

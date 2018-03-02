@@ -83,7 +83,7 @@ class Game < ApplicationRecord
   def is_played_by?(user)
     team = user.team
     game_passing = user.team ? GamePassing.of(team, self) : nil
-    return !self.finished? && !game_passing.nil? && !game_passing.finished?
+    !self.finished? && !game_passing.nil? && !game_passing.finished?
   end
 
   def finished_teams

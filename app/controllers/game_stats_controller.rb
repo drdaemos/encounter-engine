@@ -6,7 +6,6 @@ class GameStatsController < ApplicationController
 
   def index
     @games = Game.results_available_for(current_user)
-
     render
   end
 
@@ -31,7 +30,7 @@ class GameStatsController < ApplicationController
   protected
 
   def render_sidebar?
-    false
+    action_name === 'index' || action_name === 'finish'
   end
 
   private

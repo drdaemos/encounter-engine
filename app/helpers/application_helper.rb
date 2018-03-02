@@ -11,6 +11,10 @@ module ApplicationHelper
     current_page?(index_page_path)
   end
 
+  def datetime(object)
+    ('<span data-datetime-string>' + object.to_s + '</span>').html_safe
+  end
+
   def get_setting(key)
     setting = Setting.find_by key: key
     setting ? setting.value : nil

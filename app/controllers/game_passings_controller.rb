@@ -9,9 +9,8 @@ class GamePassingsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_game_is_started, :except => [:show_current_level]
   before_action :ensure_team_captain, :only => [:exit_game]
-  before_action :ensure_not_finished
+  before_action :ensure_not_finished, :except => [:show_current_level]
   before_action :ensure_current_level_is_active
-  before_action :author_finished_at
   before_action :ensure_team_member
   before_action :ensure_not_author_of_the_game
 
@@ -19,14 +18,14 @@ class GamePassingsController < ApplicationController
 
   def show_current_level
     if @game_passing.finished?
-      redirect_to game_stats_url(@game)
+      redirect_to game_finish_url(@game)
     else 
       render html: '', :layout => 'in_game'
     end
   end
 
   def app_data_helper
-    get_app_data(@team, @game).to_json.html_safe
+    get_app_data(@game_passing).to_json.html_safe
   end
 
   def get_current_level_tip
@@ -35,14 +34,14 @@ class GamePassingsController < ApplicationController
 
   def post_answer
     if @game_passing.finished?
-      redirect_to game_stats_url(@game)
+      redirect_to game_finish_url(@game)
     else
       @answer = params[:answer].strip
-      save_answer_to_log(@answer, @team, @game)
+      save_answer_to_log(@answer, @game_passing)
       @answer_was_correct = @game_passing.check_answer!(@answer)
 
       if @game_passing.finished?
-        redirect_to game_stats_url(@game)
+        redirect_to game_finish_url(@game)
       else
         render :show_current_level, :layout => 'in_game'
       end
@@ -51,7 +50,7 @@ class GamePassingsController < ApplicationController
 
   def exit_game
     @game_passing.exit!
-    redirect_to game_stats_url(@game_passing.game)
+    redirect_to game_finish_url(@game_passing.game)
   end
 
 protected

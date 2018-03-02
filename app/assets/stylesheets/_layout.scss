@@ -55,6 +55,10 @@
   @include xy-cell-block($vertical: true);
   max-width: 100%;
   overflow: initial;
+
+  h1.heading, h2.heading {
+    margin-bottom: 2rem;
+  }
 }
 
 .fr-box {
@@ -87,6 +91,12 @@
   button, input[type=submit] {
     margin: 0;
   }
+}
+
+em {
+  font-weight: $light-font-weight;
+  color: $light-gray;
+  font-style: normal;
 }
 
 a {

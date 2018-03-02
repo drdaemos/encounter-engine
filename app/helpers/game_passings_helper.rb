@@ -8,6 +8,15 @@ module GamePassingsHelper
     !! @answer_was_correct
   end
 
+  def perform_checks(game_passing)
+    start_game_passing(game_passing)
+    fail_level_if_limit_is_passed(game_passing)
+  end
+
+  def perform_post_checks(game_passing)
+    finish_game(game_passing)
+  end
+
   def get_current_level_tip_data (game_passing)
     next_hint = game_passing.upcoming_hints.first; # next_hint  ?
 
@@ -16,8 +25,10 @@ module GamePassingsHelper
       :next_available_in => next_hint.nil? ? nil : next_hint.available_in(game_passing.current_level_entered_at) }
   end
 
-  def save_answer_to_log (answer, team, game, type="answer")
-    game_passing = GamePassing.of(team, game)    
+  def save_answer_to_log (answer, game_passing, type="answer")
+    game = game_passing.game
+    team = game_passing.team
+
     if game_passing.current_level.id
         level = Level.find(game_passing.current_level.id)
         Log.create! :game_id => game.id,
@@ -29,8 +40,9 @@ module GamePassingsHelper
     end
   end
 
-  def get_app_data (team, game)
-    game_passing = GamePassing.of(team, game)
+  def get_app_data (game_passing)
+    game = game_passing.game
+    team = game_passing.team
 
     if not game_passing.current_level.nil?
       level = Level.find(game_passing.current_level.id)
@@ -63,6 +75,14 @@ module GamePassingsHelper
     if game_passing.game.started? && !game_passing.finished? && game_passing.current_level.nil? && !game_passing.game.levels.empty?
       game_passing.current_level = game_passing.game.levels.first
       game_passing.save!
+    end
+  end
+
+  def finish_game (game_passing)
+    game = game_passing.game
+    passings = GamePassing.of_game(game)
+    if game.started? && !game.finished? && passings.count > 0 && passings.all? { |passing| passing.finished? }
+      game.finish_game!
     end
   end
 

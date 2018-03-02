@@ -1,6 +1,7 @@
 class AbstractView < Cell::ViewModel
   include Cell::Erb
   include ActionView::Helpers::UrlHelper
+  include ApplicationHelper
 
   def show
     render if is_visible?

@@ -1,8 +1,4 @@
 .game-previews {
-  & > .heading {
-    margin-bottom: 2rem;
-  }
-
   .separator {
     margin-top: 4rem;
   }
@@ -37,12 +33,6 @@
     @include xy-cell-base(auto);
     border-top: 1px solid fade-out($light-gray-alternative, .7);
     padding-top: 1.5rem;
-
-    em {
-      font-weight: $light-font-weight;
-      color: $light-gray;
-      font-style: normal;
-    }
 
     .game-author {
       @include xy-cell(3 of 13, $gutters: 2rem, $gutter-position: right);

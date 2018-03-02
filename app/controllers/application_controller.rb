@@ -22,10 +22,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def datetime(object)
-    ('<span data-datetime-string>' + object.to_s + '</span>').html_safe
-  end
-
 protected
 
   def page_layout

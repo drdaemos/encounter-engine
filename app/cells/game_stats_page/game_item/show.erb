@@ -1,0 +1,34 @@
+<div class="game-listing-item">
+  <h3 class="heading">
+    <%= link_to model.name, game_stats_path(model) %>
+    <% if model.started? and !model.finished? %>
+      <span class="sticker">в процессе</span>
+    <% end %>
+    <% if user_can_edit? %>
+      <% if model.started? && model.is_testing? %>
+        <%= link_to "Завершить тестирование", finish_test_game_path(model.id), :class => 'right-link' %>
+      <% elsif !model.is_testing? && !model.finished? %>
+        <%= link_to "Завершить", end_game_game_path(model.id), :class => 'right-link' %>
+      <% elsif model.finished? %>
+        <%= link_to "Опубликовать", publish_stats_path(model), :class => 'right-link', :method => :post %>
+      <% end %>
+    <% end %>
+  </h3>
+  <div class="game-metadata">
+    <div class="game-author">
+      <em>Авторы</em>:
+      <%= link_to model.author.nickname, [model.author] %>
+    </div>
+
+    <div class="game-finished_at">
+      <em>Дата проведения</em>: <%= datetime model.starts_at %></span>
+    </div>
+
+    <div class="game-teams">
+      <em>Приняли участие</em>:
+      <% model.game_passings.each do |game_passing| %>
+        <span class="team"><%= link_to game_passing.team.name, [game_passing.team] %></span>
+      <% end %>
+    </div>
+  </div>
+</div>

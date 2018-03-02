@@ -67,7 +67,7 @@ class GamePassing < ApplicationRecord
   end
 
   def finished?
-    !! finished_at
+    !! finished_at || exited?
   end
 
   def hints_to_show
