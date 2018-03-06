@@ -43,6 +43,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
+    babosa (1.0.2)
     bcrypt (3.1.11)
     bcrypt (3.1.11-x64-mingw32)
     bindex (0.5.0)
@@ -99,6 +100,8 @@ GEM
     ffi (1.9.18-x64-mingw32)
     foreman (0.84.0)
       thor (~> 0.19.1)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     gherkin (2.4.21)
       json (>= 1.4.6)
     globalid (0.4.0)
@@ -250,6 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  babosa
   bcrypt
   bitmask_attributes
   byebug
@@ -262,6 +266,7 @@ DEPENDENCIES
   cucumber-rails (= 0.3.2)
   devise
   foreman
+  friendly_id (~> 5.1.0)
   interactor
   interactor-rails
   jbuilder (~> 2.5)

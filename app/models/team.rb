@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Team < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :game_passings, :inverse_of => :team
   has_many :game_entries, :class_name => "GameEntry"
   has_many :members, :class_name => "User"

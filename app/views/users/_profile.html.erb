@@ -2,7 +2,7 @@
   <b><%= user.nickname %></b>
   <small>
     <% if user.captain? %>
-      (капитан команды <%= link_to user.team.name, :team_room %>)
+      (капитан команды <%= link_to user.team.name, team_path(user.team) %>)
     <% end %>
   </small>
 </h2>

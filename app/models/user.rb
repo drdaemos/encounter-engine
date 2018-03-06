@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :nickname, use: :slugged
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -27,11 +30,15 @@ class User < ApplicationRecord
   end
 
   def captain?
-    member_of_any_team? && team.captain.id == id
+    member_of_any_team? && captain_of?(team)
   end
 
   def author_of?(game)
     game.author.id == self.id
+  end
+
+  def captain_of?(other_team)
+    other_team.captain.id == id
   end
 
   def can_edit?(game)

@@ -5,6 +5,8 @@ class TeamsController < ApplicationController
   before_action :build_team, :only => [:new, :create]
   before_action :find_team, :only => [:show]
 
+  helper_method :user_can_edit?
+
   def new
     render
   end
@@ -28,6 +30,10 @@ class TeamsController < ApplicationController
 
 protected
 
+  def user_can_edit?
+    current_user.captain_of?(@team)
+  end
+
   def team_params
     params[:team].permit(:name) unless params[:team].nil?
   end
@@ -38,7 +44,7 @@ protected
   end
 
   def find_team
-    @team = Team.find(params[:id])
+    @team = Team.friendly.find(params[:id]) || current_user.team
   end
 
   def ensure_not_member_of_any_team

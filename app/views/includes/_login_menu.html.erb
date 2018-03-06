@@ -3,7 +3,7 @@
       <div class="user">
         <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>
         <% if current_user.member_of_any_team? %>
-          <span class="user-team">(<%= link_to current_user.team.name, :team_room %>)</span>
+          <span class="user-team">(<%= link_to current_user.team.name, team_path(current_user.team) %>)</span>
         <% end %>
         <a class="dropdown-toggle no-underline" data-toggle="user-menu-dropdown"><i class="fas fa-chevron-circle-down"></i></a>
         <ul id="user-menu-dropdown" class="menu dropdown-pane" data-dropdown data-close-on-click="true">

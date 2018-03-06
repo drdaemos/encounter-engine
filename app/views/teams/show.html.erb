@@ -4,12 +4,20 @@
   <div class="team-members">
     <h5 class="heading">
       Состав
-      <%= link_to "Пригласить участников", :new_invitation, :class => "heading-link" if current_user.captain? %>
+      <%= link_to "Пригласить участников", :new_invitation, :class => "heading-link" if user_can_edit? %>
     </h5>
     <ul class="members-list">
-    <% @team.members.each do |member| %>
-      <li><%= link_to member.nickname, [member] %> <%= "- капитан" if member.captain? %></li>
-    <% end %>
+      <% @team.members.each do |member| %>
+        <li><%= link_to member.nickname, [member] %> <%= "- капитан" if member.captain? %></li>
+      <% end %>
     </ul>
   </div>
+
+  <% if user_can_edit? %>
+  <div class="team-controls">
+    <%= render 'shared/current_games' %>
+    <%= render 'dashboard/coming_games' %>
+    <%= render 'dashboard/finished_games' %>
+  </div>
+  <% end %>
 </div>

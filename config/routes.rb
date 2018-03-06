@@ -60,7 +60,6 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/send_msg', to: 'dashboard#send_msg', as: :send_msg
-  get '/team-room', to: 'team_room#index', as: :team_room
   get '/settings', to: 'settings#index', as: :settings
   post '/settings/update', to: 'settings#update', as: :update_settings
 

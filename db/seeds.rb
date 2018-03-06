@@ -1,8 +1,8 @@
 admin = User.create! ({
-    :nickname => "admin",
+    :nickname => "admin1",
     :created_at => "2017-10-11 18:00:00.000000",
     :updated_at => "2017-10-11 18:00:00.000000",
-    :email => "admin@example.com",
+    :email => "admin1@example.com",
     :password => "123456",
     :sign_in_count => 0,
     :access_level => [:admin]
