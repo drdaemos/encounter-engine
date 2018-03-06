@@ -104,6 +104,10 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
+    interactor (3.1.0)
+    interactor-rails (2.1.1)
+      interactor (~> 3.0)
+      rails (>= 4.2, < 5.2)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -258,6 +262,8 @@ DEPENDENCIES
   cucumber-rails (= 0.3.2)
   devise
   foreman
+  interactor
+  interactor-rails
   jbuilder (~> 2.5)
   launchy
   listen (>= 3.0.5, < 3.2)

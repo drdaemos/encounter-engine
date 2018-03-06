@@ -45,7 +45,7 @@ export default new Vuex.Store({
 
       timer(function (time) {
         context.commit('timerTick', time)
-        context.dispatch('requestState')
+        // context.dispatch('requestState')
       })
     },
     createChannel (context, options) {

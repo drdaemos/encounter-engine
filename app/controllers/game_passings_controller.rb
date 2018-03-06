@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class GamePassingsController < ApplicationController
-  include GamePassingsHelper
 
   before_action :find_game, :except => [:exit_game]
   before_action :find_game_by_id, :only => [:exit_game]
@@ -10,7 +9,6 @@ class GamePassingsController < ApplicationController
   before_action :ensure_game_is_started, :except => [:show_current_level]
   before_action :ensure_team_captain, :only => [:exit_game]
   before_action :ensure_not_finished, :except => [:show_current_level]
-  before_action :ensure_current_level_is_active
   before_action :ensure_team_member
   before_action :ensure_not_author_of_the_game
 
@@ -25,25 +23,32 @@ class GamePassingsController < ApplicationController
   end
 
   def app_data_helper
-    get_app_data(@game_passing).to_json.html_safe
-  end
+    result = GamePassingInteractors::UpdateState.call(
+        {
+            :game_passing => @game_passing,
+            :user => current_user
+        }
+    )
 
-  def get_current_level_tip
-    get_current_level_tip_data(@game_passing).to_json
+    result.app_state.to_json.html_safe if result.success?
   end
 
   def post_answer
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
     else
-      @answer = params[:answer].strip
-      save_answer_to_log(@answer, @game_passing)
-      @answer_was_correct = @game_passing.check_answer!(@answer)
+      result = GamePassingInteractors::PostAnswer.call(
+        {
+          :game_passing => @game_passing,
+          :user => current_user,
+          :answer => params[:answer].strip
+        }
+      )
 
       if @game_passing.finished?
         redirect_to game_finish_url(@game)
       else
-        render :show_current_level, :layout => 'in_game'
+        redirect_to show_current_level_url(@game)
       end
     end
   end
@@ -72,12 +77,10 @@ protected
     @game_passing = GamePassing.of(@team, @game)
 
     if @game_passing.nil?
-      @game_passing = GamePassing.create! :team => @team,
-        :game => @game
+      result = GamePassingInteractors::CreatePassing.call :team => @team,
+                                  :game => @game
 
-      if @game.started?
-        @game_passing.current_level = @game.levels.first
-      end
+      @game_passing = result.game_passing if result.success?
     end
   end
 
@@ -100,9 +103,5 @@ protected
   def ensure_not_finished
     self.author_finished_at
     self.ensure_captain_exited
-  end
-
-  def ensure_current_level_is_active
-    fail_level_if_limit_is_passed(@game_passing)
   end
 end

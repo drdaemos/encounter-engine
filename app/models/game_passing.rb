@@ -1,3 +1,6 @@
+require "question"
+require "hint"
+
 class GamePassing < ApplicationRecord
   serialize :answered_questions
   serialize :opened_spoilers
@@ -21,31 +24,6 @@ class GamePassing < ApplicationRecord
 
   def self.of(team, game)
     self.of_team(team).of_game(game).first
-  end
-
-  def check_spoiler!(code)
-    code.strip!
-
-    if correct_spoiler_code?(code)
-      spoiler = current_level.find_hint_by_code(code)
-      open_spoiler!(spoiler)
-      true
-    else
-      false
-    end
-  end
-
-  def check_answer!(answer)
-    answer.strip!
-
-    if correct_answer?(answer)
-    	answered_question = current_level.find_question_by_answer(answer)
-    	pass_question!(answered_question)
-    	pass_level! if all_questions_answered?
-    	true
-   	else
-    	false
-    end
   end
 
   def pass_question!(question)

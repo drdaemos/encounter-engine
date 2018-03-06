@@ -34,6 +34,9 @@ gem "cells"
 gem "cells-rails"
 gem "cells-erb"
 
+gem "interactor"
+gem "interactor-rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw]
