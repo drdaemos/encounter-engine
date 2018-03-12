@@ -8,14 +8,14 @@
 }
 
 .header-container {
-  @include xy-gutters($gutter-position: left right top bottom);
+  @include xy-gutters($gutter-position: left right top);
   @include xy-cell-block($vertical: true);
 
   position: relative;
 }
 
 .main-container {
-  @include xy-cell(auto, $gutter-position: left right bottom);
+  @include xy-cell(auto, $gutter-position: top left right bottom);
   @include xy-cell-block($vertical: true);
   margin-bottom: $grid-margin-gutters * 2.25;
 
@@ -36,6 +36,30 @@
 
   input {
     margin: 0;
+  }
+}
+
+.game-preview-counter {
+  box-shadow: 0 0px 1px 2px rgba(60, 60, 60, .3), inset 0 0 15px 4px rgba(0,0,0,.75);
+  background-color: rgb(32, 32, 32);
+  background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,1)), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+  background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.time-before-start {
+  font-size: 1.25rem;
+}
+
+.game-preview {
+  .description {
+    margin-top: 1rem;
   }
 }
 

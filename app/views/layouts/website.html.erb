@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= get_setting('site_name') %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag 'website' %>
     <%= javascript_pack_tag 'website' %>
@@ -17,6 +18,10 @@
           <div class="header-container">
             <%= render 'includes/header' %>
           </div>
+        </div>
+
+        <div class="top-promo-section">
+          <%= render 'includes/top_promo' %>
         </div>
         
         <div class="center-section">
@@ -36,6 +41,10 @@
           </div>
         </div>
 
+        <div class="bottom-promo-section">
+          <%= render 'includes/bottom_promo' %>
+        </div>
+
         <div class="footer-section">
           <div class="footer-container">
             <%= render 'includes/footer' %>
@@ -43,6 +52,8 @@
         </div>
 
       </div>
+
+      <%= render 'includes/mobile_menu' %>
     </div>      
   </body>
 </html>

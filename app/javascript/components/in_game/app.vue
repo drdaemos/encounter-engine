@@ -19,6 +19,8 @@
   import LevelHeader from './level_header'
   import GamePreview from './game_preview'
   import store from './stores/in_game'
+  import moment from 'moment'
+  moment.locale('ru');
 
   export default {
     el: 'encounter-game',

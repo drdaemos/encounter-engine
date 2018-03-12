@@ -1,5 +1,10 @@
 <div class="team-page">
-  <h4 class="heading">Команда "<%= @team.name %>"</h4>
+  <h2 class="heading">
+    Команда &laquo;<%= @team.name %>&raquo;
+    <% if user_can_edit? %>
+      <%= link_to "Расформировать", team_path, :method => :delete, :class => "heading-link" %>
+    <% end %>
+  </h2>
 
   <div class="team-members">
     <h5 class="heading">

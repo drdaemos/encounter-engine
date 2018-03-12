@@ -47,6 +47,10 @@ class Game < ApplicationRecord
     Game.all.select {|game| game.is_available_for(user) }
   end
 
+  def self.edited_by(user)
+    Game.all.select {|game| user.can_edit?(game) }
+  end
+
   def self.active(user)
     Game.started - Game.finished
   end

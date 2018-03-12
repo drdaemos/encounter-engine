@@ -1,5 +1,3 @@
-<% require_js 'jquery.js', 'jquery.autocomplete.js' %>
-<% require_css 'jquery.autocomplete.css' %>
 
 <script>
 
@@ -35,4 +33,4 @@
 <%= form_for @invitation, :action => :invitations do %>
     <%= text_field :recepient_nickname, :label => "Пригласить нового участника" %>
     <%= submit_tag "Пригласить" %>
-<% end =%>
+<% end %>

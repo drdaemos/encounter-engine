@@ -3,7 +3,7 @@
 require 'time'
 
 class GamesController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show, :results]
+  before_action :authenticate_user!, :except => [:index, :show]
   before_action :build_game, :only => [:new, :create]
   before_action :find_game, :only => [:show, :edit, :update, :destroy, :end_game]
   before_action :find_team, :only => [:show]
@@ -13,18 +13,13 @@ class GamesController < ApplicationController
   before_action :ensure_game_was_not_started, :only => [:edit, :update]
 
   def index
-    unless params[:user_id].blank?
-      user = User.find(params[:user_id])
-      @games = user.created_games
-    else
+    if params[:user_id].blank?
       @games = Game.available_for(current_user)
+    else
+      user = User.friendly.find(params[:user_id])
+      @games = Game.edited_by(user)
     end
     render
-  end
-
-  def results
-    @games = Game.finished
-    render "index"
   end
 
   def new

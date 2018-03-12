@@ -1,20 +1,19 @@
 <div class="login-menu">
   <% if user_signed_in? %>
-      <div class="user">
-        <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>
-        <% if current_user.member_of_any_team? %>
-          <span class="user-team">(<%= link_to current_user.team.name, team_path(current_user.team) %>)</span>
+    <div class="user">
+      <span class="user-profile"><%= link_to current_user.nickname, :dashboard %></span>
+      <% if current_user.member_of_any_team? %>
+        <span class="user-team">(<%= link_to current_user.team.name, team_path(current_user.team) %>)</span>
+      <% end %>
+      <a class="dropdown-toggle no-underline" data-toggle="user-menu-dropdown"><i class="fas fa-chevron-circle-down"></i></a>
+      <ul id="user-menu-dropdown" class="menu dropdown-pane" data-dropdown data-close-on-click="true">
+        <li class="access_level">Уровень доступа: <span class="label"><%= current_user.get_access_level_label %></span></li>
+        <% if current_user.access_level?(:admin) %>
+        <li class="settings"><%= link_to "Настройки сайта", :settings %></li>
         <% end %>
-        <a class="dropdown-toggle no-underline" data-toggle="user-menu-dropdown"><i class="fas fa-chevron-circle-down"></i></a>
-        <ul id="user-menu-dropdown" class="menu dropdown-pane" data-dropdown data-close-on-click="true">
-          <li class="access_level">Уровень доступа: <span class="label"><%= current_user.get_access_level_label %></span></li>
-          <% if current_user.access_level?(:admin) %>
-          <li class="settings"><%= link_to "Настройки сайта", :settings %></li>
-          <% end %>
-          <li class="profile"><%= link_to "Личные данные", :users %></li>
-          <li class="logout"><%= link_to "Выйти", :logout %></li>
-        </ul>
-      </div>
+        <li class="profile"><%= link_to "Личные данные", :users %></li>
+        <li class="logout"><%= link_to "Выйти", :logout %></li>
+      </ul>
     </div>
   <% else %>
     <div class="nav-item login">

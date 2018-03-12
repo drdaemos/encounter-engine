@@ -21,6 +21,8 @@ $foundation-palette: (
 $body-font-family: 'Rubik', sans-serif;
 $header-font-family: 'Merriweather', serif;
 $monospace-font-family: 'Anonymous Pro', monospace;
+$hero-font-family: 'Rubik', sans-serif;
+$special-font-family: 'Capture It', sans-serif;
 $header-font-weight: 500;
 $light-font-weight: 300;
 
@@ -36,7 +38,8 @@ $input-background-focus: $light-gray-alternative;
 $input-background-disabled: $light-gray;
 $button-margin: 0;
 
-$dropdown-border: 1px solid $border-custom-color;
+$dropdown-background: $border-custom-color;
+$dropdown-border: none;
 
 $header-height: 6rem;
 $header-lineheight: 1.5rem;

@@ -4,12 +4,51 @@ header {
   @include flex-align(null, middle);
   height: $header-height;
 
+  @include breakpoint(medium down) {
+    height: ($header-height * 0.8);
+  }
+
+  @include breakpoint(small down) {
+    height: ($header-height * 0.6);
+  }
+
   .logo-block {
     @include xy-cell(6 of 24, $gutter-position: right);
+    @include breakpoint(medium down) {
+      @include xy-cell(8 of 24, $gutter-position: right);
+    }
+    @include breakpoint(small down) {
+      @include xy-cell(10 of 24, $gutters: 0);
+    }
+  }
+
+  .mobile-menu {
+    color: $black;
+    margin-left: auto;
+    padding: $nav-item-padding;
+    padding-right: 0;
+
+    @include breakpoint(large up) {
+      display: none;
+    }
+
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      width: 30px;
+      height: 3px;
+      background-color: $black;
+    }
+
+    .hamburger-box {
+      width: 30px;
+      vertical-align: bottom;
+    }
   }
 
   .nav-block {
     @include xy-cell(auto, $gutter-position: left);
+    @include breakpoint(medium down) {
+      display: none;
+    }
   }
 
   .top-menu {
@@ -34,7 +73,7 @@ header {
 
     & > .user {
       font-size: $nav-item-font-size;
-      padding: $nav-item-padding;
+      padding: $nav-item-padding 0 $nav-item-padding $nav-item-padding;
 
       .dropdown-toggle {
         padding-left: $nav-item-padding;

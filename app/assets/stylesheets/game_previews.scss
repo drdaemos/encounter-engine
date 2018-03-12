@@ -19,12 +19,8 @@
       margin-bottom: 1rem;
     }
 
-    .secondary-part {
-      @include xy-cell(5 of 12, $gutters: 2rem, $gutter-position: left);
-    }
-
     .main-part {
-      @include xy-cell(auto, $gutters: 2rem, $gutter-position: right);
+      @include xy-cell(auto, $gutter-output: false);
     }
   }
 

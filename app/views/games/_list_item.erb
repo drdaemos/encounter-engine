@@ -1,0 +1,25 @@
+<div class="game-list-item" data-title="<%= game.name %>">
+  <h5 class="heading">
+    <% if current_page?(game) %>
+      <span><%= game.name %></span>
+    <% else %>
+      <a href="<%= url_for(game) %>"><%= game.name %></a>
+    <% end %>
+    <% if game.started? and !game.finished? %>
+      <span class="sticker">в процессе</span>
+    <% end %>
+    <% if user_signed_in? and game.can_be_played_by?(current_user) %>
+      <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
+    <% elsif edit_context and user_signed_in? and current_user.can_edit?(game) %>
+      <% if game.started? and !game.author_finished? %>
+        <%= link_to "Завершить", end_game_game_path(game.id), :class => 'right-link' %>
+      <% else %>
+        <% if game.author_finished? %>
+          <span class="sticker finished">завершена</span>
+        <% end %>
+        <%= link_to "Удалить", game, :class => 'right-link', :method => :delete %>
+      <% end %>
+    <% end %>
+  </h5>
+  <%= render 'metadata', :game => game %>
+</div>

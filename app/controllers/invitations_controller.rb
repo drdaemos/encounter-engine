@@ -9,7 +9,6 @@ class InvitationsController < ApplicationController
   before_action :ensure_recepient, :only => [:reject, :accept]
 
   def new
-    only_provides :html
     @all_users = User.all
     render
   end

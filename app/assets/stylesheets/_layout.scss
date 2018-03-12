@@ -1,4 +1,11 @@
-§#encounter-app {
+html, body {
+  font-size: $global-font-size;
+  @include breakpoint(medium down) {
+    font-size: (0.85 * $global-font-size);
+  }
+}
+
+#encounter-app {
 }
 
 #encounter-app:after {
@@ -48,10 +55,19 @@
 
 .sidebar-container {
   @include xy-cell(6 of 20, $gutter-position: left);
+  @include breakpoint(medium down) {
+    margin-top: 2rem;
+    @include xy-cell(100%, $gutters: 0);
+  }
 }
 
 .main-container {
   @include xy-cell(auto, $gutter-position: right);
+
+  @include breakpoint(medium down) {
+    @include xy-cell(100%, $gutters: 0);
+  }
+
   @include xy-cell-block($vertical: true);
   max-width: 100%;
   overflow: initial;
@@ -146,4 +162,8 @@ button, input[type=submit] {
 
 .pagination a, .pagination button {
   background-color: $light-gray-alternative;
+}
+
+.dropdown-pane {
+  box-shadow: inset 0 0px 1px 2px rgba(60, 60, 60, .3), 0 0 15px 1px rgba(0, 0, 0, .75);
 }

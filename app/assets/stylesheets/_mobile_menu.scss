@@ -1,0 +1,45 @@
+#mobile-menu {
+  background: $border-custom-color;
+  color: $black;
+
+  a {
+    border: none;
+  }
+
+  .mm-listitem > a, .mm-listitem > span {
+    padding: .75rem 2rem;
+  }
+
+  .mm-listitem:after {
+    left: 2rem;
+    right: 2rem;
+  }
+
+  .mm-navbar__title {
+    font-family: $special-font-family;
+    font-size: 1.5rem;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+  .mm-listitem_divider {
+    padding: .5rem 2rem;
+    font-size: .75rem;
+    background: $light-gray-alternative;
+  }
+  .mm-navbar {
+    border-bottom: none;
+    height: auto;
+  }
+  .mm-navbar > * {
+    padding: 1rem;
+  }
+  .mm-panels>.mm-panel>.mm-listview {
+    margin: 1rem -2rem;
+    margin-top: 1.5rem;
+  }
+
+  .mm-panel {
+    padding: 0 2rem;
+  }
+}

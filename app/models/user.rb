@@ -24,7 +24,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :nickname,
     :message => "Пользователь с таким именем уже зарегистрирован"
 
-
   def member_of_any_team?
     !! team
   end

@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
   before_action :build_team, :only => [:new, :create]
-  before_action :find_team, :only => [:show]
+  before_action :find_team, :only => [:show, :destroy]
 
   helper_method :user_can_edit?
 
@@ -22,10 +22,15 @@ class TeamsController < ApplicationController
 
   def create
     if @team.save
-      redirect_to :dashboard
+      redirect_to team_path(@team)
     else
       render :new
     end
+  end
+
+  def destroy
+    @team.destroy
+    redirect_to :dashboard
   end
 
 protected

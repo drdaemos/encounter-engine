@@ -1,16 +1,10 @@
-<p>
-  Вы <%= current_user.nickname %>
-</p>
+<div class="user-page">
+  <%= render 'users/profile', :user => current_user %>
+</div>
 
-<br />
-
-<%= render 'my_team' %>
-  
-<br />
-
-<%= render 'my_games' %>
-
-<br />
+<div class="buttons">
+  <%= link_to "Редактировать профиль...", :edit_user_registration %>
+</div>
 
 <%= render 'shared/current_games' %>
 

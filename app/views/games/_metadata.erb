@@ -1,0 +1,21 @@
+<div class="game-metadata">
+  <div class="game-author">
+    <em>Авторы</em>:
+    <%= game.author.nickname %>
+  </div>
+
+  <div class="game-starts_at">
+    <% unless game.starts_at.nil? %>
+      <em>Начало игры</em>: <%= datetime game.starts_at %></span>
+    <% else %>
+      Дата начала игры не назначена
+    <% end %>
+  </div>
+
+  <div class="game-registration_deadline">
+    <% unless game.registration_deadline.nil? %>
+      <em>Заявки до</em>: <%= datetime game.registration_deadline %>
+    <% else %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="game_admin_menu-block special-block">
+  <h3 class="heading">Панель управления</h3>
+  <ul class="vertical menu">
+    <li <%= current_page?(dashboard_path) ? 'class="is-active"' : '' %>>
+      <%= link_to "Профиль", dashboard_path %>
+    </li>
+    <li <%= current_page?(user_games_path(controller.current_user)) ? 'class="is-active"' : '' %>>
+      <%= link_to "Мои игры", user_games_path(controller.current_user) %>
+    </li>
+  </ul>
+</div>

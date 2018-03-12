@@ -1,0 +1,62 @@
+.top-banner.promo-block {
+  height: 32rem;
+  overflow: hidden;
+  position: relative;
+
+  @include breakpoint(medium down) {
+    height: 24rem;
+  }
+
+  .center-container {
+    @include xy-grid();
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transform: translate3d(0,0,0);
+  }
+  
+  .promo-content {
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-family: $hero-font-family;
+    font-size: 3rem;
+    font-weight: $light-font-weight;
+    text-shadow: 0 0 2px $body-background;
+    color: $accent-color;
+    line-height: 1.25;
+
+    @include breakpoint(medium down) {
+      font-size: 2rem;
+    }
+  }
+
+  .calls-to-action {
+    .button {
+      margin: 1rem;
+      font-size: 1.1rem;
+
+      @include breakpoint(medium down) {
+        margin: .5rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+
+    background: url("../images/banners/pexels-photo-754147.jpeg");
+    background-position: bottom;
+    background-size: cover;
+    box-shadow: inset 0 0 1px 1px #222, 0 1px 5px 2px rgba(0,0,0,.5);
+    filter: blur(2px);
+  }
+}

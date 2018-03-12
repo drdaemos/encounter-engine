@@ -1,16 +1,6 @@
-<div class="levels-list">
+<div class="game-previews">
 <% games.each do |game| %>
-  <p>
-    <strong><%= link_to game.name, game %></strong>
-    <em><%= link_to "(просмотреть)", game %></em>
-    <% if user_signed_in? and current_user.can_edit?(game) %>
-        <em><%= link_to "(редактировать)", [:edit, game] %></em>
-        <em><%= link_to "(статистика)", [:game_stats, :game_id => game.id] if game.started? %></em>
-        <em><%= link_to "(прямой эфир)", show_live_channel_path(game.id) if game.started? %></em>
-        <em><%= link_to "(лог ответов)", show_full_log_path(game.id) if game.started? %></em>
-        <b><%= link_to "ЗАВЕРШИТЬ ИГРУ", end_game_game_path(game.id) if (game.started? and !game.author_finished?) %></b>
-        <em><%= "Вы завершили игру" if (game.started? and game.author_finished?) %></em>
-    <% end %>
-  </p>
+    <%= render 'games/list_item', :game => game, :edit_context => false %>
+    <div class="separator"></div>
 <% end %>
 </div>

@@ -1,0 +1,33 @@
+<nav id="mobile-menu" data-title="Автоквест">
+  <ul>
+    <li><%= link_to "Анонсы игр", :index_page %></li>
+    <li><%= link_to "Результаты игр", :stats %></li>
+    <li><%= link_to "Рейтинги", :ratings %></li>
+    <% if user_signed_in? && current_user.access_level?(:admin) %>
+      <li class="Divider">Панель администратора</li>
+      <li class="admin-settings"><%= link_to "Настройки сайта", :settings %></li>
+      <li class="admin-users"><%= link_to "Пользователи", :users %></li>
+    <% end %>
+    <% if user_signed_in? %>
+      <li class="Divider">
+        Вы вошли как <%= current_user.nickname %>
+        <% if current_user.member_of_any_team? %>(<%= current_user.team.name %>)<% end %>
+      </li>
+      <li class="profile"><%= link_to "Профиль", :dashboard %></li>
+      <% if current_user.member_of_any_team? %>
+        <li class="team"><%= link_to "Моя команда", team_path(current_user.team) %></li>
+      <% else %>
+        <li><%= link_to "Найти команду", :teams %></li>
+        <li><%= link_to "Создать команду", :new_team %></li>
+      <% end %>
+      <li class="logout"><%= link_to "Выйти", :logout %></li>
+    <% else %>
+      <li class="login">
+        <%= link_to "Войти", :login %>
+      </li>
+      <li class="signup">
+        <%= link_to "Зарегистрироваться", :signup %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
