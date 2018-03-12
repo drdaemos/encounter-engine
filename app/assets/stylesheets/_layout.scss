@@ -130,13 +130,17 @@ a.no-underline,
 }
 
 .heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
   .heading-link {
     font-size: 0.8em;
     margin-left: 2rem;
   }
 
   .right-link {
-    float: right;
+    margin-left: auto;
     font-size: 0.8em;
   }
 

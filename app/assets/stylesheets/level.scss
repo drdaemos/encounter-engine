@@ -9,15 +9,22 @@
 }
 
 .levels-navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+
   .pagination {
+    margin-right: $global-margin;
+    margin-bottom: 0;
     display: inline-block;
 
     li {
+      display: inline-block;
     }
   }
 
   .heading-link {
-    margin-left: $global-margin;
     vertical-align: middle;
   }
 }
