@@ -2,6 +2,10 @@
   "name": "encounter-engine",
   "version": "0.0.1",
   "license": "MIT",
+  "engines": {
+    "node": "8.x",
+    "yarn": "1.4.0"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.3.0",
     "actioncable": "^5.1.3",
