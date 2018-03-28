@@ -50,6 +50,7 @@ group :development, :test do
   gem 'launchy'
   gem 'webrat'
   gem 'nokogiri'
+  gem 'loofah', '~> 2.2.1'
   gem 'rspec'
   gem 'rspec-rails', '~> 3.7'
   # Use sqlite3 as the database for Active Record

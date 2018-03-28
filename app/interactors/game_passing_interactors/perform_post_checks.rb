@@ -10,7 +10,7 @@ module GamePassingInteractors
       game = game_passing.game
       passings = GamePassing.of_game(game)
       if game.started? && !game.finished? && passings.count > 0 && passings.all? { |passing| passing.finished? }
-        game.finish_game!
+        GameInteractors::Finish.call({:game => game, :allow => true})
       end
     end
   end

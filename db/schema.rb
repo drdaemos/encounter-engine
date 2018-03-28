@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306223617) do
+ActiveRecord::Schema.define(version: 20180327050024) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20180306223617) do
     t.text     "accessories"
     t.datetime "finished_at"
     t.string   "poster"
+    t.boolean  "is_published",           default: false, null: false
   end
 
   create_table "hints", force: :cascade do |t|
@@ -113,6 +114,14 @@ ActiveRecord::Schema.define(version: 20180306223617) do
     t.string   "answer"
     t.datetime "time"
     t.string   "answer_type"
+  end
+
+  create_table "passing_adjustments", force: :cascade do |t|
+    t.integer  "game_passing_id"
+    t.integer  "adjustment"
+    t.string   "reason"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "questions", force: :cascade do |t|

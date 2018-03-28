@@ -1,6 +1,6 @@
 <div class="hint-edit-page">
 <h4>
-  Редактирование подсказки к заданию "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name,@game %>"
+  <span>Редактирование подсказки к заданию "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name,@game %>"</span>
 </h4>
 
 <%= error_messages_for @hint, :header => "<h2>Ошибка</h2>" %>
@@ -13,5 +13,5 @@
       <%= f.submit t(:update, scope: [:activerecord, :attributes, :hint]) %>
       <%= link_to "(отменить)", [@hint.level.game, @hint.level] %>
   </div>
-<% end =%>
+<% end %>
 </div>

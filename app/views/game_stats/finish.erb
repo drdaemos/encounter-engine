@@ -1,7 +1,7 @@
 <div class="game-finish-page">
-  <h3 class="heading">Поздравляем, вы закончили игру!</h3>
+  <h2 class="heading">Поздравляем, вы закончили игру!</h2>
 
-  Поставьте оценку игре.
+  <p>Поставьте оценку игре.</p>
 <% if @game.is_testing? %>
   <br/>
   <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>

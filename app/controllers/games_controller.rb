@@ -62,12 +62,14 @@ class GamesController < ApplicationController
   end
 
   def end_game
-    @game.finish_game!
-    game_passings = GamePassing.of_game(@game)
-    game_passings.each do |gp|
-      gp.end!
-    end
-    redirect_to :dashboard
+    result = GameInteractors::Finish.call(
+        {
+            :game => @game,
+            :user => current_user
+        }
+    )
+
+    redirect_to :dashboard if result.success?
   end
 
   def start_test
@@ -99,9 +101,11 @@ class GamesController < ApplicationController
 
     game_passing = GamePassing.of_game(game)
     results = LevelResult.of_game_passing(game_passing)
+    adjustments = PassingAdjustment.of_game_passing(game_passing)
     logs = Log.of_game(game)
 
     results.delete_all
+    adjustments.delete_all
     logs.delete_all
     game_passing.delete_all
 

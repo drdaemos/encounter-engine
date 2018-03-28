@@ -9,6 +9,7 @@ class GamePassing < ApplicationRecord
   belongs_to :game
   belongs_to :current_level, :class_name => "Level"
   has_many :level_results, :inverse_of => :game_passing
+  has_many :passing_adjustments, :inverse_of => :game_passing
 
   scope :of_game, ->(game) { where(game_id: game) }
   scope :of_team, ->(team) { where(team_id: team) }
@@ -32,6 +33,9 @@ class GamePassing < ApplicationRecord
   end
 
   def open_spoiler!(hint)
+    unless hint.penalty_time.nil?
+      add_adjustment!(-hint.penalty_time, "Штрафная подсказка " + hint.access_code)
+    end
     opened_spoilers << hint
     save!
   end
@@ -64,12 +68,6 @@ class GamePassing < ApplicationRecord
     closed_spoilers.any? { |hint| hint.is_opened_by?(code) }
   end
 
-  def time_at_level
-    difference = Time.now - self.current_level_entered_at
-    hours, minutes, seconds = seconds_fraction_to_time(difference)
-    "%02d:%02d:%02d" % [hours, minutes, seconds]
-  end
-
   def closed_spoilers
     current_level.hints - opened_spoilers
   end
@@ -80,6 +78,17 @@ class GamePassing < ApplicationRecord
 
   def all_questions_answered?
     (current_level.questions - self.answered_questions).empty?
+  end
+
+  def add_adjustment! (amount, reason)
+    entity = PassingAdjustment.new({
+         :reason => reason,
+         :adjustment => amount,
+         :game_passing => self
+     })
+
+    entity.save!
+    self.passing_adjustments << entity
   end
 
   def exit!
@@ -145,21 +154,6 @@ protected
 
   def reset_spoilers
     self.opened_spoilers.clear
-  end
-
-  # TODO: keep SRP, extract this to a separate helper
-  def seconds_fraction_to_time(seconds)
-    hours = minutes = 0
-    if seconds >=  60 then
-      minutes = (seconds / 60).to_i
-      seconds = (seconds % 60 ).to_i
-
-      if minutes >= 60 then
-        hours = (minutes / 60).to_i
-        minutes = (minutes % 60).to_i
-      end
-    end
-    [hours, minutes, seconds]
   end
 
 end

@@ -27,7 +27,7 @@
         <% end %>
 
         <% if @game.is_testing? %>
-          <%= link_to "Старт", show_current_level_path(@game.id) %>
+          <%= link_to "Старт", show_current_level_path(@game.id)  %>
           <br />
           <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
         <% end %>

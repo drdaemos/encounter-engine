@@ -1,6 +1,6 @@
 <div class="hint-add-page">
 <h4>
-    Новая подсказка для задания "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name, @game %>"
+  <span>Новая подсказка для задания "<%= link_to @level.name, [@game, @level] %>" игры "<%= link_to @game.name, @game %>"</span>
 </h4>
 
 <br />
@@ -15,6 +15,6 @@
     <%= f.submit t(:submit, scope: [:activerecord, :attributes, :hint]) %>
     <%= link_to "(отменить)", [@hint.level.game, @hint.level] %>
   </div>
-<% end =%>
+<% end %>
 </div>
 

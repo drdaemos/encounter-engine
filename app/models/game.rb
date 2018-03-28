@@ -34,6 +34,7 @@ class Game < ApplicationRecord
   scope :non_drafts, -> { where(is_draft: false) }
   scope :ready, -> { where(author_finished_at: nil) }
   scope :finished, -> { where.not(author_finished_at: nil) }
+  scope :published, -> { where.not(author_finished_at: nil).where(is_published: true) }
 
   def self.started
     Game.all.select(&:started?)
@@ -56,7 +57,13 @@ class Game < ApplicationRecord
   end
 
   def self.results_available_for(user)
-    Game.finished
+    games = Game.published
+
+    unless user.nil?
+      games = games + Game.edited_by(user)
+    end
+
+    return games
   end
 
   def draft?
@@ -117,11 +124,6 @@ class Game < ApplicationRecord
   def can_request?
     self.requested_teams_number < self.max_team_number
     Game.all.select {|game| !game.started?}
-  end
-
-  def finish_game!
-    self.author_finished_at = Time.now
-    self.save!
   end
 
   def author_finished?

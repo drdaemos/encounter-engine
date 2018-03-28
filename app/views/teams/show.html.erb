@@ -1,6 +1,6 @@
 <div class="team-page">
   <h2 class="heading">
-    Команда &laquo;<%= @team.name %>&raquo;
+    <span>Команда &laquo;<%= @team.name %>&raquo;</span>
     <% if user_can_edit? %>
       <%= link_to "Расформировать", team_path, :method => :delete, :class => "heading-link" %>
     <% end %>
@@ -8,7 +8,7 @@
 
   <div class="team-members">
     <h5 class="heading">
-      Состав
+      <span>Состав</span>
       <%= link_to "Пригласить участников", :new_invitation, :class => "heading-link" if user_can_edit? %>
     </h5>
     <ul class="members-list">

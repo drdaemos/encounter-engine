@@ -1,5 +1,6 @@
 <h3 class="heading">
-  Статистика по игре <%= link_to model.name, model %>
+  <span>Статистика по игре</span>
+  <%= link_to model.name, model %>
   <% if model.started? && !model.finished? %>
     <span class="sticker">в процессе</span>
   <% end %>

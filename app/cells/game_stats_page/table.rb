@@ -17,7 +17,7 @@ module GameStatsPage
       columns = {
           :team => {
               :label => "Команда",
-              :getter => ->(game_passing) {game_passing.team.name}
+              :getter => ->(game_passing) { link_to(game_passing.team.name, game_passing.team) }
           }
       }
 
@@ -32,18 +32,20 @@ module GameStatsPage
         result
       end
 
+      interactor = GameInteractors::CalculateTimings
+
       stat_columns = {
           :clean_time => {
               :label => "Чистое время",
-              :getter => ->(game_passing) { LevelResult.clean_time(game_passing) }
+              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).clean_time }
           },
           :adjustment_time => {
-              :label => "Бонус/Штраф",
-              :getter => ->(game_passing) { LevelResult.adjustment_time(game_passing) }
+              :label => "Штраф (+) / Бонус (-)",
+              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).adjustment_time }
           },
           :adjusted_time => {
-              :label => "С учетом бонусов",
-              :getter => ->(game_passing) { LevelResult.adjusted_time(game_passing) }
+              :label => "Итоговое время",
+              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).adjusted_time }
           }
       }
 
