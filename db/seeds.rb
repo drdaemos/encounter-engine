@@ -55,22 +55,36 @@ game = Game.create! ({
 
 intro_level = Level.create! ({
     :game => game,
-    :text => "<p>КОД: start. Робин-Бобин Барабек скушал сорок человек. Робин-Бобин кое-как подкрепился натощак</p>",
+    :text => "<p>КОД: start. Не учитывается в статистике. Робин-Бобин Барабек скушал сорок человек. Робин-Бобин кое-как подкрепился натощак</p>",
     :name => "Интро",
-    :time_limit => 5,
+    :time_limit => 300,
     :created_at => "2017-10-11 18:00:00.000000",
     :updated_at => "2017-10-11 18:00:00.000000",
-    :position => 1
+    :position => 1,
+    :is_used_in_stats => false
 })
 
 multiple_codes_level = Level.create! ({
     :game => game,
-    :text => "<p>КОДЫ: aq01, (aq02, aq02+). Добрый доктор Айболит! Он под деревом сидит. Приходи к нему лечиться И корова, и волчица, И жучок, и червячок, И медведица!</p>",
-    :name => "С ограничением по времени",
-    :time_limit => 60,
+    :text => "<p>КОДЫ: aq01, (aq02, aq02+). Нужен хотя бы один. Добрый доктор Айболит! Он под деревом сидит. Приходи к нему лечиться И корова, и волчица, И жучок, и червячок, И медведица!</p>",
+    :name => "Несколько кодов",
+    :time_limit => 3600,
     :created_at => "2017-10-11 18:00:00.000000",
     :updated_at => "2017-10-11 18:00:00.000000",
-    :position => 2
+    :position => 2,
+    :is_all_sectors_required => false,
+    :count_of_sectors_to_pass => 1
+})
+
+penalty_time_level = Level.create! ({
+    :game => game,
+    :text => "<p>КОДЫ: код1, ШТРАФНОЙ КОД: штраф1</p>",
+    :name => "Штраф за слив и штрафной код",
+    :time_limit => 60,
+    :penalty_time_fail => 600,
+    :created_at => "2017-10-11 18:00:00.000000",
+    :updated_at => "2017-10-11 18:00:00.000000",
+    :position => 3
 })
 
 finish_level = Level.create! ({
@@ -79,7 +93,7 @@ finish_level = Level.create! ({
     :name => "Финиш",
     :created_at => "2017-10-11 18:00:00.000000",
     :updated_at => "2017-10-11 18:00:00.000000",
-    :position => 3
+    :position => 4
 })
 
 intro = Question.create! ({
@@ -116,6 +130,28 @@ Answer.create! ({
     :level => multiple_codes_level,
     :question => code2,
     :value => 'aq02+'
+})
+
+code3 = Question.create! ({
+    :level => penalty_time_level
+})
+
+Answer.create! ({
+    :level => penalty_time_level,
+    :question => code3,
+    :value => 'код1'
+})
+
+penalty_code1 = Question.create! ({
+    :level => penalty_time_level,
+    :is_counted_in_level => false,
+    :penalty_time => 120
+})
+
+Answer.create! ({
+    :level => penalty_time_level,
+    :question => penalty_code1,
+    :value => 'штраф1'
 })
 
 finish = Question.create! ({

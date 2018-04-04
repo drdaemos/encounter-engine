@@ -1,7 +1,7 @@
 <%= render 'navigation', :levels => @game.levels, :current => @level, :game => @game %>
 
 <h3 class="heading">
-  <span>Задание "<strong><%= @level.name %></strong>"</span>
+  <span>Уровень "<strong><%= @level.name %></strong>"</span>
   <small>(игра "<%= link_to @game.name, @game %>")</small>
 </h3>
 
@@ -9,7 +9,7 @@
 <%= error_messages_for @level, :header => "<h2>Ошибка</h2>" %>
 </div>
 
-<%= form_for [@level.game, @level], :action => [@level.game, @level] do |f| %>
+<%= form_for [@level.game, @level], :action => [@level.game, @level], :data => { "model": "level" } do |f| %>
   <%= render 'form', :hint => @hint, :f => f %>
   <div class="row form-actions">
     <%= f.submit t(:update, scope: [:activerecord, :attributes, :level]) %>

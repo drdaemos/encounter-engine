@@ -6,11 +6,6 @@
   .game-listing-item + .game-listing-item {
     margin-top: ($global-margin * 3);
   }
-
-  .game-metadata {
-    border-top: 1px solid fade-out($light-gray-alternative, .7);
-    padding-top: 1.5rem;
-  }
 }
 
 .game-passings-table {

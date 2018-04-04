@@ -4,6 +4,7 @@ class QuestionsController < AdminController
   before_action :ensure_author
   before_action :find_level
   before_action :build_question, :only => [:new, :create]
+  before_action :find_question, :only => [:destroy]
 
   def new
     render
@@ -24,10 +25,16 @@ class QuestionsController < AdminController
     end
   end
 
-protected
+  def destroy
+    @question.destroy
+    redirect_to [@level.game, @level]
+  end
+
+
+  protected
 
   def question_params
-    params[:question].permit(:correct_answer) unless params[:question].nil?
+    params[:question].permit! unless params[:question].nil?
   end
 
   def find_game
@@ -36,6 +43,10 @@ protected
 
   def find_level
     @level = Level.find(params[:level_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def build_question

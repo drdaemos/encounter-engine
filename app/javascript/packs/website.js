@@ -6,6 +6,7 @@ import moment from 'moment'
 import '../components/new_game'
 import '../components/froala_textarea'
 import '../components/game_stats'
+import '../components/forms/level'
 import '../components/mobile_menu'
 
 document.addEventListener('DOMContentLoaded', () => {

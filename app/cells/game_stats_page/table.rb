@@ -26,30 +26,49 @@ module GameStatsPage
             :label => "#{level.position}. #{level.name}",
             :getter => ->(game_passing) do
               result = LevelResult.of(game_passing, level)
-              result.level_time unless result.nil?
+              to_human(result.level_time) unless result.nil?
             end
         }
         result
       end
 
-      interactor = GameInteractors::CalculateTimings
+      interactor = GamePassingInteractors::CalculateTimings
 
       stat_columns = {
           :clean_time => {
               :label => "Чистое время",
-              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).clean_time }
+              :getter => ->(game_passing) { to_human(interactor.call({:game_passing => game_passing}).clean_time) }
           },
           :adjustment_time => {
               :label => "Штраф (+) / Бонус (-)",
-              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).adjustment_time }
+              :getter => ->(game_passing) { to_human(interactor.call({:game_passing => game_passing}).adjustment_time) }
           },
           :adjusted_time => {
               :label => "Итоговое время",
-              :getter => ->(game_passing) { interactor.call({:game_passing => game_passing}).adjusted_time }
+              :getter => ->(game_passing) { to_human(interactor.call({:game_passing => game_passing}).adjusted_time) }
           }
       }
 
-      columns.merge(level_columns).merge(stat_columns)
+      link_columns = {
+          :links => {
+              :label => "Ссылки",
+              :getter => ->(game_passing) {
+                link_to("<i class=\"far fa-list-alt fa-fw\"></i>", game_stats_adjustments_path(game_passing.game, game_passing.team), :title => "Список штрафов и бонусов") +
+                link_to("<i class=\"far fa-file-alt fa-fw\"></i>", show_game_log_path(game_passing.game, game_passing.team), :title => "Лог ответов")
+              }
+          }
+      }
+
+      columns.merge(level_columns).merge(stat_columns).merge(link_columns)
+    end
+
+    def to_human(diff)
+      sign = ""
+      if diff < 0
+        sign = "-"
+      end
+
+      sign + Time.at(diff.abs).utc.strftime("%T")
     end
 
     def sort_game_passings

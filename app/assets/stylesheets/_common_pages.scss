@@ -16,3 +16,46 @@
   font-family: $monospace-font-family;
   font-weight: 600;
 }
+
+form {
+  .dependent:not(.dependent-visible) {
+    display: none;
+  }
+}
+
+.level-page {
+  .level-codes .level-code {
+    display: flex;
+    flex-wrap: wrap;
+
+    .code-number {
+      min-width: 3rem;
+    }
+
+    .actions {
+      margin-left: auto;
+
+      & > * + * {
+        margin-left: 1rem;
+      }
+    }
+
+    .answer {
+      border-bottom: 1px dashed $light-gray;
+      position: relative;
+    }
+
+    .answer + .answer {
+      margin-left: 2rem;
+
+      &:before {
+        position: absolute;
+        content: 'или';
+        font-weight: 300;
+        opacity: .7;
+        transform: translate(-135%,20%);
+        font-size: .8em;
+      }
+    }
+  }
+}

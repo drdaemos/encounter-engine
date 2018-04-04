@@ -1,0 +1,7 @@
+<div class="game-stats-page">
+  <h3 class="heading">
+    <span>Список штрафов и бонусов команды &laquo;<%= link_to @team.name, @team %>&raquo;</span>
+    <%= link_to "Назад к статистике", game_stats_path(@game), :class => 'right-link' %>
+  </h3>
+  <%= cell(GameStatsPage::AdjustmentsTable, @game_passing) %>
+</div>

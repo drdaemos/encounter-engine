@@ -39,7 +39,7 @@ protected
   end  
   
   def find_team
-    @team = Team.find(params[:team_id])
+    @team = Team.friendly.find(params[:team_id])
   end
 
   def find_level

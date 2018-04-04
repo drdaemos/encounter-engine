@@ -2,7 +2,7 @@
   <%= render 'games/preview', :game => @game, :edit_context => true %>
 
   <div class="game-players">
-    <% if not @game_entries.empty? and user_signed_in? and current_user.can_edit?(@game)  %>
+    <% if not @game_entries.empty? && user_signed_in? && current_user.can_edit?(@game)  %>
       <%= render 'games/game_entries', :game_entries => @game_entries %>
     <% end %>
     <% unless @teams.empty? %>
@@ -10,7 +10,7 @@
     <% end %>
   </div>
 
-  <% if user_signed_in? and current_user.can_edit?(@game) %>
+  <% if user_signed_in? && current_user.can_edit?(@game) && !@game.published? %>
     <div class="game-controls">
       <div class="game-levels-list">
         <h4 class="heading">
@@ -21,7 +21,7 @@
       </div>
       <% if @game.draft? || @game.is_testing? %>
       <div class="game-testing">
-        <h4 class="heading">Тестирование игры</h4>
+        <h4 class="heading"><span>Тестирование игры</span></h4>
         <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
           <%= link_to 'Начать тестирование', start_test_game_path(@game.id) %>
         <% end %>

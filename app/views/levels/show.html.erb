@@ -2,39 +2,47 @@
   <%= render 'navigation', :levels => @game.levels, :current => @level, :game => @game %>
 
   <h3 class="heading">
-    <span>Задание "<strong><%= @level.name %></strong>"</span>
+    <span>Уровень "<strong><%= @level.name %></strong>"</span>
     <small>(игра "<%= link_to @game.name, @game %>")</small>
     <%= link_to "Удалить", [@game, @level], :class => 'right-link', :method => :delete %>
   </h3>
 
-  <h4 class="page-section">Текст задания:</h4>
+  <h4 class="page-section">Текст уровня:</h4>
   <div class="level-text"><%= @level.text.html_safe %></div>
 
   <div class="edit-link">
-    <%= link_to "Редактировать текст и название задания", [:edit, @game, @level] %>
+    <%= link_to "Редактировать параметры уровня", [:edit, @game, @level] %>
   </div>
 
-  <hr>
+  <hr class="invisible">
 
   <div class="level-codes">
     <% if @level.questions.size > 0 %>
+      <h5>Коды (<%= @level.questions.size %>):</h5>
       <% unless @level.multi_question? %>
         <div class="level-code" id="question-<%= @level.questions.first.id %>">
-          <span>Код:</span>
-          <span class="code-answer">
-            <%= @level.correct_answer %>
+          <span class="code-number">№1:</span>
+          <span class="code-answers">
+            <% @level.questions.first.answers.each do |answer| %>
+              <span class="answer user-input"><%= answer.value %></span>
+            <% end %>
           </span>
-          <span class="edit-link">
+          <span class="actions">
           <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
           </span>
         </div>
       <% else %>
-        <h5>Коды (<%= @level.questions.size %>):</h5>
-        <% @level.questions.each do |question| %>
+        <% @level.questions.each.with_index do |question, index| %>
           <div class="level-code" id="question-<%= question.id %>">
-            <span class="code-answer"><%= question.correct_answer %></span>
-            <span class="edit-link">
+            <span class="code-number">№<%= index %>:</span>
+            <span class="code-answers">
+              <% question.answers.each do |answer| %>
+                <span class="answer user-input"><%= answer.value %></span>
+              <% end %>
+            </span>
+            <span class="actions">
             <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, question) %>
+            <%= link_to "(удалить)", game_level_question_path(@game, @level, question), :method => :delete %>
             </span>
           </div>
         <% end %>
@@ -45,7 +53,7 @@
     </div>
   </div>
 
-  <hr>
+  <hr class="invisible">
 
   <div class="level-hints">
     <h4 class="page-section">Подсказки и спойлеры:</h4>

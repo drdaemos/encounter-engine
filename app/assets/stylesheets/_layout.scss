@@ -119,6 +119,15 @@ a {
   border-bottom: 1px solid $anchor-underline-color;
 }
 
+hr {
+  border-bottom: 1px solid $light-gray-alternative;
+}
+
+hr.invisible {
+  border: none;
+  display: table;
+}
+
 a.no-underline,
 .menu a {
   border-color: transparent;
@@ -131,7 +140,7 @@ a.no-underline,
 
 .heading {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
 
   .heading-link {

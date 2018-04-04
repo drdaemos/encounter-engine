@@ -41,8 +41,8 @@ module GamePassingInteractors
     def check_answer!(game_passing, answer)
       if game_passing.correct_answer?(answer)
         answered_question = game_passing.current_level.find_question_by_answer(answer)
-        game_passing.pass_question!(answered_question) if answered_question
-        game_passing.pass_level! if game_passing.all_questions_answered?
+        game_passing.pass_question!(answered_question, answer) if answered_question
+        game_passing.pass_level! if game_passing.questions_answered?
         return true
       end
       false

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327050024) do
+ActiveRecord::Schema.define(version: 20180403121119) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -95,16 +95,21 @@ ActiveRecord::Schema.define(version: 20180327050024) do
     t.datetime "entered_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "time_limit"
   end
 
   create_table "levels", force: :cascade do |t|
     t.text     "text"
     t.integer  "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "position"
     t.string   "name"
     t.integer  "time_limit"
+    t.boolean  "is_used_in_stats",         default: true, null: false
+    t.boolean  "is_all_sectors_required",  default: true, null: false
+    t.integer  "count_of_sectors_to_pass"
+    t.integer  "penalty_time_fail"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -127,8 +132,10 @@ ActiveRecord::Schema.define(version: 20180327050024) do
   create_table "questions", force: :cascade do |t|
     t.string   "questions"
     t.integer  "level_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "is_counted_in_level", default: true, null: false
+    t.integer  "penalty_time"
   end
 
   create_table "settings", force: :cascade do |t|

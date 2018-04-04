@@ -31,8 +31,3 @@
 
 en:
   hello: "Hello world"
-
-helpers:
-  label:
-    game:
-      name: Название игры

@@ -6,15 +6,44 @@
   <%= f.label :text, t(:text, scope: [:activerecord, :attributes, :level]) %>
   <%= f.text_area :text, data: { :wysiwyg => true } %>
 </div>
+<hr class="invisible">
+<h5 class="heading"><span>Настройки</span></h5>
 <div class="row">
-  <%= f.label :time_limit, t(:time_limit, scope: [:activerecord, :attributes, :level]) %>
-  <%= f.text_field :time_limit %>
-  минут
+  <%= f.label :time_limit_in_minutes, t(:time_limit, scope: [:activerecord, :attributes, :level]) %>
+  <%= f.text_field :time_limit_in_minutes, :type => :number %>
+  <span>минут</span>
+</div>
+<div class="row">
+  <%= f.label :is_used_in_stats, t(:is_used_in_stats, scope: [:activerecord, :attributes, :level]) %>
+  <%= f.check_box :is_used_in_stats %>
+</div>
+<div class="row dependent" data-dependent-on="level_is_used_in_stats" data-dependent-show-when="true">
+  <%= f.label :penalty_time_fail_in_minutes, t(:penalty_time_fail, scope: [:activerecord, :attributes, :level]) %>
+  <%= f.text_field :penalty_time_fail_in_minutes, :type => :number %>
+  <span>минут</span>
+</div>
+<div class="row">
+  <%= f.label :count_of_sectors_to_pass, t(:count_of_sectors_to_pass, scope: [:activerecord, :attributes, :level]) %>
+  <%= f.label :is_all_sectors_required, t(:is_all_sectors_required, scope: [:activerecord, :attributes, :level]) %>
+  <%= f.check_box :is_all_sectors_required %>
+  <div class="dependent" data-dependent-on="level_is_all_sectors_required" data-dependent-show-when="false">
+    <span>Хотя бы</span>
+    <%= f.text_field :count_of_sectors_to_pass, :type => :number %>
+    <span>кодов</span>
+  </div>
 </div>
 
 <style type="text/css">
-#level_time_limit {
+  .row span {
+    font-size: .875rem;
+  }
+
+  #level_time_limit_in_minutes, #level_penalty_time_fail_in_minutes, #level_count_of_sectors_to_pass {
     width: 100px;
     display: inline-block;
-}
+  }
+
+  #level_is_all_sectors_required, #level_count_of_sectors_to_pass, [for="level_is_all_sectors_required"] {
+    display: inline;
+  }
 </style>

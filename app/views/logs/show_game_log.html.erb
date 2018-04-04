@@ -1,7 +1,10 @@
-<h1>Лог ответов команды "<%= @team.name %>" по игре "<%= @game.name %>"</h1>
+<h3 class="heading">
+  <span>Лог ответов команды &laquo;<%= link_to @team.name, @team %>&raquo;</span>
+  <%= link_to "Назад к статистике", game_stats_path(@game), :class => 'right-link' %>
+</h3>
 
 <% @game.levels.each do |level| %>
-  <h2><%= level.name %></h2>
+  <h4><%= level.name %></h4>
   <strong>Верный код:</strong>&nbsp;<%= level.questions.first.correct_answer %>
   <ul>
   <% logs = Log.of_game(level) %>

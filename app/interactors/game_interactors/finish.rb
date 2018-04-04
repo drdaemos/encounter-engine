@@ -3,10 +3,6 @@ module GameInteractors
     include Interactor
 
     def call
-      unless context.allow == true || context.user.can_edit?(context.game)
-        context.fail!
-      end
-
       game = context.game
       game.author_finished_at = Time.now
       game.save!

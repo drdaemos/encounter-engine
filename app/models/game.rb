@@ -66,8 +66,20 @@ class Game < ApplicationRecord
     return games
   end
 
+  def author_finished?
+    !self.author_finished_at.nil?
+  end
+
+  def is_testing?
+    self.is_testing
+  end
+
   def draft?
     self.is_draft
+  end
+
+  def published?
+    self.is_published
   end
 
   def started?
@@ -97,16 +109,13 @@ class Game < ApplicationRecord
     !self.finished? && !game_passing.nil? && !game_passing.finished?
   end
 
-  def finished_teams
-    GamePassing.of_game(self).finished.map(&:team)
+  def can_request?
+    self.requested_teams_number < self.max_team_number
+    Game.all.select {|game| !game.started?}
   end
 
-  def place_of(team)
-    game_passing = GamePassing.of(team, self)
-    return nil unless game_passing&.finished?
-
-    count_of_finished_before = GamePassing.of_game(self).finished_before(game_passing.finished_at).count
-    count_of_finished_before + 1
+  def finished_teams
+    GamePassing.of_game(self).finished.map(&:team)
   end
 
   def free_place_of_team!
@@ -119,19 +128,6 @@ class Game < ApplicationRecord
   def reserve_place_for_team!
     self.requested_teams_number+=1;
     self.save
-  end
-
-  def can_request?
-    self.requested_teams_number < self.max_team_number
-    Game.all.select {|game| !game.started?}
-  end
-
-  def author_finished?
-    !self.author_finished_at.nil?
-  end
-
-  def is_testing?
-    self.is_testing
   end
 
 protected

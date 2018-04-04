@@ -20,7 +20,7 @@ module GamePassingInteractors
       end
 
       diff = Time.now - game_passing.current_level_entered_at
-      if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit * 60
+      if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit.to_i
         game_passing.fail_level!
       end
     end

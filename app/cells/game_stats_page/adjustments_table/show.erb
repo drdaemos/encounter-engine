@@ -1,0 +1,7 @@
+<div class="game-passing-adjustments-table-wrapper">
+  <% if table_rows.size > 0 %>
+    <%= cell(Common::Table, nil, :rows => table_rows, :columns => table_columns, :class => "game-passing-adjustments-table") %>
+  <% else %>
+    <p class="no-data">Нет штрафов или бонусов</p>
+  <% end %>
+</div>

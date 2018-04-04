@@ -62,14 +62,16 @@ class GamesController < ApplicationController
   end
 
   def end_game
-    result = GameInteractors::Finish.call(
-        {
-            :game => @game,
-            :user => current_user
-        }
-    )
+    if current_user.can_edit?(@game)
+      result = GameInteractors::Finish.call(
+          {
+              :game => @game,
+              :user => current_user
+          }
+      )
 
-    redirect_to :dashboard if result.success?
+      redirect_to :dashboard if result.success?
+    end
   end
 
   def start_test
@@ -119,8 +121,7 @@ class GamesController < ApplicationController
       return Hash.new
     end    
     
-    data = params[:game].permit(:name, :description, :notes, :accessories, :starts_at, :finished_at, :registration_deadline, :max_team_number, :is_draft, :poster, :poster_cache)
-    data
+    params[:game].permit!
   end
 
   def preset_default_values(game)

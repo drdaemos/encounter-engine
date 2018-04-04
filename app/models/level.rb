@@ -22,6 +22,23 @@ class Level < ApplicationRecord
     lower_item
   end
 
+  def penalty_time_fail_in_minutes
+    self.penalty_time_fail.nil? ? nil : self.penalty_time_fail / 60
+  end
+
+  def penalty_time_fail_in_minutes=(value)
+    self.penalty_time_fail = value.to_i * 60
+  end
+
+  def time_limit_in_minutes
+    self.time_limit.nil? ? nil : self.time_limit / 60
+  end
+
+  def time_limit_in_minutes=(value)
+    self.time_limit = value.to_i * 60
+  end
+
+
   def correct_answer=(answer)
     self.questions.build(:correct_answer => answer)
   end
@@ -34,6 +51,22 @@ class Level < ApplicationRecord
 
   def multi_question?
     self.questions.many?
+  end
+
+  def question_count
+    if !self.is_all_sectors_required? && !self.count_of_sectors_to_pass.nil?
+      self.count_of_sectors_to_pass
+    end
+
+    self.required_questions.count
+  end
+
+  def bonus_questions
+    Question.of_level(self.id).bonus
+  end
+
+  def required_questions
+    Question.of_level(self.id).required
   end
 
   def find_question_by_answer(answer_value)

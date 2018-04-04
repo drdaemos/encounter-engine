@@ -5,7 +5,6 @@ import moment from 'moment';
 export default class NewGameView {
   constructor() {
     this.render();
-    console.log('NewGameView constructed');
   }
 
   findForm() {

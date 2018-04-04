@@ -4,15 +4,21 @@
     <li <%= current_page?(game_path(model)) ? 'class="is-active"' : '' %>>
       <%= link_to "Просмотр игры", game_path(model) %>
     </li>
-    <li <%= current_page?(edit_game_path(model)) ? 'class="is-active"' : '' %>>
-      <%= link_to "Настройки игры и анонс", edit_game_path(model) %>
-    </li>
-    <li <%= current_page?(edit_game_level_path(model, model.levels.first)) ? 'class="is-active"' : '' %>>
-      <%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %>
-    </li>
-    <% if model.started? %>
+    <% if !model.published? %>
+      <li <%= current_page?(edit_game_path(model)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Настройки игры и анонс", edit_game_path(model) %>
+      </li>
+      <li <%= current_page?(edit_game_level_path(model, model.levels.first)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %>
+      </li>
+    <% end %>
+    <% if model.started? && !model.finished? %>
       <li <%= current_page?(game_stats_path(model)) ? 'class="is-active"' : '' %>>
         <%= link_to "Мониторинг команд", game_stats_path(model) %>
+      </li>
+    <% elsif model.finished? %>
+      <li <%= current_page?(game_stats_path(model)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Статистика команд", game_stats_path(model) %>
       </li>
     <% end %>
   </ul>

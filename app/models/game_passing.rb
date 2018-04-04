@@ -1,5 +1,5 @@
-require "question"
-require "hint"
+require_dependency "question"
+require_dependency "hint"
 
 class GamePassing < ApplicationRecord
   serialize :answered_questions
@@ -27,15 +27,22 @@ class GamePassing < ApplicationRecord
     self.of_team(team).of_game(game).first
   end
 
-  def pass_question!(question)
+  def pass_question!(question, answer)
+    unless question.penalty_time.nil?
+      text = question.penalty_time > 0 ? "Штрафной код" + answer : "Бонусный код" + answer
+      add_adjustment!(-question.penalty_time, text)
+    end
+
 		answered_questions << question
 		save!
   end
 
   def open_spoiler!(hint)
     unless hint.penalty_time.nil?
-      add_adjustment!(-hint.penalty_time, "Штрафная подсказка " + hint.access_code)
+      text = hint.access_code || ("через " + hint.delay_in_minutes + " минут")
+      add_adjustment!(-hint.penalty_time, "Штрафная подсказка " + text)
     end
+
     opened_spoilers << hint
     save!
   end
@@ -45,7 +52,7 @@ class GamePassing < ApplicationRecord
   end
 
   def fail_level!
-    switch_to_next_level!
+    switch_to_next_level! (true)
   end
 
   def finished?
@@ -77,7 +84,15 @@ class GamePassing < ApplicationRecord
 	end
 
   def all_questions_answered?
-    (current_level.questions - self.answered_questions).empty?
+    (current_level.questions - self.answered_questions - current_level.bonus_questions).empty?
+  end
+
+  def questions_answered?
+    if current_level.is_all_sectors_required?
+      all_questions_answered?
+    else
+      (self.answered_questions - current_level.bonus_questions).size >= current_level.count_of_sectors_to_pass
+    end
   end
 
   def add_adjustment! (amount, reason)
@@ -110,21 +125,26 @@ class GamePassing < ApplicationRecord
 
 protected
 
-  def save_level_result
+  def save_level_result (is_failed)
     entity = LevelResult.new({
         :level => self.current_level,
         :answered_questions => self.answered_questions,
         :entered_at => self.current_level_entered_at,
+        :time_limit => self.current_level.time_limit,
         :adjustment => 0,
         :game_passing => self
     })
+
+    if is_failed && !self.current_level.penalty_time_fail.nil?
+      entity.adjustment = -self.current_level.penalty_time_fail
+    end
 
     entity.save!
     self.level_results << entity
   end
 
-  def switch_to_next_level!
-    save_level_result
+  def switch_to_next_level! (is_failed = false)
+    save_level_result (is_failed)
 
     if last_level?
       set_finish_time
