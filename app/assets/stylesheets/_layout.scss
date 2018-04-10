@@ -117,6 +117,7 @@ em {
 
 a {
   border-bottom: 1px solid $anchor-underline-color;
+  cursor: pointer;
 }
 
 hr {
@@ -197,6 +198,14 @@ a.no-underline,
 }
 
 form {
+  .inline.separator {
+    margin-right: 1rem;
+  }
+
+  label.inline {
+    display: inline;
+  }
+
   .field_with_errors input {
     @include form-input-error();
   }

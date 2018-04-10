@@ -1,15 +1,28 @@
-<h3 class="heading">
-  <span>Лог ответов команды &laquo;<%= link_to @team.name, @team %>&raquo;</span>
-  <%= link_to "Назад к статистике", game_stats_path(@game), :class => 'right-link' %>
-</h3>
+<div class="team-log-page">
+  <h3 class="heading">
+    <span>Лог ответов команды &laquo;<%= link_to @team.name, @team %>&raquo;</span>
+    <%= link_to "Назад к статистике", game_stats_path(@game), :class => 'right-link' %>
+  </h3>
 
-<% @game.levels.each do |level| %>
-  <h4><%= level.name %></h4>
-  <strong>Верный код:</strong>&nbsp;<%= level.questions.first.correct_answer %>
-  <ul>
-  <% logs = Log.of_game(level) %>
-  <% logs.each do |log| %>
-    <li><%= log.time.strftime("%H:%M:%S") %>&nbsp;<%= log.answer %></li>
+  <% @game.levels.each do |level| %>
+    <div class="game-level">
+      <h5>Уровень &laquo;<%= level.name %>&raquo;</h5>
+      <div class="level-codes">
+        <em>Коды: </em>
+        <% level.questions.each do |question| %>
+          <div class="level-code">
+            <% question.answers.each do |answer| %>
+              <span class="answer user-input"><%= answer.value %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <ul class="inputed-text">
+      <% logs = Log.of_level(level) %>
+      <% logs.each do |log| %>
+        <li><%= log.time.strftime("%H:%M:%S") %>&nbsp;<%= log.answer %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
-  </ul>
-<%  end %>
+</div>

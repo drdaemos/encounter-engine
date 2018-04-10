@@ -37,6 +37,13 @@ ru:
         correct_answer: Код
         submit: Добавить код
         update: Сохранить
+      adjustment:
+        adjustment: Время
+        reason: Причина
+        submit: Добавить
+        update: Сохранить
+        type_bonus: Бонус
+        type_penalty: Штраф
     models:
       game: Игра
       hint: Подсказка

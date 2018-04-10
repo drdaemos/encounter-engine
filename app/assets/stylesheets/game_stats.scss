@@ -20,9 +20,15 @@
 
 .game-level-listing {
   margin-top: ($global-margin * 2);
+}
 
+.game-level-listing, .team-log-page {
   .game-level + .game-level {
     margin-top: ($global-margin * 3);
+  }
+
+  .inputed-text {
+    margin-top: $global-margin;
   }
 
   .level-hints {

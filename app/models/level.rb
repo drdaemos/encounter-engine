@@ -38,7 +38,6 @@ class Level < ApplicationRecord
     self.time_limit = value.to_i * 60
   end
 
-
   def correct_answer=(answer)
     self.questions.build(:correct_answer => answer)
   end

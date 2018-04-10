@@ -3,5 +3,28 @@
     <span>Список штрафов и бонусов команды &laquo;<%= link_to @team.name, @team %>&raquo;</span>
     <%= link_to "Назад к статистике", game_stats_path(@game), :class => 'right-link' %>
   </h3>
+  <a data-toggle="new-adjustment-dropdown">Добавить</a>
+  <div class="dropdown-pane" id="new-adjustment-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-v-offset="8">
+    <%= form_for :adjustment, :url => add_game_stats_adjustment_path(@game, @team), :data => { "model": "adjustment" } do |f| %>
+      <div class="row">
+        <%= f.radio_button :type, :bonus %>
+        <%= f.label :type, t(:type_bonus, scope: [:activerecord, :attributes, :adjustment]), :value => :bonus, :class => 'inline' %>
+        <span class="inline separator">/</span>
+        <%= f.radio_button :type, :penalty %>
+        <%= f.label :type, t(:type_penalty, scope: [:activerecord, :attributes, :adjustment]), :value => :penalty, :class => 'inline' %>
+      </div>
+      <div class="row">
+        <%= f.label :adjustment, t(:adjustment, scope: [:activerecord, :attributes, :adjustment]) %>
+        <%= f.text_field :adjustment %>
+      </div>
+      <div class="row">
+        <%= f.label :reason, t(:reason, scope: [:activerecord, :attributes, :adjustment]) %>
+        <%= f.text_field :reason %>
+      </div>
+      <div class="row form-actions">
+        <%= f.submit t(:submit, scope: [:activerecord, :attributes, :adjustment]) %>
+      </div>
+    <% end %>
+  </div>
   <%= cell(GameStatsPage::AdjustmentsTable, @game_passing) %>
 </div>

@@ -43,6 +43,8 @@ Rails.application.routes.draw do
   get '/stats/:game_id/show', to: 'game_stats#show', as: :game_stats
   get '/stats/:game_id/adjustments/:team_id', to: 'game_stats#adjustments', as: :game_stats_adjustments
   get '/stats/:game_id/finish', to: 'game_stats#finish', as: :game_finish
+  post '/stats/:game_id/adjustments/:team_id/add', to: 'game_stats#add_adjustment', as: :add_game_stats_adjustment
+  delete '/stats/adjustments/:adjustment_id/remove', to: 'game_stats#remove_adjustment', as: :remove_game_stats_adjustment
   post '/stats/:game_id/publish', to: 'game_stats#publish', as: :publish_stats
   post '/stats/:game_id/takedown', to: 'game_stats#takedown', as: :takedown_stats
 

@@ -22,6 +22,10 @@ module GameStatsPage
           :time => {
               :label => "Время",
               :getter => ->(adjustment) { to_human(-adjustment.adjustment) }
+          },
+          :actions => {
+              :label => "",
+              :getter => ->(adjustment) { link_to("Удалить", remove_game_stats_adjustment_path(adjustment), :method => :delete) }
           }
       }
     end
