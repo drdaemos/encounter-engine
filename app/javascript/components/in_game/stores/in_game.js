@@ -2,11 +2,20 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import _ from 'underscore'
 import Timings from './timings'
+import {TIME_THRESHOLD} from "../consts"
 
 Vue.use(Vuex)
 
 let stateContainer = document.querySelector('script[x-app-data]')
 let initialData = JSON.parse(stateContainer.innerHTML)
+
+let lessThan = (value, threshold) => {
+  if (value !== null && !isNaN(value)) {
+    return value < threshold
+  }
+
+  return false
+}
 
 export default new Vuex.Store({
   state () {
@@ -26,8 +35,10 @@ export default new Vuex.Store({
     level: (state) => state.data.level,
     hints: (state) => state.data.hints,
     isLoaded: (state, getters) => typeof getters.game !== 'undefined' && typeof getters.level !== 'undefined',
-    shouldReload: (state) => {
-      return true
+    shouldReload: (state, getters) => {
+      return lessThan(getters['timings/beforeStart'], TIME_THRESHOLD)
+        || lessThan(getters['timings/beforeNextHint'], TIME_THRESHOLD)
+        || lessThan(getters['timings/beforeLevelFail'], TIME_THRESHOLD)
     }
   },
   mutations: {

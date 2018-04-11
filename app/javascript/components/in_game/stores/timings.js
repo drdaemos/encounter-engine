@@ -1,4 +1,5 @@
 import moment from 'moment'
+import {TIME_THRESHOLD} from "../consts"
 
 let timer = operative((callback) => {
   callback()
@@ -22,26 +23,39 @@ export default {
   getters: {
     currentTime: (state) => state.current,
     isoCurrent: (state) => state.current.toISOString(),
-    beforeStart: (state, getters, rootState, rootGetters) => {
+    onLevel: (state, getters, rootState, rootGetters) => {
       try {
-        return getTimeDiff(rootGetters.game.starts_at, getters.isoCurrent)
+        // add full second to compensate for non-full second which is lost on rounding
+        return getTimeDiff(getters.isoCurrent, rootGetters.level.entered_at) + 1000
       } catch (e) {}
       return null
     },
-    onLevel: (state, getters, rootState, rootGetters) => {
+    beforeStart: (state, getters, rootState, rootGetters) => {
       try {
-        return getTimeDiff(getters.isoCurrent, rootGetters.level.entered_at)
+        if (rootGetters.game.started) {
+          return null
+        }
+
+        return getTimeDiff(rootGetters.game.starts_at, getters.isoCurrent)
       } catch (e) {}
       return null
     },
     beforeNextHint: (state, getters, rootState, rootGetters) => {
       try {
+        if (!rootGetters.hints.next_hint) {
+          return null
+        }
+
         return getTimeDiff(getters.isoCurrent, rootGetters.hints.next_hint)
       } catch (e) {}
       return null
     },
     beforeLevelFail: (state, getters, rootState, rootGetters) => {
       try {
+        if (!rootGetters.level.time_limit) {
+          return null
+        }
+
         let failTime = moment.utc(rootGetters.level.entered_at).add(rootGetters.level.time_limit, 'seconds')
         return getTimeDiff(failTime, getters.isoCurrent)
       } catch (e) {}
