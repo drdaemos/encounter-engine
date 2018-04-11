@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
     //       registration.showNotification('Notification with ServiceWorker');
     //     });
     //   }
-    // });awdaw
+    // });
 })

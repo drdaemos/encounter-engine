@@ -1,5 +1,5 @@
 <template>
-    <div class="current-level" v-if="loaded">
+    <div class="current-level" v-if="isLoaded">
         <h3 class="heading">{{ level.name }}</h3>
         <div class="text" v-html="level.text"></div>
         <div class="time-container">
@@ -9,7 +9,7 @@
         <div class="hints-container">
             <h4>Подсказки:</h4>
             <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки {{ timeLeftForNextHint }}</div>
-            <div class="hints" v-for="hint in hints">
+            <div class="hints" v-for="hint in visibleHints">
                 <div class="hint" :data-id="hint.id" v-html="hint.text"></div>
             </div>
             <div class="next-hint" v-if="!timeLeftForNextHint">Подсказок больше не будет</div>
@@ -29,72 +29,56 @@
 <script>
   import _ from 'underscore'
   import moment from 'moment'
+  import {mapGetters} from 'vuex'
+  import {TIME_THRESHOLD} from "./consts"
 
   export default {
     computed: {
-      currentTime() {
-        return this.$store.getters.currentTime
+      ...mapGetters([
+        'passing',
+        'level',
+        'hints',
+        'game',
+        'user',
+        'isLoaded'
+      ]),
+      ...mapGetters('timings', [
+        'beforeStart',
+        'beforeHint',
+        'beforeLevelFail',
+        'onLevel'
+      ]),
+      timeOnLevel () {
+        return moment.utc(this.onLevel).format('HH:mm:ss')
       },
-      timeOnLevel() {
-        const now = moment.utc(this.currentTime.toISOString())
-        const entered_at = moment.utc(this.level.entered_at)
-        const diff_msec = now.diff(entered_at)
-
-        return moment.utc(diff_msec).format('HH:mm:ss')
-      },
-      timeLeftForNextHint() {
+      timeLeftForNextHint () {
         if (!this.next_hint) {
-          return null;
+          return null
         }
 
-        return this.timeLeftForNextHintDiff > 0
-          ? moment.utc(Math.abs(this.timeLeftForNextHintDiff)).format('HH:mm:ss')
-          : '-' + moment.utc(Math.abs(this.timeLeftForNextHintDiff)).format('HH:mm:ss')
+        return this.beforeHint > TIME_THRESHOLD
+          ? moment.utc(Math.abs(this.beforeHint)).format('HH:mm:ss')
+          : '...'
       },
-      timeLeftForNextHintDiff() {
-        if (!this.next_hint) {
-          return null;
-        }
-
-        const now = moment.utc(this.currentTime.toISOString())
-        const next_hint = moment.utc(this.next_hint)
-
-        return next_hint.diff(now);
-      },
-      hasTimeLimit() {
+      hasTimeLimit () {
         return this.level.time_limit
       },
-      timeLeftBeforeFail() {
-        return this.timeLeftBeforeFailDiff > 0
-          ? moment.utc(Math.abs(this.timeLeftBeforeFailDiff)).format('HH:mm:ss')
-          : '-' + moment.utc(Math.abs(this.timeLeftBeforeFailDiff)).format('HH:mm:ss')
+      timeLeftBeforeFail () {
+        return this.beforeLevelFail > TIME_THRESHOLD
+          ? moment.utc(Math.abs(this.beforeLevelFail)).format('HH:mm:ss')
+          : '...'
       },
-      timeLeftBeforeFailDiff() {
-        const now = moment.utc(this.currentTime.toISOString())
-        const failTime = moment.utc(this.level.entered_at).add(this.level.time_limit, 'seconds')
-
-        return failTime.diff(now);
-      },
-      passing() {
-        return this.$store.getters.passing
-      },
-      level() {
-        return this.$store.getters.level
-      },
-      hints() {
-        return this.$store.getters.hints.available
+      visibleHints () {
+        return this.hints.available
           .filter((item) => item.level_id === this.level.id)
           .reverse()
       },
-      next_hint() {
-        return this.$store.getters.hints.next_hint;
-      },
-      loaded() {
-        return typeof this.level !== 'undefined'
-      },
+      next_hint () {
+        return this.hints.next_hint
+      }
     },
     methods: {
-      onSubmit(event) {
+      onSubmit (event) {
         let form = event.currentTarget
         let params = $(form).serializeArray()
         let payload = _.object(_.pluck(params, 'name'), _.pluck(params, 'value'))

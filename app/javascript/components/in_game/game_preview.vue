@@ -1,5 +1,5 @@
 <template>
-    <div class="game-preview" v-if="loaded">
+    <div class="game-preview" v-if="isLoaded">
         <h3 class="heading">{{ game.name }}</h3>
         <div class="metadata">Начало игры: {{ startTime }}</div>
         <div class="description" v-html="game.description"></div>
@@ -12,38 +12,31 @@
 
 <script>
   import moment from 'moment'
+  import {mapGetters} from 'vuex'
+  import {TIME_THRESHOLD, DAY_THRESHOLD} from "./consts"
 
   export default {
     computed: {
+      ...mapGetters([
+        'passing',
+        'game',
+        'isLoaded',
+        'timings/beforeStart'
+      ]),
+      ...mapGetters('timings', [
+        'beforeStart'
+      ]),
       timeLeftBeforeStart() {
-        if (this.timeLeftBeforeStartDiff > 86400) {
+        if (this.beforeStart > DAY_THRESHOLD) {
           return "Начало игры: " + moment.utc(this.game.starts_at).fromNow()
-        } else if (this.timeLeftBeforeStartDiff > 0) {
-          return "До начала игры: " + moment.utc(Math.abs(this.timeLeftBeforeStartDiff)).format('HH:mm:ss')
+        } else if (this.beforeStart > TIME_THRESHOLD) {
+          return "До начала игры: " + moment.utc(Math.abs(this.beforeStart)).format('HH:mm:ss')
         } else {
           return 'Игра начинается'
         }
       },
-      timeLeftBeforeStartDiff() {
-        const now = moment.utc(this.currentTime.toISOString())
-        const startTime = moment.utc(this.game.starts_at)
-
-        return startTime.diff(now);
-      },
       startTime() {
         return moment.utc(this.game.starts_at).format('L HH:mm:ss')
-      },
-      currentTime() {
-        return this.$store.getters.currentTime
-      },
-      passing() {
-        return this.$store.getters.passing
-      },
-      game() {
-        return this.$store.getters.game
-      },
-      loaded() {
-        return typeof this.game !== 'undefined'
       }
     }
   }

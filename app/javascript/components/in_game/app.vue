@@ -1,17 +1,17 @@
 <template>
-<div class="encounter-game">
-    <div class="app-grid" v-if="loaded">
-        <div class="header-container" v-if="game_started">
-            <level-header/>
-        </div>
-        <div class="main-container" v-if="game_started">
-            <current-level/>
-        </div>
-        <div class="main-container" v-else>
-            <game-preview/>
+    <div class="encounter-game">
+        <div class="app-grid" v-if="isLoaded">
+            <div class="header-container" v-if="game_started">
+                <level-header/>
+            </div>
+            <div class="main-container" v-if="game_started">
+                <current-level/>
+            </div>
+            <div class="main-container" v-else>
+                <game-preview/>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -20,7 +20,9 @@
   import GamePreview from './game_preview'
   import store from './stores/in_game'
   import moment from 'moment'
-  moment.locale('ru');
+  import {mapGetters} from 'vuex'
+
+  moment.locale('ru')
 
   export default {
     el: 'encounter-game',
@@ -37,7 +39,7 @@
         onReceived: this.onReceived.bind(this)
       })
 
-      this.$store.dispatch('createTimer')
+      this.$store.dispatch('timings/start')
     },
     watch: {
       game_finished: function (newValue, oldValue) {
@@ -48,20 +50,20 @@
       }
     },
     computed: {
-      loaded () {
-        return typeof this.game !== 'undefined'
-      },
+      ...mapGetters([
+        'passing',
+        'game',
+        'user',
+        'isLoaded'
+      ]),
       game_started () {
         return this.game.started
       },
       game_finished () {
-        return this.$store.getters.passing.finished
+        return this.passing.finished
       },
       team_id () {
-        return this.$store.getters.user.team_id
-      },
-      game () {
-        return this.$store.getters.game
+        return this.user.team_id
       },
     },
     methods: {
