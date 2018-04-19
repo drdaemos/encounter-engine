@@ -33,6 +33,7 @@ export default new Vuex.Store({
     user: (state) => state.data.user,
     passing: (state) => state.data.game_passing,
     level: (state) => state.data.level,
+    questions: (state) => state.data.questions,
     hints: (state) => state.data.hints,
     isLoaded: (state, getters) => typeof getters.game !== 'undefined' && typeof getters.level !== 'undefined',
     shouldReload: (state, getters) => {

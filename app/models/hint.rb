@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Hint < ApplicationRecord
   belongs_to :level
+  has_many :logs, as: :linkable
 
   def penalty_time_in_minutes
     self.penalty_time.nil? ? nil : self.penalty_time / 60

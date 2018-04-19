@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :level
   has_many :answers
+  has_many :logs, as: :linkable
 
   scope :of_level, ->(level) { where(level_id: level) }
   scope :bonus, ->() { where(is_counted_in_level: false) }

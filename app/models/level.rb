@@ -54,7 +54,7 @@ class Level < ApplicationRecord
 
   def question_count
     if !self.is_all_sectors_required? && !self.count_of_sectors_to_pass.nil?
-      self.count_of_sectors_to_pass
+      return self.count_of_sectors_to_pass
     end
 
     self.required_questions.count

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403121119) do
+ActiveRecord::Schema.define(version: 20180419041128) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -113,12 +113,15 @@ ActiveRecord::Schema.define(version: 20180403121119) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.integer  "game_id"
-    t.string   "team"
-    t.string   "level"
+    t.integer  "game_passing_id"
+    t.integer  "level_id"
     t.string   "answer"
-    t.datetime "time"
-    t.string   "answer_type"
+    t.boolean  "is_correct"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "linkable_type"
+    t.integer  "linkable_id"
+    t.index ["linkable_type", "linkable_id"], name: "index_logs_on_linkable_type_and_linkable_id"
   end
 
   create_table "passing_adjustments", force: :cascade do |t|

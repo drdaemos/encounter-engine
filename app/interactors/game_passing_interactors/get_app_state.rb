@@ -17,6 +17,10 @@ module GamePassingInteractors
             :game => { :id => game.id, :name => game.name, :is_testing => game.is_testing?, :started => game.started? },
             :game_passing => { :finished => game_passing.finished?, :time => Time.now.utc, :answered => game_passing.answered_questions.size },
             :level => { :id => level.id, :name => level.name, :text => level.text, :entered_at => game_passing.current_level_entered_at, :position => level.position, :multi_question => level.multi_question?, :question_count => level.question_count, :time_limit => (level.time_limit.to_i) },
+            :questions => {
+                :count => level.question_count,
+                :answered => Log.of(game_passing, level)
+            },
             :hints => {
                 :available => game_passing.hints_to_show,
                 :next_hint => next_hint.nil? ? nil : next_hint.availability_date(game_passing.current_level_entered_at).utc

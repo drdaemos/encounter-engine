@@ -104,7 +104,7 @@ class GamesController < ApplicationController
     game_passing = GamePassing.of_game(game)
     results = LevelResult.of_game_passing(game_passing)
     adjustments = PassingAdjustment.of_game_passing(game_passing)
-    logs = Log.of_game(game)
+    logs = Log.of_game_passing(game_passing)
 
     results.delete_all
     adjustments.delete_all

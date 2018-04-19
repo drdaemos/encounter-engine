@@ -81,7 +81,11 @@ class GamePassing < ApplicationRecord
 
   def unanswered_questions
 		current_level.questions - answered_questions
-	end
+  end
+
+  def answered_questions_of_level
+    answered_questions.to_a.select { |question| question.level == current_level }
+  end
 
   def all_questions_answered?
     (current_level.questions - self.answered_questions - current_level.bonus_questions).empty?

@@ -25,7 +25,7 @@ class GameChannel < ApplicationCable::Channel
     message = { :messages => [], :flashes => [] }
 
     if result.success?
-      type = result.spoiler_was_correct ? 'Код спойлера' : 'Код'
+      type = result.linked_object.is_a?(Hint) ? 'Код спойлера' : 'Код'
       game_state = result.app_state
       message[:flashes] << { :text => type + ' ' + answer + ' принят' }
     else

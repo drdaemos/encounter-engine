@@ -2,21 +2,23 @@
     <div class="current-level" v-if="isLoaded">
         <h3 class="heading">{{ level.name }}</h3>
         <div class="text" v-html="level.text"></div>
+        <hr>
         <div class="time-container">
             <p>Время на уровне: <span class="time">{{ timeOnLevel }}</span></p>
             <p v-if="hasTimeLimit">Автопереход через: <span class="time">{{ timeLeftBeforeFail }}</span></p>
         </div>
-        <div class="hints-container">
-            <h4>Подсказки:</h4>
-            <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки {{ timeLeftForNextHint }}</div>
-            <div class="hints" v-for="hint in visibleHints">
-                <div class="hint" :data-id="hint.id" v-html="hint.text"></div>
+        <div class="hints-container" v-if="visibleHints.length > 0 || timeLeftForNextHint">
+            <div class="next-hint" v-if="timeLeftForNextHint">До следующей подсказки: {{ timeLeftForNextHint }}</div>
+            <div class="hints" v-if="visibleHints.length > 0">
+                <div class="hint" v-for="hint in visibleHints" :data-id="hint.id" v-html="hint.text"></div>
             </div>
             <div class="next-hint" v-if="!timeLeftForNextHint">Подсказок больше не будет</div>
         </div>
-        <h4>Коды:</h4>
-        <div class="valid-answers">
-            <div class="caption">Правильных кодов введено: {{ passing.answered }} из {{ level.question_count }}</div>
+        <div class="answers-container">
+            <h5>Принято кодов: {{ passing.answered }} из {{ questions.count }}</h5>
+            <div class="valid-answers" v-if="questions.answered.length > 0">
+                <div class="answer" v-for="answer in questions.answered">{{ answer }}</div>
+            </div>
         </div>
         <form id="level-answer-form" class="answer-form" method="POST" action="" @submit.prevent="onSubmit">
             <div class="row">
@@ -38,13 +40,14 @@
         'passing',
         'level',
         'hints',
+        'questions',
         'game',
         'user',
         'isLoaded'
       ]),
       ...mapGetters('timings', [
         'beforeStart',
-        'beforeHint',
+        'beforeNextHint',
         'beforeLevelFail',
         'onLevel'
       ]),
@@ -56,8 +59,8 @@
           return null
         }
 
-        return this.beforeHint > TIME_THRESHOLD
-          ? moment.utc(Math.abs(this.beforeHint)).format('HH:mm:ss')
+        return this.beforeNextHint > TIME_THRESHOLD
+          ? moment.utc(Math.abs(this.beforeNextHint)).format('HH:mm:ss')
           : '...'
       },
       hasTimeLimit () {
