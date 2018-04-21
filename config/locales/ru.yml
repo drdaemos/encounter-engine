@@ -30,15 +30,26 @@ ru:
         access_code: Код спойлера
         text: Текст
         delay_in_minutes: Время до подсказки
+        penalty_time_in_minutes: Время до подсказки
         penalty_time: Штрафное время
         submit: Добавить подсказку
         update: Сохранить
       question:
         correct_answer: Код
+        is_counted_in_level: Учитывается при закрытии уровня
+        has_adjustment: Дает штраф или бонус
+        adjustment_time: Время (в секундах)
+        type_bonus: Бонус
+        type_penalty: Штраф
+        penalty_time: Время (в секундах)
         submit: Добавить код
         update: Сохранить
+      answer:
+        value: Вариант кода
+        submit: Добавить
+        update: Сохранить
       adjustment:
-        adjustment: Время
+        adjustment: Время (в секундах)
         reason: Причина
         submit: Добавить
         update: Сохранить

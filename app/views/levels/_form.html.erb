@@ -14,8 +14,8 @@
   <span>минут</span>
 </div>
 <div class="row">
-  <%= f.label :is_used_in_stats, t(:is_used_in_stats, scope: [:activerecord, :attributes, :level]) %>
   <%= f.check_box :is_used_in_stats %>
+  <%= f.label :is_used_in_stats, t(:is_used_in_stats, scope: [:activerecord, :attributes, :level]) %>
 </div>
 <div class="row dependent" data-dependent-on="level_is_used_in_stats" data-dependent-show-when="true">
   <%= f.label :penalty_time_fail_in_minutes, t(:penalty_time_fail, scope: [:activerecord, :attributes, :level]) %>
@@ -24,8 +24,8 @@
 </div>
 <div class="row">
   <%= f.label :count_of_sectors_to_pass, t(:count_of_sectors_to_pass, scope: [:activerecord, :attributes, :level]) %>
-  <%= f.label :is_all_sectors_required, t(:is_all_sectors_required, scope: [:activerecord, :attributes, :level]) %>
   <%= f.check_box :is_all_sectors_required %>
+  <%= f.label :is_all_sectors_required, t(:is_all_sectors_required, scope: [:activerecord, :attributes, :level]) %>
   <div class="dependent" data-dependent-on="level_is_all_sectors_required" data-dependent-show-when="false">
     <span>Хотя бы</span>
     <%= f.text_field :count_of_sectors_to_pass, :type => :number %>

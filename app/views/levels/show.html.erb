@@ -28,8 +28,20 @@
             <% end %>
           </span>
           <span class="actions">
-          <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, @level.questions.first) %>
+            <a data-toggle="new-answer-dropdown">(добавить вариант)</a>
+          <%= link_to "(редактировать)", edit_game_level_question_path(@game, @level, @level.questions.first) %>
           </span>
+        </div>
+        <div class="dropdown-pane" id="new-answer-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-v-offset="8">
+          <%= form_for :answer, :url => game_level_question_answers_path(@game, @level, @level.questions.first), :data => { "model": "answer" } do |f| %>
+            <div class="row">
+              <%= f.label :value, t(:value, scope: [:activerecord, :attributes, :answer]) %>
+              <%= f.text_field :value %>
+            </div>
+            <div class="row form-actions">
+              <%= f.submit t(:submit, scope: [:activerecord, :attributes, :answer]) %>
+            </div>
+          <% end %>
         </div>
       <% else %>
         <% @level.questions.each.with_index do |question, index| %>
@@ -41,15 +53,38 @@
               <% end %>
             </span>
             <span class="actions">
-            <%= link_to "(редактировать)", game_level_question_answers_path(@game, @level, question) %>
+            <a data-toggle="new-answer-dropdown-<%= index %>">(добавить вариант)</a>
+            <%= link_to "(редактировать)", edit_game_level_question_path(@game, @level, question) %>
             <%= link_to "(удалить)", game_level_question_path(@game, @level, question), :method => :delete %>
             </span>
+          </div>
+          <div class="dropdown-pane" id="new-answer-dropdown-<%= index %>" data-dropdown data-auto-focus="true" data-close-on-click="true" data-v-offset="8">
+            <%= form_for :answer, :url => game_level_question_answers_path(@game, @level, question), :data => { "model": "answer" } do |f| %>
+              <div class="row">
+                <%= f.label :value, t(:value, scope: [:activerecord, :attributes, :answer]) %>
+                <%= f.text_field :value %>
+              </div>
+              <div class="row form-actions">
+                <%= f.submit t(:submit, scope: [:activerecord, :attributes, :answer]) %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       <% end %>
     <% end %>
     <div class="add-link">
-      <%= link_to "Добавить ещё один код", [:new, @game, @level, :question] %>
+      <a data-toggle="new-question-dropdown">Добавить код</a>
+      <div class="dropdown-pane" id="new-question-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-v-offset="8">
+        <%= form_for :question, :url => game_level_questions_path(@game, @level), :data => { "model": "question" } do |f| %>
+          <div class="row">
+            <%= f.label :correct_answer, t(:correct_answer, scope: [:activerecord, :attributes, :question]) %>
+            <%= f.text_field :correct_answer %>
+          </div>
+          <div class="row form-actions">
+            <%= f.submit t(:submit, scope: [:activerecord, :attributes, :question]) %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 

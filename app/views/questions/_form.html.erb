@@ -1,0 +1,32 @@
+<hr class="invisible">
+<h5 class="heading"><span>Настройки кода</span></h5>
+<div class="row">
+  <%= f.check_box :is_counted_in_level %>
+  <%= f.label :is_counted_in_level, t(:is_counted_in_level, scope: [:activerecord, :attributes, :question]) %>
+</div>
+<div class="row">
+  <%= f.check_box :has_adjustment %>
+  <%= f.label :has_adjustment, t(:has_adjustment, scope: [:activerecord, :attributes, :question]) %>
+</div>
+<div class="row dependent" data-dependent-on="question_has_adjustment" data-dependent-show-when="true">
+  <%= f.radio_button :type, :bonus %>
+  <%= f.label :type, t(:type_bonus, scope: [:activerecord, :attributes, :question]), :value => :bonus, :class => 'inline' %>
+  <span class="inline separator">/</span>
+  <%= f.radio_button :type, :penalty %>
+  <%= f.label :type, t(:type_penalty, scope: [:activerecord, :attributes, :question]), :value => :penalty, :class => 'inline' %>
+</div>
+<div class="row dependent row-short" data-dependent-on="question_has_adjustment" data-dependent-show-when="true">
+  <%= f.label :adjustment_time, t(:adjustment_time, scope: [:activerecord, :attributes, :question]) %>
+  <%= f.text_field :adjustment_time %>
+</div>
+
+<style type="text/css">
+  .row span {
+    font-size: .875rem;
+  }
+
+  .row-short input {
+    width: 100px;
+    display: inline-block;
+  }
+</style>

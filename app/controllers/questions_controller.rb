@@ -3,11 +3,19 @@ class QuestionsController < AdminController
   before_action :find_game
   before_action :ensure_author
   before_action :find_level
-  before_action :build_question, :only => [:new, :create]
-  before_action :find_question, :only => [:destroy]
+  before_action :build_question, :only => [:create]
+  before_action :find_question, :only => [:destroy, :edit, :update]
 
-  def new
+  def edit
     render
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_back :fallback_location => [@level.game, @level]
+    else
+      render :edit
+    end
   end
 
   def create
@@ -30,11 +38,22 @@ class QuestionsController < AdminController
     redirect_to [@level.game, @level]
   end
 
-
   protected
 
   def question_params
-    params[:question].permit! unless params[:question].nil?
+    if params[:question].nil?
+      return nil
+    end
+
+    params[:question][:penalty_time] = params[:question][:adjustment_time].to_i.abs
+
+    if !params[:question][:has_adjustment]
+      params[:question][:penalty_time] = nil
+    elsif params[:question][:type] == "bonus"
+      params[:question][:penalty_time] = params[:question][:penalty_time] * -1
+    end
+
+    params[:question].permit!
   end
 
   def find_game

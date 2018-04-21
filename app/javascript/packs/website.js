@@ -7,6 +7,7 @@ import '../components/new_game'
 import '../components/froala_textarea'
 import '../components/game_stats'
 import '../components/forms/level'
+import '../components/forms/question'
 import '../components/mobile_menu'
 
 document.addEventListener('DOMContentLoaded', () => {

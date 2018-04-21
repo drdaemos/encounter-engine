@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
 
   def create
     if @answer.save
-      redirect_to [@game, @level, @question, :answers]
+      redirect_back :fallback_location => [@level.game, @level]
     else
       render :index
     end
