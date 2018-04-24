@@ -1,5 +1,7 @@
 # encounter-engine
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/drdaemos/encounter-engine.png?columns=all&style=flat-square)](https://waffle.io/drdaemos/encounter-engine?utm_source=badge)
+
 Движок активных городских игр с открытым исходным кодом, сделанный по мотивам проектов ENcounter, DozoR и подобных. Стек технологий - Rails 5.1, Webpack 2, Vue 2. Данный репозиторий основан на коде проекта [DanielVartanov/encounter-engine](https://github.com/DanielVartanov/encounter-engine).
 
 ## Требования к системе
