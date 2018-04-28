@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"
   mount_uploader :avatar, AvatarUploader
 
+  before_create :set_default_access_level
   validates_presence_of :email, :message => "Не введён e-mail"
 
   validates_uniqueness_of :email,
@@ -54,5 +55,11 @@ class User < ApplicationRecord
     if self.access_level?(:admin) then return 'Администратор' end
     if self.access_level?(:organizer) then return 'Организатор' end
     if self.access_level?(:player) then return 'Игрок' end
+  end
+
+  private
+
+  def set_default_access_level
+    self.access_level << :organizer
   end
 end
