@@ -17,8 +17,8 @@
 
     <% @invitations.each do |invitation| %>
       <p>Вас пригласили в команду <%= invitation.to_team.name %>
-        <em><%= link_to "(принять)", {:controller => "invitations", :action => "accept", :id => invitation.id}, :id => "accept-invitation-#{invitation.id}" %></em>
-        <em><%= link_to "(отказаться)", {:controller => "invitations", :action => "reject", :id => invitation.id}, :id => "reject-invitation-#{invitation.id}" %></em>
+        <em><%= link_to "(принять)", accept_invitation_path(invitation), :method => :post, :id => "accept-invitation-#{invitation.id}" %></em>
+        <em><%= link_to "(отказаться)",  reject_invitation_path(invitation), :method => :post, :id => "reject-invitation-#{invitation.id}" %></em>
       </p>
     <% end %>
 

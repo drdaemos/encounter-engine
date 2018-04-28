@@ -44,6 +44,9 @@ ru:
         penalty_time: Время (в секундах)
         submit: Добавить код
         update: Сохранить
+      invitation:
+        for_user: Ник участника
+        submit: Отправить приглашение
       answer:
         value: Вариант кода
         submit: Добавить

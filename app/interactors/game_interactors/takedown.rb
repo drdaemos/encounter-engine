@@ -3,7 +3,7 @@ module GameInteractors
     include Interactor
 
     def call
-      context.fail! if !context.game.finished? || !context.user.can_edit?(context.game)
+      context.fail! if !context.game.finished? || context.user.nil? || !context.user.can_edit?(context.game)
 
       game = context.game
       game.is_published = false

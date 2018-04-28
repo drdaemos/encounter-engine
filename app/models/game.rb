@@ -52,6 +52,14 @@ class Game < ApplicationRecord
     Game.all.select {|game| user.can_edit?(game) }
   end
 
+  def self.tested_by(user)
+    Game.all.select {|game| user.can_edit?(game) && game.is_testing? && game.started? }
+  end
+
+  def self.edited_and_finished(user)
+    Game.all.select {|game| user.can_edit?(game) && game.finished? }
+  end
+
   def self.active(user)
     Game.started - Game.finished
   end
@@ -60,10 +68,10 @@ class Game < ApplicationRecord
     games = Game.published
 
     unless user.nil?
-      games = games + Game.edited_by(user)
+      games = games + Game.tested_by(user) + Game.edited_and_finished(user)
     end
 
-    return games
+    return games.uniq
   end
 
   def author_finished?

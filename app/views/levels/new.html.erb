@@ -1,16 +1,30 @@
-<div class="errors">
-  <%= error_messages_for @level, :header => "<h2>Ошибки</h2>" %>
-</div>
+<div class="level-page">
+  <%= render 'navigation', :levels => @game.levels, :current => nil, :game => @game %>
 
-<%= form_for [@level.game, @level], :data => { "model": "level" } do |f| %>
-  <%= render 'form', :hint => @hint, :f => f %>
-  <div class="row">
-    <%= f.label :correct_answer, t(:correct_answer, scope: [:activerecord, :attributes, :level]) %>
-    <%= f.text_field :correct_answer %>
-    <em><%= t(:correct_answer_hint, scope: [:activerecord, :attributes, :level]) %></em>
+  <h3 class="heading">
+    <span>Новый уровень</span>
+    <small>(игра "<%= link_to @game.name, @game %>")</small>
+  </h3>
+
+  <div class="errors">
+    <%= error_messages_for @level, :header => "<h2>Ошибки</h2>" %>
   </div>
-  <div class="row form-actions">
-      <%= f.submit  t(:submit, scope: [:activerecord, :attributes, :level]) %>
-      <em><%= link_to "(отменить)", @level.game %></em>
-  </div>
-<% end %>
+
+  <%= form_for [@level.game, @level], :data => { "model": "level" } do |f| %>
+    <%= render 'form', :hint => @hint, :f => f %>
+
+    <hr>
+
+    <div class="row">
+      <%= f.label :correct_answer, t(:correct_answer, scope: [:activerecord, :attributes, :level]) %>
+      <%= f.text_field :correct_answer %>
+      <em><%= t(:correct_answer_hint, scope: [:activerecord, :attributes, :level]) %></em>
+    </div>
+
+    <div class="row form-actions">
+        <%= f.submit  t(:submit, scope: [:activerecord, :attributes, :level]) %>
+        <em><%= link_to "(вернуться)", @level.game %></em>
+    </div>
+  <% end %>
+
+</div>

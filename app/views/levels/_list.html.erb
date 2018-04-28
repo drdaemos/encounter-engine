@@ -6,4 +6,7 @@
         <%= link_to "↓", [:move_down, level.game, level] unless level.last? %>
       </div>
     <% end %>
+    <% if levels.empty? %>
+      <p>Уровни отсутствуют.</p>
+    <% end %>
 </div>

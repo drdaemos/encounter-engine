@@ -24,6 +24,12 @@ class User < ApplicationRecord
   validates_uniqueness_of :nickname,
     :message => "Пользователь с таким именем уже зарегистрирован"
 
+  scope :without_team, -> { where(team_id: nil) }
+
+  def self.free_players
+    self.without_team
+  end
+
   def member_of_any_team?
     !! team
   end

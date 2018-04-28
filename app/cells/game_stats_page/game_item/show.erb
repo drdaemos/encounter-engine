@@ -9,8 +9,10 @@
         <%= link_to "Завершить тестирование", finish_test_game_path(model.id), :class => 'right-link' %>
       <% elsif !model.is_testing? && !model.finished? %>
         <%= link_to "Завершить", end_game_game_path(model.id), :class => 'right-link' %>
-      <% elsif model.finished? %>
+      <% elsif model.finished? && !model.published? %>
         <%= link_to "Опубликовать", publish_stats_path(model), :class => 'right-link', :method => :post %>
+      <% elsif model.finished? && model.published? %>
+        <%= link_to "Снять с публикации", takedown_stats_path(model), :class => 'right-link', :method => :post %>
       <% end %>
     <% end %>
   </h3>

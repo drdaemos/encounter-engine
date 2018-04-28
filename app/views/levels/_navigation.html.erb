@@ -1,7 +1,7 @@
 <div class="levels-navigation">
   <ul class="pagination" role="navigation" aria-label="Pagination">
     <% levels.each do |level| %>
-      <% if level.id === current.id %>
+      <% if !current.nil? && level.id === current.id %>
         <li class="level-item current">
           <%= level.position %>
         </li>
@@ -13,5 +13,5 @@
       <% end %>
     <% end %>
   </ul>
-  <%= link_to "Добавить уровень", new_game_level_path(game), :class => "heading-link" unless game.started? %>
+  <%= link_to "Добавить уровень", new_game_level_path(game), :class => "heading-link" unless game.started? || current_page?(new_game_level_path(game)) %>
 </div>

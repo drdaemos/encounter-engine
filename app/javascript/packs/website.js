@@ -1,6 +1,6 @@
 import 'foundation-sites'
 import 'stylesheets/website.scss'
-import 'jquery-ujs'
+import {} from 'jquery-ujs'
 import moment from 'moment'
 
 import '../components/new_game'

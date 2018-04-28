@@ -80,7 +80,12 @@ protected
   end
 
   def invitation_params
-    params[:invitation].permit(:recepient_nickname) unless params[:invitation].nil?
+    if params[:invitation].nil?
+      return nil
+    end
+
+    params[:invitation][:for_user] = User.find params[:invitation][:for_user]
+    params[:invitation].permit!
   end
 
   def build_invitation

@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
   resources :teams
 
-  resources :invitations
+  resources :invitations do
+    member do
+      post 'accept'
+      post 'reject'
+    end
+  end
 
   resources :games do
     resources :levels do
@@ -38,6 +43,8 @@ Rails.application.routes.draw do
   get '/play/:game_id', to: 'game_passings#show_current_level', as: :show_current_level
   post '/play/:game_id', to: 'game_passings#post_answer', as: :post_answer
   post '/play/:game_id/exit_game', to: 'game_passings#exit_game', as: :exit_game
+
+  get '/user_list', to: 'users#list', as: :user_list
 
   get '/stats', to: 'game_stats#index', as: :stats
   get '/stats/:game_id/show', to: 'game_stats#show', as: :game_stats

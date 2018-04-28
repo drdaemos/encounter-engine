@@ -7,6 +7,7 @@ class GameStatsController < ApplicationController
   before_action :build_adjustment, :only => [:adjustments, :add_adjustment]
   before_action :ensure_team_member, :only => [:finish]
   before_action :ensure_author, :only => [:publish, :takedown]
+  before_action :ensure_author_if_not_published, :only => [:show]
 
   def index
     @games = Game.results_available_for(current_user)
@@ -38,12 +39,12 @@ class GameStatsController < ApplicationController
   end
 
   def publish
-    GameInteractors::Publish.call({:game => @game})
+    GameInteractors::Publish.call({:game => @game, :user => current_user})
     redirect_back :fallback_location => game_stats_path(@game)
   end
 
   def takedown
-    GameInteractors::Takedown.call({:game => @game})
+    GameInteractors::Takedown.call({:game => @game, :user => current_user})
     redirect_back :fallback_location => game_stats_path(@game)
   end
 
@@ -97,5 +98,11 @@ class GameStatsController < ApplicationController
 
   def find_game_passings
     @game_passings = GamePassing.of_game(@game)
+  end
+
+  def ensure_author_if_not_published
+    unless @game.published?
+      ensure_author
+    end
   end
 end

@@ -8,9 +8,15 @@
       <li <%= current_page?(edit_game_path(model)) ? 'class="is-active"' : '' %>>
         <%= link_to "Настройки игры и анонс", edit_game_path(model) %>
       </li>
-      <li <%= current_page?(edit_game_level_path(model, model.levels.first)) ? 'class="is-active"' : '' %>>
-        <%= link_to "Редактирование уровней", edit_game_level_path(model, model.levels.first) unless model.levels.empty? %>
-      </li>
+      <% if model.levels.empty? %>
+        <li <%= current_page?(new_game_level_path(model)) ? 'class="is-active"' : '' %>>
+          <%= link_to "Добавить уровень", new_game_level_path(model) %>
+        </li>
+      <% else %>
+        <li <%= current_page?(game_level_path(model, model.levels.first)) ? 'class="is-active"' : '' %>>
+          <%= link_to "Редактирование уровней", game_level_path(model, model.levels.first) %>
+        </li>
+      <% end %>
     <% end %>
     <% if model.started? && !model.finished? %>
       <li <%= current_page?(game_stats_path(model)) ? 'class="is-active"' : '' %>>

@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     render
   end
 
+  def list
+    @users = User.free_players
+    render :json => @users.to_a
+  end
+
   def show
     render
   end

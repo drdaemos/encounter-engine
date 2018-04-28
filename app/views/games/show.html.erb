@@ -15,7 +15,7 @@
       <div class="game-levels-list">
         <h4 class="heading">
           <span>Список уровней</span>
-          <%= link_to "Добавить задание", new_game_level_path(@game), :class => "heading-link" unless @game.started? %>
+          <%= link_to "Добавить", new_game_level_path(@game), :class => "heading-link" unless @game.started? %>
         </h4>
         <%= render 'levels/list', :levels => @game.levels %>
       </div>

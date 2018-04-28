@@ -13,6 +13,6 @@
   <%= render 'form', :hint => @hint, :f => f %>
   <div class="row form-actions">
     <%= f.submit t(:update, scope: [:activerecord, :attributes, :level]) %>
-    <%= link_to "(отменить)", [@level.game, @level] %>
+    <%= link_to "(вернуться)", [@level.game, @level] %>
   </div>
 <% end %>
