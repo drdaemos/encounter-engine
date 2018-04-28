@@ -1,6 +1,16 @@
 ru:
+
   activerecord:
     attributes:
+      user:
+        nickname: Ник
+        email: Email
+        password: Пароль
+        remember_me: Запомнить меня
+        current_password: Старый пароль
+        password_confirmation: Еще раз пароль (на всякий случай)
+        submit: Создать
+        update: Сохранить
       game:
         name: Название игры
         poster: Постер
@@ -29,9 +39,9 @@ ru:
       hint:
         access_code: Код спойлера
         text: Текст
-        delay_in_minutes: Время до подсказки
-        penalty_time_in_minutes: Время до подсказки
-        penalty_time: Штрафное время
+        delay_in_minutes: Время до подсказки (если нет кода спойлера)
+        penalty_time_in_minutes: Штрафное время для спойлера (в минутах)
+        penalty_time: Штрафное время для спойлера
         submit: Добавить подсказку
         update: Сохранить
       question:

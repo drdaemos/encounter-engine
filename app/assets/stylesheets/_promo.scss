@@ -1,10 +1,10 @@
 .top-banner.promo-block {
-  height: 32rem;
+  height: 28rem;
   overflow: hidden;
   position: relative;
 
   @include breakpoint(medium down) {
-    height: 24rem;
+    height: 20rem;
   }
 
   .center-container {
@@ -22,18 +22,25 @@
 
   .hero-heading {
     font-family: $hero-font-family;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: $light-font-weight;
     text-shadow: 0 0 2px $body-background;
     color: $accent-color;
-    line-height: 1.25;
+    line-height: 1.5;
+    max-width: 900px;
 
     @include breakpoint(medium down) {
       font-size: 2rem;
     }
+
+    hr {
+      border-color: #ccc;
+    }
   }
 
   .calls-to-action {
+    margin-top: 3rem;
+
     .button {
       margin: 1rem;
       font-size: 1.1rem;
@@ -57,6 +64,6 @@
     background-position: bottom;
     background-size: cover;
     box-shadow: inset 0 0 1px 1px #222, 0 1px 5px 2px rgba(0,0,0,.5);
-    filter: blur(2px);
+    filter: blur(4px) grayscale(50%);
   }
 }
