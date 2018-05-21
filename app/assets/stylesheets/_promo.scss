@@ -4,7 +4,7 @@
   position: relative;
 
   @include breakpoint(medium down) {
-    height: 20rem;
+    height: 24rem;
   }
 
   .center-container {
@@ -30,7 +30,7 @@
     max-width: 900px;
 
     @include breakpoint(medium down) {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
 
     hr {
