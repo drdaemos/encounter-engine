@@ -31,13 +31,13 @@
       <div class="game-description">
         <%= raw game.description %>
       </div>
-      <% unless game.accessories.empty? %>
+      <% unless game.accessories.nil? or game.accessories.empty? %>
       <div class="game-accessories">
         <em>Дополнительные принадлежности</em>:
         <%= raw game.accessories %>
       </div>
       <% end %>
-      <% unless game.notes.empty? %>
+      <% unless game.notes.nil? or game.notes.empty? %>
       <div class="game-notes">
         <em>Примечания к игре</em>:
         <%= raw game.notes %>
