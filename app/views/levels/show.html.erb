@@ -4,7 +4,7 @@
   <h3 class="heading">
     <span>Уровень "<strong><%= @level.name %></strong>"</span>
     <small>(игра "<%= link_to @game.name, @game %>")</small>
-    <%= link_to "Удалить", [@game, @level], :class => 'right-link', :method => :delete %>
+    <%= link_to "Удалить", [@game, @level], :class => 'right-link', :method => :delete, :data => {:confirm => "Вы уверены, что собираетесь удалить уровень?"} %>
   </h3>
 
   <h4 class="page-section">Текст уровня:</h4>

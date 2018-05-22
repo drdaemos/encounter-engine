@@ -2,7 +2,7 @@
   <h2 class="heading">
     <span>Команда &laquo;<%= @team.name %>&raquo;</span>
     <% if user_can_edit? %>
-      <%= link_to "Расформировать", team_path, :method => :delete, :class => "heading-link" %>
+      <%= link_to "Расформировать", team_path, :method => :delete, :class => "heading-link", :data => {:confirm => "Вы уверены, что собираетесь удалить команду?"} %>
     <% end %>
   </h2>
 

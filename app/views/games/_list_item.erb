@@ -17,7 +17,7 @@
         <% if game.author_finished? %>
           <span class="sticker finished">завершена</span>
         <% end %>
-        <%= link_to "Удалить", game, :class => 'right-link', :method => :delete %>
+        <%= link_to "Удалить", game, :class => 'right-link', :method => :delete, :data => {:confirm => "Вы уверены, что собираетесь удалить игру?"} %>
       <% end %>
     <% end %>
   </h5>

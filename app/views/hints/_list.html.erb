@@ -34,7 +34,7 @@
             <%= link_to [:edit, hint.level.game, hint.level, hint] do %>
               <i class="far fa-edit"></i>
             <% end %>
-            <%= link_to [hint.level.game, hint.level, hint], :method => :delete do %>
+            <%= link_to [hint.level.game, hint.level, hint], :method => :delete, :data => {:confirm => "Вы уверены, что собираетесь удалить подсказку?"} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>
