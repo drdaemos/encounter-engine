@@ -29,7 +29,7 @@ protected
   end
 
   def render_sidebar?
-    true
+    controller_name != "sessions"
   end
 
   def configure_permitted_parameters

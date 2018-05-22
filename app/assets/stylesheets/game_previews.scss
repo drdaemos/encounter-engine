@@ -1,6 +1,10 @@
 .game-previews {
   .separator {
     margin-top: 4rem;
+
+    &:last-child {
+      display: none;
+    }
   }
 }
 

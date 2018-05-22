@@ -6,6 +6,7 @@ html, body {
 }
 
 #encounter-app {
+  height: 100vh;
 }
 
 #encounter-app:after {
@@ -21,6 +22,7 @@ html, body {
 .app-grid {
   @include xy-grid(vertical);
   overflow: initial;
+  min-height: 100%;
 }
 
 .header-section {
@@ -37,14 +39,19 @@ html, body {
   @include xy-grid-container;
 }
 
+.footer-container {
+  box-shadow: 0 -1px 0 0 rgba(74, 74, 74, .3);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .center-section {
   margin-top: 2rem;
 }
 
 .footer-section {
-  border-top: 1px solid rgba(0,0,0,.1);
-  margin-top: 2rem;
-  padding: 1rem;
+  margin-top: auto;
+  padding-top: 2rem;
   opacity: .75;
 }
 
@@ -62,7 +69,7 @@ html, body {
 }
 
 .main-container {
-  @include xy-cell(auto, $gutter-position: right);
+  @include xy-cell(auto, $gutters: 0);
 
   @include breakpoint(medium down) {
     @include xy-cell(100%, $gutters: 0);
@@ -93,6 +100,24 @@ html, body {
 
 .add-link {
   margin-top: 1rem;
+}
+
+footer {
+  .links {
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    a {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      opacity: .3;
+
+      &:hover, &:focus {
+        opacity: .7;
+      }
+    }
+  }
+
 }
 
 .form-actions {
