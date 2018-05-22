@@ -29,6 +29,9 @@ class Game < ApplicationRecord
   validate :deadline_is_in_future
   validate :deadline_is_before_game_start
 
+  validate :finish_time_is_in_future
+  validate :finish_time_is_after_game_start
+
   default_scope { order(created_at: :desc) }
   scope :by, ->(author) { where(author_id: author) }
   scope :non_drafts, -> { where(is_draft: false) }
@@ -45,7 +48,7 @@ class Game < ApplicationRecord
   end
 
   def self.available_for(user)
-    Game.all.select {|game| game.is_available_for(user) }
+    Game.all.select {|game| game.is_available_for?(user) }
   end
 
   def self.edited_by(user)
@@ -102,7 +105,7 @@ class Game < ApplicationRecord
     user.author_of?(self)
   end
 
-  def is_available_for(user)
+  def is_available_for?(user)
     !self.finished? && ((!self.draft? && !self.starts_at.nil?) || (!user.nil? && user.can_edit?(self)))
   end
 
@@ -120,6 +123,11 @@ class Game < ApplicationRecord
   def can_request?
     self.requested_teams_number < self.max_team_number
     Game.all.select {|game| !game.started?}
+  end
+
+  def registration_open?
+    deadline = self.registration_deadline.empty? ? self.starts_at : self.registration_deadline
+    Time.now < deadline
   end
 
   def finished_teams
@@ -142,7 +150,7 @@ protected
 
   def game_starts_in_the_future
     if self.author_finished_at.nil? and self.starts_at and self.starts_at < Time.now
-      self.errors.add(:starts_at, "Вы выбрали дату из прошлого. Так нельзя :-)")
+      self.errors.add(:starts_at, "Вы выбрали дату начала игры из прошлого")
     end
   end
 
@@ -153,15 +161,27 @@ protected
       end
     end
   end
+
   def deadline_is_in_future
     if self.author_finished_at.nil? and self.registration_deadline and self.registration_deadline < Time.now
-        self.errors.add(:registration_deadline,"Вы указали крайний срок регистрации из прошлого, так нельзя :-)")
+        self.errors.add(:registration_deadline,"Вы указали крайний срок регистрации из прошлого")
     end
   end
   def deadline_is_before_game_start
     if self.registration_deadline and
         self.starts_at and self.registration_deadline > self.starts_at
-      self.errors.add(:registration_deadline,"Вы указали крайний срок регистрации больше даты начала игры, так нельзя :-)")
+      self.errors.add(:registration_deadline,"Вы указали крайний срок регистрации позже даты начала игры")
+    end
+  end
+
+  def finish_time_is_in_future
+    if self.author_finished_at.nil? and self.finished_at and self.finished_at < Time.now
+      self.errors.add(:finished_at,"Вы указали время окончания из прошлого")
+    end
+  end
+  def finish_time_is_after_game_start
+    if self.finished_at and self.starts_at and self.starts_at > self.finished_at
+      self.errors.add(:finished_at,"Вы указали время окончания до начала игры")
     end
   end
 end

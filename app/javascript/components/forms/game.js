@@ -2,7 +2,7 @@ import 'foundation-datepicker/css/foundation-datepicker.min.css';
 import 'foundation-datepicker';
 import moment from 'moment';
 
-export default class NewGameView {
+export default class GameFormController {
   constructor() {
     this.render();
   }
@@ -35,10 +35,13 @@ export default class NewGameView {
 
     var now = this.getNowDate();
     now.setDate(now.getDate() - 1);
-    var parsedValue = moment(element.val());
-    var formattedValue = parsedValue.isValid() ? parsedValue.format(this.getMomentOutputFormat()) : null;
 
-    element.val(formattedValue);
+    if (element.val() !== '') {
+      var parsedValue = moment(element.val());
+      var formattedValue = parsedValue.isValid() ? parsedValue.format(this.getMomentOutputFormat()) : null;
+
+      element.val(formattedValue);
+    }
 
     element.fdatepicker({
         format: this.getDatePickerFormat(),
@@ -53,7 +56,10 @@ export default class NewGameView {
     var pickers = this.findDatePickers();
     for (var index in pickers) {
       var value = moment(pickers[index].val(), this.getMomentOutputFormat());
-      pickers[index].val(value.utc().format());
+
+      if (value.isValid()) {
+          pickers[index].val(value.utc().format());
+      }
     }
   }
 
@@ -71,5 +77,5 @@ export default class NewGameView {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new NewGameView();
+    new GameFormController();
 })

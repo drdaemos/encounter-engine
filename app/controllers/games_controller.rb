@@ -119,7 +119,7 @@ class GamesController < ApplicationController
   def game_params   
     if params[:game].nil?
       return Hash.new
-    end    
+    end
     
     params[:game].permit!
   end
