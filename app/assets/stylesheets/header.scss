@@ -60,8 +60,9 @@ header {
   }
 
   .top-menu {
-    @include xy-grid(horizontal);
+    @include xy-grid(horizontal, false);
     @include xy-cell-base(auto);
+    align-items: center;
 
     & > .nav-item {
       padding: $nav-item-padding;
@@ -75,7 +76,7 @@ header {
   }
 
   .login-menu {
-    @include xy-grid(horizontal);
+    @include xy-grid(horizontal, false);
     @include xy-cell-base(auto);
     @include flex-align(right, null);
 

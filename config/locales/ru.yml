@@ -3,7 +3,10 @@ ru:
   activerecord:
     attributes:
       user:
+        avatar: Фото
         nickname: Ник
+        date_of_birth: Дата рождения
+        phone_number: Номер телефона
         email: Email
         password: Пароль
         remember_me: Запомнить меня

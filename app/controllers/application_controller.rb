@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   helper_method :error_messages_for
   helper_method :datetime
   helper_method :render_sidebar?
+  helper_method :is_current_user?
 
   def error_messages_for(*objects)
     options = objects.extract_options!
@@ -29,7 +30,11 @@ protected
   end
 
   def render_sidebar?
-    controller_name != "sessions"
+    !self.is_a? DeviseController
+  end
+
+  def is_current_user?(user)
+    user_signed_in? && current_user.id == user.id
   end
 
   def configure_permitted_parameters

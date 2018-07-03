@@ -1,0 +1,13 @@
+form.new_user {
+  input {
+    max-width: 400px;
+  }
+}
+
+.controller-registrations, .controller-sessions {
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

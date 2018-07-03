@@ -5,7 +5,7 @@
 
 <div class="field">
   <%= f.label :poster, t(:poster, scope: [:activerecord, :attributes, :game]) %>
-  <div class="preview">
+  <div class="image-preview">
   <% if @game.poster? %>
     <%= image_tag @game.poster.url %>
   <% end %>

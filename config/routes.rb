@@ -8,6 +8,12 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:index, :show] do
     resources :games
+
+    member do
+      patch 'update_data'
+      put 'update_data'
+      get 'edit_data'
+    end
   end
 
   resources :teams

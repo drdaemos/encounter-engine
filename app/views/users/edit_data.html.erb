@@ -1,0 +1,36 @@
+<h2 class="heading">
+  <span>Редактирование профиля игрока <%= @user.nickname %></span>
+</h2>
+
+<div class="errors">
+  <%= error_messages_for @user, :header => "<h2>Ошибки</h2>" %>
+</div>
+
+<%= form_for @user, :url => update_data_user_path(@user), :data => { "model": "user" }, :html => {:multipart => true} do |f| %>
+  <div class="field">
+    <%= f.label :avatar, t(:avatar, scope: [:activerecord, :attributes, :user]) %>
+    <div class="image-preview">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url %>
+      <% end %>
+    </div>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname, t(:nickname, scope: [:activerecord, :attributes, :user]) %>
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth, t(:date_of_birth, scope: [:activerecord, :attributes, :user]) %>
+    <%= f.text_field :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number, t(:phone_number, scope: [:activerecord, :attributes, :user]) %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="row form-actions">
+    <%= f.submit t(:update, scope: [:activerecord, :attributes, :user]) %>
+    <%= link_to "(вернуться)", :dashboard %>
+  </div>
+<% end %>

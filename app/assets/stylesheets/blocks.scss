@@ -35,6 +35,14 @@
   }
 }
 
+.image-preview {
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 1rem;
+  border-radius: $global-radius;
+  overflow: hidden;
+}
+
 .image-special-block {
   @extend .special-block;
   background-image: url("../images/placeholder.png");

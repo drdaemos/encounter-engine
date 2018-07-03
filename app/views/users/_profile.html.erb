@@ -1,26 +1,45 @@
-<h2 class="heading">
-  <b><%= user.nickname %></b>
-  <small>
-    <% if user.captain? %>
-      (капитан команды <%= link_to user.team.name, team_path(user.team) %>)
-    <% end %>
-  </small>
-</h2>
-<h4>Группа доступа: <span class="label"><%= user.get_access_level_label %></span></h4>
-<br>
+<div class="user-profile">
+  <div class="user-info">
+    <h2 class="heading">
+      <b><%= user.nickname %></b>
+      <small>
+        <% if user.captain? %>
+          (капитан команды <%= link_to user.team.name, team_path(user.team) %>)
+        <% end %>
+      </small>
+    </h2>
+    <h4>Группа доступа: <span class="label"><%= user.get_access_level_label %></span></h4>
+    <h4><span>Личные данные</span></h4>
+    <table class="user-data">
+      <tr>
+        <td width="150"><b>E-mail:</b></td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td><b>Дата рождения:</b></td>
+        <td><%= user.date_of_birth || "Не указана" %></td>
+      </tr>
+      <tr>
+        <td><b>Телефон:</b></td>
+        <td><%= user.phone_number %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="user-avatar">
+    <div class="image-preview">
+      <% if user.avatar? %>
+        <%= image_tag user.avatar.url %>
+      <% else %>
+        <%= image_tag "/images/default_avatar.png" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr><td width="150"><b>E-mail:</b></td>
-    <td><%= user.email %></td></tr>
-  <tr><td><b>Дата рождения:</b></td>
-    <td><%= user.date_of_birth %></td></tr>
-  <tr><td><b>Номер ICQ:</b></td>
-    <td><%= user.icq_number %></td></tr>
-  <tr><td><b>Jabber ID:</b></td>
-    <td><%= user.jabber_id %></td></tr>
-  <% if user.captain? %>
-    <tr><td><b>Контактный телефон:</b></td>
-      <td><%= user.phone_number %></td></tr>
-  <% end %>
-</table>
-<br>
+<% if is_current_user?(user) %>
+  <div class="buttons">
+    <%= link_to "Поменять e-mail или пароль", :edit_user_registration %>
+    <br>
+    <%= link_to "Редактировать личные данные", edit_data_user_path(user) %>
+  </div>
+<% end %>

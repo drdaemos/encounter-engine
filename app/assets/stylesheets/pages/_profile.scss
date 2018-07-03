@@ -1,0 +1,22 @@
+.user-profile {
+  @include xy-grid(horizontal);
+  @include xy-cell-base(auto);
+
+  .user-info {
+    @include xy-cell(auto, $gutters: 0);
+
+    @include breakpoint(medium down) {
+      margin-top: 2rem;
+      order: 2;
+      @include xy-cell(100%, $gutters: 0);
+    }
+  }
+
+  .user-avatar {
+    @include xy-cell(4 of 12, $gutter-position: left);
+    @include breakpoint(medium down) {
+      order: 1;
+      @include xy-cell(100%, $gutters: 0);
+    }
+  }
+}
