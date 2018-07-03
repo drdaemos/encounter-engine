@@ -172,3 +172,9 @@ Setting.create! ({
     :label => 'Название сайта',
     :value => 'Автоквест Ульяновск'
 })
+
+Setting.create! ({
+    :key => 'site_from',
+    :label => 'Адрес FROM',
+    :value => 'autoquest@localhost'
+})

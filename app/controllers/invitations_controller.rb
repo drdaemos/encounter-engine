@@ -16,7 +16,7 @@ class InvitationsController < ApplicationController
   def create
     if @invitation.save
       send_invitation_notification(@invitation)
-      redirect_to [:new, :invitations], :message => "Пользователю #{@invitation.recepient_nickname} выслано приглашение"
+      redirect_to new_invitation_path, :message => "Пользователю #{@invitation.recepient_nickname} выслано приглашение"
     else
       @all_users = User.all
       render :new
@@ -44,27 +44,30 @@ class InvitationsController < ApplicationController
 protected
 
   def send_invitation_notification(invitation)
-    # send_mail NotificationMailer, :invitation_notification,
-    #   { :to => invitation.for_user.email,
-    #     :from => "noreply@bien.kg",
-    #     :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}" },
-    #   { :team => invitation.to_team }
+    NotificationMailer
+        .invitation_notification(:to => invitation.for_user.email,
+              :from => get_from_email,
+              :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}",
+              :team => invitation.to_team)
+        .deliver_now
   end
 
   def send_reject_notification(invitation)
-    # send_mail NotificationMailer, :reject_notification,
-    #   { :to => invitation.to_team.captain.email,
-    #     :from => "noreply@bien.kg",
-    #     :subject => "Пользователь #{invitation.for_user.nickname} отказался от приглашения" },
-    #   { :user => invitation.for_user }
+    NotificationMailer
+        .reject_notification(:to => invitation.to_team.captain.email,
+              :from => get_from_email,
+              :subject => "Пользователь #{invitation.for_user.nickname} отказался от приглашения",
+              :user => invitation.for_user)
+        .deliver_now
   end
 
   def send_accept_notification(invitation)
-    # send_mail NotificationMailer, :accept_notification,
-    #   { :to => invitation.to_team.captain.email,
-    #     :from => "noreply@bien.kg",
-    #     :subject => "Пользователь #{invitation.for_user.nickname} принял Ваше приглашение" },
-    #   { :user => invitation.for_user }
+    NotificationMailer
+        .accept_notification(:to => invitation.to_team.captain.email,
+              :from => get_from_email,
+              :subject => "Пользователь #{invitation.for_user.nickname} принял Ваше приглашение",
+              :user => invitation.for_user)
+        .deliver_now
   end
 
   def add_user_to_team_members
@@ -86,6 +89,10 @@ protected
 
     params[:invitation][:for_user] = User.find params[:invitation][:for_user]
     params[:invitation].permit!
+  end
+
+  def get_from_email
+    get_setting('site_from') || "autoquest@localhost.com"
   end
 
   def build_invitation
