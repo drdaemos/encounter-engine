@@ -1,36 +1,17 @@
-<fieldset>
-  <legend>
-    Моя команда
-  </legend>
-  
-  <% unless current_user.member_of_any_team? %>
-
-    <p>
-      Вы не состоите ни в одной из команд
-    </p>
-
-    <p>
-      <%= link_to "Создать команду", :new_team %>
-    </p>
-    
-    <br />
-
-    <% @invitations.each do |invitation| %>
-      <p>Вас пригласили в команду <%= invitation.to_team.name %>
-        <em><%= link_to "(принять)", accept_invitation_path(invitation), :method => :post, :id => "accept-invitation-#{invitation.id}" %></em>
-        <em><%= link_to "(отказаться)",  reject_invitation_path(invitation), :method => :post, :id => "reject-invitation-#{invitation.id}" %></em>
-      </p>
+<% unless @invitations.empty? %>
+  <div class="dashboard-invitations">
+    <% unless current_user.member_of_any_team? %>
+      <h4 class="current-team">
+        Приглашения в команды
+      </h4>
+      <div class="team-invitations">
+        <% @invitations.each do |invitation| %>
+          <p>Вас пригласили в команду <%= invitation.to_team.name %>
+            <em><%= link_to "(принять)", accept_invitation_path(invitation), :method => :post, :id => "accept-invitation-#{invitation.id}" %></em>
+            <em><%= link_to "(отказаться)",  reject_invitation_path(invitation), :method => :post, :id => "reject-invitation-#{invitation.id}" %></em>
+          </p>
+        <% end %>
+      </div>
     <% end %>
-
-  <% else %>
-
-    <p>
-      <%= current_user.captain? ? "Вы - капитан команды" : "Вы состоите в команде" %> <strong><%= current_user.team.name %></strong>
-    </p>
-    
-    <p>
-      <%= link_to "Перейти в комнату команды", team_path(current_user.team) %>
-    </p>
-
-  <% end %>
-</fieldset>
+  </div>
+<% end %>

@@ -2,9 +2,11 @@
   <div class="user-info">
     <h2 class="heading">
       <b><%= user.nickname %></b>
-      <small>
-        <% if user.captain? %>
-          (капитан команды <%= link_to user.team.name, team_path(user.team) %>)
+      <small class="current-team">
+        <% if user.member_of_any_team? %>
+          [<%= user.captain? ? "капитан " : "" %><%= link_to user.team.name, team_path(user.team) %>]
+        <% else %>
+          [без команды]
         <% end %>
       </small>
     </h2>
@@ -41,5 +43,9 @@
     <%= link_to "Поменять e-mail или пароль", :edit_user_registration %>
     <br>
     <%= link_to "Редактировать личные данные", edit_data_user_path(user) %>
+    <% if user.member_of_any_team? && !user.captain? %>
+      <br>
+      <%= link_to "Покинуть команду", leave_team_user_path(user), :method => :post, :data => {:confirm => "Вы уверены, что собираетесь покинуть команду?"} %>
+    <% end %>
   </div>
 <% end %>

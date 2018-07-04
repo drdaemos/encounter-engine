@@ -1,25 +1,8 @@
 <div class="user-page">
   <%= render 'users/profile', :user => current_user %>
+  <%= render 'dashboard/my_team' %>
+  <%= render 'shared/current_games' %>
+  <%= render 'dashboard/coming_games' %>
+  <%= render 'dashboard/finished_games' %>
+  <%= render 'games/game_entries', :game_entries => @game_entries  %>
 </div>
-
-<%= render 'dashboard/my_team' %>
-
-<br />
-
-<%= render 'shared/current_games' %>
-
-<br />
-
-<%= render 'dashboard/coming_games' %>
-
-<br />
-
-<%= render 'dashboard/finished_games' %>
-
-<br />
-
-<%= render 'games/game_entries', :game_entries => @game_entries  %>
-
-<br />
-
-<%= render 'games/teams', :teams => @teams  %>

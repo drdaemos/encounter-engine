@@ -1,8 +1,14 @@
 <div class="stats-index-page">
   <h2 class="heading"><span>Результаты прошедших игр</span></h2>
-  <div class="games-listing">
-  <% @games.each do |game| %>
-    <%= cell(GameStatsPage::GameItem, game) %>
+  <% unless @games.empty? %>
+    <div class="games-listing">
+    <% @games.each do |game| %>
+      <%= cell(GameStatsPage::GameItem, game) %>
+    <% end %>
+    </div>
+  <% else %>
+    <div class="empty-list">
+      Здесь пока пусто
+    </div>
   <% end %>
-  </div>
 </div>

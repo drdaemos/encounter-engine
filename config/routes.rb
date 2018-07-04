@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :games
 
     member do
+      post 'leave_team'
       patch 'update_data'
       put 'update_data'
       get 'edit_data'

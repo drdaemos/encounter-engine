@@ -16,7 +16,7 @@ class InvitationsController < ApplicationController
   def create
     if @invitation.save
       send_invitation_notification(@invitation)
-      redirect_to new_invitation_path, :message => "Пользователю #{@invitation.recepient_nickname} выслано приглашение"
+      redirect_back :fallback_location => team_path(@invitation.to_team), :notice => "Игроку #{@invitation.for_user.nickname} выслано приглашение"
     else
       @all_users = User.all
       render :new
@@ -25,11 +25,8 @@ class InvitationsController < ApplicationController
 
   def accept
     add_user_to_team_members
-
     @invitation.delete
-
     send_accept_notification(@invitation)
-
     reject_rest_of_invitations
 
     redirect_to :dashboard
@@ -56,7 +53,7 @@ protected
     NotificationMailer
         .reject_notification(:to => invitation.to_team.captain.email,
               :from => get_from_email,
-              :subject => "Пользователь #{invitation.for_user.nickname} отказался от приглашения",
+              :subject => "Игрок #{invitation.for_user.nickname} отказался от приглашения",
               :user => invitation.for_user)
         .deliver_now
   end
@@ -65,7 +62,7 @@ protected
     NotificationMailer
         .accept_notification(:to => invitation.to_team.captain.email,
               :from => get_from_email,
-              :subject => "Пользователь #{invitation.for_user.nickname} принял Ваше приглашение",
+              :subject => "Игрок #{invitation.for_user.nickname} принял Ваше приглашение",
               :user => invitation.for_user)
         .deliver_now
   end
@@ -106,7 +103,7 @@ protected
 
   def ensure_recepient
     unless current_user.id == @invitation.for_user.id
-      raise UnauthorizedError, "Вы должны быть получателем приглашения чтобы выполнить это действие"
+      raise UnauthorizedError, "Вы должны быть получателем, чтобы выполнить это действие"
     end
   end
 end

@@ -1,7 +1,7 @@
 <% unless games.empty? %>
   <div class="game-previews">
   <% games.each do |game| %>
-      <%= render 'games/list_item', :game => game, :edit_context => false %>
+      <%= render 'games/preview', :game => game, :edit_context => false %>
       <div class="separator"></div>
   <% end %>
   </div>

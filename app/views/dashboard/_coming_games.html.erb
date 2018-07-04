@@ -1,3 +1,4 @@
+<% unless Game.available_for(current_user).empty? %>
 <div class="upcoming-games">
   <h5 class="heading">
     <span>Предстоящие игры (<%= Game.not_started.count %>)</span>
@@ -5,15 +6,18 @@
   <div class="games-list">
   <% Game.available_for(current_user).each do |game| %>
     <div class="game-item">
-    <b><%= link_to game.name, game %></b> |
+    <b><%= link_to game.name, game %></b>
     <% if game.created_by?(current_user) %>
+      <span> | </span>
       <b>Вы автор игры</b>
     <% else %>
       <% if current_user.captain? %>
+        <span> | </span>
         <% @game_entry = GameEntry.of(@team,game)%>
         <%= render 'shared/game_entry_controls', :game_entry => @game_entry,  :game => game, :team => @team %>
       <% end %>
       <% if user_signed_in? and game.can_be_played_by?(current_user)  %>
+        <span> | </span>
         <%= link_to "Войти", show_current_level_path(game.id), :class => 'right-link' %>
       <% end %>
     <% end %>
@@ -21,3 +25,4 @@
   <% end %>
   </div>
 </div>
+<% end %>
