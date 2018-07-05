@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :nickname, use: :slugged
+  friendly_id :nickname
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,7 +11,7 @@ class User < ApplicationRecord
   bitmask :access_level, :as => [:player, :organizer, :admin]
   belongs_to :team
   has_many :created_games, :class_name => "Game", :foreign_key => "author_id"
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, UserAvatarUploader
 
   before_create :set_default_access_level
   validates_presence_of :email, :message => "Не введён e-mail"
@@ -55,6 +55,10 @@ class User < ApplicationRecord
     if self.access_level?(:admin) then return 'Администратор' end
     if self.access_level?(:organizer) then return 'Организатор' end
     if self.access_level?(:player) then return 'Игрок' end
+  end
+
+  def should_generate_new_friendly_id?
+    nickname_changed? || super
   end
 
   private

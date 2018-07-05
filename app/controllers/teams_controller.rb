@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
   before_action :build_team, :only => [:new, :create]
-  before_action :find_team, :only => [:show, :destroy]
+  before_action :find_team, :only => [:show, :destroy, :edit, :update]
 
   helper_method :user_can_edit?
 
@@ -20,9 +20,21 @@ class TeamsController < ApplicationController
     render
   end
 
+  def edit
+    render
+  end
+
+  def update
+    if @team.update_attributes(team_params)
+      redirect_to @team
+    else
+      render :edit
+    end
+  end
+
   def create
     if @team.save
-      redirect_to team_path(@team)
+      redirect_back :fallback_location => team_path(@team)
     else
       render :new
     end
@@ -40,7 +52,11 @@ protected
   end
 
   def team_params
-    params[:team].permit(:name) unless params[:team].nil?
+    if params[:team].nil?
+      return Hash.new
+    end
+
+    params[:team].permit!
   end
 
   def build_team

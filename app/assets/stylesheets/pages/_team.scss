@@ -1,0 +1,26 @@
+.team-blocks {
+  @include xy-grid(horizontal);
+  @include xy-cell-base(auto);
+
+  .team-info {
+    @include xy-cell(auto, $gutters: 0);
+
+    @include breakpoint(medium down) {
+      margin-top: 2rem;
+      order: 2;
+      @include xy-cell(100%, $gutters: 0);
+    }
+  }
+
+  .team-picture {
+    @include xy-cell(4 of 12, $gutter-position: left);
+    @include breakpoint(medium down) {
+      order: 1;
+      @include xy-cell(100%, $gutters: 0);
+    }
+  }
+}
+
+.dashboard-invitations, .upcoming-games {
+  margin-top: 2rem;
+}

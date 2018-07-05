@@ -1,0 +1,15 @@
+<div class="field">
+  <%= f.label :name, t(:name, scope: [:activerecord, :attributes, :team]) %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :picture, t(:picture, scope: [:activerecord, :attributes, :team]) %>
+  <div class="image-preview">
+    <% if @team.picture? %>
+      <%= image_tag @team.picture.url %>
+    <% end %>
+  </div>
+  <%= f.file_field :picture %>
+  <%= f.hidden_field :picture_cache %>
+</div>

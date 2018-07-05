@@ -45,7 +45,7 @@ FriendlyId.defaults do |config|
   # Most applications will use the :slugged module everywhere. If you wish
   # to do so, uncomment the following line.
   #
-  # config.use :slugged
+  config.use :slugged
   #
   # By default, FriendlyId's :slugged addon expects the slug column to be named
   # 'slug', but you can change it if you wish.
@@ -71,7 +71,7 @@ FriendlyId.defaults do |config|
   #
   # config.use Module.new {
   #   def should_generate_new_friendly_id?
-  #     slug.blank? || <your_column_name_here>_changed?
+  #     slug.blank? || name_changed?
   #   end
   # }
   #
@@ -80,9 +80,9 @@ FriendlyId.defaults do |config|
   # Here we use the Babosa library to transliterate Russian Cyrillic slugs to
   # ASCII. If you use this, don't forget to add "babosa" to your Gemfile.
   #
-  # config.use Module.new {
-  #   def normalize_friendly_id(text)
-  #     text.to_slug.normalize! :transliterations => [:russian, :latin]
-  #   end
-  # }
+  config.use Module.new {
+    def normalize_friendly_id(text)
+      text.to_slug.normalize! :transliterations => [:russian, :latin]
+    end
+  }
 end

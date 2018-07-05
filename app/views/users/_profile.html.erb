@@ -1,15 +1,16 @@
+<h2 class="heading">
+  <b><%= user.nickname %></b>
+  <small class="current-team">
+    <% if user.member_of_any_team? %>
+      [<%= user.captain? ? "капитан " : "" %><%= link_to user.team.name, team_path(user.team) %>]
+    <% else %>
+      [без команды]
+    <% end %>
+  </small>
+</h2>
+
 <div class="user-profile">
   <div class="user-info">
-    <h2 class="heading">
-      <b><%= user.nickname %></b>
-      <small class="current-team">
-        <% if user.member_of_any_team? %>
-          [<%= user.captain? ? "капитан " : "" %><%= link_to user.team.name, team_path(user.team) %>]
-        <% else %>
-          [без команды]
-        <% end %>
-      </small>
-    </h2>
     <h4>Группа доступа: <span class="label"><%= user.get_access_level_label %></span></h4>
     <h4><span>Личные данные</span></h4>
     <table class="user-data">
