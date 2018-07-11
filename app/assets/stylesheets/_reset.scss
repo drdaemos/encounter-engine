@@ -1,0 +1,144 @@
+html, body {
+  font-size: $global-font-size;
+  @include breakpoint(medium down) {
+    font-size: (0.85 * $global-font-size);
+  }
+}
+
+.fr-box {
+  @include bordered();
+  border-radius: $global-radius;
+  margin: 0 0 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.form-actions {
+  @include flex;
+  @include flex-align(left, middle);
+  margin-top: 1rem;
+
+  * + * {
+    margin-left: $global-margin;
+  }
+
+  button, input[type=submit] {
+    margin: 0;
+  }
+}
+
+em {
+  font-weight: $light-font-weight;
+  color: $light-gray;
+  font-style: normal;
+}
+
+a {
+  border-bottom: 1px solid $anchor-underline-color;
+  cursor: pointer;
+}
+
+hr {
+  border-bottom: 1px solid $light-gray-alternative;
+}
+
+hr.invisible {
+  border: none;
+  display: table;
+}
+
+a.no-underline,
+.menu a {
+  border-color: transparent;
+}
+
+.menu a:focus,
+.menu a:active {
+  outline: none;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  .heading-link {
+    font-size: 0.8em;
+  }
+
+  .right-link {
+    margin-left: auto;
+    font-size: 0.8em;
+  }
+
+  .sticker {
+    border-radius: $global-radius;
+    font-size: 1rem;
+    background-color: fade-out($accent-color, .2);
+    color: $body-background;
+    padding: .5rem;
+    margin-left: 1rem;
+  }
+
+  margin-left: -.25rem;
+  margin-right: -.25rem;
+
+  & > * {
+    border-left: solid .25rem transparent;
+    border-right: solid .25rem transparent;
+    box-sizing: border-box;
+    /** relative so that our ::before absolute block can position itself according to it's parent block **/
+    position: relative;
+  }
+
+  & > *::before {
+    content: '';
+    /** pseudo-elements are inline by default **/
+    display: block;
+    /** same height and width than our column **/
+    width: 100%;
+    height: 100%;
+    /** position absolute starting at the top and left of our column **/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /** we want the pseudo-element to be behind our real column **/
+    z-index: -1;
+  }
+
+  & > a {
+    border-bottom: none;
+  }
+
+  & > a::before {
+    border-bottom: 1px solid $light-gray-alternative;
+  }
+}
+
+form {
+  .inline.separator {
+    margin-right: 1rem;
+  }
+
+  label.inline {
+    display: inline;
+  }
+
+  .field_with_errors input {
+    @include form-input-error();
+  }
+}
+
+button, input[type=submit] {
+  @include button();
+}
+
+.pagination a, .pagination button {
+  background-color: $light-gray-alternative;
+}
+
+.dropdown-pane {
+  box-shadow: inset 0 0px 1px 2px rgba(60, 60, 60, .3), 0 0 15px 1px rgba(0, 0, 0, .75);
+}

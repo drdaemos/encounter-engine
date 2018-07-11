@@ -1,5 +1,15 @@
 <h2>Войти в учетную запись</h2>
 
+<div class="social-login-buttons">
+  <% if devise_mapping.omniauthable? %>
+    <% resource_class.omniauth_providers.each do |provider| %>
+      <div class="social-login <%= provider %>">
+        <%= link_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "button" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
     <%= f.label :email %>
