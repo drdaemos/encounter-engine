@@ -1,4 +1,4 @@
 # Run Rails & Webpack concurrently
 # Example file from webpacker gem
-rails: bundle exec bin/rails server
+rails: YANDEX_KEY=b8c1e93a67e64d90af8e7c69d1fdb725 YANDEX_PRIVATE_KEY=f266fc74610944449b076aa1a3650dd7 bundle exec bin/rails server
 webpack: ./bin/webpack-dev-server

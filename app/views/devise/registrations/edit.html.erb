@@ -20,24 +20,26 @@
     <div>Необходимо подтвердить почту: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="row field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(минимум <%= @minimum_password_length %> символов)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off" %>
+  <% unless resource.uid %>
+    <div class="row field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(минимум <%= @minimum_password_length %> символов)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
 
-  </div>
+    </div>
 
-  <div class="row field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="row field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-  <div class="row field">
-    <%= f.label :current_password %> <em>(для подтверждения, что это вы)</em>
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <div class="row field">
+      <%= f.label :current_password %> <em>(для подтверждения, что это вы)</em>
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+  <% end %>
 
   <hr class="invisible">
 

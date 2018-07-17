@@ -13,12 +13,7 @@ gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-# 
 gem 'acts_as_list'
 gem 'bcrypt', platforms: :ruby
 gem 'devise' # Authorization
@@ -37,6 +32,11 @@ gem "interactor-rails"
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
+
+# oauth
+gem 'omniauth-vkontakte'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-yandex'
 
 group :production do
   # PostgresQL

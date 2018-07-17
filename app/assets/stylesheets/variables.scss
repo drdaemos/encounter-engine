@@ -10,6 +10,8 @@ $dark-gray: #e6e6e6;
 $black: #ccc;
 $white: #111;
 
+$primary-color: #efefd0;
+
 $foundation-palette: (
   primary: #efefd0,
   secondary: #C6DABF,
@@ -32,7 +34,8 @@ $global-shadow: 0 1px 5px 2px rgba(0, 0, 0, .1);
 $active-hover: $accent-color;
 $anchor-color-hover: $active-hover;
 $anchor-underline-color: $light-gray-alternative;
-$button-background-hover: $active-hover;
+$button-background: desaturate($primary-color, 25%);
+$button-background-hover: desaturate($active-hover, 25%);
 $input-background: $light-gray-alternative;
 $input-background-focus: $light-gray-alternative;
 $input-background-disabled: $light-gray;
