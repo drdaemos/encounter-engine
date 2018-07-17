@@ -1,0 +1,24 @@
+<div class="team-index-item">
+  <h3 class="heading">
+    <%= link_to model.name, team_path(model) %>
+    <% if can_send_application? %>
+      <%= form_for :team_application, :url => team_applications_path, :html => { :class => "right-link" }, :data => { "model": "team_application" } do |f| %>
+        <%= f.hidden_field :team, { :value => model.id } %>
+        <%= f.hidden_field :user, { :value => controller.current_user.id } %>
+        <%= f.submit t(:apply, scope: [:activerecord, :attributes, :team_application]) %>
+      <% end %>
+    <% end %>
+    <% if already_sent_application? %>
+      <small class="right-link">Отправлена заявка на вступление</small>
+    <% end %>
+  </h3>
+  <div class="team-metadata">
+    <div class="game-teams">
+      <em>В составе</em>:
+      <% model.members.each do |user| %>
+        <span class="user"><%= link_to user.nickname, user_path(user) %></span>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+</div>

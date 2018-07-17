@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705195417) do
+ActiveRecord::Schema.define(version: 20180716185404) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -146,6 +146,13 @@ ActiveRecord::Schema.define(version: 20180705195417) do
     t.text   "value"
     t.string "field_type", default: "text"
     t.string "label"
+  end
+
+  create_table "team_applications", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|

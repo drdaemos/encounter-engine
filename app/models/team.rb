@@ -18,6 +18,11 @@ class Team < ApplicationRecord
   before_destroy :disconnect_team
   after_save :adopt_captain
 
+  def self.available_for(user)
+    existing_applications = TeamApplication.of_user(user).to_a
+    Team.all.select {|team| existing_applications.find {|appl| appl.team.id === team.id }.nil? }
+  end
+
   def current_level_in(game)
     game_passing = GamePassing.of(self, game)
     game_passing.try :current_level

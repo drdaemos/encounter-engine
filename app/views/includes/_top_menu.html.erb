@@ -3,9 +3,9 @@
     <%= link_to "Результаты игр", :stats %>
   </div>
 
-  <!--<div class="nav-item">-->
-    <!--<%= link_to "Рейтинги", :ratings %>-->
-  <!--</div>-->
+  <div class="nav-item">
+    <%= link_to "Команды", :teams %>
+  </div>
 
   <% if user_signed_in? %>
     <% if current_user.access_level?(:admin) || current_user.access_level?(:organizer) %>
@@ -13,12 +13,6 @@
       <%= link_to "Создать игру", :new_game %>
     </div>
     <% end %>
-
-    <div class="nav-item">
-      <% if not current_user.member_of_any_team? %>
-        <%= link_to "Создать команду", :new_team %>
-     <% end %>
-    </div>
   <% end %>
   
   <%= render 'includes/login_menu' %>

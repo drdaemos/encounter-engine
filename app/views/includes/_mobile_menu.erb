@@ -3,6 +3,7 @@
     <li><%= link_to "Анонсы игр", :index_page %></li>
     <li><%= link_to "Результаты игр", :stats %></li>
     <li><%= link_to "Рейтинги", :ratings %></li>
+    <li><%= link_to "Команды", :teams %></li>
     <% if user_signed_in? && (current_user.access_level?(:admin) || current_user.access_level?(:organizer)) %>
       <li class="organizer-new-game"><%= link_to "Создать игру", :new_game %></li>
     <% end %>

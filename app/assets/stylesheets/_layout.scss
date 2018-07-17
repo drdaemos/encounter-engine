@@ -170,12 +170,16 @@ a.no-underline,
   flex-wrap: wrap;
 
   .heading-link {
-    font-size: 0.8em;
+    font-size: .8em;
   }
 
   .right-link {
     margin-left: auto;
-    font-size: 0.8em;
+    font-size: .8em;
+
+    button, input[type=submit], input[type=button] {
+      font-size: .8em;
+    }
   }
 
   .sticker {
@@ -190,27 +194,27 @@ a.no-underline,
   margin-left: -.25rem;
   margin-right: -.25rem;
 
-  & > * {
+  & > *:not(.dropdown-pane) {
     border-left: solid .25rem transparent;
     border-right: solid .25rem transparent;
     box-sizing: border-box;
     /** relative so that our ::before absolute block can position itself according to it's parent block **/
     position: relative;
-  }
 
-  & > *::before {
-    content: '';
-    /** pseudo-elements are inline by default **/
-    display: block;
-    /** same height and width than our column **/
-    width: 100%;
-    height: 100%;
-    /** position absolute starting at the top and left of our column **/
-    position: absolute;
-    top: 0;
-    left: 0;
-    /** we want the pseudo-element to be behind our real column **/
-    z-index: -1;
+    &::before {
+      content: '';
+      /** pseudo-elements are inline by default **/
+      display: block;
+      /** same height and width than our column **/
+      width: 100%;
+      height: 100%;
+      /** position absolute starting at the top and left of our column **/
+      position: absolute;
+      top: 0;
+      left: 0;
+      /** we want the pseudo-element to be behind our real column **/
+      z-index: -1;
+    }
   }
 
   & > a {

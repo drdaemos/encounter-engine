@@ -16,6 +16,12 @@
   @include page-section;
 }
 
+.team-index-item:last-child {
+  hr {
+    display: none;
+  }
+}
+
 .user-input {
   font-family: $monospace-font-family;
   font-weight: 600;

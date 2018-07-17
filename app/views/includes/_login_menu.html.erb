@@ -11,6 +11,12 @@
         <% if current_user.access_level?(:admin) %>
         <li class="settings"><%= link_to "Настройки сайта", :settings %></li>
         <% end %>
+        <% if not current_user.member_of_any_team? %>
+          <li class="create-team"><%= link_to "Создать команду", :new_team %></li>
+        <% end %>
+        <% if current_user.access_level?(:admin) || current_user.access_level?(:organizer) %>
+          <li class="create-game"> <%= link_to "Создать игру", :new_game %></li>
+        <% end %>
         <li class="profile"><%= link_to "Личные данные", :dashboard %></li>
         <li class="logout"><%= link_to "Выйти", :logout %></li>
       </ul>
