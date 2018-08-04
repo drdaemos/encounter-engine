@@ -35,7 +35,8 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/passenger"
 #
 # General
-require "capistrano/rails"
+require "capistrano/local_precompile"
+require "capistrano/rails/migrations"
 require "capistrano/passenger"
 require "capistrano/rbenv"
 require "capistrano/yarn"

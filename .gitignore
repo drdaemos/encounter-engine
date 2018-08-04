@@ -27,6 +27,8 @@ Procfile.prod
 /node_modules
 /yarn-error.log
 
+.ruby-version
+
 .byebug_history
 # Added by webpack-rails
 /public/assets
