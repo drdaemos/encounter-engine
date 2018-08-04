@@ -4,6 +4,12 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ansible
+/hosts
+/group_vars
+/site.retry
+Procfile.prod
+
 # Ignore bundler config.
 /.bundle
 /.idea
