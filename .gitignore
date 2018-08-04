@@ -27,21 +27,10 @@ Procfile.prod
 /node_modules
 /yarn-error.log
 
-/public/uploads
 .byebug_history
 # Added by webpack-rails
-/node_modules
-/public/webpack
-/public/packs
 /public/assets
-/node_modules
-/public/packs
-/node_modules
-/public/packs
+/public/uploads
 /public/packs-test
-/node_modules
-/public/packs
-/public/packs-test
-/node_modules
 yarn-debug.log*
 .yarn-integrity
