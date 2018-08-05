@@ -67,7 +67,7 @@ group :development, :test do
   gem "capistrano3-puma"
   gem "capistrano-passenger", "~> 0.2.0"
   gem "capistrano-yarn"
-  gem 'capistrano-local-precompile', '~> 1.0.0'
+  gem 'capistrano-local-precompile', '~> 1.1.3'
   #Add this if you"re using rbenv
   gem "capistrano-rbenv", "~> 2.1"
 end
