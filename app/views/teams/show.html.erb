@@ -16,13 +16,13 @@
           <% end %>
         </h5>
         <div class="dropdown-pane" id="new-invitation-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" data-v-offset="8">
-          <%= form_for :invitation, :url => invitations_path, :data => { "model": "invitation" } do |f| %>
+          <%= form_for :invitation, :url => invitations_path, :data => {"model": "invitation"} do |f| %>
             <div class="row">
               <% if User.free_players.empty? %>
                 <p>Нет свободных игроков</p>
               <% else %>
                 <%= f.label :for_user, t(:for_user, scope: [:activerecord, :attributes, :invitation]) %>
-                <%= f.select :for_user, User.free_players.collect {|user| [user.nickname, user.id] } %>
+                <%= f.select :for_user, User.free_players.collect {|user| [user.nickname, user.id]} %>
               <% end %>
             </div>
             <div class="row form-actions">
@@ -35,6 +35,24 @@
             <li><%= link_to member.nickname, [member] %> <%= "- капитан" if member.captain? %></li>
           <% end %>
         </ul>
+
+        <% if user_can_edit? && !team_applications.empty? %>
+          <h6 class="heading">
+            <span>Заявки на вступление</span>
+          </h6>
+          <ul class="applications-list">
+            <% team_applications.each do |application| %>
+              <li>
+                <span class="user"><%= link_to application.user.nickname, user_path(application.user) %></span>
+                <span class="separator">|</span>
+                <span class="controls">
+                  <%= link_to "принять", accept_team_application_path(application.id), :method => :post %>
+                  <%= link_to "отказать", reject_team_application_path(application.id), :method => :post %>
+                </span>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
 
       <% if user_can_edit? %>

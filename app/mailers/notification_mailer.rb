@@ -7,18 +7,35 @@ class NotificationMailer < ApplicationMailer
     mail :to => params[:to], :from => params[:from], :subject => params[:subject]
   end
 
-  def invitation_notification(params)
+  def invitation(params)
+    generic_invitation(params)
+  end
+
+  def reject_invitation(params)
+    generic_invitation(params)
+  end
+
+  def accept_invitation(params)
+    generic_invitation(params)
+  end
+
+  def team_application(params)
+    generic_invitation(params)
+  end
+
+  def accept_application(params)
+    generic_invitation(params)
+  end
+
+  def reject_application(params)
+    generic_invitation(params)
+  end
+
+  protected
+
+  def generic_invitation(params)
+    @user = params[:user]
     @team = params[:team]
-    mail :to => params[:to], :from => params[:from], :subject => params[:subject]
-  end
-
-  def reject_notification(params)
-    @user = params[:user]
-    mail :to => params[:to], :from => params[:from], :subject => params[:subject]
-  end
-
-  def accept_notification(params)
-    @user = params[:user]
     mail :to => params[:to], :from => params[:from], :subject => params[:subject]
   end
   

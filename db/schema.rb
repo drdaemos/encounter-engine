@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180711180741) do
+ActiveRecord::Schema.define(version: 20180716185404) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -148,12 +148,20 @@ ActiveRecord::Schema.define(version: 20180711180741) do
     t.string "label"
   end
 
+  create_table "team_applications", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.integer  "captain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.string   "picture"
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 

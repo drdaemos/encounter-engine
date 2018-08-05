@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
   before_action :find_team, :only => [:show, :destroy, :edit, :update]
 
   helper_method :user_can_edit?
+  helper_method :team_applications
 
   def new
     render
@@ -49,6 +50,10 @@ protected
 
   def user_can_edit?
     current_user.captain_of?(@team)
+  end
+
+  def team_applications
+    TeamApplication.for_team(@team)
   end
 
   def team_params

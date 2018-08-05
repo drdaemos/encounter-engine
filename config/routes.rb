@@ -26,6 +26,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :team_applications do
+    member do
+      post 'accept'
+      post 'reject'
+    end
+  end
+
   resources :games do
     resources :levels do
       resources :hints

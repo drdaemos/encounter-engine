@@ -65,6 +65,10 @@ ru:
       invitation:
         for_user: Ник участника
         submit: Отправить приглашение
+      team_application:
+        team: Команда
+        submit: Отправить заявку
+        apply: Вступить
       answer:
         value: Вариант кода
         submit: Добавить

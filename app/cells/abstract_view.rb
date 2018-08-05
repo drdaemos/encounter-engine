@@ -1,6 +1,7 @@
 class AbstractView < Cell::ViewModel
   include Cell::Erb
   include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::TranslationHelper
   include ApplicationHelper
 
   def show

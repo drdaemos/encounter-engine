@@ -1,0 +1,14 @@
+<div class="teams-index-page">
+  <h2 class="heading"><span>Команды проекта</span></h2>
+  <% unless @teams.empty? %>
+    <div class="teams-listing">
+      <% @teams.each do |team| %>
+        <%= cell(TeamsPage::Item, team) %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="empty-list">
+      <p>Никто пока не заявил команду на проект. <%= link_to "Будь первым!", new_team_path %></p>
+    </div>
+  <% end %>
+</div>

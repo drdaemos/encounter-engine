@@ -49,6 +49,10 @@ class User < ApplicationRecord
     other_team.captain.id == id
   end
 
+  def member_of?(other_team)
+    other_team.members.include?(self)
+  end
+
   def can_edit?(game)
     self.author_of?(game) || self.access_level?(:admin)
   end

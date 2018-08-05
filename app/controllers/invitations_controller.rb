@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
 
   def create
     if @invitation.save
-      send_invitation_notification(@invitation)
+      send_invitation(@invitation)
       redirect_back :fallback_location => team_path(@invitation.to_team), :notice => "Игроку #{@invitation.for_user.nickname} выслано приглашение"
     else
       @all_users = User.all
@@ -40,30 +40,33 @@ class InvitationsController < ApplicationController
 
 protected
 
-  def send_invitation_notification(invitation)
+  def send_invitation(invitation)
     NotificationMailer
-        .invitation_notification(:to => invitation.for_user.email,
+        .invitation(:to => invitation.for_user.email,
               :from => get_from_email,
               :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}",
-              :team => invitation.to_team)
+              :team => invitation.to_team,
+              :user => invitation.for_user)
         .deliver_now
   end
 
   def send_reject_notification(invitation)
     NotificationMailer
-        .reject_notification(:to => invitation.to_team.captain.email,
+        .reject_invitation(:to => invitation.to_team.captain.email,
               :from => get_from_email,
               :subject => "Игрок #{invitation.for_user.nickname} отказался от приглашения",
-              :user => invitation.for_user)
+              :user => invitation.for_user,
+              :team => invitation.to_team)
         .deliver_now
   end
 
   def send_accept_notification(invitation)
     NotificationMailer
-        .accept_notification(:to => invitation.to_team.captain.email,
+        .accept_invitation(:to => invitation.to_team.captain.email,
               :from => get_from_email,
               :subject => "Игрок #{invitation.for_user.nickname} принял Ваше приглашение",
-              :user => invitation.for_user)
+              :user => invitation.for_user,
+              :team => invitation.to_team)
         .deliver_now
   end
 

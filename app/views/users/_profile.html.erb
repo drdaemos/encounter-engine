@@ -3,10 +3,13 @@
   <small class="current-team">
     <% if user.member_of_any_team? %>
       [<%= user.captain? ? "капитан " : "" %><%= link_to user.team.name, team_path(user.team) %>]
+    <% elsif user.id === current_user.id %>
+      [<a data-toggle="new-team_application-dropdown">без команды</a>]
     <% else %>
       [без команды]
     <% end %>
   </small>
+  <%= render 'users/teams' %>
 </h2>
 
 <div class="user-profile">
