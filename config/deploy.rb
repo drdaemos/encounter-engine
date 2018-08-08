@@ -11,7 +11,7 @@ set :branch, "deploy-autoquest"
 set :deploy_to, "/home/deploy/autoquest"
 set :puma_init_active_record, true
 
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/cable.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/cable.yml', 'config/settings/production.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 
 set :keep_releases, 3
