@@ -48,33 +48,45 @@ class TeamApplicationsController < ApplicationController
 protected
 
   def send_application_notification(team_application)
-    NotificationMailer
+    begin
+      NotificationMailer
         .team_application(:to => team_application.user.email,
               :from => get_from_email,
               :subject => "Игрок #{team_application.user.nickname} подал запрос на вступление в команду #{team_application.team.name}",
               :user => team_application.user,
               :team => team_application.team)
         .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def send_reject_notification(team_application)
-    NotificationMailer
+    begin
+      NotificationMailer
         .reject_application(:to => team_application.user.email,
               :from => get_from_email,
               :subject => "Команда #{team_application.user.nickname} отказала вам",
               :user => team_application.user,
               :team => team_application.team)
         .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def send_accept_notification(team_application)
-    NotificationMailer
+    begin
+      NotificationMailer
         .accept_application(:to => team_application.user.email,
               :from => get_from_email,
               :subject => "Вы приняты в команду #{team_application.team.name}",
               :user => team_application.user,
               :team => team_application.team)
         .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def add_user_team_members
@@ -99,7 +111,7 @@ protected
   end
 
   def get_from_email
-    get_setting('site_from') || "autoquest@localhost.com"
+    get_setting('site_from') || "autoquest@localhost"
   end
 
   def build_team_application

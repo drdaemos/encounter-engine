@@ -1,0 +1,9 @@
+<h4 class="heading">Заявка на вступление в команду</h4>
+
+<%= error_messages_for @team_application %>
+
+<%= form_for @team_application, :action => :team_applications do |f| %>
+    <%= f.label :team, t(:team, scope: [:activerecord, :attributes, :team_application]) %>
+    <%= f.select :team, @teams %>
+    <%= f.submit t(:submit, scope: [:activerecord, :attributes, :team_application]), disabled: @teams.empty? %>
+<% end %>
