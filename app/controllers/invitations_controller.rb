@@ -38,36 +38,48 @@ class InvitationsController < ApplicationController
     redirect_to :dashboard
   end
 
-protected
+  protected
 
   def send_invitation(invitation)
-    NotificationMailer
-        .invitation(:to => invitation.for_user.email,
-              :from => get_from_email,
-              :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}",
-              :team => invitation.to_team,
-              :user => invitation.for_user)
-        .deliver_now
+    begin
+      NotificationMailer
+          .invitation(:to => invitation.for_user.email,
+                      :from => get_from_email,
+                      :subject => "Вас пригласили вступить в команду #{invitation.to_team.name}",
+                      :team => invitation.to_team,
+                      :user => invitation.for_user)
+          .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def send_reject_notification(invitation)
-    NotificationMailer
-        .reject_invitation(:to => invitation.to_team.captain.email,
-              :from => get_from_email,
-              :subject => "Игрок #{invitation.for_user.nickname} отказался от приглашения",
-              :user => invitation.for_user,
-              :team => invitation.to_team)
-        .deliver_now
+    begin
+      NotificationMailer
+          .reject_invitation(:to => invitation.to_team.captain.email,
+                             :from => get_from_email,
+                             :subject => "Игрок #{invitation.for_user.nickname} отказался от приглашения",
+                             :user => invitation.for_user,
+                             :team => invitation.to_team)
+          .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def send_accept_notification(invitation)
-    NotificationMailer
-        .accept_invitation(:to => invitation.to_team.captain.email,
-              :from => get_from_email,
-              :subject => "Игрок #{invitation.for_user.nickname} принял Ваше приглашение",
-              :user => invitation.for_user,
-              :team => invitation.to_team)
-        .deliver_now
+    begin
+      NotificationMailer
+          .accept_invitation(:to => invitation.to_team.captain.email,
+                             :from => get_from_email,
+                             :subject => "Игрок #{invitation.for_user.nickname} принял Ваше приглашение",
+                             :user => invitation.for_user,
+                             :team => invitation.to_team)
+          .deliver_now
+    rescue => exception
+      logger.error exception.message
+    end
   end
 
   def add_user_to_team_members
@@ -92,7 +104,7 @@ protected
   end
 
   def get_from_email
-    get_setting('site_from') || "autoquest@localhost.com"
+    get_setting('site_from') || "autoquest@localhost"
   end
 
   def build_invitation

@@ -33,6 +33,8 @@ gem "interactor-rails"
 gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 
+gem 'config'
+
 # oauth
 gem 'omniauth-vkontakte'
 gem 'omniauth-google-oauth2'
