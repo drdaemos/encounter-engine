@@ -35,7 +35,7 @@ class TeamsController < ApplicationController
 
   def create
     if @team.save
-      redirect_back :fallback_location => team_path(@team)
+      redirect_to @team
     else
       render :new
     end

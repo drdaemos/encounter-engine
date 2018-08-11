@@ -22,14 +22,19 @@
       <% if @game.draft? || @game.is_testing? %>
       <div class="game-testing">
         <h4 class="heading"><span>Тестирование игры</span></h4>
-        <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
-          <%= link_to 'Начать тестирование', start_test_game_path(@game.id) %>
-        <% end %>
 
-        <% if @game.is_testing? %>
-          <%= link_to "Старт", show_current_level_path(@game.id)  %>
-          <br />
-          <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
+        <% if current_user.member_of_any_team? %>
+          <% if @game.draft? and !@game.started? and @game.levels and @game.levels.count > 0 %>
+            <%= link_to 'Начать тестирование', start_test_game_path(@game.id) %>
+          <% end %>
+
+          <% if @game.is_testing? %>
+            <%= link_to "Старт", show_current_level_path(@game.id)  %>
+            <br />
+            <%= link_to "Завершить тестирование", finish_test_game_path(@game.id) %>
+          <% end %>
+        <% else %>
+          <p>Вам нужно состоять в какой-либо команде, чтобы начать тестирование.</p>
         <% end %>
       </div>
       <% end %>

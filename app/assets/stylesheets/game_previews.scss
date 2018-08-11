@@ -34,6 +34,16 @@
     border-top: 1px solid fade-out($light-gray-alternative, .7);
     padding-top: 1.5rem;
 
+    @include breakpoint(medium down) {
+      &.game-metadata.game-metadata > * {
+        @include xy-cell(1 of 1, $gutters: 0);
+
+        & + * {
+          margin-top: .5rem;
+        }
+      }
+    }
+
     .game-author {
       @include xy-cell(3 of 13, $gutters: 2rem, $gutter-position: right);
     }

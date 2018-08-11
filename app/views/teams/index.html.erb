@@ -1,5 +1,8 @@
 <div class="teams-index-page">
-  <h2 class="heading"><span>Команды проекта</span></h2>
+  <h2 class="heading">
+    <span>Команды проекта</span>
+    <%= link_to "Создать команду", :new_team, :class => "right-link" unless current_user.member_of_any_team? %>
+  </h2>
   <% unless @teams.empty? %>
     <div class="teams-listing">
       <% @teams.each do |team| %>

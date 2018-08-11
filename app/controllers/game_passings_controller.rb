@@ -15,6 +15,13 @@ class GamePassingsController < ApplicationController
   helper_method :app_data_helper
 
   def show_current_level
+    GamePassingInteractors::CheckCurrentState.call(
+        {
+            :game_passing => @game_passing,
+            :user => current_user
+        }
+    )
+
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
     else 

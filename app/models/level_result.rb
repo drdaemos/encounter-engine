@@ -15,7 +15,7 @@ class LevelResult < ApplicationRecord
   end
 
   def level_time
-    if !self.time_limit.nil? && self.time_limit < (created_at - entered_at)
+    if !self.time_limit.nil? && (is_failed? || self.time_limit < (created_at - entered_at))
       self.time_limit
     else
       (created_at - entered_at)

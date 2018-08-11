@@ -58,16 +58,19 @@ a.no-underline,
     font-size: 1rem;
     background-color: fade-out($accent-color, .2);
     color: $body-background;
-    padding: .5rem;
+    padding: 0 .5rem;
     margin-left: 1rem;
   }
 
+  margin-top: -.5rem;
   margin-left: -.25rem;
   margin-right: -.25rem;
+  /* margin-bottom comes from h tag styles */
 
   & > *:not(.dropdown-pane) {
-    border-left: solid .25rem transparent;
-    border-right: solid .25rem transparent;
+    border: .5rem solid transparent;
+    border-right-width: .25rem;
+    border-left-width: .25rem;
     box-sizing: border-box;
     /** relative so that our ::before absolute block can position itself according to it's parent block **/
     position: relative;

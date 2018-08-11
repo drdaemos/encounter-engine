@@ -134,6 +134,7 @@ protected
         :level => self.current_level,
         :answered_questions => self.answered_questions,
         :entered_at => self.current_level_entered_at,
+        :is_failed => is_failed,
         :time_limit => self.current_level.time_limit,
         :adjustment => 0,
         :game_passing => self
@@ -154,8 +155,12 @@ protected
       set_finish_time
     end
 
-    self.current_level = self.current_level.next
+    self.current_level = get_next_level
     self.save!
+  end
+
+  def get_next_level
+    self.current_level.next
   end
 
   def last_level?

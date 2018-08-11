@@ -13,6 +13,7 @@
   }
 
   .user-avatar {
+    text-align: center;
     @include xy-cell(4 of 12, $gutter-position: left);
     @include breakpoint(medium down) {
       order: 1;
