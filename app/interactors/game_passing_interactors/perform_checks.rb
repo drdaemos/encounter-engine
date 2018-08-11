@@ -19,9 +19,20 @@ module GamePassingInteractors
         return
       end
 
-      diff = Time.now - game_passing.current_level_entered_at
-      if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit.to_i
-        game_passing.fail_level!
+      fast_forward_levels(game_passing)
+    end
+
+    def fast_forward_levels (game_passing)
+      current = game_passing.current_level_entered_at
+
+      loop do
+        diff = Time.now - current
+        if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit.to_i
+          current += game_passing.current_level.time_limit
+          game_passing.fail_level!
+        else
+          break
+        end
       end
     end
   end
