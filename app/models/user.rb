@@ -16,16 +16,15 @@ class User < ApplicationRecord
   mount_uploader :avatar, UserAvatarUploader
 
   before_create :set_default_access_level
-  validates_presence_of :email, :message => "Не введён e-mail"
 
   validates_uniqueness_of :email,
-    :message => "Пользователь с таким адресом уже зарегистрирован"
+    :message => "пользователь с таким адресом уже зарегистрирован"
 
   validates_presence_of :nickname,
-    :message => "Вы не ввели имя"
+    :message => "имя не может быть пустым"
 
   validates_uniqueness_of :nickname,
-    :message => "Пользователь с таким именем уже зарегистрирован"
+    :message => "пользователь с таким именем уже зарегистрирован"
 
   scope :without_team, -> { where(team_id: nil) }
 

@@ -30,12 +30,13 @@ class TeamApplicationsController < ApplicationController
       @team_application.user.team.captain = nil
       @team_application.user.team.save!
     end
+    new_player = @team_application.user
     add_user_team_members
     @team_application.delete
     send_accept_notification(@team_application)
     reject_rest_of_team_applications
 
-    redirect_back :fallback_location => team_path(@team_application.team)
+    redirect_back :fallback_location => team_path(@team_application.team), :notice => "Игрок #{new_player.nickname} принят в команду"
   end
 
   def reject

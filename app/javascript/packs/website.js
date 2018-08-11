@@ -3,6 +3,7 @@ import 'stylesheets/website.scss'
 import {} from 'jquery-ujs'
 import moment from 'moment'
 
+import '../components/flashes'
 import '../components/froala_textarea'
 import '../components/game_stats'
 import '../components/forms/game'

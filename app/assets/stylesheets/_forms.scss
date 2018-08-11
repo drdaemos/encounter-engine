@@ -1,0 +1,67 @@
+form {
+  .inline.separator {
+    margin-right: 1rem;
+  }
+
+  label.inline {
+    display: inline;
+  }
+
+  .field_with_errors input {
+    @include form-input-error();
+  }
+
+  .fr-box {
+    @include bordered();
+    border-radius: $global-radius;
+    margin: 0 0 1rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .row {
+    abbr[title=required] {
+      border: none;
+      color: $alert-color;
+    }
+
+    label {
+      display: inline;
+    }
+
+    small.error {
+      color: $alert-color;
+    }
+
+    span.hint {
+      font-weight: $light-font-weight;
+      color: $light-gray;
+      font-style: normal;
+      display: inline;
+    }
+
+    [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+      margin: 0;
+    }
+  }
+
+  .row + .row {
+    margin-top: $form-spacing;
+  }
+
+  .form-actions {
+    @include flex;
+    @include flex-align(left, middle);
+    margin-top: 1rem;
+
+    * + * {
+      margin-left: $global-margin;
+    }
+
+    button, input[type=submit] {
+      margin: 0;
+    }
+  }
+}

@@ -5,30 +5,6 @@ html, body {
   }
 }
 
-.fr-box {
-  @include bordered();
-  border-radius: $global-radius;
-  margin: 0 0 1rem;
-
-  p {
-    margin: 0;
-  }
-}
-
-.form-actions {
-  @include flex;
-  @include flex-align(left, middle);
-  margin-top: 1rem;
-
-  * + * {
-    margin-left: $global-margin;
-  }
-
-  button, input[type=submit] {
-    margin: 0;
-  }
-}
-
 em {
   font-weight: $light-font-weight;
   color: $light-gray;
@@ -118,20 +94,6 @@ a.no-underline,
 
   & > a::before {
     border-bottom: 1px solid $light-gray-alternative;
-  }
-}
-
-form {
-  .inline.separator {
-    margin-right: 1rem;
-  }
-
-  label.inline {
-    display: inline;
-  }
-
-  .field_with_errors input {
-    @include form-input-error();
   }
 }
 

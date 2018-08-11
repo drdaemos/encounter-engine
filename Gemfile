@@ -30,6 +30,8 @@ gem "cells-erb"
 gem "interactor"
 gem "interactor-rails"
 
+gem 'simple_form'
+
 gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 
