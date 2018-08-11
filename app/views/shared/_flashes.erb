@@ -1,3 +1,9 @@
-<% flash.each do |key, message| %>
-  <p class="<%= key %>"><%= message %></p>
+<% unless flash.empty? %>
+<div class="flash-messages">
+  <% flash.each do |key, message| %>
+    <div class="message <%= key %>" data-type="<%= key %>">
+      <p class="content"><%= message %></p>
+    </div>
+  <% end %>
+</div>
 <% end %>

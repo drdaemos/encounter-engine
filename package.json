@@ -25,6 +25,7 @@
     "klaw": "^2.0.0",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
+    "noty": "^3.2.0-beta",
     "operative": "^0.4.6",
     "path-complete-extname": "^0.1.0",
     "resolve-url-loader": "^2.3.0",

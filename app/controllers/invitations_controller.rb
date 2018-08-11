@@ -29,7 +29,7 @@ class InvitationsController < ApplicationController
     send_accept_notification(@invitation)
     reject_rest_of_invitations
 
-    redirect_to :dashboard
+    redirect_to :dashboard, :notice => "Вы приняты в команду #{current_user.team.name}"
   end
 
   def reject

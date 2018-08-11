@@ -31,7 +31,7 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to @game
     else
-      render :new
+      render :new, :alert => "Не удалось создать игру"
     end
   end
 

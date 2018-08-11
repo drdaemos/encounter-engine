@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, kind: "Vkontakte") if is_navigational_format?
+      set_flash_message(:notice, :success, kind: "Вконтакте") if is_navigational_format?
     else
       session["devise.vkontakte_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
@@ -32,7 +32,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, kind: "Yandex") if is_navigational_format?
+      set_flash_message(:notice, :success, kind: "Яндекс") if is_navigational_format?
     else
       session["devise.yandex_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
