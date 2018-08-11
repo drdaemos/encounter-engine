@@ -59,8 +59,19 @@ group :development, :test do
   gem 'loofah', '~> 2.2.1'
   gem 'rspec'
   gem 'rspec-rails', '~> 3.7'
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  # Deployment
+  gem 'capistrano', '~> 3.6'
+  gem "capistrano-rails", "~> 1.2"
+  gem "capistrano3-puma"
+  gem "capistrano-passenger", "~> 0.2.0"
+  gem "capistrano-yarn"
+  gem 'capistrano-local-precompile', '~> 1.1.3'
+  #Add this if you"re using rbenv
+  gem "capistrano-rbenv", "~> 2.1"
 end
 
 group :development do
