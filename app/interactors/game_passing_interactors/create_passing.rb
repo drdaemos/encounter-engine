@@ -7,7 +7,7 @@ module GamePassingInteractors
                                           :game => context.game
 
       if context.game.started?
-        game_passing.current_level = context.game.levels.first
+        game_passing.start_game!
       end
 
       context.game_passing = game_passing

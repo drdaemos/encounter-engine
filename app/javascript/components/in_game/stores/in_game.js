@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import _ from 'underscore'
 import Timings from './timings'
 import {TIME_THRESHOLD} from "../consts"
+import utils from "../../../scripts/utils"
 
 Vue.use(Vuex)
 
@@ -22,6 +22,7 @@ export default new Vuex.Store({
     return {
       data: initialData,
       channel: null,
+      onReceived: undefined
     }
   },
   modules: {
@@ -46,12 +47,23 @@ export default new Vuex.Store({
     setChannel: function (state, channel) {
       state.channel = channel
     },
-    updateState: function (state, data) {
+    updateState: function (state, payload) {
+      let data = payload
+      if (state.onReceived) {
+        data = state.onReceived(payload)
+      }
       Vue.set(state, 'data', data)
+    },
+    updateOnReceived: function (state, handlers) {
+      Vue.set(state, 'onReceived', handlers)
     }
   },
   actions: {
     createChannel (context, options) {
+      if (typeof(options.onReceived) !== 'undefined') {
+        context.commit('updateOnReceived', options.onReceived)
+      }
+
       let gameChannel = options.cable.subscriptions.create({
         channel: 'GameChannel',
         team: context.getters.user.team_id,
@@ -61,26 +73,46 @@ export default new Vuex.Store({
           context.commit('setChannel', gameChannel)
           context.dispatch('requestState')
         },
+        disconnected: () => {
+          context.commit('setChannel', null)
+          context.dispatch('requestState')
+        },
         received: (data) => {
-          var state = _.omit(data, ['messages', 'flashes'])
-          context.commit('updateState', state)
-          if (typeof(options.onReceived) !== 'undefined') {
-            options.onReceived(data)
-          }
+          context.commit('updateState', data)
         }
       })
+
+      setTimeout(() => {
+        if (!context.state.channel) {
+          context.dispatch('requestState')
+        }
+      }, 1000)
     },
     requestState (context) {
       if (!context.state.channel || !context.state.channel.send({action: 'request_state'})) {
-        throw new Error('Server connection failed')
+        utils.get(window.location)
+          .then((response) => {
+            return response.json()
+          })
+          .then((json) => {
+            context.commit('updateState', json)
+            return json
+          })
       }
     },
     postAnswer (context, payload) {
-      return new Promise((resolve, reject) => {
-        if (!context.state.channel) {
-          reject()
-        }
+      if (!context.state.channel) {
+        return utils.post(window.location, payload)
+          .then((response) => {
+            return response.json()
+          })
+          .then((json) => {
+            context.commit('updateState', json)
+            return json
+          })
+      }
 
+      return new Promise((resolve, reject) => {
         let data = {
           action: 'post_answer',
           payload: payload

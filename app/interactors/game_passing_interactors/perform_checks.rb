@@ -9,8 +9,7 @@ module GamePassingInteractors
 
     def start_game_passing (game_passing)
       if game_passing.game.started? && !game_passing.finished? && game_passing.current_level.nil? && !game_passing.game.levels.empty?
-        game_passing.current_level = game_passing.game.levels.first
-        game_passing.save!
+        game_passing.start_game!
       end
     end
 
@@ -27,12 +26,18 @@ module GamePassingInteractors
 
       loop do
         diff = Time.now - current
-        if not game_passing.finished? and not game_passing.current_level.nil? and game_passing.current_level.time_limit and diff.to_i > game_passing.current_level.time_limit.to_i
+
+        if not game_passing.finished? and
+           not game_passing.current_level.nil? and
+           game_passing.current_level.time_limit and
+           diff.to_i > game_passing.current_level.time_limit.to_i
+
           current += game_passing.current_level.time_limit
-          game_passing.fail_level!
+          game_passing.fail_level! (current)
         else
           break
         end
+
       end
     end
   end

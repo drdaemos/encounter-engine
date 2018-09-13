@@ -21,6 +21,7 @@
   import store from './stores/in_game'
   import moment from 'moment'
   import {mapGetters} from 'vuex'
+  import _ from 'underscore'
 
   moment.locale('ru')
 
@@ -70,6 +71,7 @@
       onReceived (data) {
         this.processMessages(data.messages)
         this.processFlashes(data.flashes)
+        return _.omit(data, ['messages', 'flashes'])
       },
       processMessages (messages) {
       },
