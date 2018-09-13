@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <script type="application\json" x-app-data>
-      <%= app_data_helper %>      
-    </script>
+    <script type="application\json" x-app-data><%= yield %></script>
     <%= stylesheet_pack_tag 'in_game' %>
     <%= javascript_pack_tag 'in_game' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>

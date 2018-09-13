@@ -21,19 +21,9 @@ class GameChannel < ApplicationCable::Channel
   def post_answer(data)
     answer = data["payload"]["answer"].strip
     context = get_context.merge({:answer => answer})
-    result = GamePassingInteractors::PostAnswer.call(context)
-    message = { :messages => [], :flashes => [] }
 
-    if result.success?
-      type = result.linked_object.is_a?(Hint) ? 'Код спойлера' : 'Код'
-      game_state = result.app_state
-      message[:flashes] << { :text => type + ' ' + answer + ' принят' }
-    else
-      game_state = GamePassingInteractors::GetAppState.call(context).app_state
-      message[:flashes] << { :text => 'Код ' + answer + ' не принят' }
-    end
-
-    ActionCable.server.broadcast(get_channel, game_state.merge(message))
+    result = GamePassingInteractors::HandlePostAnswer.call(context)
+    ActionCable.server.broadcast(get_channel, result.state_to_render)
   end
 
   protected

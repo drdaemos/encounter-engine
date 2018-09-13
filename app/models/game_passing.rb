@@ -47,12 +47,18 @@ class GamePassing < ApplicationRecord
     save!
   end
 
+  def start_game!
+    self.current_level = self.game.levels.first
+    self.current_level_entered_at = self.game.starts_at || Time.now
+    self.save!
+  end
+
   def pass_level!
     switch_to_next_level!
   end
 
-  def fail_level!
-    switch_to_next_level! (true)
+  def fail_level! (next_level_start_time)
+    switch_to_next_level!(true, next_level_start_time)
   end
 
   def finished?
@@ -148,7 +154,7 @@ protected
     self.level_results << entity
   end
 
-  def switch_to_next_level! (is_failed = false)
+  def switch_to_next_level! (is_failed = false, entered_at = Time.now)
     save_level_result (is_failed)
 
     if last_level?
@@ -156,6 +162,7 @@ protected
     end
 
     self.current_level = get_next_level
+    self.current_level_entered_at = entered_at
     self.save!
   end
 
@@ -170,7 +177,6 @@ protected
   def update_current_level_data
     reset_answered_questions
     reset_spoilers
-    self.current_level_entered_at = Time.now
   end
 
   def set_finish_time

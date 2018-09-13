@@ -12,24 +12,7 @@ class GamePassingsController < ApplicationController
   before_action :ensure_team_member
   before_action :ensure_not_author_of_the_game
 
-  helper_method :app_data_helper
-
   def show_current_level
-    GamePassingInteractors::CheckCurrentState.call(
-        {
-            :game_passing => @game_passing,
-            :user => current_user
-        }
-    )
-
-    if @game_passing.finished?
-      redirect_to game_finish_url(@game)
-    else 
-      render html: '', :layout => 'in_game'
-    end
-  end
-
-  def app_data_helper
     result = GamePassingInteractors::UpdateState.call(
         {
             :game_passing => @game_passing,
@@ -37,25 +20,28 @@ class GamePassingsController < ApplicationController
         }
     )
 
-    result.app_state.to_json.html_safe if result.success?
+    if @game_passing.finished?
+      redirect_to game_finish_url(@game)
+    else
+      respond_to do |format|
+        format.json { render json: result.app_state.to_json }
+        format.html { render html: result.app_state.to_json.html_safe, :layout => 'in_game' }
+      end
+    end
   end
 
   def post_answer
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
     else
-      result = GamePassingInteractors::PostAnswer.call(
-        {
-          :game_passing => @game_passing,
-          :user => current_user,
-          :answer => params[:answer].strip
-        }
+      result = GamePassingInteractors::HandlePostAnswer.call(
+          get_common_context.merge({:answer => params[:answer].strip})
       )
 
       if @game_passing.finished?
         redirect_to game_finish_url(@game)
       else
-        redirect_to show_current_level_url(@game)
+        render json: result.state_to_render.to_json
       end
     end
   end
@@ -66,6 +52,13 @@ class GamePassingsController < ApplicationController
   end
 
 protected
+
+  def get_common_context
+    {
+        :game_passing => @game_passing,
+        :user => current_user
+    }
+  end
 
   def find_game
     @game = Game.find params[:game_id]
