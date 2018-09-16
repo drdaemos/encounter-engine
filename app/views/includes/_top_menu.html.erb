@@ -7,6 +7,10 @@
     <%= link_to "Команды", :teams %>
   </div>
 
+  <div class="nav-item">
+    <%= link_to "Участники", :users %>
+  </div>
+
   <% if user_signed_in? %>
     <% if current_user.access_level?(:admin) || current_user.access_level?(:organizer) %>
     <div class="nav-item">

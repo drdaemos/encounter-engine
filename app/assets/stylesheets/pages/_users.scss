@@ -1,0 +1,43 @@
+.users-index-page {
+  .user-item {
+    display: flex;
+    align-items: center;
+
+    .user-nickname, .user-access-level, .user-team {
+      width: 28%;
+    }
+    .user-actions {
+      width: 16%;
+      text-align: right;
+
+      .dropdown-pane {
+        text-align: left;
+      }
+    }
+
+    .dropdown-toggle > span {
+      margin-right: .5rem;
+    }
+
+    .user-nickname .nickname {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    .user-team {
+      .without-team {
+        color: $light-gray-alternative;
+      }
+
+      .invited-to-team {
+        font-weight: 600;
+      }
+    }
+
+    .user-access-level .access_level {
+      padding: 0 1rem 0.5rem 1rem;
+    }
+  }
+
+}

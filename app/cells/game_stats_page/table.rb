@@ -26,7 +26,8 @@ module GameStatsPage
             :label => "#{level.position}. #{level.name}",
             :getter => ->(game_passing) do
               result = LevelResult.of(game_passing, level)
-              to_human(result.level_time) unless result.nil?
+              return to_human(result.level_time) unless result.nil?
+              return wrap_current(to_human(game_passing.time_on_level)) if game_passing.current_level.id == level.id
             end
         }
         result
@@ -62,7 +63,15 @@ module GameStatsPage
       columns.merge(level_columns).merge(stat_columns).merge(link_columns)
     end
 
+    def wrap_current(str)
+      "▶  " + str
+    end
+
     def to_human(diff)
+      if diff.nil?
+        return
+      end
+
       sign = ""
       if diff < 0
         sign = "-"

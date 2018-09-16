@@ -1,0 +1,16 @@
+<div class="paginated-listing" class="<%= css_class %>">
+  <%= cell(Common::Listing, items, :item_view => item_view, :class => listing_class) %>
+  <ul class="pagination" role="navigation" aria-label="Pagination">
+    <% (0..page_count).each do |item| %>
+      <% if is_current(item) %>
+        <li class="pager-item current">
+          <%= get_page_label(item) %>
+        </li>
+      <% else %>
+        <li class="pager-item">
+          <%= link_to get_page_label(item), get_page_url(item) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

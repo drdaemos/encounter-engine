@@ -4,13 +4,13 @@
     <li><%= link_to "Результаты игр", :stats %></li>
     <li><%= link_to "Рейтинги", :ratings %></li>
     <li><%= link_to "Команды", :teams %></li>
+    <li><%= link_to "Участники", :users %></li>
     <% if user_signed_in? && (current_user.access_level?(:admin) || current_user.access_level?(:organizer)) %>
       <li class="organizer-new-game"><%= link_to "Создать игру", :new_game %></li>
     <% end %>
     <% if user_signed_in? && current_user.access_level?(:admin) %>
       <li class="Divider">Панель администратора</li>
       <li class="admin-settings"><%= link_to "Настройки сайта", :settings %></li>
-      <li class="admin-users"><%= link_to "Пользователи", :users %></li>
     <% end %>
     <% if user_signed_in? %>
       <li class="Divider">

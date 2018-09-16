@@ -58,7 +58,6 @@
       <% if user_can_edit? %>
         <div class="team-controls">
           <%= link_to "Поменять название и картинку", edit_team_path(@team) %>
-          <%= render 'shared/current_games' %>
           <%= render 'dashboard/coming_games' %>
           <%= render 'dashboard/finished_games' %>
         </div>

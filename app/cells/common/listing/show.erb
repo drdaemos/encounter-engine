@@ -1,0 +1,13 @@
+<div class="listing" class="<%= css_class %>">
+  <% if items.empty? %>
+    <div class="empty-listing">
+      <p><%= empty_message %></p>
+    </div>
+  <% else %>
+    <div class="listing-items">
+      <% items.each do |item| %>
+        <div class="item-<%= item_key.call(item) %>"><%= cell(item_view, item) %></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
