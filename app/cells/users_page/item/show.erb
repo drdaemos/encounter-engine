@@ -1,0 +1,63 @@
+<div class="user-container">
+  <div class="user-item <%= editable? ? 'editable' : '' %>">
+    <div class="user-nickname">
+      <h4 class="nickname">
+        <%= link_to model.nickname, user_path(model) %>
+        <br>
+        <small><%= model.email %></small>
+      </h4>
+    </div>
+    <div class="user-team">
+      <% if model.member_of_any_team? %>
+        <span class="member-of-team">
+        <%= link_to model.team.name, team_path(model.team) %>
+        </span><br>
+        <span class="team-captain"><%= model.captain? ? "капитан" : "" %></span>
+      <% elsif model.id === controller.current_user.id %>
+        <a data-toggle="new-team_application-dropdown">без команды</a>
+      <% elsif model_is_invited? %>
+        <span class="invited-to-team">приглашен в команду</span>
+      <% elsif model_sent_application? %>
+        <span class="invited-to-team">подал заявку на вступление</span>
+      <% else %>
+        <span class="without-team">без команды</span>
+      <% end %>
+    </div>
+    <div class="user-access-level">
+      <div class="access_level"><span class="label"><%= model.get_access_level_label %></span></div>
+    </div>
+    <% if editable? %>
+      <div class="user-actions">
+        <a class="dropdown-toggle no-underline" data-toggle="user-actions-dropdown-<%= model.id %>"><span>Действие</span><i class="fas fa-ellipsis-v"></i></a>
+        <ul id="user-actions-dropdown-<%= model.id %>" class="menu dropdown-pane" data-dropdown data-close-on-click="true">
+          <% if can_edit_access? %>
+            <% unless model.access_level?(:admin) %>
+              <li class="access-level-admin">
+                <%= link_to "Сделать администратором", set_access_admin_user_path(model), :method => :post %>
+              </li>
+            <% end %>
+            <% unless model.access_level?(:organizer) %>
+              <li class="access-level-admin">
+                <%= link_to "Сделать организатором", set_access_organizer_user_path(model), :method => :post %>
+              </li>
+            <% end %>
+            <% unless model.access_level?(:player) %>
+              <li class="access-level-admin">
+                <%= link_to "Убрать права доступа", set_access_player_user_path(model), :method => :post %>
+              </li>
+            <% end %>
+          <% end %>
+          <% if model_can_be_invited? %>
+            <li class="invite-team">
+              <%= form_for :invitation, :url => invitations_path, :data => { "model": "invitation" }, :html => {:id => "invitation-" + model.id.to_s}  do |f| %>
+                <%= f.hidden_field :for_user, { :value => model.id } %>
+                <%= link_to t(:submit_alt, scope: [:activerecord, :attributes, :invitation]), '#', :onclick => "document.getElementById('invitation-" + model.id.to_s + "').submit();" %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+</div>

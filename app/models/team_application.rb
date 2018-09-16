@@ -16,9 +16,6 @@ class TeamApplication < ApplicationRecord
     :scope => [:user_id],
     :message => "Вы уже высылали запрос на вступление в эту команду"
 
-  scope :for_user, ->(user) { where(for_user_id: user.id) }
-  scope :to_team, ->(team) { where(to_team_id: team.id) }
-
   def self.exists?(some_user, some_team)
     !self.of_user(some_user).for_team(some_team).empty?
   end

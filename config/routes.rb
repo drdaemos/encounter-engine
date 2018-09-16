@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
     member do
       post 'leave_team'
+      post 'set_access_admin'
+      post 'set_access_organizer'
+      post 'set_access_player'
       patch 'update_data'
       put 'update_data'
       get 'edit_data'

@@ -27,6 +27,12 @@ class GamePassing < ApplicationRecord
     self.of_team(team).of_game(game).first
   end
 
+  def time_on_level
+    unless self.finished? || self.current_level.nil? || self.current_level_entered_at.nil?
+      Time.now - self.current_level_entered_at
+    end
+  end
+
   def pass_question!(question, answer)
     unless question.penalty_time.nil?
       text = question.penalty_time > 0 ? "Штрафной код" + answer : "Бонусный код" + answer

@@ -1,3 +1,13 @@
-<div class="users-index">
-  Список пользователей
+<div class="users-index-page">
+  <h2 class="heading">
+    <span>Участники проекта</span>
+  </h2>
+  <%= cell(Common::PaginatedListing, @visible_users,
+           :item_view => UsersPage::Item,
+           :page_size => get_index_limit,
+           :class => "users-listing",
+           :current_page => get_current_page,
+           :items_count => @users.size,
+           :base_url => users_path
+      ) %>
 </div>

@@ -18,6 +18,7 @@
   .game-preview-contents {
     @include xy-grid(horizontal);
     @include xy-cell-base(auto);
+    overflow: hidden;
 
     .game-poster {
       margin-bottom: 1rem;

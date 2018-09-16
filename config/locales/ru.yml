@@ -65,6 +65,7 @@ ru:
       invitation:
         for_user: Ник участника
         submit: Отправить приглашение
+        submit_alt: Пригласить в команду
       team_application:
         team: Команда
         submit: Отправить заявку
