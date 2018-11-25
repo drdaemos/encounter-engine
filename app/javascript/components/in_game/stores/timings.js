@@ -21,12 +21,13 @@ export default {
     }
   },
   getters: {
-    currentTime: (state) => state.current,
-    isoCurrent: (state) => state.current.toISOString(),
+    passedFromUpdate: (state, getters, rootState) => {
+      return moment(state.current).diff(moment(rootState.lastUpdate))
+    },
     onLevel: (state, getters, rootState, rootGetters) => {
       try {
         // add full second to compensate for non-full second which is lost on rounding
-        return getTimeDiff(getters.isoCurrent, rootGetters.level.entered_at) + 1000
+        return (rootGetters.level.entered_at + getters.passedFromUpdate) + 1000
       } catch (e) {}
       return null
     },
@@ -36,7 +37,7 @@ export default {
           return null
         }
 
-        return getTimeDiff(rootGetters.game.starts_at, getters.isoCurrent)
+        return (rootGetters.game.starts_at - getters.passedFromUpdate)
       } catch (e) {}
       return null
     },
@@ -46,18 +47,17 @@ export default {
           return null
         }
 
-        return getTimeDiff(getters.isoCurrent, rootGetters.hints.next_hint)
+        return rootGetters.hints.next_hint - getters.passedFromUpdate
       } catch (e) {}
       return null
     },
     beforeLevelFail: (state, getters, rootState, rootGetters) => {
       try {
-        if (!rootGetters.level.time_limit) {
+        if (!rootGetters.level.time_left) {
           return null
         }
 
-        let failTime = moment.utc(rootGetters.level.entered_at).add(rootGetters.level.time_limit, 'seconds')
-        return getTimeDiff(failTime, getters.isoCurrent)
+        return rootGetters.level.time_left - getters.passedFromUpdate
       } catch (e) {}
       return null
     },

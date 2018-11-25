@@ -28,7 +28,7 @@
       ]),
       timeLeftBeforeStart() {
         if (this.beforeStart > DAY_THRESHOLD) {
-          return "Начало игры: " + moment.utc(this.game.starts_at).fromNow()
+          return "Начало игры: " + moment().add(this.beforeStart).fromNow()
         } else if (this.beforeStart > TIME_THRESHOLD) {
           return "До начала игры: " + moment.utc(Math.abs(this.beforeStart)).format('HH:mm:ss')
         } else {
@@ -36,7 +36,7 @@
         }
       },
       startTime() {
-        return moment.utc(this.game.starts_at).format('L HH:mm:ss')
+        return moment().add(this.beforeStart).format('L HH:mm:ss')
       }
     }
   }

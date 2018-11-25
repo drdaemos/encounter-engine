@@ -30,7 +30,6 @@
     store,
     data () {
       return {
-        currentTime: new Date(),
         gameChannel: null
       }
     },
