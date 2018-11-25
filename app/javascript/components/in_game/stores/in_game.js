@@ -21,6 +21,7 @@ export default new Vuex.Store({
   state () {
     return {
       data: initialData,
+      lastUpdate: null,
       channel: null,
       onReceived: undefined
     }
@@ -48,6 +49,7 @@ export default new Vuex.Store({
       state.channel = channel
     },
     updateState: function (state, payload) {
+      Vue.set(state, 'lastUpdate', Date.now())
       let data = payload
       if (state.onReceived) {
         data = state.onReceived(payload)
