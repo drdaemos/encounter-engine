@@ -4,8 +4,13 @@
     <li <%= current_page?(dashboard_path) ? 'class="is-active"' : '' %>>
       <%= link_to "Профиль", dashboard_path %>
     </li>
-    <li <%= current_page?(user_games_path(controller.current_user)) ? 'class="is-active"' : '' %>>
-      <%= link_to "Мои игры", user_games_path(controller.current_user) %>
-    </li>
+    <% if can_create_game? %>
+      <li <%= current_page?(user_games_path(controller.current_user)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Мои игры", user_games_path(controller.current_user) %>
+      </li>
+      <li <%= current_page?(new_game_path(controller.current_user)) ? 'class="is-active"' : '' %>>
+        <%= link_to "Создать игру", new_game_path(controller.current_user) %>
+      </li>
+    <% end %>
   </ul>
 </div>

@@ -12,7 +12,9 @@ module ApplicationHelper
   end
 
   def datetime(object)
-    ('<span data-datetime-string>' + object.to_s + '</span>').html_safe
+    if object.respond_to? :utc
+      ('<span data-datetime-string>' + object.utc.strftime('%FT%T.%LZ') + '</span>').html_safe
+    end
   end
 
   def get_setting(key)

@@ -58,6 +58,7 @@
   @include breakpoint(medium down) {
     margin-top: 2rem;
     @include xy-cell(100%, $gutters: 0);
+    flex-basis: 100%;
   }
 }
 
@@ -66,6 +67,7 @@
 
   @include breakpoint(medium down) {
     @include xy-cell(100%, $gutters: 0);
+    flex-basis: 100%;
   }
 
   @include xy-cell-block($vertical: true);
