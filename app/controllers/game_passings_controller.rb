@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class GamePassingsController < ApplicationController
 
+  before_action :clear_play_as_var, :only => [:play_as_team]
   before_action :find_game, :except => [:exit_game]
   before_action :find_game_by_id, :only => [:exit_game]
   before_action :find_team
@@ -12,13 +13,13 @@ class GamePassingsController < ApplicationController
   before_action :ensure_team_member
   before_action :ensure_not_author_of_the_game
 
+  def play_as_team
+    session[:play_as] = params[:team_id]
+    redirect_to show_current_level_url(@game)
+  end
+
   def show_current_level
-    result = GamePassingInteractors::UpdateState.call(
-        {
-            :game_passing => @game_passing,
-            :user => current_user
-        }
-    )
+    result = GamePassingInteractors::UpdateState.call(get_common_context)
 
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
@@ -53,6 +54,10 @@ class GamePassingsController < ApplicationController
 
 protected
 
+  def clear_play_as_var
+    session[:play_as] = nil
+  end
+
   def get_common_context
     {
         :game_passing => @game_passing,
@@ -65,11 +70,17 @@ protected
   end
 
   def find_game_by_id
-    @game = Game.find(params[:id])
+    @game = Game.find params[:id]
   end
 
   def find_team
-    @team = current_user.team
+    if current_user.can_edit?(@game) && !session[:play_as].nil?
+      @team = Team.friendly.find session[:play_as]
+    end
+
+    if @team.nil?
+      @team = current_user.team
+    end
   end
 
   # TODO: must be a critical section, double creation is possible!

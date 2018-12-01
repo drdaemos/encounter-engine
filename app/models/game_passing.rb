@@ -123,6 +123,7 @@ class GamePassing < ApplicationRecord
   end
 
   def exit!
+    session[:play_as] = nil
     self.finished_at = Time.now
     self.status = "exited"
     self.save!
@@ -133,6 +134,7 @@ class GamePassing < ApplicationRecord
   end
 
   def end!
+    session[:play_as] = nil
     unless self.exited?
       self.status = "ended"
       self.save!

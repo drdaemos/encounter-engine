@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     end
   end
  
-  get '/play/:game_id/tip', to: 'game_passings#get_current_level_tip', as: :get_current_level_tip
+  get '/play_as/:game_id/:team_id', to: 'game_passings#play_as_team', as: :play_as_team
   get '/play/:game_id', to: 'game_passings#show_current_level', as: :show_current_level
   post '/play/:game_id', to: 'game_passings#post_answer', as: :post_answer
   post '/play/:game_id/exit_game', to: 'game_passings#exit_game', as: :exit_game

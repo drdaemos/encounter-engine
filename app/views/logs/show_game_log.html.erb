@@ -20,7 +20,7 @@
       <ul class="inputed-text">
       <% logs = Log.of_level(level) %>
       <% logs.each do |log| %>
-        <li><%= log.time.strftime("%H:%M:%S") %>&nbsp;<%= log.answer %></li>
+          <li><%= datetime log.created_at %>&nbsp;<%= log.answer %></li>
       <% end %>
       </ul>
     </div>
