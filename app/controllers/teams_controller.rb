@@ -3,7 +3,8 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_not_member_of_any_team, :only => [:new, :create]
   before_action :build_team, :only => [:new, :create]
-  before_action :find_team, :only => [:show, :destroy, :edit, :update]
+  before_action :find_team, :only => [:show, :destroy, :edit, :update, :set_captain]
+  before_action :find_user, :only => [:set_captain]
 
   helper_method :user_can_edit?
   helper_method :team_applications
@@ -23,6 +24,16 @@ class TeamsController < ApplicationController
 
   def edit
     render
+  end
+
+  def set_captain
+    if user_can_edit? && !@user.nil?
+      @team.set_captain(@user)
+      flash[:notice] = "#{@user.nickname} назначен капитаном"
+    else
+      flash[:alert] = "Ошибка при назначении нового капитана"
+    end
+    redirect_back :fallback_location => team_path(@team)
   end
 
   def update
@@ -71,6 +82,10 @@ protected
 
   def find_team
     @team = Team.friendly.find(params[:id]) || current_user.team
+  end
+
+  def find_user
+    @user = User.friendly.find(params[:user_id])
   end
 
   def ensure_not_member_of_any_team

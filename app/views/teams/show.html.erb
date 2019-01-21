@@ -32,7 +32,15 @@
         </div>
         <ul class="members-list">
           <% @team.members.each do |member| %>
-            <li><%= link_to member.nickname, [member] %> <%= "- капитан" if member.captain? %></li>
+            <li>
+              <%= link_to member.nickname, [member] %> <%= "- капитан" if member.captain? %>
+              <% if user_can_edit? && !member.captain? %>
+                <span class="separator">|</span>
+                <span class="controls">
+                  <%= link_to "назначить капитаном", set_captain_team_path(@team.friendly_id, member.friendly_id), :method => :post, :data => {:confirm => "Вы уверены, что собираетесь передать капитанство?"} %>
+                </span>
+              <% end %>
+            </li>
           <% end %>
         </ul>
 

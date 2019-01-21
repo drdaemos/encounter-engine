@@ -20,7 +20,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :teams
+  resources :teams do
+    member do
+      post 'set_captain/:user_id', :action => 'set_captain', :as => 'set_captain'
+    end
+  end
 
   resources :invitations do
     member do

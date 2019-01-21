@@ -23,6 +23,13 @@ class Team < ApplicationRecord
     Team.all.select {|team| existing_applications.find {|appl| appl.team.id === team.id }.nil? }
   end
 
+  def set_captain(user)
+    if user && user.member_of?(self)
+      self.captain = user
+      self.save!
+    end
+  end
+
   def current_level_in(game)
     game_passing = GamePassing.of(self, game)
     game_passing.try :current_level
