@@ -11,6 +11,7 @@ export default class FroalaTextarea {
   constructor (element,) {
     this.base = $(element)
     this.render()
+    this.stripMessage()
   }
 
   options () {
@@ -44,6 +45,10 @@ export default class FroalaTextarea {
 
   render () {
     this.editor = this.base.froalaEditor(this.options())
+  }
+
+  stripMessage () {
+    document.querySelector('a[href="https://www.froala.com/wysiwyg-editor?k=u"]').parentElement.remove();
   }
 }
 
