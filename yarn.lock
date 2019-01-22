@@ -2323,9 +2323,9 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
 
-froala-editor@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/froala-editor/-/froala-editor-2.8.0.tgz#18c6a53deb4af8e567393ad6d5bedd361fa3756b"
+froala-editor@2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/froala-editor/-/froala-editor-2.9.1.tgz#6487b55ad1db9ef0379bfeaa58b35534b28ad589"
   dependencies:
     font-awesome ">=4.4.0"
     jquery ">=1.11.0"
@@ -6051,10 +6051,10 @@ vm-browserify@0.0.4:
     indexof "0.0.1"
 
 vue-froala-wysiwyg@^2.0.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/vue-froala-wysiwyg/-/vue-froala-wysiwyg-2.8.0.tgz#5ac5b743df5d2f0a2370367525bad2d9b2ca519c"
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/vue-froala-wysiwyg/-/vue-froala-wysiwyg-2.9.1.tgz#7998451dc1ea8a3cb893d4e097859f5056ad04df"
   dependencies:
-    froala-editor "^2.8.0"
+    froala-editor "2.9.1"
     vue "^2.2.4"
 
 vue-hot-reload-api@^2.2.0:
@@ -6101,7 +6101,11 @@ vue-toasted@^1.1.14:
   version "1.1.24"
   resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.24.tgz#715a371dfa490cc710ffedaaeae61fd8a8c4f7ad"
 
-vue@^2.2.4, vue@^2.5.13:
+vue@^2.2.4:
+  version "2.5.22"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.22.tgz#3bf88041af08b8539c37b268b70ca79245e9cc30"
+
+vue@^2.5.13:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 

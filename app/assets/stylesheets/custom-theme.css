@@ -318,15 +318,20 @@
   bottom: 0;
   right: 0;
 }
+
+.custom-theme .fr-popup .fr-image-upload-layer:hover {
+  background: #424242;
+}
+
 .custom-theme .fr-image-upload-layer {
   border: dashed 2px #595959;
   padding: 25px 0;
 }
 .custom-theme .fr-image-upload-layer:hover {
-  background: #bdbdbd;
+  background: #424242;
 }
 .custom-theme .fr-image-upload-layer.fr-drop {
-  background: #bdbdbd;
+  background: #424242;
   border-color: #e6e6e6;
 }
 .custom-theme .fr-image-upload-layer .fr-form {
@@ -957,7 +962,7 @@
   border-top: 5px solid #4a4a4a;
 }
 .custom-theme.fr-popup .fr-input-focus {
-  background: #f5f5f5;
+  background: #424242;
 }
 .custom-theme.fr-popup.fr-above {
   border-top: 0;

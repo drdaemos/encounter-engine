@@ -19,8 +19,11 @@ gem 'bcrypt', platforms: :ruby
 gem 'devise' # Authorization
 gem 'bitmask_attributes'
 gem 'webpacker', '~> 3.2.2'
+
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
+
 gem 'time_diff'
 
 gem "cells"

@@ -28,17 +28,17 @@
           <%= image_tag game.poster.url %>
         </div>
       <% end %>
-      <div class="game-description">
+      <div class="game-description fr-view">
         <%= raw game.description %>
       </div>
       <% unless game.accessories.nil? or game.accessories.empty? %>
-      <div class="game-accessories">
+      <div class="game-accessories fr-view">
         <em>Дополнительные принадлежности</em>:
         <%= raw game.accessories %>
       </div>
       <% end %>
       <% unless game.notes.nil? or game.notes.empty? %>
-      <div class="game-notes">
+      <div class="game-notes fr-view">
         <em>Примечания к игре</em>:
         <%= raw game.notes %>
       </div>

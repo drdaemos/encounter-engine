@@ -2,7 +2,7 @@
     <div class="game-preview" v-if="isLoaded">
         <h3 class="heading">{{ game.name }}</h3>
         <div class="metadata">Начало игры: {{ startTime }}</div>
-        <div class="description" v-html="game.description"></div>
+        <div class="description fr-view" v-html="game.description"></div>
         <div class="game-preview-counter">
             <div class="time-before-start">{{ timeLeftBeforeStart }}</div>
             <div class="auto-notice">Переход произойдет автоматически</div>

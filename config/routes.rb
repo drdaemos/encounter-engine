@@ -89,6 +89,9 @@ Rails.application.routes.draw do
   get '/game_entries/accept/:id', to: 'game_entries#accept', as: :accept_game_entry # заявка принята
   get '/game_entries/reject/:id', to: 'game_entries#reject', as: :reject_game_entry # заявка отказана
 
+  post '/upload/image', to: 'upload#image', as: :upload_image
+  post '/upload/file', to: 'upload#file', as: :upload_file
+
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/send_msg', to: 'dashboard#send_msg', as: :send_msg
   get '/settings', to: 'settings#index', as: :settings

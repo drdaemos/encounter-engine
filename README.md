@@ -11,6 +11,7 @@
 - NodeJS 4+
 - NPM 5+
 - Yarn 0.24+
+- optipng, jpegoptim, imagemagick-6.q16
 
 ## Установка
 
