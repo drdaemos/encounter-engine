@@ -23,6 +23,7 @@ class GamePassingsController < ApplicationController
 
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
+      clear_play_as_var
     else
       respond_to do |format|
         format.json { render json: result.app_state.to_json }
@@ -34,6 +35,7 @@ class GamePassingsController < ApplicationController
   def post_answer
     if @game_passing.finished?
       redirect_to game_finish_url(@game)
+      clear_play_as_var
     else
       result = GamePassingInteractors::HandlePostAnswer.call(
           get_common_context.merge({:answer => params[:answer].strip})
@@ -41,6 +43,7 @@ class GamePassingsController < ApplicationController
 
       if @game_passing.finished?
         redirect_to game_finish_url(@game)
+        clear_play_as_var
       else
         render json: result.state_to_render.to_json
       end
@@ -49,6 +52,7 @@ class GamePassingsController < ApplicationController
 
   def exit_game
     @game_passing.exit!
+    session[:play_as] = nil
     redirect_to game_finish_url(@game_passing.game)
   end
 
